@@ -1,0 +1,49 @@
+Total played
+Started
+Minutes per game
+Team of the week
+Goals
+Expected Goals (xG)
+Scoring frequency
+Goals per game
+Shots per game
+Shots on target per game
+Big chances missed
+Goal conversion
+Free kick goals
+Free kick conversion
+Goals from inside the box
+Goals from outside the box
+Headed goals
+Left foot goals
+Right foot goals
+Penalty won
+Assists
+Expected Assists (xA)
+Touches
+Big chances created
+Key passes
+Accurate per game
+Acc. own half
+Acc. opposition half
+Acc. long balls
+Acc. chipped passes
+Acc. crosses
+Clean sheets
+Interceptions per game
+Tackles per game
+Possession won
+Balls recovered per game
+Dribbled past per game
+Clearances per game
+Error led to shot
+Error led to goal
+Penalties committed
+Succ. dribbles
+Total duels won
+Ground duels won
+Aerial duels won
+Possession lost
+Fouls
+Was fouled
+Offsides
