@@ -47,3 +47,6 @@ Possession lost
 Fouls
 Was fouled
 Offsides
+Yellow
+Yellow-Red
+Red cards

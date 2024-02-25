@@ -2,7 +2,7 @@ from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips, vfx
 import pyttsx3 
 import os
 def create_vid():
-    with open("text.txt") as t:
+    with open("script.txt") as t:
         lines = t.readlines()
     text = ''
     texts = []
