@@ -13,9 +13,9 @@ from make_posts import make_posts
 
 delay = 0
 
-player_list = ['Alejandro Grimaldo']
+player_list = ['Matías Soulé','Albert Guðmundsson']
 
-def scrape_player_list(player_list,delay):
+def scrape_player_list(player_list,delay, post=True):
 
     with sync_playwright() as p:
 
@@ -38,7 +38,8 @@ def scrape_player_list(player_list,delay):
         for e in player_list:
 
             scrape_player(e, page)
-            make_post(e)
+            if post:
+                make_post(e)
 
 
 def scrape_player(e,page, year = 24):
@@ -277,7 +278,8 @@ def combine_sofascore_data(info,int_stats, int_rating, int_stats2, int_rating2, 
     list = list.split('\n')
 
     competitions =[int_stats,int_stats2,league_stats,league_stats2]
-    for competition in competitions:
+    competitions_it = [int_stats,int_stats2,league_stats,league_stats2]
+    for competition in competitions_it:
         if competition == '':
             competitions.remove(competition)
     match90stotal = 0
@@ -346,7 +348,8 @@ def combine_sofascore_data(info,int_stats, int_rating, int_stats2, int_rating2, 
     
     rating_average = 0
     ratings =[int_rating,int_rating2,league_rating,league_rating2]
-    for rating in ratings:
+    rating_it = [int_rating,int_rating2,league_rating,league_rating2]
+    for rating in rating_it:
         if rating == '':
             ratings.remove(rating)
     for rating in ratings:
@@ -384,34 +387,48 @@ def get_fbref_stats(player,info,year=24):
     gsca = match_log[5]
 
     xga = match_log[1]
-
     xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year-1}-20{year}']
-
+    
     gsca = gsca.loc[:,'Unnamed: 0_level_0'].join(gsca.loc[:,'SCA'].join(gsca.loc[:,'GCA'])).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
 
     team_stat = team_stats.loc[:,'Unnamed: 0_level_0'].join(team_stats.loc[:,'Team Success']).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
 
     team_stats= team_stats.loc[:,'Unnamed: 0_level_0'].join(team_stats.loc[:,'Team Success (xG)']).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
 
-    matches = float(xga.loc['90s'])
+    if type(xga) == pd.DataFrame:
+        matches = float(xga.loc[:,'90s'].tolist()[-1])
 
-    progresive_carries = float(xga.loc['PrgC']) 
+        progresive_carries = float(xga.loc[:,'PrgC'].tolist()[-1]) 
 
-    progresive_passes = float(xga.loc['PrgP']) 
+        progresive_passes = float(xga.loc[:,'PrgP'].tolist()[-1]) 
 
-    progresive_passes_rec = float(xga.loc['PrgR'])
+        progresive_passes_rec = float(xga.loc[:,'PrgR'].tolist()[-1])
 
-    npxg = float(xga.loc['npxG'])
+        npxg = float(xga.loc[:,'npxG'].tolist()[-1])
 
-    xa = float(xga.loc['xAG'])
+        xa = float(xga.loc[:,'xAG'].tolist()[-1])
+        
+        on_off = float(team_stat.loc[:,'On-Off'].tolist()[-1])
+
+    else:
+        matches = float(xga.loc['90s'])
+
+        progresive_carries = float(xga.loc['PrgC']) 
+
+        progresive_passes = float(xga.loc['PrgP']) 
+
+        progresive_passes_rec = float(xga.loc['PrgR'])
+
+        npxg = float(xga.loc['npxG'])
+
+        xa = float(xga.loc['xAG'])   
+        
+        on_off = float(team_stat.loc['On-Off'])
 
     sca = float(gsca.loc['SCA'])
 
     gca = float(gsca.loc['GCA'])
 
-    on_off = float(team_stat.loc['On-Off'])
-
-    xon_off = float(team_stats.loc['On-Off'])
 
 
     url = url.replace('-Domestic-League-Stats','-International-Cup-Stats')
@@ -432,25 +449,40 @@ def get_fbref_stats(player,info,year=24):
 
     team_stats= team_stats.loc[:,'Unnamed: 0_level_0'].join(team_stats.loc[:,'Team Success (xG)']).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
 
-    matches += float(xga.loc['90s']) 
+    if type(xga) == pd.DataFrame:
+        matches += float(xga.loc[:,'90s'].tolist()[-1])
 
-    progresive_carries += float(xga.loc['PrgC']) 
+        progresive_carries += float(xga.loc[:,'PrgC'].tolist()[-1]) 
 
-    progresive_passes += float(xga.loc['PrgP']) 
+        progresive_passes += float(xga.loc[:,'PrgP'].tolist()[-1]) 
 
-    progresive_passes_rec += float(xga.loc['PrgR'])
+        progresive_passes_rec += float(xga.loc[:,'PrgR'].tolist()[-1])
 
-    npxg += float(xga.loc['npxG'])
+        npxg += float(xga.loc[:,'npxG'].tolist()[-1])
 
-    xa += float(xga.loc['xAG'])
+        xa += float(xga.loc[:,'xAG'].tolist()[-1])
+
+        on_off += float(team_stat.loc[:,'On-Off'].tolist()[-1])
+
+    else:
+        matches += float(xga.loc['90s'])
+
+        progresive_carries += float(xga.loc['PrgC']) 
+
+        progresive_passes += float(xga.loc['PrgP']) 
+
+        progresive_passes_rec += float(xga.loc['PrgR'])
+
+        npxg += float(xga.loc['npxG'])
+
+        xa += float(xga.loc['xAG'])
+
+        on_off += float(team_stat.loc['On-Off'])
+
 
     sca += float(gsca.loc['SCA'])
 
     gca += float(gsca.loc['GCA'])
-
-    on_off += float(team_stat.loc['On-Off'])
-
-    xon_off += float(team_stats.loc['On-Off'])
 
     info['Progressive carries per 90'] = round(progresive_carries  / matches,2)    
 
@@ -467,8 +499,6 @@ def get_fbref_stats(player,info,year=24):
     info['GCA'] = round(gca / matches,2)
 
     info['Goal difference on off'] = on_off
-
-    info['XG difference on off'] = xon_off
 
     return info
 
@@ -920,5 +950,5 @@ def make_post(player):
     make_posts(path,player,True,f"Do you like {player}",matches,stats,info)
  
 
-#scrape_player_list(player_list,delay)
-make_post(player_list[0])
+#scrape_player_list(player_list,delay,False)
+make_post('Matías Soulé')
