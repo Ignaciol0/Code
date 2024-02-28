@@ -3,8 +3,7 @@ import time
 import pandas as pd
 import pyautogui
 
-username = 'futtydata'
-password = '^^56C0zhE3OZLfkn&s0R'
+
 
 def search_tags():
     def like_tags():
