@@ -4,7 +4,9 @@ import time
 import json
 import pandas as pd
 
-from make_posts import make_posts
+from ScriptWriter import make_script
+from make_posts import make_ig_posts, make_yt_video
+from dumbster import combine_sofascore_data_2
 
 
 
@@ -13,9 +15,9 @@ from make_posts import make_posts
 
 delay = 0
 
-player_list = ['Matías Soulé','Albert Guðmundsson']
+player_list = ['Erling Haaland']
 
-def scrape_player_list(player_list,delay, post=True):
+def scrape_player_list(player_list,delay, post=True, year=24,positions={'V1':{'background':'middle','hook':'top'},'V2':{'background':'middle','description':'top','position':'bottom'},'V3':{'background':'middle'}}):
 
     with sync_playwright() as p:
 
@@ -37,9 +39,9 @@ def scrape_player_list(player_list,delay, post=True):
 
         for e in player_list:
 
-            scrape_player(e, page)
-            if post:
-                make_post(e)
+            scrape_player(e, page, year)
+    if post:
+        make_post(e,positions)
 
 
 def scrape_player(e,page, year = 24):
@@ -48,7 +50,7 @@ def scrape_player(e,page, year = 24):
 
     info = {}
 
-    title = e + ".json"
+    title = "players/"+ e + ".json"
 
     with open(title, "w") as f:
 
@@ -111,15 +113,26 @@ def scrape_player(e,page, year = 24):
 
         matches = matches.replace('FT\n','')
 
-        matches = matches.replace('Int. Friendly Games\n','')
+        #matches = matches.replace('Int. Friendly Games\n','')
 
         matches = matches.replace('Club Friendly Games\n','')
+
+        matches = matches.replace('Int. Friendly Games\n','')
 
         # This is done because some teams with long names like Bayern Leverkusen are reduced to an abreviated name
         pre_lenght = len(matches)
         matches = matches.replace(f'{contract[0]}\n','')
+        
         if pre_lenght == len(matches):
-            matches = matches.replace(f'{contract[0].split(" ")[-1]}\n','')
+            if contract[0] == 'Manchester City':
+                matches = matches.replace(f'Man City\n','')
+            elif contract[0] == 'Manchester United':
+                matches = matches.replace(f'Man United\n','')
+            else:
+                matches = matches.replace(f'{contract[0].split(" ")[-1]}\n','')
+                if pre_lenght == len(matches):
+                    matches = matches.replace(f'{contract[0].split(" ")[0]}\n','')
+        
 
         league_botton = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/button')
 
@@ -182,7 +195,7 @@ def scrape_player(e,page, year = 24):
         #info['nationality'] = nation.split('/')[-1].split('.')[0]
 
 
-        info = get_stats(info,player,page)
+        info = get_stats(info,player,page,year)
 
         try:
 
@@ -190,6 +203,9 @@ def scrape_player(e,page, year = 24):
 
         except:
             info['positions'] = position
+        
+        if info['positions'] == []:
+            info['positions'] = ['ST'] if info['position'] == 'f' else ['CM'] if info['position'] == 'm' else ['CB']
 
 
         json.dump(info,f)
@@ -241,11 +257,11 @@ def get_best_matches(matches,player):
         if e == len(selected_matches):
             current = True
 
-    selected_matches = selected_matches[0:3]
+    selected_matches = selected_matches[0:5]
 
-    opponent = opponent[0:3]
+    opponent = opponent[0:5]
 
-    ratings = ratings[0:3]
+    ratings = ratings[0:5]
 
     dates = match_log.loc[:,'Unnamed: 0_level_0'].loc[:,'Date'].tolist()
 
@@ -263,8 +279,13 @@ def get_best_matches(matches,player):
 
         date = date.split('/')
 
-        matches += [opponent[index],gls[dates.index(f'20{date[2]}-{date[1]}-{date[0]}')],ast[dates.index(f'20{date[2]}-{date[1]}-{date[0]}')],ratings[index]]
-
+        try:
+            matches += [opponent[index],gls[dates.index(f'20{date[2]}-{date[1]}-{date[0]}')],ast[dates.index(f'20{date[2]}-{date[1]}-{date[0]}')],ratings[index]]
+        except:
+            try:
+                matches += [opponent[index],gls[dates.index(f'20{date[2]}-{date[1]}-{date[0]-1}')],ast[dates.index(f'20{date[2]}-{date[1]}-{date[0]-1}')],ratings[index]]
+            except:
+                ...
         index += 1
 
     return matches
@@ -382,18 +403,23 @@ def get_fbref_stats(player,info,year=24):
 
     match_log = pd.read_html(url)
 
-    team_stats = match_log[8]
-
     gsca = match_log[5]
 
     xga = match_log[1]
-    xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year-1}-20{year}']
+
+
+    try:
+        xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year-1}-20{year}']
+    except:
+        xga = match_log[0]
+        xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year}']
     
-    gsca = gsca.loc[:,'Unnamed: 0_level_0'].join(gsca.loc[:,'SCA'].join(gsca.loc[:,'GCA'])).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
-
-    team_stat = team_stats.loc[:,'Unnamed: 0_level_0'].join(team_stats.loc[:,'Team Success']).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
-
-    team_stats= team_stats.loc[:,'Unnamed: 0_level_0'].join(team_stats.loc[:,'Team Success (xG)']).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
+    try: 
+        gsca = gsca.loc[:,'Unnamed: 0_level_0'].join(gsca.loc[:,'SCA'].join(gsca.loc[:,'GCA'])).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
+    except:
+        gsca = match_log[4]
+        gsca = gsca.loc[:,'Unnamed: 0_level_0'].join(gsca.loc[:,'SCA'].join(gsca.loc[:,'GCA'])).fillna(0).set_index('Season').loc[f'20{year}']
+        
 
     if type(xga) == pd.DataFrame:
         matches = float(xga.loc[:,'90s'].tolist()[-1])
@@ -407,8 +433,6 @@ def get_fbref_stats(player,info,year=24):
         npxg = float(xga.loc[:,'npxG'].tolist()[-1])
 
         xa = float(xga.loc[:,'xAG'].tolist()[-1])
-        
-        on_off = float(team_stat.loc[:,'On-Off'].tolist()[-1])
 
     else:
         matches = float(xga.loc['90s'])
@@ -423,7 +447,6 @@ def get_fbref_stats(player,info,year=24):
 
         xa = float(xga.loc['xAG'])   
         
-        on_off = float(team_stat.loc['On-Off'])
 
     sca = float(gsca.loc['SCA'])
 
@@ -435,19 +458,21 @@ def get_fbref_stats(player,info,year=24):
 
     match_log = pd.read_html(url)
 
-    team_stats = match_log[8]
-
     gsca = match_log[5]
 
     xga = match_log[1]
 
-    xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year-1}-20{year}']
-
-    gsca = gsca.loc[:,'Unnamed: 0_level_0'].join(gsca.loc[:,'SCA'].join(gsca.loc[:,'GCA'])).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
-
-    team_stat = team_stats.loc[:,'Unnamed: 0_level_0'].join(team_stats.loc[:,'Team Success']).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
-
-    team_stats= team_stats.loc[:,'Unnamed: 0_level_0'].join(team_stats.loc[:,'Team Success (xG)']).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
+    try:
+        xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year-1}-20{year}']
+    except: # Brazilian League Exception
+        xga = match_log[0]
+        xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year}']
+    
+    try:
+        gsca = gsca.loc[:,'Unnamed: 0_level_0'].join(gsca.loc[:,'SCA'].join(gsca.loc[:,'GCA'])).fillna(0).set_index('Season').loc[f'20{year-1}-20{year}']
+    except:
+        gsca = match_log[4]
+        gsca = gsca.loc[:,'Unnamed: 0_level_0'].join(gsca.loc[:,'SCA'].join(gsca.loc[:,'GCA'])).fillna(0).set_index('Season').loc[f'20{year}']
 
     if type(xga) == pd.DataFrame:
         matches += float(xga.loc[:,'90s'].tolist()[-1])
@@ -462,8 +487,6 @@ def get_fbref_stats(player,info,year=24):
 
         xa += float(xga.loc[:,'xAG'].tolist()[-1])
 
-        on_off += float(team_stat.loc[:,'On-Off'].tolist()[-1])
-
     else:
         matches += float(xga.loc['90s'])
 
@@ -476,8 +499,6 @@ def get_fbref_stats(player,info,year=24):
         npxg += float(xga.loc['npxG'])
 
         xa += float(xga.loc['xAG'])
-
-        on_off += float(team_stat.loc['On-Off'])
 
 
     sca += float(gsca.loc['SCA'])
@@ -497,8 +518,6 @@ def get_fbref_stats(player,info,year=24):
     info['SCA'] = round(sca / matches,2)
 
     info['GCA'] = round(gca / matches,2)
-
-    info['Goal difference on off'] = on_off
 
     return info
 
@@ -523,7 +542,7 @@ def get_sofascore_stats(info,page,year=24):
         if e in ['UEFA Europa Conference League','UEFA Champions League','UEFA Europa League','CONMEBOL Libertadores','CONMEBOL Sudamericana']:
 
             element = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/div[1]/ul/li[{drop_down.index(e)+1}]')
-
+                         
             element.click()
 
             period = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[2]/button').all_inner_texts()[0]
@@ -585,15 +604,15 @@ def get_sofascore_stats(info,page,year=24):
             league_botton.click()
         
         
-    return combine_sofascore_data(info, int_stats, int_rating, int_stats2, int_rating2, league_rating, league_stats, league_rating2, league_stats2)
+    return combine_sofascore_data_2(info, int_stats, int_rating, int_stats2, int_rating2, league_rating, league_stats, league_rating2, league_stats2)
 
 def get_stats(info,player,page,year=24):
 
     return get_sofascore_stats(get_fbref_stats(player,info,year),page,year)
     
 
-def make_post(player):
-    with open(f'{player}.json') as json_file:
+def make_post(player,positions, youngster=True):
+    with open(f'players/{player}.json') as json_file:
         data = json.load(json_file)
     matches = data['matches']
     info = [data['value'],data['height'].replace(' cm',''),data['age'].replace(' yrs',''),data['nationality'],data['team'],'right' == data['preferred foot'],data['positions']]
@@ -947,8 +966,14 @@ def make_post(player):
     match2 = [matches[4],int(matches[5]),int(matches[6]),float(matches[7])]
     matches = [match1,match2]
     path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/"
-    make_posts(path,player,True,f"Do you like {player}",matches,stats,info)
+    make_script(player,stats,matches)
+    make_yt_video(path,player,youngster,matches,stats,info,positions)
  
 
-#scrape_player_list(player_list,delay,False)
-make_post('Matías Soulé')
+positions={
+'V1':{'background':'top','hook':'bottom'},
+'V2':{'background':'middle','description':'bottom','position':False},
+'V3':{'background':'middle'}
+}
+#scrape_player_list(player_list,0.3,True,positions=positions)
+make_post(player_list[0],positions,youngster=True)
