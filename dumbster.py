@@ -1,4 +1,5 @@
 import pandas as pd 
+import json
 int_stats, int_rating, int_stats2, int_rating2, league_rating, league_stats, league_rating2, league_stats2 = '','','','','','','',''
 
 def old_form():
@@ -844,3 +845,98 @@ def make_post2(player):
     path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/"
     make_posts(path,player,True,f"Do you like {player}",matches,stats,info)
  
+def combine_sofascore_data_2(info,int_stats, int_rating, int_stats2, int_rating2, league_rating, league_stats, league_rating2, league_stats2):
+    with open('All_Atributes.json','r') as f:
+        stats = json.load(f)
+    attributes = stats.keys()
+    match90slist = []
+    for competition in [int_stats,int_stats2,league_stats,league_stats2]:
+        if competition != '':
+            stats['Total played'] += int(competition[competition.index('Total played')+1])
+            stats['Started'] += float(competition[competition.index('Started')+1])
+            stats['Minutes per game'] += float(competition[competition.index('Minutes per game')+1])*int(competition[competition.index('Total played')+1])
+            match90slist += [(float(competition[competition.index('Minutes per game')+1])* float(competition[competition.index('Total played')+1])/90)]    
+    match90stotal = stats['Minutes per game'] / 90
+    stats['Minutes per game'] = match90stotal * 90 / stats['Total played']
+    attributes = list(attributes)
+    attributes.remove('Total played')
+    attributes.remove('Started')
+    attributes.remove( 'Minutes per game')
+    
+    for attribute in attributes:
+        competitions =[int_stats,int_stats2,league_stats,league_stats2]
+        competitions_it = []
+        float_value, int_value = 0,0
+        for e in range(4):
+            if attribute in competitions[e]:
+                competitions_it += [competitions[e]]
+                competition = competitions[e]
+        competitions = competitions_it
+        for competition in competitions:
+            attribute_value = competition[competition.index(attribute)+1]
+            if '(' in attribute_value:
+
+                stat_type = 1
+                float_num = float(attribute_value.split('(')[0])
+                int_num = float(attribute_value.split('(')[1].replace('%)',''))
+                float_value += float_num * match90slist[competitions.index(competition)]
+                int_value += int_num * match90slist[competitions.index(competition)]
+
+            elif '/' in attribute_value:
+
+                stat_type = 2
+                float_num = float(attribute_value.split('/')[0])
+                int_num = float(attribute_value.split('/')[1])
+                float_value += float_num * match90slist[competitions.index(competition)]
+                int_value += int_num * match90slist[competitions.index(competition)]
+
+            elif '%' in attribute_value:
+
+                stat_type = 3
+                int_num = float(attribute_value.replace('%','')) 
+                stats[attribute] += int_num * match90slist[competitions.index(competition)]
+
+            elif ' min' in attribute_value:
+
+                stat_type = 4
+                int_num = float(attribute_value.replace(' min','')) 
+                stats[attribute] += int_num * match90slist[competitions.index(competition)]
+
+            elif 'per game' in attribute or attribute in ['Touches','Key passes','Possession won','Possession lost','Fouls','Offsides','Was fouled']:
+                
+                stat_type = 5
+                int_num = float(attribute_value)
+                stats[attribute] += int_num * match90slist[competitions.index(competition)]
+            elif competition[e*2] == 'Yellow-Red':
+                stat_type =0
+                stats['Red'] += float(attribute_value)
+            else:
+                stat_type =0
+                int_num = float(attribute_value)            
+                stats[attribute] += int_num
+
+        if stat_type == 1:
+            stats[attribute] = f'{round(float_num/90,2)}({round(int_num/90,1)}%)'
+        elif stat_type == 2:
+            stats[attribute] = f'{round(float_num,0)}/{round(int_num,0)}'
+        elif stat_type == 3:
+            stats[attribute] = f'{round(stats[attribute]/match90stotal,1)}%'
+        elif stat_type == 4:
+            stats[attribute] = f'{round(stats[attribute]/match90stotal,2)} min'
+        elif stat_type == 5:
+            stats[attribute] = f'{round(stats[attribute]/match90stotal,2)}'
+            
+    rating_average = 0
+    ratings =[int_rating,int_rating2,league_rating,league_rating2]
+    rating_it = [int_rating,int_rating2,league_rating,league_rating2]
+    for rating in rating_it:
+        if rating == '':
+            ratings.remove(rating)
+    for rating in ratings:
+        rating_average += float(rating) * match90slist[ratings.index(rating)] 
+    info['rating'] = round(rating_average/match90stotal,2)
+    info.update(stats)
+
+    return info 
+  
+

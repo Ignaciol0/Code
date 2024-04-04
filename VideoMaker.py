@@ -1,8 +1,8 @@
 from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips, vfx
 import pyttsx3 
 import os
-def create_vid():
-    with open("script.txt") as t:
+def create_vid(img1,img2,img3,script='script'):
+    with open(f"{script}.txt") as t:
         lines = t.readlines()
     text = ''
     texts = []
@@ -23,9 +23,9 @@ def create_vid():
     audio2 = AudioFileClip('audio2.mp3')
     audio3 = AudioFileClip('audio3.mp3')
 
-    image1 = ImageClip('Video.png')
-    image2 = ImageClip('Video-1.png')
-    image3 = ImageClip('Video-2.png')
+    image1 = ImageClip(f'{img1}.png')
+    image2 = ImageClip(f'{img2}.png')
+    image3 = ImageClip(f'{img3}.png')
     clip3 = image3.set_duration(audio3.duration)
     clip2 = image2.set_duration(audio2.duration+1)
     clip1 = image1.set_duration(audio1.duration+1)
@@ -37,4 +37,3 @@ def create_vid():
     os.remove('audio1.mp3')
     os.remove('audio2.mp3')
     os.remove('audio3.mp3')
-
