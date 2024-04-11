@@ -3,7 +3,9 @@ import aspose.words as aw
 import os
 import cv2
 import cvzone
-from VideoMaker import create_vid
+import pandas as pd
+from VideoMaker import create_vid, create_short
+
 
 player = "Maradona"
 Hook = f'Have you watched {player}?'
@@ -430,7 +432,7 @@ def make_ig_post3(path,matches,stats):
     os.remove(path+"svg.svg")
     os.remove(path+"svg.png")
 
-def make_video1(path, player):
+def make_video1(path, player, short_photo='photo1'):
     from PIL import ImageFont
     true = True
     font_size = 95
@@ -451,7 +453,7 @@ def make_video1(path, player):
     builder = aw.DocumentBuilder(doc)
     shape = builder.insert_image(path +"svg.svg")
     shape.image_data.save(path +"svg.png")
-    background = cv2.imread(path+'images/photo1.jpg')
+    background = cv2.imread(path+f'images/{short_photo}.jpg')
     height, width, channels = background.shape
     scale = height / 1920
     width = int(width / scale)
@@ -466,7 +468,7 @@ def make_video1(path, player):
     os.remove(path+"svg.svg")
     os.remove(path+"svg.png")
 
-def make_video2(path,player,info):
+def make_video2(path,player,info,short_photo='photo2'):
     """Path: is the path to the directory all the images are in
        Player: is the name of the player analyzed 
        Info: is a list of [value, height, age , nation, club, right footed = bool]"""
@@ -561,7 +563,7 @@ def make_video2(path,player,info):
     shape.image_data.save(path +"svg.png")
     
 
-    background = cv2.imread(path+'images/photo2.jpg')
+    background = cv2.imread(path+f'images/{short_photo}.jpg')
     overlay = cv2.imread(path+'svg.png', cv2.IMREAD_UNCHANGED)
     img_path = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Resources/'
     nation = Image.open(img_path+f'Nations/{info[3]}.webp').convert("RGBA")
@@ -760,7 +762,7 @@ def make_video_frame1(path, player,younster = False, position='middle',hook_posi
     font_size = 95
     while true:
         font = ImageFont.truetype('C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/font/Inter-3.19/Inter Desktop/Inter-Bold.otf', font_size)
-        width = max(font.getlength(player),font.getlength(f'{"Player" if younster else "Youngster"} Analysis'))
+        width = max(font.getlength(player),font.getlength(f'{"Player" if not younster else "Youngster"} Analysis'))
         if width < 700:
             break
         else:
@@ -769,7 +771,7 @@ def make_video_frame1(path, player,younster = False, position='middle',hook_posi
         f.write(f"""
                 <svg width="1280" height="720" viewBox="0 0 1280 720">
                 <text x='{640-font.getlength(player)//2}' y="70" font-size="{font_size}" fill="white"  stroke="black"  font-family="Inter" font-weight="bold">{player}</text>
-                <text x='{640-font.getlength(f'{"Player" if younster else "Youngster"} Analysis')//2}' y="{150 if hook_position == 'top' else 680 if hook_position == 'bottom' else -1000}" font-size="{font_size}" fill="white"  stroke="black"  font-family="Inter" font-weight="bold">{'Player' if younster else 'Youngster'} Analysis</text>
+                <text x='{640-font.getlength(f'{"Player" if not younster else "Youngster"} Analysis')//2}' y="{150 if hook_position == 'top' else 680 if hook_position == 'bottom' else -1000}" font-size="{font_size}" fill="white"  stroke="black"  font-family="Inter" font-weight="bold">{'Player' if not younster else 'Youngster'} Analysis</text>
                 </svg>
                 """)
     doc = aw.Document()
@@ -780,9 +782,18 @@ def make_video_frame1(path, player,younster = False, position='middle',hook_posi
     height, width, channels = background.shape
     scale = width / 1280
     height = int(height / scale)
-    background = cv2.resize(background,(1280,height))
+    if height < 720:
+        height, width, channels = background.shape
+        scale = height / 720
+        width = int(width / scale)
+        background = cv2.resize(background,(width,720))
+        height = 720
+    else:
+        background = cv2.resize(background,(1280,height))
     height, width, channels = background.shape
-    height = (height - 720)//2
+    width = abs(width - 1280)//2
+    background = background[0:720,width:1280+width]
+    height = abs(height - 720)//2
     if position == 'top':
         background = background[0:720,0:1280]
     elif position == 'middle':
@@ -915,6 +926,7 @@ def make_video_frame2(path,player,info, position='middle',description = 'bottom'
         scale = height / 720
         width = int(width / scale)
         background = cv2.resize(background,(width,720))
+        height = 720
     offset = abs((height-720)//2)
     if position == 'top':
         background = background[0:720,0:1280]
@@ -971,7 +983,6 @@ def make_video_frame2(path,player,info, position='middle',description = 'bottom'
         imgResult.paste(nation, (140,390), mask= nation)
         imgResult.paste(club, (260,390-height+iconsize), mask= club)
     imgResult.save(path+"Video2.png")
-
     
     os.remove(path+"Video2(no clubs).png")
     os.remove(path+"svg.svg")
@@ -979,11 +990,12 @@ def make_video_frame2(path,player,info, position='middle',description = 'bottom'
     os.remove(path+"position_svg.svg")
     os.remove(path+"position_svg.png")
 
-def make_video_frame3(path,matches,stats,position='middle'):
+def make_video_frame3(path,matches,stats,percentiles,position='middle'):
     """Path: is the path to the directory all the images are in
        matches: is a list with the match stats. [[club name,goals,assists,rating],[club name,goals,assists,rating]]
        stats: is a list with the season stats. [rating,matches_played,goals (g/a in case of a defender),assists (good stat 1 in case a defender),good stat 1, good stat 2, good stat 3, good stat 4, good stat 5]
     """
+    '''
     # Percentiles
     percentiles = Image.open(path+f'images/percentiles.png')
     width, height = percentiles.size
@@ -994,7 +1006,7 @@ def make_video_frame3(path,matches,stats,position='middle'):
     percentile_offset = 1280//2 - real_width // 2 
     percentiles = add_corners(percentiles,5)
     # We are getting the stats of the square by duplicating the texts that appear and making the y increase
-    
+    '''
     year_rating = stats[0]
     stats = stats[1:]
     stats_text = ''
@@ -1002,7 +1014,7 @@ def make_video_frame3(path,matches,stats,position='middle'):
     text_separation = 35
     for stat in stats:
         stats_text += f'<text fill="white" font-family="Inter" font-size="25" font-weight="bold" x="100" y="{text_height+stats.index(stat)*text_separation}">{stat}</text>\n'
-    percentile_height = text_height+(len(stats))*(text_separation-10)
+    percentile_height = text_height+(len(stats)-1)*(text_separation) + 20
     # Now we are making the match part of the post
         # We start calculating the separation needed between the rating and the badges
     gamatch1 = matches[0][1]+matches[0][2]
@@ -1053,9 +1065,29 @@ def make_video_frame3(path,matches,stats,position='middle'):
     <path d="M17 43.5L11.5 45L14.5 49.5L18 48L17 43.5Z" fill="#33F000"/>
     </g>\n'''    
 
+
+
+    
+    # In these part we will create the percentiles
+    percentile_text = ''
+    percentile_list = percentiles.loc[:,"Statistic"].tolist()
+    percentile_separation = 20
+    for attribute in percentile_list:
+        percentile = percentiles.set_index("Statistic").loc[attribute,'Percentile']
+        percentile_text += f"""
+            <text x="90" y="{percentile_height+10+percentile_list.index(attribute)*percentile_separation}" fill="black" font-family="Inter" font-size="12">{attribute}</text>
+            <text x="260" y="{percentile_height+10+percentile_list.index(attribute)*percentile_separation}" fill="black" font-family="Inter" font-size="12">{percentile}</text>
+            <rect width="{160*(percentile/100)}" height="12" fill="{'green' if percentile >90 else 'lightgreen' if percentile >75 else "yellow" }" transform="translate(280,{percentile_height+10+percentile_list.index(attribute)*percentile_separation-10})" rx="3"/>
+            <path d="M0 10H360 11" transform="translate(80,{percentile_height+10+percentile_list.index(attribute)*percentile_separation-5})" stroke="black"/>
+            """
+    percentile_size = (len(percentile_list))*percentile_separation+20
+    
+        
+            
+    
+    stats_height = 215
     # THIS IS THE SVG CODE
-    percentile_separation = 420
-    svg_code =f"""<svg width="522" height="{max(215+percentile_separation+height,720)+40}" viewBox="0 0 522 {max(215+percentile_separation+height,720)+40}" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    svg_code =f"""<svg width="522" height="720" viewBox="0 0 522 720" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <text fill="white" font-family="Inter" font-size="30" font-weight="bold" x="10" y="35">Season 2022/2023 Achievements</text>
 
                     <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="54" y="75">Average Season Rating</text>
@@ -1068,11 +1100,17 @@ def make_video_frame3(path,matches,stats,position='middle'):
                     {gamatch2_text}
                     <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="40" x="{10+match_separation_half}" y="195">{matches[1][3]}</text><text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="{100+match_separation_half}" y="195">rtg</text>
 
-                    <rect width="450" height="{percentile_separation + height}" rx="40" transform="translate(36,215)" fill="#1D1D1D"/>
+                    <rect width="450" height="{percentile_height+percentile_size-stats_height+ 40}" rx="40" transform="translate(36,{stats_height})" fill="#1D1D1D"/>
                     <text fill="white" font-family="Inter" font-size="30" font-weight="bold" x="132" y="245">This season stats</text>
                     <path transform="translate(-150,-162)" d="M206.373 415.18H615.355" stroke="#525252" stroke-linecap="round"/>
 
                     {stats_text}
+
+                    <rect width="400" rx="15" height="{percentile_size}" transform="translate(60,{percentile_height -10})" fill="white"/>
+                    <path d="M0 10L1 {percentile_size - 10}" transform="translate(250,{percentile_height-10})" stroke="black"/>
+                    {percentile_text}
+    
+                    
                 </svg>"""
 
 
@@ -1125,14 +1163,13 @@ def make_video_frame3(path,matches,stats,position='middle'):
     imgResult = Image.open(path+'video3(no clubs).png')
     imgResult.paste(club1, (490,115), mask= club1)
     imgResult.paste(club2, (490,170), mask= club2)
-    imgResult.paste(percentiles, (percentile_offset,percentile_separation), mask= percentiles)
+    #imgResult.paste(percentiles, (percentile_offset,percentile_separation), mask= percentiles)
     imgResult.save(path+"Video3.png")
 
     
     os.remove(path+"Video3(no clubs).png")
     os.remove(path+"svg.svg")
     os.remove(path+"svg.png")
-
 
 def make_ig_posts(path,player,youngster, Hook, matches, stats, info):
     make_ig_post1(path, youngster)
@@ -1144,9 +1181,13 @@ def make_ig_posts(path,player,youngster, Hook, matches, stats, info):
     make_ig_story(path,player, Hook)
     create_vid('Video','Video-1','Video-2')
 
-def make_yt_video(path,player,youngster,matches,stats,info,positions):
+def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentiles):
     make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
     make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
-    make_video_frame3(path,matches,stats,position=positions['V3']['background'])
+    make_video_frame3(path,matches,stats,position=positions['V3']['background'],percentiles=percentiles)
     create_vid('Video1','Video2','Video3')
-
+    if short:
+        make_video1(path,player,short_photo[0])
+        make_video2(path,player,info,short_photo[1])
+        make_video3(path,matches,stats)
+        create_short('Video','Video-1','Video-2')
