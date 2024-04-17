@@ -254,6 +254,8 @@ def get_best_matches(matches,player):
 
     matches = pd.DataFrame(matches,columns=['Date','Opponent','Rating'])
 
+    matches['Rating'] = matches['Rating'].astype(float)
+
     matches = matches.sort_values('Rating',ascending=False)
 
     ratings = matches.loc[:,'Rating'].tolist()
@@ -1079,7 +1081,7 @@ positions={
 }
 short_photo = ['photo1','photo3']
 
-#scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
-make_post(player_list[0],positions,youngster=False,short_photo=short_photo,short=True)
-#get_fbref_percentiles(player_list[0],False)
+scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
+#make_post(player_list[0],positions,youngster=False,short_photo=short_photo,short=True)
+
 

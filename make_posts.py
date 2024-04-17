@@ -998,7 +998,7 @@ def make_video_frame2(path,player,info, position='middle',description = 'bottom'
     club = club.resize((iconsize,height))
     # Nation adjusting
     nation = nation.resize((iconsize,iconsize))
-
+    
     imgResult = Image.open(path+'video2(no clubs).png')
     if description == 'right-top':
         imgResult.paste(nation, (900,85), mask= nation)
@@ -1012,8 +1012,8 @@ def make_video_frame2(path,player,info, position='middle',description = 'bottom'
     elif description == 'bottom':
         imgResult.paste(nation, (140,390), mask= nation)
         imgResult.paste(club, (260,390-height+iconsize), mask= club)
+    imgResult = imgResult.resize((1280,720))
     imgResult.save(path+"Video2.png")
-    
     os.remove(path+"Video2(no clubs).png")
     os.remove(path+"svg.svg")
     os.remove(path+"svg.png")
@@ -1231,6 +1231,7 @@ def make_match_video1(path, player, short_photo='photo1'):
     height, width, channels = background.shape
     width = (width - 1080)//2
     background = background[0:1920,width:1080+width]
+    print(width,background.shape)
     overlay = cv2.imread(path+'svg.png', cv2.IMREAD_UNCHANGED)
     overlay = cv2.resize(overlay,(1088,1920))
     cvzone.overlayPNG(background,overlay,[0,0])
