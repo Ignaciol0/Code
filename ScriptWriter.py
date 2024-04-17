@@ -64,7 +64,6 @@ def get_season_script(player,stats,match_list,percentile):
     for x in match_list:
         matches += f' Against {x[0]} with {"a hack trick" if x[1] == 3 else f"{x[1]} goals" if x[1]>0 else ""} {f"and {x[2]} assists" if x[2] > 0 else ""} and a rating for the match of {x[3]}.'
     prompt = f"write a paragraph analysis about {player}'s season with a {stats[0]} average rating in sofascore and this other key stats {', '.join(stats[1:]).replace(':','')} also here are some other stats {percentiles} his best matches this season are:{matches}. Other information that doesn't have to be mentioned is that he plays as a {description['position']} and he is {description['age']} years old"
-    print(prompt)
     response = ollama.chat(model='llama2', messages=[
         {
             'role':'system',
@@ -461,12 +460,40 @@ def make_short_script(p2,p3):
             'content':"Toni Kroos has been a mainstay in the world of football for many years, consistently delivering exceptional performances at the highest level. At 34, he continues to demonstrate his incredible skill and leadership on the pitch, with an impressive transfer value of 11.6 million euros. Known for his outstanding passing ability and work ethic, Kroos has proven himself to be an invaluable asset to any team he plays for.\n\nThis season, he has averaged a remarkable SofaScore rating of 7.58, contributing one goal and seven assists to his team's success. His tireless efforts have earned him an impressive number of recoveries per game, with 4.8, showcasing his dedication to the sport. Standout performances this season include his zero-goal, one-assist display against Las Palmas, which earned him a rating of 8.9, and his zero-goal, zero-assist effort against Atletico Madrid, which earned him a rating of 8.6. These outings demonstrate Kroos's enduring consistency and reliability in midfield, cementing his status as one of the top midfielders in the league."
         },{
             'role':'user',
+            'content':"I am going to give you two paragraph of a script make a new two paragraph script\nFirst part Lautaro Martinez is a highly skilled Argentine forward currently playing for Inter at the age of 26, with a transfer value of 103 million euros, known for his exceptional finishing and ability to score crucial goals in big games. He has been a key player for Inter this season, leading them to a strong position in the Serie A table and into the Champions League knockout stages, although they were later knocked out by Atletico.\n\nSecond part Lautaro Martinez has had an impressive season, with an average SofaScore rating of 7.39. The Argentine forward has played 36 matches, finding the back of the net 25 times, while providing 2 assists. While his shot output per game is solid at 3.49, he has missed a significant number of big chances with 16.0. Martinez ranks as one of the top goal-scorers in Expected Goals and shots on target, while also being among the best in everything related to playmaking abilities, like progressive passes, shot-creating actions, and expected assists. His standout performances this season include his two-goal display against Lecce, which earned him a rating of 8.5, and his two-goal effort against Monza, which earned him a rating of 8.3. These outings demonstrate Martinez's ability to produce high-quality performances on a consistent basis, making him one of the top forwards in the league. At just 26 years old, he has plenty of time to continue improving and potentially become even more dominant in the future. So is it best for him to stay at Inter or to go to Barca, Chelsea or even other top tier team?"
+        },{
+            'role':'assistant',
+            'content':"Lautaro Martinez is a highly skilled attacker who has proven himself to be a valuable asset to his team this season. At just 26 years old, he has already demonstrated exceptional finishing ability and the ability to score crucial goals in big games. With a transfer value of 103 million euros, Martinez is highly sought after by top clubs around the world.\nThis season, Martinez has had an impressive SofaScore rating of 7.39, playing a key role in Inter's first position in the Serie A table. He has scored 25 goals in 36 matches and ranks among the top in Expected Goals and shots on target, as well as being one of the best in playmaking abilities such as progressive passes, shot-creating actions, and expected assists. So, the question remains, is it best for him to stay at Inter or to go to Barca, Chelsea or even other top tier team?"
+        },{
+            'role':'user',
             'content':prompt
         }
     ])
     return response['message']['content']
 
-
+def translate(script):
+    with open(f"{script}") as t:
+        lines = t.readlines()
+    text = ''
+    texts = []
+    for e in lines:
+        if e == '\n':
+            texts += [text]
+            text = ''
+        else:
+            text += e
+    textos = []
+    for text in texts:
+        response = ollama.chat(model='mixtral:8x7b', messages=[
+        {
+            'role':'system',
+            'content':'You are a pro english to spanish translator'
+        },{
+            'role': 'user',
+            'content': f"Translate into Spain's spanish this paragraph {text}"
+        }])
+        textos += [response['message']['content']]
+    return f"{textos[0]}\n\n{textos[1]}\n\n{textos[2]}\n\n\n"
 
 def make_script(player,stats,match_list,percentile):
     if input('Do you want to create a script? ') == 'no':

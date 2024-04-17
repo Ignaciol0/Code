@@ -1,7 +1,7 @@
 from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips, vfx
 import pyttsx3 
 import os
-def create_vid(img1,img2,img3,script='script'):
+def create_vid(img1,img2,img3,script='script',output="video1"):
     with open(f"{script}.txt") as t:
         lines = t.readlines()
     text = ''
@@ -33,7 +33,7 @@ def create_vid(img1,img2,img3,script='script'):
     Video2= clip2.set_audio(audio2)
     Video3= clip3.set_audio(audio3)
     Video_final = concatenate_videoclips([Video1,Video2,Video3])
-    Video_final.write_videofile('video1.mp4',24)
+    Video_final.write_videofile(f'{output}.mp4',24)
     os.remove('audio1.mp3')
     os.remove('audio2.mp3')
     os.remove('audio3.mp3')
