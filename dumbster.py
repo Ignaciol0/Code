@@ -1,5 +1,8 @@
 import pandas as pd 
 import json
+import sys
+import time
+import pyautogui
 int_stats, int_rating, int_stats2, int_rating2, league_rating, league_stats, league_rating2, league_stats2 = '','','','','','','',''
 
 def old_form():
@@ -939,4 +942,3 @@ def combine_sofascore_data_2(info,int_stats, int_rating, int_stats2, int_rating2
 
     return info 
   
-

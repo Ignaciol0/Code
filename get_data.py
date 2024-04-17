@@ -1,11 +1,11 @@
 from playwright.sync_api import sync_playwright
 import time
-
+import shutil
 import json
 import pandas as pd
-
+import os
 from ScriptWriter import make_script
-from make_posts import make_ig_posts, make_yt_video
+from make_posts import make_ig_posts, make_yt_videos
 from dumbster import combine_sofascore_data_2
 
 
@@ -15,9 +15,10 @@ from dumbster import combine_sofascore_data_2
 
 delay = 0
 
-player_list = ['Erling Haaland']
+player_list = ['Vinícius Júnior']
 
-def scrape_player_list(player_list,delay, post=True, year=24,positions={'V1':{'background':'middle','hook':'top'},'V2':{'background':'middle','description':'top','position':'bottom'},'V3':{'background':'middle'}}):
+
+def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,positions={'V1':{'background':'middle','hook':'top'},'V2':{'background':'middle','description':'top','position':'bottom'},'V3':{'background':'middle'}},short_photo=['photo1','photo2'],short=True,verbose = True):
 
     with sync_playwright() as p:
 
@@ -40,8 +41,10 @@ def scrape_player_list(player_list,delay, post=True, year=24,positions={'V1':{'b
         for e in player_list:
 
             scrape_player(e, page, year)
+            get_fbref_percentiles(e,page,year)
     if post:
-        make_post(e,positions)
+        clean_script()
+        make_post(e,positions,youngster,short_photo,short,year=year,verbose=verbose)
 
 
 def scrape_player(e,page, year = 24):
@@ -113,6 +116,10 @@ def scrape_player(e,page, year = 24):
 
         matches = matches.replace('FT\n','')
 
+        matches = matches.replace('AET\n','')
+
+        matches = matches.replace('AP\n','')
+
         #matches = matches.replace('Int. Friendly Games\n','')
 
         matches = matches.replace('Club Friendly Games\n','')
@@ -128,10 +135,14 @@ def scrape_player(e,page, year = 24):
                 matches = matches.replace(f'Man City\n','')
             elif contract[0] == 'Manchester United':
                 matches = matches.replace(f'Man United\n','')
+            elif contract[0] == 'Atl\u00e9tico Madrid':
+                matches = matches.replace(f'Atl. Madrid', '')
             else:
                 matches = matches.replace(f'{contract[0].split(" ")[-1]}\n','')
                 if pre_lenght == len(matches):
                     matches = matches.replace(f'{contract[0].split(" ")[0]}\n','')
+                    if pre_lenght == len(matches):
+                        matches = matches.replace(f'{contract[0].split(" ")[1]}\n','')
         
 
         league_botton = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/button')
@@ -210,6 +221,12 @@ def scrape_player(e,page, year = 24):
 
         json.dump(info,f)
 
+def clean_script():
+    destination_path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Player Analysis"
+    if "script.txt" in os.listdir():
+        shutil.copy2(os.cwd()+"script.txt",destination_path+f"script{len(os.listdir())+1}.txt")
+    if "sort_script.txt" in os.listdir():
+        shutil.copy2(os.cwd()+"sort_script.txt",destination_path+f"sort_script{len(os.listdir())+1}.txt")
 
 def get_best_matches(matches,player):
 
@@ -410,6 +427,7 @@ def get_fbref_stats(player,info,year=24):
 
     try:
         xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year-1}-20{year}']
+        
     except:
         xga = match_log[0]
         xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year}']
@@ -434,6 +452,10 @@ def get_fbref_stats(player,info,year=24):
 
         xa = float(xga.loc[:,'xAG'].tolist()[-1])
 
+        sca = float(gsca.loc[:,'SCA'].tolist()[-1])
+
+        gca = float(gsca.loc[:,'GCA'].tolist()[-1])
+
     else:
         matches = float(xga.loc['90s'])
 
@@ -447,10 +469,9 @@ def get_fbref_stats(player,info,year=24):
 
         xa = float(xga.loc['xAG'])   
         
+        sca = float(gsca.loc['SCA'])
 
-    sca = float(gsca.loc['SCA'])
-
-    gca = float(gsca.loc['GCA'])
+        gca = float(gsca.loc['GCA'])
 
 
 
@@ -487,6 +508,10 @@ def get_fbref_stats(player,info,year=24):
 
         xa += float(xga.loc[:,'xAG'].tolist()[-1])
 
+        sca += float(gsca.loc[:,'SCA'].tolist()[-1])
+
+        gca += float(gsca.loc[:,'GCA'].tolist()[-1])
+
     else:
         matches += float(xga.loc['90s'])
 
@@ -500,10 +525,9 @@ def get_fbref_stats(player,info,year=24):
 
         xa += float(xga.loc['xAG'])
 
+        sca += float(gsca.loc['SCA'])
 
-    sca += float(gsca.loc['SCA'])
-
-    gca += float(gsca.loc['GCA'])
+        gca += float(gsca.loc['GCA'])
 
     info['Progressive carries per 90'] = round(progresive_carries  / matches,2)    
 
@@ -610,8 +634,83 @@ def get_stats(info,player,page,year=24):
 
     return get_sofascore_stats(get_fbref_stats(player,info,year),page,year)
     
+def get_fbref_percentiles(player,default=True,year=24):
+    names = pd.read_csv('NAME_DB.csv')
 
-def make_post(player,positions, youngster=True):
+    names = names.set_index('Name')
+
+    url = names.loc[player].values[1]
+
+    url = url.split('/')
+
+    name = url[4] + '-Scouting-Report'
+
+    url[4] = 'scout'
+
+    url[0] = 'https://fbref.com'
+
+    url += ['365_m1',name]
+
+    url = '/'.join(url)
+    
+    data = pd.read_html(url)[-1]
+
+    data = data.loc[:,'Standard Stats']
+
+    attributes = ['Goals', 'Assists', 'xG: Expected Goals', 'xAG: Exp. Assisted Goals', 'Progressive Carries', 'Progressive Passes', 'Progressive Passes Rec', 'Shots Total', 'Shots on Target', 'Shots on Target %', 'Goals/Shot', 'Passes Completed', 'Passes Attempted', 'Pass Completion %', 'Total Passing Distance', 'Progressive Passing Distance', 'xAG: Exp. Assisted Goals', 'xA: Expected Assists', 'Key Passes', 'Through Balls', 'Switches', 'Crosses', 'Shot-Creating Actions', 'Goal-Creating Actions', 'Tackles', 'Tackles Won', 'Dribblers Tackled', 'Blocks', 'Interceptions', 'Clearances', 'Errors', 'Touches', 'Take-Ons Attempted', 'Successful Take-Ons', 'Successful Take-On %', 'Carries', 'Progressive Carrying Distance', 'Progressive Carries', 'Miscontrols', 'Dispossessed', 'Progressive Passes Rec', 'Fouls Committed', 'Fouls Drawn', 'Ball Recoveries','Aerials Won', "% of Aerials Won"]
+
+    row_position = {'Goals':0, 'Assists':1, 'Goals + Assists':2, 'Non-Penalty Goals':3, 'xG: Expected Goals':8, 'npxG: Non-Penalty xG':9, 'xAG: Exp. Assisted Goals':10, 'npxG + xAG':11,  'Progressive Carries':13, 'Progressive Passes':14, 'Progressive Passes Rec':15,  'Shots Total':19, 'Shots on Target':20, 'Shots on Target %':21, 'Goals/Shot':22, 'Goals/Shot on Target':23, 'npxG/Shot':31, 'Goals - xG':32, 'Passes Completed':36, 'Passes Attempted':37, 'Pass Completion %':38, 'Total Passing Distance':39, 'Progressive Passing Distance':40, 'xA: Expected Assists':55, 'Key Passes':56, 'Passes into Final Third':57, 'Passes into Penalty Area':58, 'Crosses into Penalty Area':59, 'Progressive Passes':60, 'Passes Attempted':63, 'Through Balls':68, 'Switches':69, 'Crosses':70, 'Passes Completed':78, 'Shot-Creating Actions':83, 'Goal-Creating Actions':92, 'Tackles':102, 'Tackles Won':103, 'Dribblers Tackled':108, 'Blocks':113, 'Interceptions':117, 'Clearances':119, 'Errors':120, 'Touches':123, 'Take-Ons Attempted':131, 'Successful Take-Ons':132, 'Successful Take-On %':133, 'Carries':137, 'Total Carrying Distance':138, 'Progressive Carrying Distance':139, 'Carries into Final Third':142, 'Carries into Penalty Area':143, 'Fouls Committed':154, 'Fouls Drawn':155, 'Crosses':157, 'Interceptions':159, 'Tackles Won':160, 'Penalty Kicks Won':161, 'Ball Recoveries':164,'Aerials Won':166, '% of Aerials Won':168}
+    
+    match_log = data
+
+    ranks = match_log[match_log['Statistic'].isin(attributes)]
+
+    ranks["Percentile"] = pd.to_numeric(ranks["Percentile"])
+
+    ranks = ranks.drop_duplicates()
+
+    match_log = match_log.drop_duplicates()
+
+    ranks = ranks.loc[ranks['Percentile'] > 80].sort_values(by=['Percentile'],ascending=False)
+
+    attributes = ranks.loc[:,'Statistic'].tolist()
+
+    if len(attributes) < 6:
+        attributes = ['Goals', 'Assists', 'Goals + Assists', 'Non-Penalty Goals', 'xG: Expected Goals', 'npxG: Non-Penalty xG', 'xAG: Exp. Assisted Goals', 'npxG + xAG',  'Progressive Carries', 'Progressive Passes', 'Progressive Passes Rec',  'Shots Total', 'Shots on Target', 'Shots on Target %', 'Goals/Shot', 'Goals/Shot on Target', 'npxG/Shot', 'Goals - xG', 'Passes Completed', 'Passes Attempted', 'Pass Completion %', 'Total Passing Distance', 'Progressive Passing Distance',  'xAG: Exp. Assisted Goals', 'xA: Expected Assists', 'Key Passes', 'Passes into Final Third', 'Passes into Penalty Area', 'Crosses into Penalty Area', 'Progressive Passes', 'Passes Attempted', 'Through Balls', 'Switches', 'Crosses', 'Passes Completed', 'Shot-Creating Actions', 'Goal-Creating Actions', 'Tackles', 'Tackles Won', 'Dribblers Tackled', 'Challenges Lost', 'Blocks', 'Interceptions', 'Clearances', 'Errors', 'Touches', 'Take-Ons Attempted', 'Successful Take-Ons', 'Successful Take-On %', 'Carries', 'Total Carrying Distance', 'Progressive Carrying Distance', 'Progressive Carries', 'Carries into Final Third', 'Carries into Penalty Area', 'Progressive Passes Rec', 'Fouls Committed', 'Fouls Drawn', 'Crosses', 'Interceptions', 'Tackles Won', 'Penalty Kicks Won', 'Ball Recoveries','Aerials Won', '% of Aerials Won']
+
+        match_log = data
+
+        ranks = match_log[match_log['Statistic'].isin(attributes)]
+
+        ranks["Percentile"] = pd.to_numeric(ranks["Percentile"])
+
+        ranks = ranks.drop_duplicates()
+
+        match_log = match_log.drop_duplicates()
+
+        ranks = ranks.loc[ranks['Percentile'] > 70].sort_values(by=['Percentile'],ascending=False)
+
+        attributes_two = ranks.loc[:,'Statistic'].tolist()
+        attributes_two = [item for item in attributes_two if item not in attributes]
+        if len(attributes_two) == 10:
+            attributes += attributes_two[:10]
+        else:
+            attributes += attributes_two
+    if not default:
+        ranks = ranks.set_index('Statistic')
+        inputtext = f'This are the top inputs put the number of the ones you want to select in this way (1,2,3,...)\n\n'
+        for attribute in attributes:
+            inputtext += f'{1+attributes.index(attribute)}. {attribute}:{ranks.loc[attribute,"Percentile"]}\t'
+        answer = input(inputtext+'Attributes selected: ').split(',')
+        attributes = [attributes[int(x)-1] for x in answer]
+    else:
+        attributes = attributes[:6]
+    
+    percentiles = ranks.loc[attributes,'Percentile'].tolist()
+    return pd.DataFrame({'Statistic':attributes,'Percentile':percentiles}).to_csv('percentile.csv')
+    
+
+def make_post(player,positions, youngster,short_photo,short=False, verbose=True,year = 24):
     with open(f'players/{player}.json') as json_file:
         data = json.load(json_file)
     matches = data['matches']
@@ -648,54 +747,54 @@ def make_post(player,positions, youngster=True):
     pass_acuracy = data['Accurate per game'].split('(')[1].replace('%)','')
     offset = 0
     if data['position'] == 'f':
-        stats += [match,f'Goals: {goals}',f'Assists: {assists}']
+        stats += [match,f'Goals: {int(goals)}',f'Assists: {int(assists)}']
         if int(big_chances_missed) >= int(goals)/2 and int(big_chances_missed) >=5 and int(big_chances_missed)-int(big_chances) >= 0:
-            stats += [f'Big Chances Missed: {big_chances_missed}']
+            stats += [f'Big Chances Miss: {int(big_chances_missed)}']
             offset += 1
         elif int(big_chances) >= 5:
-            stats += [f'Big Chances: {big_chances}']
+            stats += [f'Big Chances: {int(big_chances)}']
             offset += 1
         if int(totw) >= 1:
-            stats += [f'Team of the Week: {totw}']
+            stats += [f'Team of the Week: {int(totw)}']
             if int(totw) >= 5:
                 offset += 1
         if float(offsides) >= 0.8:
-            stats += [f'Offsides per game: {offsides}']
+            stats += [f'Offsides: {offsides}']
         if float(gca) >= 0.6:
-            stats += [f'Goal Creating Actions per game: {gca}']
+            stats += [f'Goal Creating Actions: {gca}']
             if float(sca) >= 6.0:
-                stats.insert(3+offset,f'Shot Creating Actions per game: {sca}')
+                stats.insert(3+offset,f'Shot Creating Actions: {sca}')
                 offset += 1
         elif float(sca) >= 4.0:
-            stats += [f'Shot Creating Actions per game: {sca}']
+            stats += [f'Shot Creating Actions: {sca}']
         if float(propr) >= 10:
             if float(propr) >= 15:
-                stats.insert(3+offset,f'Progresive Passes Recieved per game: {propr}')
+                stats.insert(3+offset,f'Prog. Passes Recieved: {propr}')
                 offset += 1
             elif float(prop) >= 9:
-                stats.insert(3+offset,f'Progresive Passes per game: {prop}')
+                stats.insert(3+offset,f'Prog. Passes: {prop}')
                 offset += 1
             elif float(proc) >= 6:
-                stats.insert(3+offset,f'Progresive Carries per game: {proc}')
+                stats.insert(3+offset,f'Prog. Carries: {proc}')
                 offset += 1
             else:
-                stats += [f'Progresive Passes Recieved per game: {propr}']  
+                stats += [f'Prog. Passes Recieved: {propr}']  
         elif float(prop) >= 6:
-            stats += [f'Progresive Passes per game: {prop}']
+            stats += [f'Prog. Passes: {prop}']
             if float(proc) >= 4:
-                stats += [f'Progresive Carries per game: {proc}']
+                stats += [f'Prog. Carries: {proc}']
         if float(prop) >= 9:
-                stats.insert(3+offset,f'Progresive Passes per game: {prop}')
+                stats.insert(3+offset,f'Prog. Passes: {prop}')
                 offset += 1
         if float(proc) >= 6:
-            stats.insert(3+offset,f'Progresive Carries per game: {proc}')
+            stats.insert(3+offset,f'Prog. Carries: {proc}')
             offset += 1
         if float(dribbles.split('(')[0]) >= 2.0 :
             if float(dribbles.split('(')[0]) >= 3.0 :
-                stats.insert(3+offset,f'Progresive Passes Recieved per game: {propr}')
+                stats.insert(3+offset,f'Dribbles: {dribbles}')
                 offset += 1
             else:
-                stats += [f'Dribbles per game: {dribbles}']
+                stats += [f'Dribbles: {dribbles}']
         if float(min_goal) <= 150:
             if float(min_goal) <= 100:
                 stats.insert(3+offset,f'Minutes per goal: {min_goal} min')
@@ -704,10 +803,10 @@ def make_post(player,positions, youngster=True):
                 stats += [f'Minutes per goal: {min_goal} min']
         if float(shots) >= 1.5:
             if float(shots) >= 2.25:
-                stats.insert(3+offset,f'Shots per game: {shots}')
+                stats.insert(3+offset,f'Shots: {shots}')
                 offset += 1
             else:
-                stats += [f'Shots per game: {shots}']
+                stats += [f'Shots: {shots}']
         if float(shot_conv) >= 20:
             if float(shot_conv) >= 30:
                 stats.insert(3+offset,f'Goal convertion %: {shot_conv}%')
@@ -722,59 +821,59 @@ def make_post(player,positions, youngster=True):
                 stats += [f'Shot on target %: {shots_ot}%']
         if float(key_pases) >= 1.5:
             if float(key_pases) >= 2.25:
-                stats.insert(3+offset,f'Key Passes per game: {key_pases}')
+                stats.insert(3+offset,f'Key Passes: {key_pases}')
                 offset += 1
             else:
-                stats += [f'Key Passes per game: {key_pases}']
+                stats += [f'Key Passes: {key_pases}']
         if float(crosses.split('(')[0]) >= 4.5:
             if float(crosses.split('(')[0]) >= 6.75 or float(crosses.split("(")[1].replace('%)','')) >= 80:
-                stats.insert(3+offset,f'Crosses per game: {crosses}')
+                stats.insert(3+offset,f'Crosses: {crosses}')
                 offset += 1
             else:
-               stats += [f'Crosses per game: {crosses}']
+               stats += [f'Crosses: {crosses}']
         if len(stats) > 6:
             stats = stats[0:7]
         elif len(stats) < 6:
             if int(big_chances) >= 1:
-                stats += [f'Big Chances: {big_chances}']
+                stats += [f'Big Chances: {int(big_chances)}']
             if float(sca) >= 3:
-                stats += [f'Shot Creating Actions per game: {sca}']
+                stats += [f'Shot Creating Actions: {sca}']
             if float(gca) >= 0.45:
-                stats += [f'Goal Creating Actions per game: {gca}']
+                stats += [f'Goal Creating Actions: {gca}']
             if float(proc) >= 2.5:
-                stats += [f'Progresive Carries per game: {proc}']
+                stats += [f'Prog. Carries: {proc}']
             if float(prop) >= 4:
-                stats += [f'Progresive Passes per game: {prop}']
+                stats += [f'Prog. Passes: {prop}']
             if float(dribbles.split('(')[0]) >= 1.5:
-                stats += [f'Dribbles per game: {dribbles}']
+                stats += [f'Dribbles: {dribbles}']
             if float(min_goal) <= 200:
                 stats += [f'Minutes per goal: {min_goal} min']
             
-            stats += [f'Shots per game: {shots}',f'Goal convertion %: {shot_conv}%',f'Shot on target %: {shots_ot}%']
+            stats += [f'Shots: {shots}',f'Goal convertion %: {shot_conv}%',f'Shot on target %: {shots_ot}%']
             stats = stats[0:7]
     elif data['position'] == 'm':
         if int(goals) + int(assists) >= 5:
-            stats += [match,f'Goals: {goals}',f'Assists: {assists}']
+            stats += [match,f'Goals: {int(goals)}',f'Assists: {int(assists)}']
         else:
             stats += [match,f'Goals & Assists: {int(goals)+int(assists)}']
             offset -= 1
         if int(big_chances) >= 5:
-            stats += [f'Big Chances: {big_chances}']
+            stats += [f'Big Chances: {int(big_chances)}']
             offset += 1
         if int(totw) >= 1:
-            stats += [f'Team of the Week: {totw}']
+            stats += [f'Team of the Week: {int(totw)}']
             if int(totw) >= 5:
                 offset += 1
         if float(pass_acuracy) >= 90:
             stats += [f'Pass accuracy: {pass_acuracy}%']
         if float(key_pases) >= 1.5:
-            stats += [f'Key Passes per game: {key_pases}']
+            stats += [f'Key Passes: {key_pases}']
         if float(dribbles.split('(')[0]) >= 2.0 :
             if float(dribbles.split('(')[0]) >= 3.0 :
-                stats.insert(3+offset,f'Progresive Passes Recieved per game: {propr}')
+                stats.insert(3+offset,f'Dribbles: {propr}')
                 offset += 1
             else:
-                stats += [f'Dribbles per game: {dribbles}']
+                stats += [f'Dribbles: {dribbles}']
         if float(min_goal) <= 150:
             if float(min_goal) <= 100:
                 stats.insert(3+offset,f'Minutes per goal: {min_goal} min')
@@ -783,10 +882,10 @@ def make_post(player,positions, youngster=True):
                 stats += [f'Minutes per goal: {min_goal} min']
         if float(shots) >= 1.5:
             if float(shots) >= 2.25:
-                stats.insert(3+offset,f'Shots per game: {shots}')
+                stats.insert(3+offset,f'Shots: {shots}')
                 offset += 1
             else:
-                stats += [f'Shots per game: {shots}']
+                stats += [f'Shots: {shots}']
         if float(shot_conv) >= 20:
             if float(shot_conv) >= 30:
                 stats.insert(3+offset,f'Goal convertion %: {shot_conv}%')
@@ -801,89 +900,89 @@ def make_post(player,positions, youngster=True):
                 stats += [f'Shot on target %: {shots_ot}%']
         if float(crosses.split('(')[0]) >= 4.5:
             if float(crosses.split('(')[0]) >= 6.75 or float(crosses.split("(")[1].replace('%)','')) >= 80:
-                stats.insert(3+offset,f'Crosses per game: {crosses}')
+                stats.insert(3+offset,f'Crosses: {crosses}')
                 offset += 1
             else:
-               stats += [f'Crosses per game: {crosses}']
+               stats += [f'Crosses: {crosses}']
         if float(interceptions) >= 1:
             if float(interceptions) >= 1.5:
-                stats.insert(3+offset,f'Interceptions per game: {interceptions}')
+                stats.insert(3+offset,f'Interceptions: {interceptions}')
                 offset += 1
             else:
-                stats += [f'Interceptions per game: {interceptions}']
+                stats += [f'Interceptions: {interceptions}']
         if float(tackles) >= 3:
             if float(tackles) >= 4.5:
-                stats.insert(3+offset,f'Tackles per game: {tackles}')
+                stats.insert(3+offset,f'Tackles: {tackles}')
                 offset += 1
             else:
-                stats += [f'Tackles per game: {tackles}']
+                stats += [f'Tackles: {tackles}']
         if float(clearences) >= 3:
             if float(clearences) >= 4.5:
-                stats.insert(3+offset,f'Clearences per game: {clearences}')
+                stats.insert(3+offset,f'Clearences: {clearences}')
                 offset += 1
             else:
-                stats += [f'Clearences per game: {clearences}']
+                stats += [f'Clearences: {clearences}']
         if float(recoveries) >= 2.5:
             if float(recoveries) >= 3.25:
-                stats.insert(3+offset,f'Recoveries per game: {recoveries}')
+                stats.insert(3+offset,f'Recoveries: {recoveries}')
                 offset += 1
             else:
-                stats += [f'Recoveries per game: {recoveries}']
+                stats += [f'Recoveries: {recoveries}']
         
         if len(stats) > 6:
             stats = stats[0:7]
         elif len(stats) < 6:
             if int(big_chances) >= 1:
-                stats += [f'Big Chances: {big_chances}']
+                stats += [f'Big Chances: {int(big_chances)}']
             if float(sca) >= 3:
-                stats += [f'Shot Creating Actions per game: {sca}']
+                stats += [f'Shot Creating Actions: {sca}']
             if float(gca) >= 0.45:
-                stats += [f'Goal Creating Actions per game: {gca}']
+                stats += [f'Goal Creating Actions: {gca}']
             if float(proc) >= 2.5:
-                stats += [f'Progresive Carries per game: {proc}']
+                stats += [f'Progresive Carries: {proc}']
             if float(prop) >= 4:
-                stats += [f'Progresive Passes per game: {prop}']
+                stats += [f'Progresive Passes: {prop}']
             if float(key_pases) >= 1:
-                stats += [f'Key Passes per game: {key_pases}']
+                stats += [f'Key Passes: {key_pases}']
             if float(pass_acuracy) >= 85:
                 stats += [f'Pass accuracy: {pass_acuracy}%']
             if float(crosses.split('(')[0]) >= 3.5:
-                stats += [f'Crosses per game: {crosses}']
+                stats += [f'Crosses: {crosses}']
             if float(recoveries) >= 2:
-                stats += [f'Recoveries per game: {recoveries}']
+                stats += [f'Recoveries: {recoveries}']
             
-            stats += [f'Key Passes: {key_pases}',f'Pass accurary: {pass_acuracy}%',f'Interceptions per game: {interceptions}']
+            stats += [f'Key Passes: {key_pases}',f'Pass accurary: {pass_acuracy}%',f'Interceptions: {interceptions}']
             stats = stats[0:7]
     elif data['position'] == 'd':
         if int(goals) + int(assists) >= 5:
-            stats += [match,f'Goals: {goals}',f'Assists: {assists}']
+            stats += [match,f'Goals: {int(goals)}',f'Assists: {int(assists)}']
         else:
             stats += [match,f'Goals & Assists: {int(goals)+int(assists)}']
             offset -= 1
         if int(big_chances) >= 5:
-            stats += [f'Big Chances: {big_chances}']
+            stats += [f'Big Chances: {int(big_chances)}']
             offset += 1
         if int(totw) >= 1:
-            stats += [f'Team of the Week: {totw}']
+            stats += [f'Team of the Week: {int(totw)}']
             if int(totw) >= 5:
                 offset += 1
         if float(data['Clean sheets'])/int(data['Started']) >= 0.35:
-            stats += [f'Clean Sheets: {data["Clean sheets"]}']
+            stats += [f'Clean Sheets: {int(data["Clean sheets"])}']
             offset += 1
         if int(yellows) >= int(data['Started'])/2:
-            stats += [f'Yellow cards: {yellows}']
+            stats += [f'Yellow cards: {int(yellows)}']
         if int(reds)/int(data['Started']) >= 0.2:
-            stats += [f'Red cards: {reds}']
+            stats += [f'Red cards: {int(reds)}']
         if float(pass_acuracy) >= 90:
             stats += [f'Pass accuracy: {pass_acuracy}%']
         if float(key_pases) >= 1.5:
-            stats += [f'Key Passes per game: {key_pases}']
+            stats += [f'Key Passes: {key_pases}']
         if float(dribbles.split('(')[0]) >= 2.0 :
             if float(dribbles.split('(')[0]) >= 3.0 :
-                stats.insert(3+offset,f'Progresive Passes Recieved per game: {propr}')
+                stats.insert(3+offset,f'Dribbles: {dribbles}')
                 offset += 1
             else:
-                stats += [f'Dribbles per game: {dribbles}']
+                stats += [f'Dribbles: {dribbles}']
         if float(min_goal) <= 150:
             if float(min_goal) <= 100:
                 stats.insert(3+offset,f'Minutes per goal: {min_goal} min')
@@ -892,10 +991,10 @@ def make_post(player,positions, youngster=True):
                 stats += [f'Minutes per goal: {min_goal} min']
         if float(shots) >= 1.5:
             if float(shots) >= 2.25:
-                stats.insert(3+offset,f'Shots per game: {shots}')
+                stats.insert(3+offset,f'Shots: {shots}')
                 offset += 1
             else:
-                stats += [f'Shots per game: {shots}']
+                stats += [f'Shots: {shots}']
         if float(shot_conv) >= 20:
             if float(shot_conv) >= 30:
                 stats.insert(3+offset,f'Goal convertion %: {shot_conv}%')
@@ -910,34 +1009,34 @@ def make_post(player,positions, youngster=True):
                 stats += [f'Shot on target %: {shots_ot}%']
         if float(crosses.split('(')[0]) >= 4.5:
             if float(crosses.split('(')[0]) >= 6.75 or float(crosses.split("(")[1].replace('%)','')) >= 80:
-                stats.insert(3+offset,f'Crosses per game: {crosses}')
+                stats.insert(3+offset,f'Crosses: {crosses}')
                 offset += 1
             else:
-               stats += [f'Crosses per game: {crosses}']
+               stats += [f'Crosses: {crosses}']
         if float(interceptions) >= 1:
             if float(interceptions) >= 1.5:
-                stats.insert(3+offset,f'Interceptions per game: {interceptions}')
+                stats.insert(3+offset,f'Interceptions: {interceptions}')
                 offset += 1
             else:
-                stats += [f'Interceptions per game: {interceptions}']
+                stats += [f'Interceptions: {interceptions}']
         if float(tackles) >= 3:
             if float(tackles) >= 4.5:
-                stats.insert(3+offset,f'Tackles per game: {tackles}')
+                stats.insert(3+offset,f'Tackles: {tackles}')
                 offset += 1
             else:
-                stats += [f'Tackles per game: {tackles}']
+                stats += [f'Tackles: {tackles}']
         if float(clearences) >= 3:
             if float(clearences) >= 4.5:
-                stats.insert(3+offset,f'Clearences per game: {clearences}')
+                stats.insert(3+offset,f'Clearences: {clearences}')
                 offset += 1
             else:
-                stats += [f'Clearences per game: {clearences}']
+                stats += [f'Clearences: {clearences}']
         if float(recoveries) >= 2.5:
             if float(recoveries) >= 3.25:
-                stats.insert(3+offset,f'Recoveries per game: {recoveries}')
+                stats.insert(3+offset,f'Recoveries: {recoveries}')
                 offset += 1
             else:
-                stats += [f'Recoveries per game: {recoveries}']
+                stats += [f'Recoveries: {recoveries}']
         
         
         if len(stats) > 6:
@@ -966,14 +1065,19 @@ def make_post(player,positions, youngster=True):
     match2 = [matches[4],int(matches[5]),int(matches[6]),float(matches[7])]
     matches = [match1,match2]
     path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/"
-    make_script(player,stats,matches)
-    make_yt_video(path,player,youngster,matches,stats,info,positions)
+    percentile = pd.read_csv('percentile.csv')
+    #percentile = get_fbref_percentiles(player,not verbose, year)
+    make_script(player,stats,matches,percentile)
+    make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentile)
  
 
 positions={
-'V1':{'background':'top','hook':'bottom'},
+'V1':{'background':'middle','hook':'bottom'},
 'V2':{'background':'middle','description':'bottom','position':False},
 'V3':{'background':'middle'}
 }
-#scrape_player_list(player_list,0.3,True,positions=positions)
-make_post(player_list[0],positions,youngster=True)
+short_photo = ['photo1','photo3']
+
+#scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
+make_post(player_list[0],positions,youngster=False,short_photo=short_photo,short=True)
+#get_fbref_percentiles(player_list[0],False)
