@@ -1,0 +1,15 @@
+- [ ] Fix the Chance Conversion in the Script.
+- [x] Fix the float in the goals, assists etc.
+- [x] Fix the percentile in the sorts.
+- [ ] Fix the percentile selection.
+- [ ] Add the new capability for sort selection.
+- [ ] Add the AI Voice Over.
+- [ ] Fix the goal and assists placement.
+- [ ] Add the auto open Ubuntu.
+- [ ] Fix the sort scripts.
+- [x] Fix the long names.
+- [ ] Fix the make_post selector.
+- [ ] Fix the long name error in the scripts.
+- [ ] Add the translation.
+- [ ] Add the Euro Specific content.
+- [ ] Add the match analysis.
