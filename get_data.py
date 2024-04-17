@@ -15,7 +15,7 @@ from dumbster import combine_sofascore_data_2
 
 delay = 0
 
-player_list = ['Vinícius Júnior']
+player_list = ['Serhou Guirassy']
 
 
 def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,positions={'V1':{'background':'middle','hook':'top'},'V2':{'background':'middle','description':'top','position':'bottom'},'V3':{'background':'middle'}},short_photo=['photo1','photo2'],short=True,verbose = True):
@@ -41,13 +41,12 @@ def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,posi
         for e in player_list:
 
             scrape_player(e, page, year)
-            get_fbref_percentiles(e,page,year)
     if post:
         clean_script()
         make_post(e,positions,youngster,short_photo,short,year=year,verbose=verbose)
 
 
-def scrape_player(e,page, year = 24):
+def scrape_player(e,page, verbose=True, year = 24):
 
     player = e
 
@@ -169,7 +168,7 @@ def scrape_player(e,page, year = 24):
 
             if '@' not in e:
 
-                if ('.' in e and e.replace('.','',1).isdigit()) or '/' in e or e.isalpha() or ' ' in e:
+                if (('.' in e and e.replace('.','',1).isdigit()) or e == "10") or '/' in e or e.isalpha() or ' ' in e:
 
                     games += [e]
 
@@ -177,7 +176,7 @@ def scrape_player(e,page, year = 24):
 
         for e in range(len(games)-2):
 
-            if '/' in games[e] and (games[e+1].isalpha() or ' ' in games[e+1]) and '.' in games[e+2]:
+            if '/' in games[e] and (games[e+1].isalpha() or ' ' in games[e+1]) and ('.' in games[e+2] or '10' == games[e+2]):
 
                 matches_list += [[games[e],games[e+1],games[e+2]]]
 
@@ -218,6 +217,7 @@ def scrape_player(e,page, year = 24):
         if info['positions'] == []:
             info['positions'] = ['ST'] if info['position'] == 'f' else ['CM'] if info['position'] == 'm' else ['CB']
 
+        info['percentiles'],info['statistics'] = get_fbref_percentiles(player,not verbose, year)
 
         json.dump(info,f)
 
@@ -253,6 +253,8 @@ def get_best_matches(matches,player):
     match_log = match_log[0].loc[:,['Unnamed: 0_level_0','Performance']]
 
     matches = pd.DataFrame(matches,columns=['Date','Opponent','Rating'])
+
+    matches['Rating'] = matches['Rating'].astype(float)
 
     matches = matches.sort_values('Rating',ascending=False)
 
@@ -705,12 +707,14 @@ def get_fbref_percentiles(player,default=True,year=24):
         attributes = [attributes[int(x)-1] for x in answer]
     else:
         attributes = attributes[:6]
-    
-    percentiles = ranks.loc[attributes,'Percentile'].tolist()
-    return pd.DataFrame({'Statistic':attributes,'Percentile':percentiles}).to_csv('percentile.csv')
+    try:
+        percentiles = ranks.loc[attributes,'Percentile'].set_index("Statistic").tolist()
+    except:
+        percentiles = ranks.loc[attributes,'Percentile'].tolist()
+    return percentiles, attributes
     
 
-def make_post(player,positions, youngster,short_photo,short=False, verbose=True,year = 24):
+def make_post(player,positions, youngster,short_photo,short=False,year = 24):
     with open(f'players/{player}.json') as json_file:
         data = json.load(json_file)
     matches = data['matches']
@@ -1065,8 +1069,7 @@ def make_post(player,positions, youngster,short_photo,short=False, verbose=True,
     match2 = [matches[4],int(matches[5]),int(matches[6]),float(matches[7])]
     matches = [match1,match2]
     path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/"
-    percentile = pd.read_csv('percentile.csv')
-    #percentile = get_fbref_percentiles(player,not verbose, year)
+    percentile = pd.DataFrame({"Statistic":data["statistics"],"Percentile":data["percentiles"]})
     make_script(player,stats,matches,percentile)
     make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentile)
  
@@ -1078,6 +1081,7 @@ positions={
 }
 short_photo = ['photo1','photo3']
 
-#scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
-make_post(player_list[0],positions,youngster=False,short_photo=short_photo,short=True)
-#get_fbref_percentiles(player_list[0],False)
+scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
+#make_post(player_list[0],positions,youngster=False,short_photo=short_photo,short=True)
+
+
