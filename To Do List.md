@@ -13,3 +13,6 @@
 - [ ] Add the translation.
 - [ ] Add the Euro Specific content.
 - [ ] Add the match analysis.
+- [ ] Add the polls.
+- [ ] Fix the 10 rating match selection.
+- [ ] Fix the need to use the percentile more than once (good for offline connection)
