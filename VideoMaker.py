@@ -1,4 +1,5 @@
-from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips, vfx
+from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips, concatenate_audioclips
+from ScriptWriter import translate
 import pyttsx3 
 import os
 def create_vid(img1,img2,img3,script='script',output="video1"):
@@ -7,6 +8,7 @@ def create_vid(img1,img2,img3,script='script',output="video1"):
     text = ''
     texts = []
     voice = pyttsx3.init()
+    voice.setProperty('voice','HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0')
     for e in lines:
         if e == '\n':
             texts += [text]
@@ -43,6 +45,7 @@ def create_short(img1,img2,img3,script='sort_script'):
     text = ''
     texts = []
     voice = pyttsx3.init()
+    voice.setProperty('voice','HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0')
     for e in lines:
         if e == '\n':
             texts += [text]
@@ -73,3 +76,23 @@ def create_short(img1,img2,img3,script='sort_script'):
     Video_final.write_videofile('short.mp4',24)
     os.remove('audio1.mp3')
     os.remove('audio2.mp3')
+def make_translation(script="script",sort="sort_script"):
+    script = translate(script)
+    sort = translate(sort)
+    make_audio(script,'script_es')
+    make_audio(sort,'sort_es')
+
+def make_audio(texts,output="es_audio"):
+    voice =pyttsx3.init()
+    voice.setProperty('voice','HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-ES_HELENA_11.0')
+    audios = []
+    for text in texts:
+        voice.save_to_file(text,f"audio.mp3")
+        voice.runAndWait()
+        audios += [AudioFileClip('audio.mp3')]
+    audios = concatenate_audioclips(audios)
+    audios.write_audiofile(f"{output}.mp3")
+    os.remove('audio.mp3')
+    
+text = ["Serhou Guirassy es un extremo francés-guineano de gran habilidad que ha estado impresionando a todos con su increíble definición. Actualmente jugando para el Stuttgart y con 28 años de edad, tiene un valor de mercado de unos 42 millones de euros y ha atraído la atención de clubes top del fútbol europeo por su destacado rendimiento esta temporada.","Guirassy tiene una nota media en SofaScore de 7.7 esta temporada. Está jugando un papel clave en el sueño Europeo del Stuttgart. Ha marcado la increíble cantidad 25 goles en 23 partidos, con una eficacia que lo posiciona entre los mejores del mundo. Guirassy tenido algunas actuaciones clave esta temporada con un par de hacktricks y algunos dobletes. ¿Creéis que se quedará en Stuttgart o se irá a otro equipo?"]
+make_audio(text)

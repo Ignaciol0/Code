@@ -18,7 +18,7 @@ delay = 0
 player_list = ['Serhou Guirassy']
 
 
-def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,positions={'V1':{'background':'middle','hook':'top'},'V2':{'background':'middle','description':'top','position':'bottom'},'V3':{'background':'middle'}},short_photo=['photo1','photo2'],short=True,verbose = True):
+def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,positions={'V1':{'background':'middle','hook':'top'},'V2':{'background':'middle','description':'top','position':'bottom'},'V3':{'background':'middle'}},short_photo=['photo1','photo2'],short=True,verbose = True, translate = False):
 
     with sync_playwright() as p:
 
@@ -43,7 +43,7 @@ def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,posi
             scrape_player(e, page, year)
     if post:
         clean_script()
-        make_post(e,positions,youngster,short_photo,short,year=year,verbose=verbose)
+        make_post(e,positions,youngster,short_photo,short,year=year,verbose=verbose,translate)
 
 
 def scrape_player(e,page, verbose=True, year = 24):
@@ -714,7 +714,7 @@ def get_fbref_percentiles(player,default=True,year=24):
     return percentiles, attributes
     
 
-def make_post(player,positions, youngster,short_photo,short=False,year = 24):
+def make_post(player,positions, youngster,short_photo,short=False,year = 24, translate = False):
     with open(f'players/{player}.json') as json_file:
         data = json.load(json_file)
     matches = data['matches']
@@ -1071,7 +1071,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24):
     path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/"
     percentile = pd.DataFrame({"Statistic":data["statistics"],"Percentile":data["percentiles"]})
     make_script(player,stats,matches,percentile)
-    make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentile)
+    make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentile,translate)
  
 
 positions={

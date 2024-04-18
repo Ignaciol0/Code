@@ -472,7 +472,7 @@ def make_short_script(p2,p3):
     return response['message']['content']
 
 def translate(script):
-    with open(f"{script}") as t:
+    with open(f"{script}.txt") as t:
         lines = t.readlines()
     text = ''
     texts = []
@@ -484,16 +484,29 @@ def translate(script):
             text += e
     textos = []
     for text in texts:
-        response = ollama.chat(model='mixtral:8x7b', messages=[
+        response = ollama.chat(model='llama2', messages=[
         {
             'role':'system',
             'content':'You are a pro english to spanish translator'
         },{
+            'role':'user',
+            'content':"English: Serhou Guirassy is a highly skilled French-Guinean forward who has been impressing audiences with his exceptional finishing ability on the pitch. Currently playing for VfB Stuttgart at the age of 28, he has a transfer value of 42 million euros and has attracted attention from top clubs in Europe for his remarkable performances this season.\n Spanish: "
+        },{
+            'role':'assistant',
+            'content':"Serhou Guirassy es un extremo francés-guineano de gran habilidad que ha estado impresionando a todos con su increíble definición. Actualmente jugando para el Stuttgart y con 28 años de edad, tiene un valor de mercado de unos 42 millones de euros y ha atraído la atención de clubes top del fútbol europeo por su destacado rendimiento esta temporada."
+        },{
+            'role':'user',
+            'content':"English: Guirassy's SofaScore rating for the season is an impressive 7.77, playing a key role in Stuttgart's push for Europe. He has scored an incredible 25 goals in 23 matches, with an efficiency that ranks him among the best in the world. He has had some key performances with a couple of hacktricks and some braces. Do you think he will remain at Stuttgart or will he leave for another team?\n Spanish: "
+        },{
+            'role':'assistant',
+            'content':"Guirassy tiene una nota media en SofaScore de 7.7 esta temporada. Está jugando un papel clave en el sueño Europeo del Stuttgart. Ha marcado la increíble cantidad 25 goles en 23 partidos, con una eficacia que lo posiciona entre los mejores del mundo. Guirassy tenido algunas actuaciones clave esta temporada con un par de hacktricks y algunos dobletes. ¿Creéis que se quedará en Stuttgart o se irá a otro equipo?"
+        },{
             'role': 'user',
-            'content': f"Translate into Spain's spanish this paragraph {text}"
+            'content': f"English:\n {text}, Spanish: "
         }])
         textos += [response['message']['content']]
-    return f"{textos[0]}\n\n{textos[1]}\n\n{textos[2]}\n\n\n"
+    return textos
+
 
 def make_script(player,stats,match_list,percentile):
     if input('Do you want to create a script? ') == 'no':
@@ -555,7 +568,6 @@ def make_script(player,stats,match_list,percentile):
  
 #player = 'Antoine Griezmann'
 #make_script(player,[7.69, 'Matches played: 32(28.0)', 'Goals: 10.0', 'Assists: 14.0', 'Big Chances: 15.0', 'Shots per game: 4.2', 'Key Passes per game: 5.5'],[['Stuttgart', 0, 2, 8.7], ['Frankfurt', 1, 1, 8.4]],get_fbref_percentiles(player,False))
-
 
 
 

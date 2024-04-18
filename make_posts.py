@@ -1893,14 +1893,14 @@ def make_ig_posts(path,player,youngster, Hook, matches, stats, info):
     make_ig_story(path,player, Hook)
     create_vid('Video','Video-1','Video-2')
 
-def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentiles):
+def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentiles,translate=False):
 
-    '''
-    thread1 = ThreadWithReturnValue(target=translate,args=("script.txt",))
-    thread2 = ThreadWithReturnValue(target=translate,args=("sort_script.txt",))
-    thread1.start()
-    thread2.start()
-    '''
+    if translate:
+        thread1 = ThreadWithReturnValue(target=translate,args=("script",))
+        thread2 = ThreadWithReturnValue(target=translate,args=("sort_script",))
+        thread1.start()
+        thread2.start()
+    
     player = unidecode.unidecode(player)
     make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
     make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
@@ -1911,11 +1911,11 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
         make_video2(path,player,info,short_photo[1])
         make_video3(path,matches,stats,percentiles)
         create_short('Video','Video-1','Video-2')
-    '''
-    script = thread1.join()
-    sort_script = thread2.join()
-    get_audios(script,sort_script)
-    '''
+    if translate:
+        script = thread1.join()
+        sort_script = thread2.join()
+        get_audios(script,sort_script)
+    
 
 def make_yt_match_video(path,player,matches,stats,match,positions):
     make_match_video_frame1(path,player,["Burnley","Chelsea","6-0"],position=positions['V1']['background'],hook_position=positions['V1']['hook'],result_position="top")
