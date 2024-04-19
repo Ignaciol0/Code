@@ -4,16 +4,18 @@
 - [x] Fix the long name error in the scripts.
 - [x] Fix the 10 rating match selection.
 - [x] Fix the need to use the percentile more than once (good for offline connection).
-- [ ] Fix the sort scripts.
-- [ ] Fix the Chance Conversion in the Script.
+- [x] Add the auto open Ubuntu.
+- [x] Fix the sort scripts.
+- [x] Fix the Chance Conversion in the Script.
+- [x] Fix the organization of the files
 - [ ] Fix the goal and assists placement.
 - [ ] Fix the make_post selector.
 - [ ] Fix the error of infinite execution.
 - [ ] Add the pro percentile selection.
 - [ ] Add the new capability for sort selection.
 - [ ] Add the AI Voice Over.
-- [ ] Add the auto open Ubuntu.
 - [ ] Add the translation.
 - [ ] Add the Euro Specific content.
 - [ ] Add the match analysis.
 - [ ] Add the polls.
+- [ ] Add the cool read.me
