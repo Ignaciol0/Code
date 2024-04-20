@@ -19,3 +19,4 @@
 - [ ] Add the match analysis.
 - [ ] Add the polls.
 - [ ] Add the cool read.me
+- [ ] Fix the prompts.txt

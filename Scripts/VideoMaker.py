@@ -29,9 +29,9 @@ def create_vid(img1,img2,img3,script='script',output="video1"):
     audio2 = AudioFileClip('audio2.mp3')
     audio3 = AudioFileClip('audio3.mp3')
 
-    image1 = ImageClip(f'{img1}.png')
-    image2 = ImageClip(f'{img2}.png')
-    image3 = ImageClip(f'{img3}.png')
+    image1 = ImageClip(f'Video Output/{img1}.png')
+    image2 = ImageClip(f'Video Output/{img2}.png')
+    image3 = ImageClip(f'Video Output/{img3}.png')
     clip3 = image3.set_duration(audio3.duration)
     clip2 = image2.set_duration(audio2.duration+1)
     clip1 = image1.set_duration(audio1.duration+1)
@@ -64,9 +64,9 @@ def create_short(img1,img2,img3,script='sort_script'):
     audio1 = AudioFileClip('audio1.mp3')
     audio2 = AudioFileClip('audio2.mp3')
 
-    image1 = ImageClip(f'{img1}.png')
-    image2 = ImageClip(f'{img2}.png')
-    image3 = ImageClip(f'{img3}.png')
+    image1 = ImageClip(f'Video Output/{img1}.png')
+    image2 = ImageClip(f'Video Output/{img2}.png')
+    image3 = ImageClip(f'Video Output/{img3}.png')
     
     clip1 = image1.set_duration(audio1.duration/2)
     clip2 = image2.set_duration(audio1.duration/2)

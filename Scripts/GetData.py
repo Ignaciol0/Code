@@ -5,7 +5,7 @@ import json
 import pandas as pd
 import os
 from ScriptWriter import make_script
-from make_posts import make_ig_posts, make_yt_videos
+from MakePosts import make_ig_posts, make_yt_videos
 import sys
 
 
@@ -18,8 +18,23 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Serhou Guirassy']
+player_list = ['Isco']
 
+def matches_sofascore(page):
+    ratings = []
+    dates = []
+    for e in range(0,3):
+        for num in range(1,11):
+            rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span/div/span').all_inner_texts()
+            date = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[2]').all_inner_texts()
+            if rating != []:
+                ratings += [rating[0]]
+                dates += [date[0]]
+        page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[1]/div[1]/button').click()
+
+        time.sleep(5)
+    return [dates,ratings]
+    
 
 def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,positions={'V1':{'background':'middle','hook':'top'},'V2':{'background':'middle','description':'top','position':'bottom'},'V3':{'background':'middle'}},short_photo=['photo1','photo2'],short=True,verbose = True, translate = False):
 
@@ -46,7 +61,7 @@ def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,posi
             scrape_player(e, page, year)
     if post:
         clean_script()
-        make_post(e,positions,youngster,short_photo,short,year=year,verbose=verbose,translate=translate)
+        make_post(e,positions,youngster,short_photo,short,year=year,translate=translate)
 
 
 def scrape_player(e,page, verbose=True, year = 24):
@@ -78,7 +93,6 @@ def scrape_player(e,page, verbose=True, year = 24):
         time.sleep(6)
 
         # Get the general info
-
         profile = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[2]/div[1]/div[2]').all_inner_texts()
 
         contract = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[2]/div[1]/div[1]/a/div/div').all_inner_texts()
@@ -87,26 +101,11 @@ def scrape_player(e,page, verbose=True, year = 24):
 
         position = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[2]/div[1]/div[5]/div/div[2]').all_inner_texts()
 
-        matches1 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]').all_inner_texts()
-
-        page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[1]/div[1]/button').click()
-
-        time.sleep(5)
-
-        matches2 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]').all_inner_texts()
-
-        page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[1]/div[1]/button').click()
-
-        time.sleep(5)
-
-        matches3 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]').all_inner_texts()
-        
+        positions = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[2]/div[1]/div[4]/div/div[2]/svg/g[2]').all_inner_texts()
 
         contract = contract[0]
 
         profile = profile[0]
-
-        matches = matches1[0] + "\n" + matches2[0] + '\n' + matches3[0] 
 
         value = value[0]
 
@@ -114,76 +113,9 @@ def scrape_player(e,page, verbose=True, year = 24):
 
         info['team'] = contract[0]
 
-        matches = matches.replace('\nSofasco','@')
-
-        matches = matches.replace('FT\n','')
-
-        matches = matches.replace('AET\n','')
-
-        matches = matches.replace('AP\n','')
-
-        #matches = matches.replace('Int. Friendly Games\n','')
-
-        matches = matches.replace('Club Friendly Games\n','')
-
-        matches = matches.replace('Int. Friendly Games\n','')
-
-        # This is done because some teams with long names like Bayern Leverkusen are reduced to an abreviated name
-        pre_lenght = len(matches)
-        matches = matches.replace(f'{contract[0]}\n','')
+                      
+        info['matches'], info['positions'] = get_best_matches_and_positions(matches_sofascore(page),player,year)
         
-        if pre_lenght == len(matches):
-            if contract[0] == 'Manchester City':
-                matches = matches.replace(f'Man City\n','')
-            elif contract[0] == 'Manchester United':
-                matches = matches.replace(f'Man United\n','')
-            elif contract[0] == 'Atl\u00e9tico Madrid':
-                matches = matches.replace(f'Atl. Madrid', '')
-            else:
-                matches = matches.replace(f'{contract[0].split(" ")[-1]}\n','')
-                if pre_lenght == len(matches):
-                    matches = matches.replace(f'{contract[0].split(" ")[0]}\n','')
-                    if pre_lenght == len(matches):
-                        matches = matches.replace(f'{contract[0].split(" ")[1]}\n','')
-        
-
-        league_botton = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/button')
-
-        league_botton.click()
-
-        drop_down = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/div[1]/ul').all_inner_texts()[0]
-
-        drop_down = drop_down.split('\n')
-
-        elemento = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/div[1]/ul/li[1]')
-
-        elemento.click()
-
-        for element in drop_down:
-
-            matches = matches.replace(f'{element}\n','')
-
-        matches = matches.split('\n')
-        games = []
-        
-
-        for e in matches:
-
-            if '@' not in e:
-
-                if (('.' in e and e.replace('.','',1).isdigit()) or e == "10") or '/' in e or e.isalpha() or ' ' in e:
-
-                    games += [e]
-
-        matches_list = []
-
-        for e in range(len(games)-2):
-
-            if '/' in games[e] and (games[e+1].isalpha() or ' ' in games[e+1]) and ('.' in games[e+2] or '10' == games[e+2]):
-
-                matches_list += [[games[e],games[e+1],games[e+2]]]
-
-        info['matches'] = get_best_matches(matches_list,player)
         info['contract'] = contract[1]
 
         profile = profile.lower().split('\n')
@@ -203,35 +135,21 @@ def scrape_player(e,page, verbose=True, year = 24):
 
         info['value'] = value  
 
-        #nation = nation.split('src="')[1].split('"')[0]
-
-        #info['nationality'] = nation.split('/')[-1].split('.')[0]
-
-
         info = get_stats(info,player,page,year)
-
-        try:
-
-            info['positions'] = position[0].split('\n')
-
-        except:
-            info['positions'] = position
         
-        if info['positions'] == []:
-            info['positions'] = ['ST'] if info['position'] == 'f' else ['CM'] if info['position'] == 'm' else ['CB']
-
         info['percentiles'],info['statistics'] = get_fbref_percentiles(player,not verbose, year)
 
         json.dump(info,f)
 
 def clean_script():
-    destination_path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Player Analysis"
+    destination_path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Player Analysis/scripts/"
+    index = len(os.listdir(f"{destination_path}video/"))
     if "script.txt" in os.listdir():
-        shutil.copy2(os.cwd()+"script.txt",destination_path+f"script{len(os.listdir())+1}.txt")
+        shutil.copy2(os.getcwd()+"/script.txt",destination_path+f"video/script{index+1}.txt" )
     if "sort_script.txt" in os.listdir():
-        shutil.copy2(os.cwd()+"sort_script.txt",destination_path+f"sort_script{len(os.listdir())+1}.txt")
+        shutil.copy2(os.getcwd()+"/sort_script.txt",destination_path+f"sorts/sort_script{index+1}.txt")
 
-def get_best_matches(matches,player):
+def get_best_matches_and_positions(matches,player, year):
 
     names = pd.read_csv('resources/NAME_DB.csv')
 
@@ -253,9 +171,9 @@ def get_best_matches(matches,player):
 
     match_log = pd.read_html(url)
 
-    match_log = match_log[0].loc[:,['Unnamed: 0_level_0','Performance']]
+    match_log = match_log[0].loc[:,['Unnamed: 0_level_0','Unnamed: 7_level_0','Unnamed: 9_level_0','Performance']]
 
-    matches = pd.DataFrame(matches,columns=['Date','Opponent','Rating'])
+    matches = pd.DataFrame({'Date':matches[0],'Rating':matches[1]})
 
     matches['Rating'] = matches['Rating'].astype(float)
 
@@ -263,14 +181,12 @@ def get_best_matches(matches,player):
 
     ratings = matches.loc[:,'Rating'].tolist()
 
-    opponent = matches.loc[:,'Opponent'].tolist()
-
     selected_matches = matches.loc[:,'Date'].tolist()
 
     current = False
     e = 0
     while not current:
-        if selected_matches[e].split("/")[2] == '23' and int(selected_matches[e].split("/")[1]) <= 7:
+        if selected_matches[e].split("/")[2][:2] == (year - 1) and int(selected_matches[e].split("/")[1]) <= 7:
             selected_matches.remove(selected_matches[e])
             ratings.remove(ratings[e])
             opponent.remove(opponent[e])
@@ -281,15 +197,29 @@ def get_best_matches(matches,player):
 
     selected_matches = selected_matches[0:5]
 
-    opponent = opponent[0:5]
-
     ratings = ratings[0:5]
 
     dates = match_log.loc[:,'Unnamed: 0_level_0'].loc[:,'Date'].tolist()
 
+    opponent = match_log.loc[:,'Unnamed: 7_level_0'].loc[:,'Opponent'].tolist()
+
     gls = match_log.loc[:,'Performance'].loc[:,'Gls'].tolist()
 
     ast = match_log.loc[:,'Performance'].loc[:,'Ast'].tolist()
+
+    positions = match_log.fillna('').loc[:,'Unnamed: 9_level_0'].loc[:,'Pos'].tolist()
+    
+    all_positions = []
+    for pos in positions:
+        if pos != '':
+            if ',' in pos:
+                all_positions += pos.split(",")
+            else:
+                all_positions += [pos]
+    positions = []
+    for e in set(all_positions):
+        if all_positions.count(e) >= 10:
+            positions += [e]
 
     matches = []
 
@@ -301,16 +231,15 @@ def get_best_matches(matches,player):
 
         date = date.split('/')
 
-        try:
-            matches += [opponent[index],gls[dates.index(f'20{date[2]}-{date[1]}-{date[0]}')],ast[dates.index(f'20{date[2]}-{date[1]}-{date[0]}')],ratings[index]]
-        except:
-            try:
-                matches += [opponent[index],gls[dates.index(f'20{date[2]}-{date[1]}-{date[0]-1}')],ast[dates.index(f'20{date[2]}-{date[1]}-{date[0]-1}')],ratings[index]]
-            except:
-                ...
+        
+        fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{date[0]}')
+        matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
+        if False:
+                fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{int(date[0])-1}')
+                matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
         index += 1
 
-    return matches
+    return matches, positions
 
 
 def combine_sofascore_data_2(info,int_stats, int_rating, int_stats2, int_rating2, league_rating, league_stats, league_rating2, league_stats2):
@@ -1091,5 +1020,4 @@ short_photo = ['photo1','photo3']
 
 #scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
 make_post(player_list[0],positions,youngster=False,short_photo=short_photo,short=True)
-
 
