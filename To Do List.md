@@ -8,6 +8,7 @@
 - [x] Fix the sort scripts.
 - [x] Fix the Chance Conversion in the Script.
 - [x] Fix the organization of the files
+- [x] Fix the percentile text
 - [ ] Fix the goal and assists placement.
 - [ ] Fix the make_post selector.
 - [ ] Fix the error of infinite execution.
@@ -20,3 +21,5 @@
 - [ ] Add the polls.
 - [ ] Add the cool read.me
 - [ ] Fix the prompts.txt
+- [ ] Fix the bad season script bias
+- [ ] Fix the placement of position

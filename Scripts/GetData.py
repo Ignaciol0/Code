@@ -20,21 +20,7 @@ delay = 0
 
 player_list = ['Isco']
 
-def matches_sofascore(page):
-    ratings = []
-    dates = []
-    for e in range(0,3):
-        for num in range(1,11):
-            rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span/div/span').all_inner_texts()
-            date = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[2]').all_inner_texts()
-            if rating != []:
-                ratings += [rating[0]]
-                dates += [date[0]]
-        page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[1]/div[1]/button').click()
-
-        time.sleep(5)
-    return [dates,ratings]
-    
+ 
 
 def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,positions={'V1':{'background':'middle','hook':'top'},'V2':{'background':'middle','description':'top','position':'bottom'},'V3':{'background':'middle'}},short_photo=['photo1','photo2'],short=True,verbose = True, translate = False):
 
@@ -241,7 +227,21 @@ def get_best_matches_and_positions(matches,player, year):
 
     return matches, positions
 
+def matches_sofascore(page):
+    ratings = []
+    dates = []
+    for e in range(0,3):
+        for num in range(1,11):
+            rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span/div/span').all_inner_texts()
+            date = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[2]').all_inner_texts()
+            if rating != []:
+                ratings += [rating[0]]
+                dates += [date[0]]
+        page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[1]/div[1]/button').click()
 
+        time.sleep(5)
+    return [dates,ratings]
+   
 def combine_sofascore_data_2(info,int_stats, int_rating, int_stats2, int_rating2, league_rating, league_stats, league_rating2, league_stats2):
     with open('resources/All_Atributes.json','r') as f:
         stats = json.load(f)
@@ -648,7 +648,10 @@ def get_fbref_percentiles(player,default=True,year=24):
         percentiles = ranks.loc[attributes,'Percentile'].set_index("Statistic").tolist()
     except:
         percentiles = ranks.loc[attributes,'Percentile'].tolist()
-    return percentiles, attributes
+    percentiles_list = []
+    for percentile in percentiles:
+        percentiles_list += [percentile.replace("Progressive","Prog.")]
+    return percentiles_list, attributes
     
 
 def make_post(player,positions, youngster,short_photo,short=False,year = 24, translate = False):
