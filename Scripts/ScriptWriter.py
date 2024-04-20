@@ -469,6 +469,7 @@ def make_post(player, youngster=True):
 
 def make_short_script(p2,p3):
     scripts = [p2,p3]
+    results = []
     for paragraph in scripts:
         prompt = f'I am going to give you a paragraph of a script make a new shorter paragraph script: {paragraph}'
         response = ollama.chat(model='llama2',messages=[
@@ -503,7 +504,9 @@ def make_short_script(p2,p3):
         with open("prompts.txt","a+") as file:
             if f"Prompt Short{scripts.index(paragraph)}: {prompt}" not in file.read():
                 file.write(f"Prompt Short {scripts.index(paragraph)+1}: {prompt}")
-    return response['message']['content']
+        results += [response['message']['content']+"\n\n\n"]
+    
+    return "".join(results)
 
 def translate(script):
     with open(f"{script}.txt") as t:
@@ -616,7 +619,7 @@ def make_script(player,stats,match_list):
         else:
             text += e
     with open("prompts.txt","a+") as file:
-        if f"Response Short 1: {prompt[0]}" not in file.read():
+        if f"Response Short 1: {texts[0]}" not in file.read():
             file.write(f"Response Short 1: {prompt[0]}\n")
         if f"Response Short 2: {texts[1]}" not in file.read():
             file.write(f"Response Short 2: {texts[1]}\n")

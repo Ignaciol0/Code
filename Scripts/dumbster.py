@@ -940,3 +940,173 @@ def combine_sofascore_data(info,int_stats, int_rating, int_stats2, int_rating2, 
 
     return info
   
+def matches_sofascore(page):
+        matches1 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]').all_inner_texts()
+
+        page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[1]/div[1]/button').click()
+
+        time.sleep(5)
+
+        matches2 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]').all_inner_texts()
+
+        page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[1]/div[1]/button').click()
+
+        time.sleep(5)
+
+        matches3 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]').all_inner_texts()
+        
+        matches = matches1[0] + "\n" + matches2[0] + '\n' + matches3[0] 
+
+        matches = matches.replace('\nSofasco','@')
+
+        matches = matches.replace('FT\n','')
+
+        matches = matches.replace('AET\n','')
+
+        matches = matches.replace('AP\n','')
+
+        #matches = matches.replace('Int. Friendly Games\n','')
+
+        matches = matches.replace('Club Friendly Games\n','')
+
+        matches = matches.replace('Int. Friendly Games\n','')
+
+        # This is done because some teams with long names like Bayern Leverkusen are reduced to an abreviated name
+        pre_lenght = len(matches)
+        matches = matches.replace(f'{contract[0]}\n','')
+        
+        if pre_lenght == len(matches):
+            if contract[0] == 'Manchester City':
+                matches = matches.replace(f'Man City\n','')
+            elif contract[0] == 'Manchester United':
+                matches = matches.replace(f'Man United\n','')
+            elif contract[0] == 'Atl\u00e9tico Madrid':
+                matches = matches.replace(f'Atl. Madrid', '')
+            elif contract[0] == "Paris Saint-Germain":
+                matches = matches.replace(f'PSG', '')
+            else:
+                matches = matches.replace(f'{contract[0].split(" ")[-1]}\n','')
+                if pre_lenght == len(matches):
+                    matches = matches.replace(f'{contract[0].split(" ")[0]}\n','')
+                    if pre_lenght == len(matches):
+                        matches = matches.replace(f'{contract[0].split(" ")[1]}\n','')
+        
+
+        league_botton = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/button')
+
+        league_botton.click()
+
+        drop_down = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/div[1]/ul').all_inner_texts()[0]
+
+        drop_down = drop_down.split('\n')
+
+        elemento = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/div[1]/ul/li[1]')
+
+        elemento.click()
+
+        for element in drop_down:
+
+            matches = matches.replace(f'{element}\n','')
+
+        matches = matches.split('\n')
+        games = []
+        
+
+        for e in matches:
+
+            if '@' not in e:
+
+                if (('.' in e and e.replace('.','',1).isdigit()) or e == "10") or '/' in e or e.isalpha() or ' ' in e:
+
+                    games += [e]
+
+        matches_list = []
+
+        for e in range(len(games)-2):
+
+            if '/' in games[e] and (games[e+1].isalpha() or ' ' in games[e+1]) and ('.' in games[e+2] or '10' == games[e+2]):
+
+                matches_list += [[games[e],games[e+1],games[e+2]]]
+        return  matches_list
+
+def get_best_matches(matches,player):
+
+    names = pd.read_csv('resources/NAME_DB.csv')
+
+    names = names.set_index('Name')
+
+    url = names.loc[player].values[1]
+
+    url = url.split('/')
+
+    name = url[4] + '-Match-Logs'
+
+    url[4] = 'matchlogs'
+
+    url[0] = 'https://fbref.com'
+
+    url += ['2023-2024',name]
+
+    url = '/'.join(url)
+
+    match_log = pd.read_html(url)
+
+    match_log = match_log[0].loc[:,['Unnamed: 0_level_0','Performance']]
+
+    matches = pd.DataFrame(matches,columns=['Date','Opponent','Rating'])
+
+    matches['Rating'] = matches['Rating'].astype(float)
+
+    matches = matches.sort_values('Rating',ascending=False)
+
+    ratings = matches.loc[:,'Rating'].tolist()
+
+    opponent = matches.loc[:,'Opponent'].tolist()
+
+    selected_matches = matches.loc[:,'Date'].tolist()
+
+    current = False
+    e = 0
+    while not current:
+        if selected_matches[e].split("/")[2] == '23' and int(selected_matches[e].split("/")[1]) <= 7:
+            selected_matches.remove(selected_matches[e])
+            ratings.remove(ratings[e])
+            opponent.remove(opponent[e])
+
+        e += 1
+        if e == len(selected_matches):
+            current = True
+
+    selected_matches = selected_matches[0:5]
+
+    opponent = opponent[0:5]
+
+    ratings = ratings[0:5]
+
+    dates = match_log.loc[:,'Unnamed: 0_level_0'].loc[:,'Date'].tolist()
+
+    gls = match_log.loc[:,'Performance'].loc[:,'Gls'].tolist()
+
+    ast = match_log.loc[:,'Performance'].loc[:,'Ast'].tolist()
+
+    matches = []
+
+    match_log = match_log.iloc[1]
+
+    index = 0
+
+    for date in selected_matches:
+
+        date = date.split('/')
+
+        try:
+            matches += [opponent[index],gls[dates.index(f'20{date[2]}-{date[1]}-{date[0]}')],ast[dates.index(f'20{date[2]}-{date[1]}-{date[0]}')],ratings[index]]
+        except:
+            try:
+                matches += [opponent[index],gls[dates.index(f'20{date[2]}-{date[1]}-{date[0]-1}')],ast[dates.index(f'20{date[2]}-{date[1]}-{date[0]-1}')],ratings[index]]
+            except:
+                ...
+        index += 1
+
+    return matches
+
