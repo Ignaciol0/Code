@@ -9,12 +9,11 @@
 - [x] Fix the Chance Conversion in the Script.
 - [x] Fix the organization of the files
 - [x] Fix the percentile text
+- [x] Add the image selection before or while the creation of the audio.
+- [x] Add the AI Voice Over.
+- [x] Fix the error of infinite execution.
 - [ ] Fix the goal and assists placement.
-- [ ] Fix the make_post selector.
-- [ ] Fix the error of infinite execution.
 - [ ] Add the pro percentile selection.
-- [ ] Add the new capability for sort selection.
-- [ ] Add the AI Voice Over.
 - [ ] Add the translation.
 - [ ] Add the Euro Specific content.
 - [ ] Add the match analysis.
@@ -26,4 +25,5 @@
 - [ ] Add the selection of elements when talking about them
 - [ ] Add the open ubuntu
 - [ ] Add the open .bat
-- [ ] Add the image selection before or while the creation of the audio. Like: Do you like the pictures and the ability to change the position and such.
+- [ ] Add the better script writing with the percentiles
+- [ ] Add the GUI with tkinter
