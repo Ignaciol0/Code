@@ -1916,20 +1916,33 @@ def make_ig_posts(path,player,youngster, Hook, matches, stats, info):
 def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentiles,translate=False,clone=False):
 
     if translate:
-        thread1 = ThreadWithReturnValue(target=translate,args=("script",))
-        thread2 = ThreadWithReturnValue(target=translate,args=("sort_script",))
-        thread1.start()
-        thread2.start()
-    
+        if translate:
+            thread1 = ThreadWithReturnValue(target=translate,args=("script",))
+            thread2 = ThreadWithReturnValue(target=translate,args=("sort_script",))
+            thread1.start()
+            thread2.start()
+        if clone:
+            thread3 = ThreadWithReturnValue(target=make_audios_clone_voice(),args=("script",))
+            thread3.start()
     player = unidecode.unidecode(player)
-    make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
-    make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
-    make_video_frame3(path,matches,stats,position=positions['V3']['background'],percentiles=percentiles)
-    create_vid('Video1','Video2','Video3',clone=clone,make_audio=False)
-    if short:
+    response = ''
+    while response.lower() not in ["yes","y","si"]:
+        make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
+        make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
+        make_video_frame3(path,matches,stats,position=positions['V3']['background'],percentiles=percentiles)
         make_video1(path,player,short_photo[0])
         make_video2(path,player,info,short_photo[1])
         make_video3(path,matches,stats,percentiles)
+        response = input("Do you like the Images? (yes/position/youngster/other)")
+        if response.lower() in ["younster","young","w"]:
+            youngster = True
+        elif response.lower() in ["other","o"]:
+            pass
+        elif response.lower() not in ["yes","y","si"]:
+            positions = dict(input(f"This is the dictionary\n{positions}\nWrite your changes\n"))
+    thread3.join()
+    create_vid('Video1','Video2','Video3',clone=clone,make_audio=False)
+    if short:
         create_short('Video','Video-1','Video-2',clone=clone)
     if translate:
         script = thread1.join()

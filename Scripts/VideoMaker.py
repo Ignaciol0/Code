@@ -27,8 +27,7 @@ def create_vid(img1,img2,img3,script='script',output="video1",clone=False,make_a
             voice.save_to_file(texts[1],"audio2.mp3")
             voice.save_to_file(texts[2],"audio3.mp3")
             voice.runAndWait()
-        else:
-            make_audios_clone_voice(script)
+
 
     if not clone:
         audio1 = AudioFileClip('audio1.mp3')
