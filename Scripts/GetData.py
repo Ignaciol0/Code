@@ -18,11 +18,11 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Isco']
+player_list = ['Bruno Fernandes']
 
  
 
-def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,positions={'V1':{'background':'middle','hook':'top'},'V2':{'background':'middle','description':'top','position':'bottom'},'V3':{'background':'middle'}},short_photo=['photo1','photo2'],short=True,verbose = True, translate = False):
+def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,positions={'V1':{'background':'middle','hook':'top'},'V2':{'background':'middle','description':'top','position':'bottom'},'V3':{'background':'middle'}},short_photo=['photo1','photo2'],short=True,verbose = True, translate = False,clone=False):
 
     with sync_playwright() as p:
 
@@ -47,7 +47,7 @@ def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,posi
             scrape_player(e, page, year)
     if post:
         clean_script()
-        make_post(e,positions,youngster,short_photo,short,year=year,translate=translate)
+        make_post(e,positions,youngster,short_photo,short,year=year,translate=translate,clone=clone)
 
 
 def scrape_player(e,page, verbose=True, year = 24):
@@ -516,7 +516,7 @@ def get_sofascore_stats(info,page,year=24):
 
                         int_stats = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[5]').all_inner_texts()[0].split('\n')
 
-                        int_rating = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div').all_inner_texts()[0]
+                        int_rating = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div/span/div/span').all_inner_texts()[0]
 
                         for e in ["Other","Cards","Passing","Defending","Attacking","Matches"]:
 
@@ -526,7 +526,7 @@ def get_sofascore_stats(info,page,year=24):
 
                         int_stats2 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[5]').all_inner_texts()[0].split('\n')
 
-                        int_rating2 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div').all_inner_texts()[0]
+                        int_rating2 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div/span/div/span').all_inner_texts()[0]
 
                         for e in ["Other","Cards","Passing","Defending","Attacking","Matches"]:
 
@@ -548,7 +548,7 @@ def get_sofascore_stats(info,page,year=24):
 
                         league_stats = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[5]').all_inner_texts()[0].split('\n')
 
-                        league_rating = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div').all_inner_texts()[0]
+                        league_rating = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div/span/div/span').all_inner_texts()[0]
 
                         for e in ["Other","Cards","Passing","Defending","Attacking","Matches"]:
 
@@ -558,7 +558,7 @@ def get_sofascore_stats(info,page,year=24):
 
                         league_stats2 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[5]').all_inner_texts()[0].split('\n')
 
-                        league_rating2 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div').all_inner_texts()[0]
+                        league_rating2 = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div/span/div/span').all_inner_texts()[0]
 
                         for e in ["Other","Cards","Passing","Defending","Attacking","Matches"]:
 
@@ -636,25 +636,25 @@ def get_fbref_percentiles(player,default=True,year=24):
         else:
             attributes += attributes_two
     if not default:
+        top_attributes = ranks.loc[:,"Statistic"].tolist()
         ranks = ranks.set_index('Statistic')
         inputtext = f'This are the top inputs put the number of the ones you want to select in this way (1,2,3,...)\n\n'
-        for attribute in attributes:
-            inputtext += f'{1+attributes.index(attribute)}. {attribute}:{ranks.loc[attribute,"Percentile"]}\t'
+        for attribute in top_attributes:
+            inputtext += f'{1+top_attributes.index(attribute)}. {attribute}:{ranks.loc[attribute,"Percentile"]}\t'
         answer = input(inputtext+'Attributes selected: ').split(',')
-        attributes = [attributes[int(x)-1] for x in answer]
+        attributes = [top_attributes[int(x)-1] for x in answer]
     else:
         attributes = attributes[:6]
     try:
         percentiles = ranks.loc[attributes,'Percentile'].set_index("Statistic").tolist()
     except:
         percentiles = ranks.loc[attributes,'Percentile'].tolist()
-    percentiles_list = []
-    for percentile in percentiles:
-        percentiles_list += [percentile.replace("Progressive","Prog.")]
-    return percentiles_list, attributes
+    attributes_list = []
+    for attribute in attributes:
+        attributes_list += [attribute.replace("Progressive","Prog.")]
+    return percentiles, attributes_list
     
-
-def make_post(player,positions, youngster,short_photo,short=False,year = 24, translate = False):
+def make_post(player,positions, youngster,short_photo,short=False,year = 24, translate = False,clone=False):
     with open(f'players/{player}.json') as json_file:
         data = json.load(json_file)
     matches = data['matches']
@@ -799,7 +799,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
         if int(goals) + int(assists) >= 5:
             stats += [match,f'Goals: {int(goals)}',f'Assists: {int(assists)}']
         else:
-            stats += [match,f'Goals & Assists: {int(goals)+int(assists)}']
+            stats += [match,f'Goals and Assists: {int(goals)+int(assists)}']
             offset -= 1
         if int(big_chances) >= 5:
             stats += [f'Big Chances: {int(big_chances)}']
@@ -901,7 +901,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
         if int(goals) + int(assists) >= 5:
             stats += [match,f'Goals: {int(goals)}',f'Assists: {int(assists)}']
         else:
-            stats += [match,f'Goals & Assists: {int(goals)+int(assists)}']
+            stats += [match,f'Goals and Assists: {int(goals)+int(assists)}']
             offset -= 1
         if int(big_chances) >= 5:
             stats += [f'Big Chances: {int(big_chances)}']
@@ -1011,16 +1011,16 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
     path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/Video Output/"
     percentile = pd.DataFrame({"Statistic":data["statistics"],"Percentile":data["percentiles"]})
     make_script(player,stats,matches)
-    make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentile,translate)
+    make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentile,translate,clone=clone)
  
 
 positions={
 'V1':{'background':'middle','hook':'bottom'},
-'V2':{'background':'middle','description':'bottom','position':False},
+'V2':{'background':'bottom','description':'bottom','position':False},
 'V3':{'background':'middle'}
 }
-short_photo = ['photo1','photo3']
+short_photo = ['photo1','photo2']
 
 #scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
-make_post(player_list[0],positions,youngster=False,short_photo=short_photo,short=True)
+make_post(player_list[0],positions,youngster=False,short_photo=short_photo,short=True,clone=True)
 
