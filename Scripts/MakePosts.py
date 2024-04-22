@@ -1913,7 +1913,7 @@ def make_ig_posts(path,player,youngster, Hook, matches, stats, info):
     make_ig_story(path,player, Hook)
     create_vid('Video','Video-1','Video-2')
 
-def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentiles,translate=False):
+def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentiles,translate=False,clone=False):
 
     if translate:
         thread1 = ThreadWithReturnValue(target=translate,args=("script",))
@@ -1925,12 +1925,12 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
     make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
     make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
     make_video_frame3(path,matches,stats,position=positions['V3']['background'],percentiles=percentiles)
-    create_vid('Video1','Video2','Video3')
+    create_vid('Video1','Video2','Video3',clone=clone,make_audio=False)
     if short:
         make_video1(path,player,short_photo[0])
         make_video2(path,player,info,short_photo[1])
         make_video3(path,matches,stats,percentiles)
-        create_short('Video','Video-1','Video-2')
+        create_short('Video','Video-1','Video-2',clone=clone)
     if translate:
         script = thread1.join()
         sort_script = thread2.join()
@@ -1949,4 +1949,6 @@ positions={
 'V2':{'background':'middle','description':'right-top','position':"right-bottom"},
 'V3':{'background':'middle'}
 }
+
 #make_yt_match_video(path,"Cole Palmer",[["Man Utd",3,0,"10"],["Burnley",2,0,"10"]],["9.08","Goals: 10","Assists: 2","Big Chances Created: 4","Key Passes: 16","Shots per match: 6.6"],["Rating: 10.0","Goals: 4","Assists: 0","Expected Goals (xG): 2.50","Succesful Dribbles: 3/4","Penalty won: 1","Shots on target: 5","Shots on target %: 100%"],positions)
+#make_video_frame3(path,matches,stats,pd.DataFrame({"Percentile":[99, 97, 95, 92, 87, 81, 80, 77, 75, 71],"Statistic":["Goals/Shot", "Shots on Target %", "Goals - xG", "Goals/Shot on Target", "Through Balls", "Take-Ons Attempted", "Clearances", "Successful Take-Ons", "Carries into Penalty Area", "Goals"]}))

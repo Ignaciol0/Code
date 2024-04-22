@@ -14,7 +14,6 @@ def make_audios_clone_voice(script="script"):
                 lines = t.readlines()
     text = ''
     texts = []
-    voice = pyttsx3.init()
     for e in lines:
         if e == '\n':
             texts += [text]

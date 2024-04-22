@@ -23,3 +23,7 @@
 - [ ] Fix the prompts.txt
 - [ ] Fix the bad season script bias
 - [ ] Fix the placement of position
+- [ ] Add the selection of elements when talking about them
+- [ ] Add the open ubuntu
+- [ ] Add the open .bat
+- [ ] Add the image selection before or while the creation of the audio. Like: Do you like the pictures and the ability to change the position and such.

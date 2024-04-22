@@ -25,7 +25,7 @@ def get_stats_script(player):
 
     player_stats = f'Player from {player["team"]} of age {player["age"]} and nationality {player["nationality"]} and a transfer value of {player["value"]} million euros. And playing as a {player["position"]}'
     prompt = f'Write a two sentence description of {name} with this information {player_stats}.'
-    response = ollama.chat(model='llama2', messages=[
+    response = ollama.chat(model='llama3', messages=[
         {
             'role':'system',
             'content':'Write a two sentence script and DO NOT use one of the most sought-after players in the world and DO NOT describe the information given.'
@@ -72,7 +72,7 @@ def get_season_script(player,stats,match_list):
     for x in match_list:
         matches += f' Against {x[0]} with {"a hack trick" if x[1] == 3 else f"{x[1]} goals" if x[1]>0 else ""} {f"and {x[2]} assists" if x[2] > 0 else ""} and a rating for the match of {x[3]}.'
     prompt = f"write a paragraph analysis about {player}'s season with a {stats[0]} average rating in sofascore and this other key stats {', '.join(stats[1:]).replace(':','')} also here are some other stats {percentiles} his best matches this season are:{matches}. Other information that doesn't have to be mentioned is that he plays as a {description['position']} and he is {description['age']} years old"
-    response = ollama.chat(model='llama2', messages=[
+    response = ollama.chat(model='llama3', messages=[
         {
             'role':'system',
             'content':'Write ONLY one paragraph'
@@ -472,7 +472,7 @@ def make_short_script(p2,p3):
     results = []
     for paragraph in scripts:
         prompt = f'I am going to give you a paragraph of a script make a new shorter paragraph script: {paragraph}'
-        response = ollama.chat(model='llama2',messages=[
+        response = ollama.chat(model='llama3',messages=[
         {'role':'user',
         'content':"I am going to give you a paragraph of a script make a new shorter paragraph script: This is a player that has been at the top of his game for many years, consistently delivering excellent performances for both club and now again country. Toni Kroos, a German midfielder currently playing for Real Madrid at the age of 34, has a transfer value of 11.6 million euros, known for his exceptional passing ability and leadership on the pitch."
         },{
@@ -521,7 +521,7 @@ def translate(script):
             text += e
     textos = []
     for text in texts:
-        response = ollama.chat(model='llama2', messages=[
+        response = ollama.chat(model='llama3', messages=[
         {
             'role':'system',
             'content':'You are a pro english to spanish translator'
@@ -620,7 +620,7 @@ def make_script(player,stats,match_list):
             text += e
     with open("prompts.txt","a+") as file:
         if f"Response Short 1: {texts[0]}" not in file.read():
-            file.write(f"Response Short 1: {prompt[0]}\n")
+            file.write(f"Response Short 1: {texts[0]}\n")
         if f"Response Short 2: {texts[1]}" not in file.read():
             file.write(f"Response Short 2: {texts[1]}\n")
  
