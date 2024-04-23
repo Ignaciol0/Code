@@ -13,6 +13,7 @@
 - [x] Add the AI Voice Over.
 - [x] Fix the error of infinite execution.
 - [x] Fix the spacing in the sort script
+- [x] Fix the placement of position
 - [ ] Fix the goal and assists placement.
 - [ ] Add the pro percentile selection.
 - [ ] Add the translation.
@@ -22,7 +23,6 @@
 - [ ] Add the cool read.me
 - [ ] Fix the prompts.txt
 - [ ] Fix the bad season script bias
-- [ ] Fix the placement of position
 - [ ] Add the selection of elements when talking about them
 - [ ] Add the open ubuntu
 - [ ] Add the open .bat

@@ -996,9 +996,9 @@ def make_video_frame2(path,player,info, position='middle',description = 'bottom'
     width = int(width/scale)
     positions = cv2.resize(positions,(width,400))
     if position_top:
-        imgResult = cvzone.overlayPNG(imgResult,positions,[755,10])
+        imgResult = cvzone.overlayPNG(imgResult,positions,[950,10])
     else:
-        imgResult = cvzone.overlayPNG(imgResult,positions,[755,400])
+        imgResult = cvzone.overlayPNG(imgResult,positions,[950,400])
     cv2.imwrite(path+'Video2(no clubs).png', imgResult)
 
     # Club adjusting
@@ -1965,3 +1965,4 @@ positions={
 
 #make_yt_match_video(path,"Cole Palmer",[["Man Utd",3,0,"10"],["Burnley",2,0,"10"]],["9.08","Goals: 10","Assists: 2","Big Chances Created: 4","Key Passes: 16","Shots per match: 6.6"],["Rating: 10.0","Goals: 4","Assists: 0","Expected Goals (xG): 2.50","Succesful Dribbles: 3/4","Penalty won: 1","Shots on target: 5","Shots on target %: 100%"],positions)
 #make_video_frame3(path,matches,stats,pd.DataFrame({"Percentile":[99, 97, 95, 92, 87, 81, 80, 77, 75, 71],"Statistic":["Goals/Shot", "Shots on Target %", "Goals - xG", "Goals/Shot on Target", "Through Balls", "Take-Ons Attempted", "Clearances", "Successful Take-Ons", "Carries into Penalty Area", "Goals"]}))
+make_video_frame2(path,player,info)
