@@ -14,7 +14,7 @@
 - [x] Fix the error of infinite execution.
 - [x] Fix the spacing in the sort script
 - [x] Fix the placement of position
-- [ ] Fix the goal and assists placement.
+- [x] Fix the goal and assists placement.
 - [ ] Add the pro percentile selection.
 - [ ] Add the translation.
 - [ ] Add the Euro Specific content.
