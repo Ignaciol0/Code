@@ -15,6 +15,7 @@
 - [x] Fix the spacing in the sort script
 - [x] Fix the placement of position
 - [x] Fix the goal and assists placement.
+- [x] Add the better script writing with the percentiles
 - [ ] Add the pro percentile selection.
 - [ ] Add the translation.
 - [ ] Add the Euro Specific content.
@@ -26,6 +27,8 @@
 - [ ] Add the selection of elements when talking about them
 - [ ] Add the open ubuntu
 - [ ] Add the open .bat
-- [ ] Add the better script writing with the percentiles
 - [ ] Add the GUI flatter
 - [ ] Add the football games web addition
+- [ ] Fix the thread for the audio cleation-Image generation
+- [ ] Fix the box of the sorts photo 3
+- [ ] Add the detection of a too long short video

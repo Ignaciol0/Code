@@ -4,6 +4,7 @@ import shutil
 import json
 import pandas as pd
 import os
+import unidecode
 from ScriptWriter import make_script
 from MakePosts import make_ig_posts, make_yt_videos
 import sys
@@ -18,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Rodri']
+player_list = ['Dušan Vlahović']
 
  
 
@@ -42,23 +43,21 @@ def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,posi
 
         page.keyboard.press("Enter")
 
-        for e in player_list:
-
-            scrape_player(e, page, year)
+        for player in player_list:
+            player = unidecode.unidecode(player)
+            scrape_player(player, page, year)
     if post:
         clean_script()
-        make_post(e,positions,youngster,short_photo,short,year=year,translate=translate,clone=clone)
+        make_post(player,positions,youngster,short_photo,short,year=year,translate=translate,clone=clone)
 
 
-def scrape_player(e,page, verbose=True, year = 24):
-
-    player = e
+def scrape_player(player,page, verbose=True, year = 24):
 
     info = {}
 
-    title = "players/"+ e + ".json"
+    player_file = "players/"+ player + ".json"
 
-    with open(title, "w") as f:
+    with open(player_file, "w") as f:
 
         time.sleep(delay)
 
@@ -172,11 +171,13 @@ def get_best_matches_and_positions(matches,player, year):
     current = False
     e = 0
     while not current:
-        if selected_matches[e].split("/")[2][:2] == (year - 1) and int(selected_matches[e].split("/")[1]) <= 7:
+        if "/" in selected_matches[e]:
+            if (selected_matches[e].split("/")[2][:2] == (year - 1) and int(selected_matches[e].split("/")[1]) <= 7) or "/" not in selected_matches[e]:
+                selected_matches.remove(selected_matches[e])
+                ratings.remove(ratings[e])
+        else:
             selected_matches.remove(selected_matches[e])
             ratings.remove(ratings[e])
-            opponent.remove(opponent[e])
-
         e += 1
         if e == len(selected_matches):
             current = True
@@ -1015,12 +1016,12 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
  
 
 positions={
-'V1':{'background':'middle','hook':'bottom'},
-'V2':{'background':'bottom','description':'bottom','position':False},
+'V1':{'background':'top','hook':'bottom'},
+'V2':{'background':'top','description':'bottom','position':False},
 'V3':{'background':'middle'}
 }
-short_photo = ['photo1','photo2']
-
+short_photo = ['photo3','photo2']
+player = unidecode.unidecode(player_list[0])
 #scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
-make_post(player_list[0],positions,youngster=False,short_photo=short_photo,short=True,clone=True)
+make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
 

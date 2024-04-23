@@ -71,7 +71,7 @@ def get_season_script(player,stats,match_list):
         percentile_text += f"He is in the {100-int(percentiles[statistics.index(attribute)])} for {attribute}"
     for x in match_list:
         matches += f' Against {x[0]} with {"a hack trick" if x[1] == 3 else f"{x[1]} goals" if x[1]>0 else ""} {f"and {x[2]} assists" if x[2] > 0 else ""} and a rating for the match of {x[3]}.'
-    prompt = f"write a paragraph analysis about {player}'s season with a {stats[0]} average rating in sofascore and this other key stats {', '.join(stats[1:]).replace(':','')} also here are some other stats {percentiles} his best matches this season are:{matches}. Other information that doesn't have to be mentioned is that he plays as a {description['position']} and he is {description['age']} years old"
+    prompt = f"write a paragraph analysis about {player}'s season with a {stats[0]} average rating in sofascore and this other key stats {', '.join(stats[1:]).replace(':','')} also here are some other stats {percentile_text} his best matches this season are:{matches}. Other information that doesn't have to be mentioned is that he plays as a {description['position']} and he is {description['age']} years old"
     response = ollama.chat(model='llama3', messages=[
         {
             'role':'system',
@@ -524,25 +524,95 @@ def translate(script):
         response = ollama.chat(model='llama3', messages=[
         {
             'role':'system',
-            'content':'You are a pro english to spanish translator'
+            'content':'You are a pro english to spanish translator. Here are the translation of some unusual terms. Transfer Value: Valor de Mercado, Side: Equipo, defensive dutie: papel defensivo'
         },{
             'role':'user',
-            'content':"English: Serhou Guirassy is a highly skilled French-Guinean forward who has been impressing audiences with his exceptional finishing ability on the pitch. Currently playing for VfB Stuttgart at the age of 28, he has a transfer value of 42 million euros and has attracted attention from top clubs in Europe for his remarkable performances this season.\n Spanish: "
+            'content':"English: Serhou Guirassy is a highly skilled French-Guinean forward who has been impressing audiences with his exceptional finishing ability on the pitch. Currently playing for VfB Stuttgart at the age of 28, he has a transfer value of 42 million euros and has attracted attention from top clubs in Europe for his remarkable performances this season.\n Spanish: ..."
         },{
             'role':'assistant',
             'content':"Serhou Guirassy es un extremo francés-guineano de gran habilidad que ha estado impresionando a todos con su increíble definición. Actualmente jugando para el Stuttgart y con 28 años de edad, tiene un valor de mercado de unos 42 millones de euros y ha atraído la atención de clubes top del fútbol europeo por su destacado rendimiento esta temporada."
         },{
             'role':'user',
-            'content':"English: Guirassy's SofaScore rating for the season is an impressive 7.77, playing a key role in Stuttgart's push for Europe. He has scored an incredible 25 goals in 23 matches, with an efficiency that ranks him among the best in the world. He has had some key performances with a couple of hacktricks and some braces. Do you think he will remain at Stuttgart or will he leave for another team?\n Spanish: "
+            'content':"English: Guirassy's SofaScore rating for the season is an impressive 7.77, playing a key role in Stuttgart's push for Europe. He has scored an incredible 25 goals in 23 matches, with an efficiency that ranks him among the best in the world. He has had some key performances with a couple of hacktricks and some braces. Do you think he will remain at Stuttgart or will he leave for another team?\n Spanish: ..."
         },{
             'role':'assistant',
             'content':"Guirassy tiene una nota media en SofaScore de 7.7 esta temporada. Está jugando un papel clave en el sueño Europeo del Stuttgart. Ha marcado la increíble cantidad 25 goles en 23 partidos, con una eficacia que lo posiciona entre los mejores del mundo. Guirassy tenido algunas actuaciones clave esta temporada con un par de hacktricks y algunos dobletes. ¿Creéis que se quedará en Stuttgart o se irá a otro equipo?"
         },{
             'role': 'user',
-            'content': f"English:\n {text}, Spanish: "
+            'content': f"English:\n {text}, Spanish: ..."
         }])
         textos += [response['message']['content']]
-    return textos
+    return "\n".join(textos)
+
+def get_stats_script_es(player):
+    name = player
+    with open(f'players\{player}.json') as f:
+        player = json.load(f)
+
+    player_stats = f'Jugador del {player["team"]} de {player["age"]} años y su pais es {player["nationality"]} cuenta con un valor de mercado de {player["value"]} millones de euros. Juega como un {player["position"]}'
+    prompt = f'Escribe una descrición de dos frases sobre {name} con esta información {player_stats}.'
+    response = ollama.chat(model='llama3', messages=[
+        {
+            'role':'system',
+            'content':'Escribe en español de España menciona aspectos importantes como la edad, nacionalidad, equipo y valor de mercado.'
+        },{
+        'role':'user',
+        'content': prompt
+    }
+    ])
+    with open("prompts.txt","a+") as file:
+        if f"Prompt Description: {prompt}" not in file.read():
+            file.write(f"Prompt Description: {prompt}\n")
+    return response['message']['content'].split('\n')[-1]
+def get_season_script_es(player,stats,match_list):
+    with open(f'players\{player}.json') as f:
+        description = json.load(f)
+    matches = ''
+    percentile_text = ''
+    percentiles = description['percentiles']
+    statistics = description['statistics']
+    for attribute in statistics:
+        percentile_text += f"He is in the {100-int(percentiles[statistics.index(attribute)])} for {attribute}"
+    for x in match_list:
+        matches += f' Against {x[0]} with {"a hack trick" if x[1] == 3 else f"{x[1]} goals" if x[1]>0 else ""} {f"and {x[2]} assists" if x[2] > 0 else ""} and a rating for the match of {x[3]}.'
+    prompt = f"write a paragraph analysis about {player}'s season with a {stats[0]} average rating in sofascore and this other key stats {', '.join(stats[1:]).replace(':','')} also here are some other stats {percentile_text} his best matches this season are:{matches}. Other information that doesn't have to be mentioned is that he plays as a {description['position']} and he is {description['age']} years old"
+    response = ollama.chat(model='llama3', messages=[
+        {
+            'role':'system',
+            'content':'Write ONLY one paragraph'
+        },
+    {
+        'role': 'user',
+        'content': "write a descrition about Alejandro Grimaldo's season with a 7.7 average rating in sofascore and this other key stats Matches played 28.0(26.0), Goals 10.0, Assists 9.0, Big Chances 12.0, Team of the Week 6.0, Minutes per goal 71.9 min also his best matches this season are Against Qarabağ with 2 goals and 1 assists and a rating for the match of 9.3.Against Leipzig with 0 goals and 2 assists and a rating for the match of 8.9.",
+    },{
+        'role':'assistant',
+        'content':"Alejandro Grimaldo's season has been nothing short of impressive, with an average rating of 7.7 on SofaScore. The left-back has played 28 matches, scoring 10 goals and providing 9 assists, while creating a significant amount of big chances for his team. His minutes per goal rate of 71.9 min is among the best in the league, showcasing his efficiency in attack. Grimaldo's standout performances this season include his two-goal, one-assist display against Qarabağ, which earned him a rating of 9.3, and his zero-goal, two-assist effort against Leipzig, which earned him a rating of 8.9. These outings demonstrate Grimaldo's ability to produce high-quality performances on a consistent basis."
+    },{
+        'role': 'user',
+        'content': "write a paragraph analysis about Harry Kane's season with a 7.75 average rating in sofascore and this other key stats Matches played 35, Goals 37.0, Assists 10.0, Big Chances Missed 26.0, Minutes per goal 86.37 min, Shots per game 4.23 also his best matches this season are: Against Dortmund with 3 goals and 0 assists and a rating for the match of 9.9. Against Mainz 05 with 3 goals and 1 assists and a rating for the match of 9.8.. Other information that doesn't have to be mentioned is that he plays as a f and he is 30 yrs years old",
+    },{
+        'role':'assistant',
+        'content':"Harry Kane's season has been nothing short of remarkable, with an average SofaScore rating of 7.75. The England international has played 35 matches, finding the back of the net an impressive 37 times, while providing 10 assists. However, he has also missed a significant number of big chances with  26. Despite this, Kane's scores a goal every 86.37 minutes being among the best in Europe, showcasing his efficiency in attack. His standout performances this season include his Hack Trick against Borussia Dortmund, which earned him a rating of 9.9, and his Hack Trick and one-assist against Mainz, which earned him a rating of 9.8. These outings demonstrate Kane's ability to produce high-quality performances on a consistent basis, and cement his status as one of the top strikers in the league. Could the Champions league be his first carrear title?"
+    },{
+        'role':'user',
+        'content':"write a paragraph analysis about Antoine Griezmann's season with a 7.53 average rating in sofascore and this other key stats Matches played 34(32.0), Goals 17.0, Assists 6.0, Shots per game 2.37, Big Chances Missed 13.0, Team of the Week 4.0 also here are some other stats ['Passes Completed', 'Touches', 'Total Passing Distance', 'Progressive Passing Distance', 'xAG: Exp. Assisted Goals', 'Shot-Creating Actions', 'Switches', 'Miscontrols', 'Key Passes', 'Assists', 'xA: Expected Assists', 'Progressive Passes', 'Crosses', 'Carries', 'Goal-Creating Actions'] his best matches this season are: Against Celtic with 2 goals  and a rating for the match of 9.8. Against Inter with 1 goals  and a rating for the match of 8.8.. Other information that doesn't have to be mentioned is that he plays as a f and he is 33 yrs years old"
+    },{
+        'role':'assistant',
+        'content':"Antoine Griezmann's season has been spectacular, although this Atletico is not the same team he left years ago, with an average SofaScore rating of 7.53. The French forward has played 34 matches, finding the back of the net 17 times, while providing 6 assists. While his shot output per game is impressive at 2.37, he has missed a significant number of big chances with 13.0. Also he ranks as the best forward in Expected Assists and touches, while also being among the best in everything related to playmaking abilities, like progressive passes, key passes, shot and goal creating actions and expected assisted goals. It is also worth noting the efect a manager like Simeone has had on this player making him one of the Strikers with the best defensive performances. Griezmann's standout performances this season include his two-goal display against Celtic, which earned him a rating of 9.8, and his one-goal effort against Inter, which earned him a rating of 8.8. These outings demonstrate Griezmann's ability to produce high-quality performances on a consistent basis, although he may not be at the same level as some of the other top scorers in the league. Nonetheless, his experience and consistency make him the key player of his team."
+    },{
+        'role':'user',
+        'content':"write a paragraph analysis about Serhou Guirassy's season with a 7.77 average rating in sofascore and this other key stats Matches played 23(20.0), Goals 25, Assists 1, Big Chances Miss 13, Minutes per goal 71.0 min, Shots 3.2 also here are some other stats [99, 98, 97, 97, 94, 94, 93, 93, 92, 92] his best matches this season are: Against Mainz 05 with a hack trick  and a rating for the match of 10.0. Against Wolfsburg with a hack trick  and a rating for the match of 9.8.. Other information that doesn't have to be mentioned is that he plays as a f and he is 28 yrs years old"
+    },{
+        'role':'assistant',
+        'content':"Serhou Guirassy's season has been nothing short of impressive, with an average SofaScore rating of 7.77. The Guinean forward has played 23 matches, finding the back of the net a remarkable 25 times, while providing one assist. He scores a goal every 71.0 min being amoung the best in the world, showcasing his efficiency in attack. He is also very good in the creating aspect, despite the believe his is a bulky striker, he is in the top percentiles for shot and goal creating actions. Also he does well for himself in key passes and expected assists. Guirassy's standout performances this season include his hack-tricks against Wolfsburg and Mainz, which earned him a rating of 9.8, and 10 respectively. Also to note a couple braces like the one with one-assist against Darmstadt, which earned him a rating of 9.3. These outings demonstrate Guirassy's ability to produce high-quality performances on a consistent basis, and cement his status as one of the top strikers in the league. His impressive goal-scoring record and 3.2 shots per game make him a indispensable asset for his team, and he is likely to be a key player in their push for Europe this season."
+    },{
+        'role':'user',
+        'content':prompt
+    }])
+    with open("prompts.txt","a+") as file:
+        if f"Prompt Stats: {prompt}" not in file.read():
+            file.write(f"Prompt Stats: {prompt}\n")
+    return response['message']['content'].split('\n')[-1]
 
 
 def make_script(player,stats,match_list):
@@ -624,8 +694,10 @@ def make_script(player,stats,match_list):
         if f"Response Short 2: {texts[1]}" not in file.read():
             file.write(f"Response Short 2: {texts[1]}\n")
  
-#player = 'Antoine Griezmann'
+player = 'Kobbie Mainoo'
 #make_script(player,[7.69, 'Matches played: 32(28.0)', 'Goals: 10.0', 'Assists: 14.0', 'Big Chances: 15.0', 'Shots per game: 4.2', 'Key Passes per game: 5.5'],[['Stuttgart', 0, 2, 8.7], ['Frankfurt', 1, 1, 8.4]],get_fbref_percentiles(player,False))
+#get_season_script(player,[7.69, 'Matches played: 32(28.0)', 'Goals: 10.0', 'Assists: 14.0', 'Big Chances: 15.0', 'Shots per game: 4.2', 'Key Passes per game: 5.5'],[['Stuttgart', 0, 2, 8.7], ['Frankfurt', 1, 1, 8.4]])
+#print(get_stats_script_es(player))
 
 
 
