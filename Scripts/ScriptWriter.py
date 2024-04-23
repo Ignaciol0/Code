@@ -504,7 +504,7 @@ def make_short_script(p2,p3):
         with open("prompts.txt","a+") as file:
             if f"Prompt Short{scripts.index(paragraph)}: {prompt}" not in file.read():
                 file.write(f"Prompt Short {scripts.index(paragraph)+1}: {prompt}")
-        results += [response['message']['content']+"\n\n\n"]
+        results += [response['message']['content']+"\n\n"]
     
     return "".join(results)
 

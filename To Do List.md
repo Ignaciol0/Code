@@ -12,6 +12,7 @@
 - [x] Add the image selection before or while the creation of the audio.
 - [x] Add the AI Voice Over.
 - [x] Fix the error of infinite execution.
+- [x] Fix the spacing in the sort script
 - [ ] Fix the goal and assists placement.
 - [ ] Add the pro percentile selection.
 - [ ] Add the translation.
@@ -26,4 +27,5 @@
 - [ ] Add the open ubuntu
 - [ ] Add the open .bat
 - [ ] Add the better script writing with the percentiles
-- [ ] Add the GUI with tkinter
+- [ ] Add the GUI flatter
+- [ ] Add the football games web addition

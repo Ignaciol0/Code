@@ -18,7 +18,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Bruno Fernandes']
+player_list = ['Rodri']
 
  
 

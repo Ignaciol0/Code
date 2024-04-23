@@ -5,7 +5,7 @@ import cv2
 import cvzone
 import pandas as pd
 import unidecode
-from VideoMaker import create_vid, create_short
+from VideoMaker import create_vid, create_short, make_audios_clone_voice
 from ScriptWriter import ThreadWithReturnValue, translate
 import sys
 
@@ -1921,7 +1921,6 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             thread2 = ThreadWithReturnValue(target=translate,args=("sort_script",))
             thread1.start()
             thread2.start()
-        if clone:
             thread3 = ThreadWithReturnValue(target=make_audios_clone_voice(),args=("script",))
             thread3.start()
     player = unidecode.unidecode(player)
@@ -1940,7 +1939,8 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             pass
         elif response.lower() not in ["yes","y","si"]:
             positions = dict(input(f"This is the dictionary\n{positions}\nWrite your changes\n"))
-    thread3.join()
+    #thread3.join()
+    make_audios_clone_voice("script")
     create_vid('Video1','Video2','Video3',clone=clone,make_audio=False)
     if short:
         create_short('Video','Video-1','Video-2',clone=clone)
