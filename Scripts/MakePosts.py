@@ -1928,6 +1928,10 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             thread3.start()
     player = unidecode.unidecode(player)
     response = ''
+    from subprocess import Popen
+    p = Popen("start.bat", cwd="C:/Users/ignac/Documents/Ai/Turtoise/ai-voice-cloning-v2_0/ai-voice-cloning/")
+    thread = threading.Thread(target=make_audios_clone_voice, args=("script",))
+    thread.start()
     while response.lower() not in ["yes","y","si"]:
         make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
         make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
@@ -1942,9 +1946,9 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             pass
         elif response.lower() not in ["yes","y","si"]:
             positions = dict(input(f"This is the dictionary\n{positions}\nWrite your changes\n"))
-    #thread3.join()
-    make_audios_clone_voice("script")
+    thread.join()
     create_vid('Video1','Video2','Video3',clone=clone,make_audio=False)
+    
     if short:
         create_short('Video','Video-1','Video-2',clone=clone)
     if translate:

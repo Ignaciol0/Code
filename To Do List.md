@@ -16,6 +16,8 @@
 - [x] Fix the placement of position
 - [x] Fix the goal and assists placement.
 - [x] Add the better script writing with the percentiles
+- [x] Add the open .bat
+- [x] Fix the thread for the audio cleation-Image generation
 - [ ] Add the pro percentile selection.
 - [ ] Add the translation.
 - [ ] Add the Euro Specific content.
@@ -26,9 +28,7 @@
 - [ ] Fix the bad season script bias
 - [ ] Add the selection of elements when talking about them
 - [ ] Add the open ubuntu
-- [ ] Add the open .bat
 - [ ] Add the GUI flatter
 - [ ] Add the football games web addition
-- [ ] Fix the thread for the audio cleation-Image generation
 - [ ] Fix the box of the sorts photo 3
 - [ ] Add the detection of a too long short video
