@@ -4,6 +4,7 @@ import sys
 import time
 import pyautogui
 import sys
+from ScriptWriter import translate
 # This makes the code think is in the root folder. Only done for organizing
 sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code")
 
@@ -1110,3 +1111,15 @@ def get_best_matches(matches,player):
 
     return matches
 
+import threading
+import subprocess
+
+def open_terminal():
+    subprocess.call(["wsl", "bash"])
+
+# Create and start a thread to open the terminal
+open_terminal()
+terminal_thread = threading.Thread(target=open_terminal)
+terminal_thread.start()
+print(translate("script"))
+terminal_thread.join()

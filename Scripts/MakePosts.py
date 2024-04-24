@@ -5,7 +5,7 @@ import cv2
 import cvzone
 import pandas as pd
 import unidecode
-from VideoMaker import create_vid, create_short
+from VideoMaker import create_vid, create_short, make_audios_clone_voice
 from ScriptWriter import ThreadWithReturnValue, translate
 import sys
 
@@ -16,7 +16,7 @@ player = "Maradona"
 Hook = f'Have you watched {player}?'
 path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/"
 info = ["100","193","31","fra","Real Madrid",False,['RW','CM']]
-matches = [['Barcelona',3,2,'10'],['Manchester United',1,3,'9.57']]
+matches = [['Barcelona',0,2,'10'],['Manchester United',1,0,'9.57']]
 percentiles = pd.DataFrame({'Statistic':['Expected Assist','Goals','Assists','Key Passes','Progressive Pases'],'Percentile':[99,80,70,60,10]})
 stats = [9.05,'Matches Played: 24(14)','Goals: 11','Assist: 4','Big Chances: 7','Progresive Passes: 39','Dribbles %: 61.6% ']
 def add_corners(im, rad):
@@ -996,9 +996,9 @@ def make_video_frame2(path,player,info, position='middle',description = 'bottom'
     width = int(width/scale)
     positions = cv2.resize(positions,(width,400))
     if position_top:
-        imgResult = cvzone.overlayPNG(imgResult,positions,[755,10])
+        imgResult = cvzone.overlayPNG(imgResult,positions,[950,10])
     else:
-        imgResult = cvzone.overlayPNG(imgResult,positions,[755,400])
+        imgResult = cvzone.overlayPNG(imgResult,positions,[950,400])
     cv2.imwrite(path+'Video2(no clubs).png', imgResult)
 
     # Club adjusting
@@ -1073,7 +1073,10 @@ def make_video_frame3(path,matches,stats,percentiles,position='middle'):
     # First we calculate the initial points knowing that the desired point is the half of the width 544 minus half of the ga's width
             # In the one of the goal we substract 472 due to this being the displacement of the path
             # In the one of the assist we add the length of the goals
-    inital_x_g = (261 - ((gamatch1*50)//2)) #290, 370, 450
+    # The path doesn't start at 0,0
+    starting_point = 38
+
+    inital_x_g = (261 - ((gamatch1*50)//2)) - starting_point#290, 370, 450
     inital_x_a = inital_x_g + 50*g1 
     if g1 > 0:
         for g in range(g1):
@@ -1093,7 +1096,7 @@ def make_video_frame3(path,matches,stats,percentiles,position='middle'):
     # First we calculate the initial points knowing that the desired point is the half of the width 544 minus half of the ga's width
             # In the one of the goal we substract 472 due to this being the displacement of the path
             # In the one of the assist we add the length of the goals
-    inital_x_g = (261 -((gamatch2*50)//2)) # 290, 370, 450
+    inital_x_g = (261 -((gamatch2*50)//2)) - starting_point # 290, 370, 450
     inital_x_a = inital_x_g + 50*g2 
     if g2 > 0:
         for g in range(g2):
@@ -1921,11 +1924,14 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             thread2 = ThreadWithReturnValue(target=translate,args=("sort_script",))
             thread1.start()
             thread2.start()
-        if clone:
             thread3 = ThreadWithReturnValue(target=make_audios_clone_voice(),args=("script",))
             thread3.start()
     player = unidecode.unidecode(player)
     response = ''
+    from subprocess import Popen
+    p = Popen("start.bat", cwd="C:/Users/ignac/Documents/Ai/Turtoise/ai-voice-cloning-v2_0/ai-voice-cloning/")
+    thread = threading.Thread(target=make_audios_clone_voice, args=("script",))
+    thread.start()
     while response.lower() not in ["yes","y","si"]:
         make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
         make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
@@ -1940,8 +1946,9 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             pass
         elif response.lower() not in ["yes","y","si"]:
             positions = dict(input(f"This is the dictionary\n{positions}\nWrite your changes\n"))
-    thread3.join()
+    thread.join()
     create_vid('Video1','Video2','Video3',clone=clone,make_audio=False)
+    
     if short:
         create_short('Video','Video-1','Video-2',clone=clone)
     if translate:
@@ -1965,3 +1972,4 @@ positions={
 
 #make_yt_match_video(path,"Cole Palmer",[["Man Utd",3,0,"10"],["Burnley",2,0,"10"]],["9.08","Goals: 10","Assists: 2","Big Chances Created: 4","Key Passes: 16","Shots per match: 6.6"],["Rating: 10.0","Goals: 4","Assists: 0","Expected Goals (xG): 2.50","Succesful Dribbles: 3/4","Penalty won: 1","Shots on target: 5","Shots on target %: 100%"],positions)
 #make_video_frame3(path,matches,stats,pd.DataFrame({"Percentile":[99, 97, 95, 92, 87, 81, 80, 77, 75, 71],"Statistic":["Goals/Shot", "Shots on Target %", "Goals - xG", "Goals/Shot on Target", "Through Balls", "Take-Ons Attempted", "Clearances", "Successful Take-Ons", "Carries into Penalty Area", "Goals"]}))
+#make_video_frame2(path,player,info)
