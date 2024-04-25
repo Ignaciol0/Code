@@ -1111,7 +1111,7 @@ def get_best_matches(matches,player):
 
     return matches
 
-import threading
+"""import threading
 import subprocess
 
 def open_terminal():
@@ -1123,3 +1123,15 @@ terminal_thread = threading.Thread(target=open_terminal)
 terminal_thread.start()
 print(translate("script"))
 terminal_thread.join()
+"""
+
+positions={"V1":{"background":"top","hook":"bottom"},
+"V2":{"background":"middle","description":"bottom","position":False},
+"V3":{"background":"middle"}}
+
+#changes = input("This is the dictionary."+"\n"+ ''.join(['{} -> {}\n'.format(image, ''.join([' {}:{},'.format(element, positions[image][element]) for element in positions[image].keys()])) for image in positions.keys()])+ "Give me the changes: ")
+#input(f"Change {' '.join(['{}:{}'.format(element, positions[image][element]) for image in positions.keys() for element in positions[image].keys()])}")
+"""changes = input("This is the dictionary."+"\n"+ ''.join(['{} -> {}.\n'.format(image, ''.join([' {}:{},'.format(element, positions[image][element]) for element in positions[image].keys()])) for image in positions.keys()])+ "Give me the changes: ")
+dictionary = changes.replace("."," ->  ").split(" ->  ")
+for e in range(len(dictionary)//2):
+    positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] for pair in dictionary[e*2+1][:-1].split(",")}"""

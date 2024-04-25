@@ -5,6 +5,9 @@ import cv2
 import cvzone
 import pandas as pd
 import unidecode
+import json
+from threading import Thread
+from subprocess import Popen
 from VideoMaker import create_vid, create_short, make_audios_clone_voice
 from ScriptWriter import ThreadWithReturnValue, translate
 import sys
@@ -1928,10 +1931,9 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             thread3.start()
     player = unidecode.unidecode(player)
     response = ''
-    from subprocess import Popen
-    p = Popen("start.bat", cwd="C:/Users/ignac/Documents/Ai/Turtoise/ai-voice-cloning-v2_0/ai-voice-cloning/")
-    thread = threading.Thread(target=make_audios_clone_voice, args=("script",))
-    thread.start()
+    #p = Popen("C:/Users/ignac/Documents/Ai/Turtoise/ai-voice-cloning-v2_0/ai-voice-cloning/start.bat")
+    #thread = Thread(target=make_audios_clone_voice, args=("script",))
+    #thread.start()
     while response.lower() not in ["yes","y","si"]:
         make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
         make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
@@ -1945,8 +1947,11 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
         elif response.lower() in ["other","o"]:
             pass
         elif response.lower() not in ["yes","y","si"]:
-            positions = dict(input(f"This is the dictionary\n{positions}\nWrite your changes\n"))
-    thread.join()
+            changes = input("This is the dictionary."+"\n"+ ''.join(['{} -> {}.\n'.format(image, ''.join([' {}:{},'.format(element, positions[image][element]) for element in positions[image].keys()])) for image in positions.keys()])+ "Give me the changes: ")
+            dictionary = changes.replace("."," ->  ").split(" ->  ")
+            for e in range(len(dictionary)//2):
+                positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] for pair in dictionary[e*2+1][:-1].split(",")}
+    #thread.join()
     create_vid('Video1','Video2','Video3',clone=clone,make_audio=False)
     
     if short:
