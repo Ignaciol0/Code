@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Loïs Openda']
+player_list = ['Declan Rice']
 
  
 
@@ -219,12 +219,15 @@ def get_best_matches_and_positions(matches,player, year):
 
         date = date.split('/')
 
-        
-        fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{date[0]}')
-        matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
-        if False:
+        try:
+            fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{date[0]}')
+            matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
+        except:
+            try:
                 fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{int(date[0])-1}')
                 matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
+            except:
+                pass
         index += 1
 
     return matches, positions
@@ -1016,7 +1019,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
  
 
 positions={
-"V1":{"background":"top","hook":"bottom"},
+"V1":{"background":"middle","hook":"bottom"},
 "V2":{"background":"middle","description":"bottom","position":False},
 "V3":{"background":"middle"}
 }

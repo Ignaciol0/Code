@@ -167,3 +167,4 @@ def make_audios_clone_voice(script="script"):
             data = response["data"]
             shutil.copy2(data[0]['name'],f"C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code/audio{texts.index(text)+1}.wav")
 
+#create_short("Video","Video-1","Video-2",clone=True)
