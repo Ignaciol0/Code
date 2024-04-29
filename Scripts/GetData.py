@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Dušan Vlahović']
+player_list = ['Declan Rice']
 
  
 
@@ -44,17 +44,18 @@ def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,posi
         page.keyboard.press("Enter")
 
         for player in player_list:
-            player = unidecode.unidecode(player)
             scrape_player(player, page, year)
     if post:
         clean_script()
+        player = unidecode.unidecode(player)
         make_post(player,positions,youngster,short_photo,short,year=year,translate=translate,clone=clone)
 
 
 def scrape_player(player,page, verbose=True, year = 24):
 
     info = {}
-
+    old_player = player
+    player = unidecode.unidecode(player)
     player_file = "players/"+ player + ".json"
 
     with open(player_file, "w") as f:
@@ -63,7 +64,7 @@ def scrape_player(player,page, verbose=True, year = 24):
 
         page.click('//*[@id="__next"]/header/div[1]/div/div/div[2]/div/form')
 
-        page.fill('//*[@id="__next"]/header/div[1]/div/div/div[2]/div/form/input',e)
+        page.fill('//*[@id="__next"]/header/div[1]/div/div/div[2]/div/form/input',player)
 
         page.keyboard.press("ArrowDown")
 
@@ -99,7 +100,7 @@ def scrape_player(player,page, verbose=True, year = 24):
         info['team'] = contract[0]
 
                       
-        info['matches'], info['positions'] = get_best_matches_and_positions(matches_sofascore(page),player,year)
+        info['matches'], info['positions'] = get_best_matches_and_positions(matches_sofascore(page),old_player,year)
         
         info['contract'] = contract[1]
 
@@ -120,9 +121,9 @@ def scrape_player(player,page, verbose=True, year = 24):
 
         info['value'] = value  
 
-        info = get_stats(info,player,page,year)
+        info = get_stats(info,old_player,page,year)
         
-        info['percentiles'],info['statistics'] = get_fbref_percentiles(player,not verbose, year)
+        info['percentiles'],info['statistics'] = get_fbref_percentiles(old_player,not verbose, year)
 
         json.dump(info,f)
 
@@ -218,12 +219,15 @@ def get_best_matches_and_positions(matches,player, year):
 
         date = date.split('/')
 
-        
-        fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{date[0]}')
-        matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
-        if False:
+        try:
+            fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{date[0]}')
+            matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
+        except:
+            try:
                 fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{int(date[0])-1}')
                 matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
+            except:
+                pass
         index += 1
 
     return matches, positions
@@ -571,7 +575,6 @@ def get_sofascore_stats(info,page,year=24):
     return combine_sofascore_data_2(info, int_stats, int_rating, int_stats2, int_rating2, league_rating, league_stats, league_rating2, league_stats2)
 
 def get_stats(info,player,page,year=24):
-
     return get_sofascore_stats(get_fbref_stats(player,info,year),page,year)
     
 def get_fbref_percentiles(player,default=True,year=24):
@@ -1016,11 +1019,11 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
  
 
 positions={
-'V1':{'background':'top','hook':'bottom'},
-'V2':{'background':'top','description':'bottom','position':False},
-'V3':{'background':'middle'}
+"V1":{"background":"middle","hook":"bottom"},
+"V2":{"background":"middle","description":"bottom","position":False},
+"V3":{"background":"middle"}
 }
-short_photo = ['photo3','photo2']
+short_photo = ['photo1','photo2']
 player = unidecode.unidecode(player_list[0])
 #scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
 make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)

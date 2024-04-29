@@ -5,6 +5,9 @@ import cv2
 import cvzone
 import pandas as pd
 import unidecode
+import json
+from threading import Thread
+from subprocess import Popen
 from VideoMaker import create_vid, create_short, make_audios_clone_voice
 from ScriptWriter import ThreadWithReturnValue, translate
 import sys
@@ -777,15 +780,29 @@ def make_video3(path,matches,stats, percentiles):
     width, height = club1.size
     scale = width / club_size
     height1 = int(height / scale)
-    club1 = club1.resize((club_size,height1))
+    if height1 > club_size * 1.5:
+        scale = int(height / (club_size*1.5))
+        width1 = int(width / scale)
+        height1 = int(club_size*1.5)
+        club1 = club1.resize((width1,int(club_size*1.5)))
+    else:
+        width1 = club_size
+        club1 = club1.resize((club_size,height1))
     width,height = club2.size
     scale = width / club_size
     height2 = int(height / scale)
-    club2 = club2.resize((club_size,height2))
+    if height2 > club_size * 1.5:
+        scale = int(height / (club_size*1.5))
+        width2 = int(width / scale)
+        height2 = int(club_size*1.5)
+        club2 = club2.resize((width2,int(club_size*1.5)))
+    else:
+        width2 = club_size
+        club2 = club2.resize((club_size,height2))
 
     imgResult = Image.open(path+'video3(no clubs).png')
-    imgResult.paste(club1, (544-match_separation_half - club_size,(220-(height1-club_size)//2)+250), mask= club1)
-    imgResult.paste(club2, (544-match_separation_half - club_size,(300-(height2-club_size)//2)+250), mask= club2)
+    imgResult.paste(club1, (544-match_separation_half - width1,(220-(club_size-height1)//2)+250), mask= club1)
+    imgResult.paste(club2, (544-match_separation_half - width2,(290-(club_size-height2)//2)+250), mask= club2)
     #imgResult.paste(percentiles, (percentile_offset,percentile_height +320), mask= percentiles)
     imgResult.save(path+"Video-2.png")
 
@@ -1201,15 +1218,29 @@ def make_video_frame3(path,matches,stats,percentiles,position='middle'):
     width, height = club1.size
     scale = width / club_size
     height1 = int(height / scale)
-    club1 = club1.resize((club_size,height1))
+    if height1 > club_size * 1.5:
+        scale = int(height / (club_size*1.5))
+        width1 = int(width / scale)
+        height1 = int(club_size*1.5)
+        club1 = club1.resize((width1,int(club_size*1.5)))
+    else:
+        width1 = club_size
+        club1 = club1.resize((club_size,height1))
     width,height = club2.size
     scale = width / club_size
     height2 = int(height / scale)
-    club2 = club2.resize((club_size,height2))
+    if height2 > club_size * 1.5:
+        scale = int(height / (club_size*1.5))
+        width2 = int(width / scale)
+        height2 = int(club_size*1.5)
+        club2 = club2.resize((width2,int(club_size*1.5)))
+    else:
+        width2 = club_size
+        club2 = club2.resize((club_size,height2))
 
     imgResult = Image.open(path+'video3(no clubs).png')
-    imgResult.paste(club1, (490,115), mask= club1)
-    imgResult.paste(club2, (490,170), mask= club2)
+    imgResult.paste(club1, ((520-width1),(145 - height1)), mask= club1)
+    imgResult.paste(club2, ((520-width2),(200 - height2)), mask= club2)
     #imgResult.paste(percentiles, (percentile_offset,percentile_separation), mask= percentiles)
     imgResult.save(path+"Video3.png")
 
@@ -1928,10 +1959,9 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             thread3.start()
     player = unidecode.unidecode(player)
     response = ''
-    from subprocess import Popen
-    p = Popen("start.bat", cwd="C:/Users/ignac/Documents/Ai/Turtoise/ai-voice-cloning-v2_0/ai-voice-cloning/")
-    thread = threading.Thread(target=make_audios_clone_voice, args=("script",))
-    thread.start()
+    #p = Popen("C:/Users/ignac/Documents/Ai/Turtoise/ai-voice-cloning-v2_0/ai-voice-cloning/start.bat")
+    #thread = Thread(target=make_audios_clone_voice, args=("script",))
+    #thread.start()
     while response.lower() not in ["yes","y","si"]:
         make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
         make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
@@ -1945,9 +1975,12 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
         elif response.lower() in ["other","o"]:
             pass
         elif response.lower() not in ["yes","y","si"]:
-            positions = dict(input(f"This is the dictionary\n{positions}\nWrite your changes\n"))
-    thread.join()
-    create_vid('Video1','Video2','Video3',clone=clone,make_audio=False)
+            changes = input("This is the dictionary."+"\n"+ ''.join(['{} -> {}.\n'.format(image, ''.join([' {}:{},'.format(element, positions[image][element]) for element in positions[image].keys()])) for image in positions.keys()])+ "Give me the changes: ")
+            dictionary = changes.replace("."," ->  ").split(" ->  ")
+            for e in range(len(dictionary)//2):
+                positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] for pair in dictionary[e*2+1][:-1].split(",")}
+    #thread.join()
+    create_vid('Video1','Video2','Video3',clone=clone,make_audio=True)
     
     if short:
         create_short('Video','Video-1','Video-2',clone=clone)

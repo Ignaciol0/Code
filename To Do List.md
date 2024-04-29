@@ -32,3 +32,6 @@
 - [ ] Add the football games web addition
 - [ ] Fix the box of the sorts photo 3
 - [ ] Add the detection of a too long short video
+- [ ] Add the image selection from google with Google Dork queries
+- [ ] Add the more detailed explanation in the normal videos
+- [ ] Add the more indepth percentile selection taking some more values since it will be in a unique frame
