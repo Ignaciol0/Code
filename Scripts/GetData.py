@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Declan Rice']
+player_list = ['Rafael Leão']
 
  
 
@@ -618,7 +618,7 @@ def get_fbref_percentiles(player,default=True,year=24):
 
     attributes = ranks.loc[:,'Statistic'].tolist()
 
-    if len(attributes) < 6:
+    if len(attributes) < 10:
         attributes = ['Goals', 'Assists', 'Goals + Assists', 'Non-Penalty Goals', 'xG: Expected Goals', 'npxG: Non-Penalty xG', 'xAG: Exp. Assisted Goals', 'npxG + xAG',  'Progressive Carries', 'Progressive Passes', 'Progressive Passes Rec',  'Shots Total', 'Shots on Target', 'Shots on Target %', 'Goals/Shot', 'Goals/Shot on Target', 'npxG/Shot', 'Goals - xG', 'Passes Completed', 'Passes Attempted', 'Pass Completion %', 'Total Passing Distance', 'Progressive Passing Distance',  'xAG: Exp. Assisted Goals', 'xA: Expected Assists', 'Key Passes', 'Passes into Final Third', 'Passes into Penalty Area', 'Crosses into Penalty Area', 'Progressive Passes', 'Passes Attempted', 'Through Balls', 'Switches', 'Crosses', 'Passes Completed', 'Shot-Creating Actions', 'Goal-Creating Actions', 'Tackles', 'Tackles Won', 'Dribblers Tackled', 'Challenges Lost', 'Blocks', 'Interceptions', 'Clearances', 'Errors', 'Touches', 'Take-Ons Attempted', 'Successful Take-Ons', 'Successful Take-On %', 'Carries', 'Total Carrying Distance', 'Progressive Carrying Distance', 'Progressive Carries', 'Carries into Final Third', 'Carries into Penalty Area', 'Progressive Passes Rec', 'Fouls Committed', 'Fouls Drawn', 'Crosses', 'Interceptions', 'Tackles Won', 'Penalty Kicks Won', 'Ball Recoveries','Aerials Won', '% of Aerials Won']
 
         match_log = data
@@ -631,7 +631,7 @@ def get_fbref_percentiles(player,default=True,year=24):
 
         match_log = match_log.drop_duplicates()
 
-        ranks = ranks.loc[ranks['Percentile'] > 70].sort_values(by=['Percentile'],ascending=False)
+        ranks = ranks.loc[ranks['Percentile'] > 60].sort_values(by=['Percentile'],ascending=False)
 
         attributes_two = ranks.loc[:,'Statistic'].tolist()
         attributes_two = [item for item in attributes_two if item not in attributes]
@@ -648,7 +648,7 @@ def get_fbref_percentiles(player,default=True,year=24):
         answer = input(inputtext+'Attributes selected: ').split(',')
         attributes = [top_attributes[int(x)-1] for x in answer]
     else:
-        attributes = attributes[:6]
+        attributes = attributes[:15]
     try:
         percentiles = ranks.loc[attributes,'Percentile'].set_index("Statistic").tolist()
     except:
@@ -779,9 +779,9 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
                 offset += 1
             else:
                stats += [f'Crosses: {crosses}']
-        if len(stats) > 6:
-            stats = stats[0:7]
-        elif len(stats) < 6:
+        if len(stats) > 10:
+            stats = stats[0:10]
+        elif len(stats) < 10:
             if int(big_chances) >= 1:
                 stats += [f'Big Chances: {int(big_chances)}']
             if float(sca) >= 3:
@@ -877,9 +877,9 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
             else:
                 stats += [f'Recoveries: {recoveries}']
         
-        if len(stats) > 6:
-            stats = stats[0:7]
-        elif len(stats) < 6:
+        if len(stats) > 10:
+            stats = stats[0:10]
+        elif len(stats) < 10:
             if int(big_chances) >= 1:
                 stats += [f'Big Chances: {int(big_chances)}']
             if float(sca) >= 3:
@@ -987,9 +987,9 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
                 stats += [f'Recoveries: {recoveries}']
         
         
-        if len(stats) > 6:
-            stats = stats[0:7]
-        elif len(stats) < 6:
+        if len(stats) > 10:
+            stats = stats[0:10]
+        elif len(stats) < 10:
             if int(big_chances) >= 1:
                 stats += [f'Big Chances: {big_chances}']
             if float(key_pases) >= 1:
@@ -1004,24 +1004,22 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
                 stats += [f'Clearences per game: {clearences}']
             stats += [f'Recoveries per game: {recoveries}',f'Tackles per game: {tackles}',f'Interceptions per game: {interceptions}']
             stats = stats[0:7]
-    matches = matches[0:8]
-    if matches[0][0].islower():
-        matches[0] = matches[0].split(' ')[1]
-    if matches[4][0].islower():
-        matches[4] = matches[4].split(' ')[1]
-    match1 = [matches[0],int(matches[1]),int(matches[2]),float(matches[3])]
-    match2 = [matches[4],int(matches[5]),int(matches[6]),float(matches[7])]
-    matches = [match1,match2]
+    
+    
+    match_list = []
+    for index in range(5):
+        if matches[0+4*index][0].islower():
+            matches[0+4*index] = matches[0+4*index].split(' ')[1]
+        match_list += [[matches[0+4*index],int(matches[1+4*index]),int(matches[2+4*index]),float(matches[3+4*index])]]
     path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/Video Output/"
     percentile = pd.DataFrame({"Statistic":data["statistics"],"Percentile":data["percentiles"]})
-    make_script(player,stats,matches)
-    make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentile,translate,clone=clone)
+    make_script(player,stats,match_list)
+    make_yt_videos(path,player,youngster,match_list,stats,info,positions,short_photo,short,percentile,translate,clone=clone)
  
 
 positions={
 "V1":{"background":"middle","hook":"bottom"},
-"V2":{"background":"middle","description":"bottom","position":False},
-"V3":{"background":"middle"}
+"V2":{"background":"middle","description":"bottom","position":False}
 }
 short_photo = ['photo1','photo2']
 player = unidecode.unidecode(player_list[0])

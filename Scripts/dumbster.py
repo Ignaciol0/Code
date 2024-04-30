@@ -2,6 +2,7 @@ import pandas as pd
 import json
 import sys
 import time
+import os
 import pyautogui
 import sys
 from ScriptWriter import translate
@@ -1110,6 +1111,313 @@ def get_best_matches(matches,player):
         index += 1
 
     return matches
+
+def old_make_video_frame3(path,matches,stats,percentiles,position='middle'):
+    """Path: is the path to the directory all the images are in
+       matches: is a list with the match stats. [[club name,goals,assists,rating],[club name,goals,assists,rating]]
+       stats: is a list with the season stats. [rating,matches_played,goals (g/a in case of a defender),assists (good stat 1 in case a defender),good stat 1, good stat 2, good stat 3, good stat 4, good stat 5]
+    """
+    path_resources = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/images/'
+    
+    '''
+    # Percentiles
+    percentiles = Image.open(path+f'images/percentiles.png')
+    width, height = percentiles.size
+    real_width = 280
+    multiplier = width / real_width
+    height = int(height / multiplier)
+    percentiles = percentiles.resize((real_width,height))
+    percentile_offset = 1280//2 - real_width // 2 
+    percentiles = add_corners(percentiles,5)
+    # We are getting the stats of the square by duplicating the texts that appear and making the y increase
+    '''
+    year_rating = stats[0]
+    stats = stats[1:]
+    stats_text = ''
+    text_height = 280
+    text_separation = 35
+    for stat in stats:
+        stats_text += f'<text fill="white" font-family="Inter" font-size="25" font-weight="bold" x="100" y="{text_height+stats.index(stat)*text_separation}">{stat}</text>\n'
+    percentile_height = text_height+(len(stats)-1)*(text_separation) + 20
+    # Now we are making the match part of the post
+        # We start calculating the separation needed between the rating and the badges
+    gamatch1 = matches[0][1]+matches[0][2]
+    gamatch2 = matches[1][1]+matches[1][2]
+    match_separation_half = (261 - (max(gamatch1,gamatch2)*50//2)) + ((max(gamatch1,gamatch2) * 50))
+    gamatch1_text = ''
+    g1,a1 = matches[0][1], matches[0][2]
+    gamatch2_text = ''
+    g2,a2 = matches[1][1], matches[1][2]
+    
+    # Now we calculate the first match goals and assists
+            
+    # First we calculate the initial points knowing that the desired point is the half of the width 544 minus half of the ga's width
+            # In the one of the goal we substract 472 due to this being the displacement of the path
+            # In the one of the assist we add the length of the goals
+    # The path doesn't start at 0,0
+    starting_point = 38
+
+    inital_x_g = (261 - ((gamatch1*50)//2)) - starting_point#290, 370, 450
+    inital_x_a = inital_x_g + 50*g1 
+    if g1 > 0:
+        for g in range(g1):
+            gamatch1_text += f'<path transform="translate({inital_x_g+50*g},90) scale(0.65)" d="M38 76C32.7433 76 27.8033 75.0019 23.18 73.0056C18.5567 71.0119 14.535 68.305 11.115 64.885C7.695 61.465 4.98813 57.4433 2.9944 52.82C0.998134 48.1967 0 43.2567 0 38C0 32.7433 0.998134 27.8033 2.9944 23.18C4.98813 18.5567 7.695 14.535 11.115 11.115C14.535 7.695 18.5567 4.98687 23.18 2.9906C27.8033 0.996866 32.7433 0 38 0C43.2567 0 48.1967 0.996866 52.82 2.9906C57.4433 4.98687 61.465 7.695 64.885 11.115C68.305 14.535 71.0119 18.5567 73.0056 23.18C75.0019 27.8033 76 32.7433 76 38C76 43.2567 75.0019 48.1967 73.0056 52.82C71.0119 57.4433 68.305 61.465 64.885 64.885C61.465 68.305 57.4433 71.0119 52.82 73.0056C48.1967 75.0019 43.2567 76 38 76ZM57 28.5L62.13 26.79L63.65 21.66C61.6233 18.62 59.185 16.0069 56.335 13.8206C53.485 11.6369 50.35 10.0067 46.93 8.93L41.8 12.54V17.86L57 28.5ZM19 28.5L34.2 17.86V12.54L29.07 8.93C25.65 10.0067 22.515 11.6369 19.665 13.8206C16.815 16.0069 14.3767 18.62 12.35 21.66L13.87 26.79L19 28.5ZM15.01 57.76L19.38 57.38L22.23 52.25L16.72 35.72L11.4 33.82L7.6 36.67C7.6 40.7867 8.17 44.5385 9.31 47.9256C10.45 51.3152 12.35 54.5933 15.01 57.76ZM38 68.4C39.6467 68.4 41.2617 68.2733 42.845 68.02C44.4283 67.7667 45.98 67.3867 47.5 66.88L50.16 61.18L47.69 57H28.31L25.84 61.18L28.5 66.88C30.02 67.3867 31.5717 67.7667 33.155 68.02C34.7383 68.2733 36.3533 68.4 38 68.4ZM29.45 49.4H46.55L51.87 34.2L38 24.51L24.32 34.2L29.45 49.4ZM60.99 57.76C63.65 54.5933 65.55 51.3152 66.69 47.9256C67.83 44.5385 68.4 40.7867 68.4 36.67L64.6 34.01L59.28 35.72L53.77 52.25L56.62 57.38L60.99 57.76Z" fill="#0FB916"/>\n'
+    if a1 > 0:
+        for a in range(a1):
+            gamatch1_text += f'''<g width="59" height="50" fill="none" transform = "translate({inital_x_a+50*a},90) scale(0.9)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M37.9998 3C37.9998 1 32.4998 0 32.4998 0L26.4998 10.5C24.4998 10.5 23.4998 14.5 23.4998 14.5C23.4998 14.5 21.1664 16.5 20.9998 18C19.7998 18.4 11.4998 26.5 7.49983 30.5C0.429491 36.1562 0.468828 38.2577 0.496511 39.7366C0.498194 39.8265 0.499834 39.914 0.499831 40C2.99983 44 7.1665 44 9.99983 44C12.0245 45.4666 57.9998 22 57.9998 19.5C57.9998 17 57.1998 15.5 53.9998 9.5C50.7998 3.5 45.9998 1.33333 43.9998 1V5C40.3998 10.6 36.1665 10.6667 34.4998 10C34.4998 10 37.9998 5 37.9998 3ZM21.4998 37.5L27.4998 34.5C26.4998 32 33.4998 24 37.9998 20.5C41.5998 17.7 47.8331 10.8333 50.4998 7.5L49.4998 6C47.3507 11.5877 37.4422 19.0228 31.8444 23.2233C30.9305 23.9091 30.1314 24.5087 29.4998 25C25.8998 27.8 22.6664 34.5 21.4998 37.5ZM52.4999 9L52.9999 9.5C51.3332 12 46.4998 18 46.4998 18C46.4998 18 38.4999 27 39.9999 28L33.4998 31.5C33.4998 31.5 35.4998 26.5 38.9998 23.5C42.4998 20.5 49.4998 13 52.4999 9Z" fill="#33F000"/>
+    <path d="M58 22.5L52.5 25.5L55 29L58.5 27.5L58 22.5Z" fill="#33F000"/>
+    <path d="M49.5 27L44 30L46.5 33.5L50 32L49.5 27Z" fill="#33F000"/>
+    <path d="M24.5 40L19 43L21.5 46L25.5 44L24.5 40Z" fill="#33F000"/>
+    <path d="M17 43.5L11.5 45L14.5 49.5L18 48L17 43.5Z" fill="#33F000"/>
+    </g>\n'''    
+    
+    # Now we calculate the second match goals and assists
+            
+    # First we calculate the initial points knowing that the desired point is the half of the width 544 minus half of the ga's width
+            # In the one of the goal we substract 472 due to this being the displacement of the path
+            # In the one of the assist we add the length of the goals
+    inital_x_g = (261 -((gamatch2*50)//2)) - starting_point # 290, 370, 450
+    inital_x_a = inital_x_g + 50*g2 
+    if g2 > 0:
+        for g in range(g2):
+            gamatch2_text += f'<path transform="translate({inital_x_g+50*g},160) scale(0.65)" d="M38 76C32.7433 76 27.8033 75.0019 23.18 73.0056C18.5567 71.0119 14.535 68.305 11.115 64.885C7.695 61.465 4.98813 57.4433 2.9944 52.82C0.998134 48.1967 0 43.2567 0 38C0 32.7433 0.998134 27.8033 2.9944 23.18C4.98813 18.5567 7.695 14.535 11.115 11.115C14.535 7.695 18.5567 4.98687 23.18 2.9906C27.8033 0.996866 32.7433 0 38 0C43.2567 0 48.1967 0.996866 52.82 2.9906C57.4433 4.98687 61.465 7.695 64.885 11.115C68.305 14.535 71.0119 18.5567 73.0056 23.18C75.0019 27.8033 76 32.7433 76 38C76 43.2567 75.0019 48.1967 73.0056 52.82C71.0119 57.4433 68.305 61.465 64.885 64.885C61.465 68.305 57.4433 71.0119 52.82 73.0056C48.1967 75.0019 43.2567 76 38 76ZM57 28.5L62.13 26.79L63.65 21.66C61.6233 18.62 59.185 16.0069 56.335 13.8206C53.485 11.6369 50.35 10.0067 46.93 8.93L41.8 12.54V17.86L57 28.5ZM19 28.5L34.2 17.86V12.54L29.07 8.93C25.65 10.0067 22.515 11.6369 19.665 13.8206C16.815 16.0069 14.3767 18.62 12.35 21.66L13.87 26.79L19 28.5ZM15.01 57.76L19.38 57.38L22.23 52.25L16.72 35.72L11.4 33.82L7.6 36.67C7.6 40.7867 8.17 44.5385 9.31 47.9256C10.45 51.3152 12.35 54.5933 15.01 57.76ZM38 68.4C39.6467 68.4 41.2617 68.2733 42.845 68.02C44.4283 67.7667 45.98 67.3867 47.5 66.88L50.16 61.18L47.69 57H28.31L25.84 61.18L28.5 66.88C30.02 67.3867 31.5717 67.7667 33.155 68.02C34.7383 68.2733 36.3533 68.4 38 68.4ZM29.45 49.4H46.55L51.87 34.2L38 24.51L24.32 34.2L29.45 49.4ZM60.99 57.76C63.65 54.5933 65.55 51.3152 66.69 47.9256C67.83 44.5385 68.4 40.7867 68.4 36.67L64.6 34.01L59.28 35.72L53.77 52.25L56.62 57.38L60.99 57.76Z" fill="#0FB916"/>\n'
+    if a2 > 0:
+        for a in range(a2):
+            gamatch2_text += f'''<g width="59" height="50" fill="none" transform = "translate({inital_x_a+50*a},160) scale(0.9)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M37.9998 3C37.9998 1 32.4998 0 32.4998 0L26.4998 10.5C24.4998 10.5 23.4998 14.5 23.4998 14.5C23.4998 14.5 21.1664 16.5 20.9998 18C19.7998 18.4 11.4998 26.5 7.49983 30.5C0.429491 36.1562 0.468828 38.2577 0.496511 39.7366C0.498194 39.8265 0.499834 39.914 0.499831 40C2.99983 44 7.1665 44 9.99983 44C12.0245 45.4666 57.9998 22 57.9998 19.5C57.9998 17 57.1998 15.5 53.9998 9.5C50.7998 3.5 45.9998 1.33333 43.9998 1V5C40.3998 10.6 36.1665 10.6667 34.4998 10C34.4998 10 37.9998 5 37.9998 3ZM21.4998 37.5L27.4998 34.5C26.4998 32 33.4998 24 37.9998 20.5C41.5998 17.7 47.8331 10.8333 50.4998 7.5L49.4998 6C47.3507 11.5877 37.4422 19.0228 31.8444 23.2233C30.9305 23.9091 30.1314 24.5087 29.4998 25C25.8998 27.8 22.6664 34.5 21.4998 37.5ZM52.4999 9L52.9999 9.5C51.3332 12 46.4998 18 46.4998 18C46.4998 18 38.4999 27 39.9999 28L33.4998 31.5C33.4998 31.5 35.4998 26.5 38.9998 23.5C42.4998 20.5 49.4998 13 52.4999 9Z" fill="#33F000"/>
+    <path d="M58 22.5L52.5 25.5L55 29L58.5 27.5L58 22.5Z" fill="#33F000"/>
+    <path d="M49.5 27L44 30L46.5 33.5L50 32L49.5 27Z" fill="#33F000"/>
+    <path d="M24.5 40L19 43L21.5 46L25.5 44L24.5 40Z" fill="#33F000"/>
+    <path d="M17 43.5L11.5 45L14.5 49.5L18 48L17 43.5Z" fill="#33F000"/>
+    </g>\n'''    
+
+
+
+    
+    # In these part we will create the percentiles
+    percentile_text = ''
+    percentile_list = percentiles.loc[:,"Statistic"].tolist()
+    percentile_separation = 20
+    for attribute in percentile_list:
+        percentile = percentiles.set_index("Statistic").loc[attribute,'Percentile']
+        percentile_text += f"""
+            <text x="90" y="{percentile_height+10+percentile_list.index(attribute)*percentile_separation}" fill="black" font-family="Inter" font-size="12">{attribute}</text>
+            <text x="260" y="{percentile_height+10+percentile_list.index(attribute)*percentile_separation}" fill="black" font-family="Inter" font-size="12">{percentile}</text>
+            <rect width="{160*(percentile/100)}" height="12" fill="{'green' if percentile >90 else 'lightgreen' if percentile >75 else "yellow" }" transform="translate(280,{percentile_height+10+percentile_list.index(attribute)*percentile_separation-10})" rx="3"/>
+            <path d="M0 10H360 11" transform="translate(80,{percentile_height+10+percentile_list.index(attribute)*percentile_separation-5})" stroke="black"/>
+            """
+    percentile_size = (len(percentile_list))*percentile_separation+20
+    
+        
+            
+    
+    stats_height = 215
+    extra_height = 50
+    # THIS IS THE SVG CODE
+    svg_code =f"""<svg width="522" height="{percentile_size + percentile_height + extra_height}" viewBox="0 0 522 {percentile_size + percentile_height + extra_height}" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <text fill="white" font-family="Inter" font-size="30" font-weight="bold" x="10" y="35">Season 2022/2023 Achievements</text>
+
+                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="54" y="75">Average Season Rating</text>
+                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="30" x="345" y="75">{year_rating}</text>
+                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="420" y="75">rtg</text>
+
+                    {gamatch1_text}
+                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="40" x="{10+match_separation_half}" y="128">{matches[0][3]}</text><text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="{100+match_separation_half}" y="128">rtg</text>
+
+                    {gamatch2_text}
+                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="40" x="{10+match_separation_half}" y="195">{matches[1][3]}</text><text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="{100+match_separation_half}" y="195">rtg</text>
+
+                    <rect width="450" height="{percentile_height+percentile_size-stats_height+ 40}" rx="40" transform="translate(36,{stats_height})" fill="#1D1D1D"/>
+                    <text fill="white" font-family="Inter" font-size="30" font-weight="bold" x="132" y="245">This season stats</text>
+                    <path transform="translate(-150,-162)" d="M206.373 415.18H615.355" stroke="#525252" stroke-linecap="round"/>
+
+                    {stats_text}
+
+                    <rect width="400" rx="15" height="{percentile_size}" transform="translate(60,{percentile_height -10})" fill="white"/>
+                    <path d="M0 10L1 {percentile_size - 10}" transform="translate(250,{percentile_height-10})" stroke="black"/>
+                    {percentile_text}
+    
+                    
+                </svg>"""
+
+
+    with open(path+'svg.svg','w') as f:
+        f.write(svg_code)
+    doc = aw.Document()
+    builder = aw.DocumentBuilder(doc)
+    shape = builder.insert_image(path +"svg.svg")
+    shape.image_data.save(path +"svg.png")
+    
+
+    background = cv2.imread(path_resources+'background.png')
+    overlay = cv2.imread(path+'svg.png', cv2.IMREAD_UNCHANGED)
+    img_path = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Resources/'
+    club1 = Image.open(img_path+f'Clubs/{matches[0][0]}.webp').convert("RGBA")
+    club2 = Image.open(img_path+f'Clubs/{matches[1][0]}.webp').convert("RGBA")
+
+    #Background adjusting
+    height, width, channels = background.shape
+    scale = width / 1280
+    height = int(height / scale)
+    offset = abs((height-720)//2)
+    background = cv2.resize(background,(1280,height))
+    if position == 'top':
+        background = background[0:720,0:1280]
+    elif position == 'middle':
+        background = background[offset:720 + offset,0:1280]
+    elif position == 'bottom':
+        background = background[2*offset:720 + 2*offset,0:1280]
+
+    #Overlay adjusting
+    height, width, channels = overlay.shape
+    width = 1280//2 - width//2
+    imgResult = cvzone.overlayPNG(background,overlay,[width,50])
+    cv2.imwrite(path+'Video3(no clubs).png', imgResult)
+
+
+    # Club adjusting
+    club_size = 30
+
+    width, height = club1.size
+    scale = width / club_size
+    height1 = int(height / scale)
+    if height1 > club_size * 1.5:
+        scale = int(height / (club_size*1.5))
+        width1 = int(width / scale)
+        height1 = int(club_size*1.5)
+        club1 = club1.resize((width1,int(club_size*1.5)))
+    else:
+        width1 = club_size
+        club1 = club1.resize((club_size,height1))
+    width,height = club2.size
+    scale = width / club_size
+    height2 = int(height / scale)
+    if height2 > club_size * 1.5:
+        scale = int(height / (club_size*1.5))
+        width2 = int(width / scale)
+        height2 = int(club_size*1.5)
+        club2 = club2.resize((width2,int(club_size*1.5)))
+    else:
+        width2 = club_size
+        club2 = club2.resize((club_size,height2))
+
+    imgResult = Image.open(path+'video3(no clubs).png')
+    imgResult.paste(club1, ((520-width1),(145 - height1)), mask= club1)
+    imgResult.paste(club2, ((520-width2),(200 - height2)), mask= club2)
+    #imgResult.paste(percentiles, (percentile_offset,percentile_separation), mask= percentiles)
+    imgResult.save(path+"Video3.png")
+
+    
+    os.remove(path+"Video3(no clubs).png")
+    os.remove(path+"svg.svg")
+    os.remove(path+"svg.png")
+
+def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentiles,translate=False,clone=False):
+
+    if translate:
+        if translate:
+            thread1 = ThreadWithReturnValue(target=translate,args=("script",))
+            thread2 = ThreadWithReturnValue(target=translate,args=("sort_script",))
+            thread1.start()
+            thread2.start()
+            thread3 = ThreadWithReturnValue(target=make_audios_clone_voice(),args=("script",))
+            thread3.start()
+    player = unidecode.unidecode(player)
+    response = ''
+    #p = Popen("C:/Users/ignac/Documents/Ai/Turtoise/ai-voice-cloning-v2_0/ai-voice-cloning/start.bat")
+    thread = Thread(target=make_audios_clone_voice, args=("script",))
+    thread.start()
+    while response.lower() not in ["yes","y","si"]:
+        make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
+        make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
+        old_make_video_frame3(path,matches,stats,position=positions['V3']['background'],percentiles=percentiles)
+        make_video1(path,player,short_photo[0])
+        make_video2(path,player,info,short_photo[1])
+        make_video3(path,matches,stats,percentiles)
+        response = input("Do you like the Images? (yes/position/youngster/other)")
+        if response.lower() in ["younster","young","w"]:
+            youngster = True
+        elif response.lower() in ["other","o"]:
+            pass
+        elif response.lower() not in ["yes","y","si"]:
+            changes = input("This is the dictionary."+"\n"+ ''.join(['{} -> {}.\n'.format(image, ''.join([' {}:{},'.format(element, positions[image][element]) for element in positions[image].keys()])) for image in positions.keys()])+ "Give me the changes: ")
+            dictionary = changes.replace("."," ->  ").split(" ->  ")
+            for e in range(len(dictionary)//2):
+                positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] for pair in dictionary[e*2+1][:-1].split(",")}
+    thread.join()
+    create_vid('Video1','Video2','Video3',clone=clone,make_audio=True)
+    
+    if short:
+        create_short('Video','Video-1','Video-2',clone=clone)
+    if translate:
+        script = thread1.join()
+        sort_script = thread2.join()
+        get_audios(script,sort_script)
+    
+def get_season_script(player,stats,match_list):
+    with open(f'players\{player}.json') as f:
+        description = json.load(f)
+    matches = ''
+    percentile_text = ''
+    percentiles = description['percentiles']
+    statistics = description['statistics']
+    for attribute in statistics:
+        percentile_text += f"He is in the {100-int(percentiles[statistics.index(attribute)])} for {attribute}"
+    for x in match_list:
+        matches += f' Against {x[0]} with {"a hack trick" if x[1] == 3 else f"{x[1]} goals" if x[1]>0 else ""} {f"and {x[2]} assists" if x[2] > 0 else ""} and a rating for the match of {x[3]}.'
+    prompt = f"write a paragraph analysis about {player}'s season with a {stats[0]} average rating in sofascore and this other key stats {', '.join(stats[1:]).replace(':','')} also here are some other stats {percentile_text} his best matches this season are:{matches}. Other information that doesn't have to be mentioned is that he plays as a {description['position']} and he is {description['age']} years old"
+    response = ollama.chat(model='llama3', messages=[
+        {
+            'role':'system',
+            'content':'Write ONLY one paragraph'
+        },
+    {
+        'role': 'user',
+        'content': "write a descrition about Alejandro Grimaldo's season with a 7.7 average rating in sofascore and this other key stats Matches played 28.0(26.0), Goals 10.0, Assists 9.0, Big Chances 12.0, Team of the Week 6.0, Minutes per goal 71.9 min also his best matches this season are Against Qarabağ with 2 goals and 1 assists and a rating for the match of 9.3.Against Leipzig with 0 goals and 2 assists and a rating for the match of 8.9.",
+    },{
+        'role':'assistant',
+        'content':"Alejandro Grimaldo's season has been nothing short of impressive, with an average rating of 7.7 on SofaScore. The left-back has played 28 matches, scoring 10 goals and providing 9 assists, while creating a significant amount of big chances for his team. His minutes per goal rate of 71.9 min is among the best in the league, showcasing his efficiency in attack. Grimaldo's standout performances this season include his two-goal, one-assist display against Qarabağ, which earned him a rating of 9.3, and his zero-goal, two-assist effort against Leipzig, which earned him a rating of 8.9. These outings demonstrate Grimaldo's ability to produce high-quality performances on a consistent basis."
+    },{
+        'role': 'user',
+        'content': "write a paragraph analysis about Harry Kane's season with a 7.75 average rating in sofascore and this other key stats Matches played 35, Goals 37.0, Assists 10.0, Big Chances Missed 26.0, Minutes per goal 86.37 min, Shots per game 4.23 also his best matches this season are: Against Dortmund with 3 goals and 0 assists and a rating for the match of 9.9. Against Mainz 05 with 3 goals and 1 assists and a rating for the match of 9.8.. Other information that doesn't have to be mentioned is that he plays as a f and he is 30 yrs years old",
+    },{
+        'role':'assistant',
+        'content':"Harry Kane's season has been nothing short of remarkable, with an average SofaScore rating of 7.75. The England international has played 35 matches, finding the back of the net an impressive 37 times, while providing 10 assists. However, he has also missed a significant number of big chances with  26. Despite this, Kane's scores a goal every 86.37 minutes being among the best in Europe, showcasing his efficiency in attack. His standout performances this season include his Hack Trick against Borussia Dortmund, which earned him a rating of 9.9, and his Hack Trick and one-assist against Mainz, which earned him a rating of 9.8. These outings demonstrate Kane's ability to produce high-quality performances on a consistent basis, and cement his status as one of the top strikers in the league. Could the Champions league be his first carrear title?"
+    },{
+        'role':'user',
+        'content':"write a paragraph analysis about Antoine Griezmann's season with a 7.53 average rating in sofascore and this other key stats Matches played 34(32.0), Goals 17.0, Assists 6.0, Shots per game 2.37, Big Chances Missed 13.0, Team of the Week 4.0 also here are some other stats ['Passes Completed', 'Touches', 'Total Passing Distance', 'Progressive Passing Distance', 'xAG: Exp. Assisted Goals', 'Shot-Creating Actions', 'Switches', 'Miscontrols', 'Key Passes', 'Assists', 'xA: Expected Assists', 'Progressive Passes', 'Crosses', 'Carries', 'Goal-Creating Actions'] his best matches this season are: Against Celtic with 2 goals  and a rating for the match of 9.8. Against Inter with 1 goals  and a rating for the match of 8.8.. Other information that doesn't have to be mentioned is that he plays as a f and he is 33 yrs years old"
+    },{
+        'role':'assistant',
+        'content':"Antoine Griezmann's season has been spectacular, although this Atletico is not the same team he left years ago, with an average SofaScore rating of 7.53. The French forward has played 34 matches, finding the back of the net 17 times, while providing 6 assists. While his shot output per game is impressive at 2.37, he has missed a significant number of big chances with 13.0. Also he ranks as the best forward in Expected Assists and touches, while also being among the best in everything related to playmaking abilities, like progressive passes, key passes, shot and goal creating actions and expected assisted goals. It is also worth noting the efect a manager like Simeone has had on this player making him one of the Strikers with the best defensive performances. Griezmann's standout performances this season include his two-goal display against Celtic, which earned him a rating of 9.8, and his one-goal effort against Inter, which earned him a rating of 8.8. These outings demonstrate Griezmann's ability to produce high-quality performances on a consistent basis, although he may not be at the same level as some of the other top scorers in the league. Nonetheless, his experience and consistency make him the key player of his team."
+    },{
+        'role':'user',
+        'content':"write a paragraph analysis about Serhou Guirassy's season with a 7.77 average rating in sofascore and this other key stats Matches played 23(20.0), Goals 25, Assists 1, Big Chances Miss 13, Minutes per goal 71.0 min, Shots 3.2 also here are some other stats [99, 98, 97, 97, 94, 94, 93, 93, 92, 92] his best matches this season are: Against Mainz 05 with a hack trick  and a rating for the match of 10.0. Against Wolfsburg with a hack trick  and a rating for the match of 9.8.. Other information that doesn't have to be mentioned is that he plays as a f and he is 28 yrs years old"
+    },{
+        'role':'assistant',
+        'content':"Serhou Guirassy's season has been nothing short of impressive, with an average SofaScore rating of 7.77. The Guinean forward has played 23 matches, finding the back of the net a remarkable 25 times, while providing one assist. He scores a goal every 71.0 min being amoung the best in the world, showcasing his efficiency in attack. He is also very good in the creating aspect, despite the believe his is a bulky striker, he is in the top percentiles for shot and goal creating actions. Also he does well for himself in key passes and expected assists. Guirassy's standout performances this season include his hack-tricks against Wolfsburg and Mainz, which earned him a rating of 9.8, and 10 respectively. Also to note a couple braces like the one with one-assist against Darmstadt, which earned him a rating of 9.3. These outings demonstrate Guirassy's ability to produce high-quality performances on a consistent basis, and cement his status as one of the top strikers in the league. His impressive goal-scoring record and 3.2 shots per game make him a indispensable asset for his team, and he is likely to be a key player in their push for Europe this season."
+    },{
+        'role':'user',
+        'content':prompt
+    }])
+    with open("prompts.txt","a+") as file:
+        if f"Prompt Stats: {prompt}" not in file.read():
+            file.write(f"Prompt Stats: {prompt}\n")
+    return response['message']['content'].split('\n')[-1]
+
+"""from wand.image import Image
+
+def convert_svg_to_png(svg_path, png_path):
+    with Image(filename=svg_path) as img:
+        img.format = 'png'
+        img.background_color = 'rgba(255, 255, 255, 0)'  # Set transparent background
+        img.alpha_channel = 'remove'  # Remove any alpha channel artifacts
+        img.save(filename=png_path)
+
+# Example usage
+svg_file = 'svg.svg'
+png_file = 'example.png'
+convert_svg_to_png(svg_file, png_file)"""
 
 """import threading
 import subprocess

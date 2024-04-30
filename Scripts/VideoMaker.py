@@ -8,55 +8,47 @@ import shutil
 # This makes the code think is in the root folder. Only done for organizing
 sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code")
 
-def create_vid(img1,img2,img3,script='script',output="video1",clone=False,make_audio=True):
-    if make_audio:
+def create_vid(images,script='script',output="video1",clone=False,make_audio=True):
+    videoclips = []
+    for img in images:
+        if make_audio:
+            if not clone:
+                with open(f"{script}.txt") as t:
+                    lines = t.readlines()
+                text = ''
+                texts = []
+                voice = pyttsx3.init()
+                voice.setProperty('voice','HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0')
+                for e in lines:
+                    if e == '\n':
+                        texts += [text]
+                        text = ''
+                    else:
+                        text += e
+                index = 0
+                for text in texts:
+                    index += 1
+                    voice.save_to_file(text,f"audio{index}.mp3")
+                    voice.runAndWait()
+
+
         if not clone:
-            with open(f"{script}.txt") as t:
-                lines = t.readlines()
-            text = ''
-            texts = []
-            voice = pyttsx3.init()
-            voice.setProperty('voice','HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0')
-            for e in lines:
-                if e == '\n':
-                    texts += [text]
-                    text = ''
-                else:
-                    text += e
-            voice.save_to_file(texts[0],"audio1.mp3")
-            voice.save_to_file(texts[1],"audio2.mp3")
-            voice.save_to_file(texts[2],"audio3.mp3")
-            voice.runAndWait()
+            audio = AudioFileClip(f'audio{images.index(img)+1}.mp3')
+        else:
+            audio = AudioFileClip(f'audio{images.index(img)+1}.wav')
 
-
-    if not clone:
-        audio1 = AudioFileClip('audio1.mp3')
-        audio2 = AudioFileClip('audio2.mp3')
-        audio3 = AudioFileClip('audio3.mp3')
-    else:
-        audio1 = AudioFileClip('audio1.wav')
-        audio2 = AudioFileClip('audio2.wav')
-        audio3 = AudioFileClip('audio3.wav')
-
-    image1 = ImageClip(f'Video Output/{img1}.png')
-    image2 = ImageClip(f'Video Output/{img2}.png')
-    image3 = ImageClip(f'Video Output/{img3}.png')
-    clip3 = image3.set_duration(audio3.duration)
-    clip2 = image2.set_duration(audio2.duration+1)
-    clip1 = image1.set_duration(audio1.duration+1)
-    Video1= clip1.set_audio(audio1)
-    Video2= clip2.set_audio(audio2)
-    Video3= clip3.set_audio(audio3)
-    Video_final = concatenate_videoclips([Video1,Video2,Video3])
+        image = ImageClip(f'Video Output/{img}.png')
+        clip = image.set_duration(audio.duration)
+        Video= clip.set_audio(audio)
+        videoclips += [Video]
+    Video_final = concatenate_videoclips(videoclips)
     Video_final.write_videofile(f'Youtube Output/{output}.mp4',24)
-    if not clone:
-        os.remove('audio1.mp3')
-        os.remove('audio2.mp3')
-        os.remove('audio3.mp3')
-    else:
-        os.remove('audio1.wav')
-        os.remove('audio2.wav')
-        os.remove('audio3.wav')    
+    for img in images:
+        if not clone:
+            os.remove(f'audio{images.index(img)+1}.mp3')
+        else:
+            os.remove(f'audio{images.index(img)+1}.wav')
+            
 
 def create_short(img1,img2,img3,script='sort_script',clone=False,make_audio=True):
     if make_audio:

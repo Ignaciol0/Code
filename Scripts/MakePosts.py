@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw
 import aspose.words as aw
+import subprocess
 import os
 import cv2
 import cvzone
@@ -7,8 +8,9 @@ import pandas as pd
 import unidecode
 import json
 from threading import Thread
-from subprocess import Popen
+from dumbster import old_make_video_frame3
 from VideoMaker import create_vid, create_short, make_audios_clone_voice
+from RemoveBg import remove_bg
 from ScriptWriter import ThreadWithReturnValue, translate
 import sys
 
@@ -21,7 +23,7 @@ path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/
 info = ["100","193","31","fra","Real Madrid",False,['RW','CM']]
 matches = [['Barcelona',0,2,'10'],['Manchester United',1,0,'9.57']]
 percentiles = pd.DataFrame({'Statistic':['Expected Assist','Goals','Assists','Key Passes','Progressive Pases'],'Percentile':[99,80,70,60,10]})
-stats = [9.05,'Matches Played: 24(14)','Goals: 11','Assist: 4','Big Chances: 7','Progresive Passes: 39','Dribbles %: 61.6% ']
+stats = [9.05,'Matches Played: 24(14)','Goals: 11','Assist: 4','Big Chances: 7','Progresive Passes: 39','Dribbles %: 61.6% ','Prog. Passes Recieved: 13.22']
 def add_corners(im, rad):
     circle = Image.new('L', (rad * 2, rad * 2), 0)
     draw = ImageDraw.Draw(circle)
@@ -1048,149 +1050,80 @@ def make_video_frame2(path,player,info, position='middle',description = 'bottom'
     os.remove(path+"position_svg.svg")
     os.remove(path+"position_svg.png")
 
-def make_video_frame3(path,matches,stats,percentiles,position='middle'):
-    """Path: is the path to the directory all the images are in
-       matches: is a list with the match stats. [[club name,goals,assists,rating],[club name,goals,assists,rating]]
-       stats: is a list with the season stats. [rating,matches_played,goals (g/a in case of a defender),assists (good stat 1 in case a defender),good stat 1, good stat 2, good stat 3, good stat 4, good stat 5]
-    """
+def make_video_frame3(path,matches,stats,photo='photo1'):
     path_resources = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/images/'
-    
-    '''
-    # Percentiles
-    percentiles = Image.open(path+f'images/percentiles.png')
-    width, height = percentiles.size
-    real_width = 280
-    multiplier = width / real_width
-    height = int(height / multiplier)
-    percentiles = percentiles.resize((real_width,height))
-    percentile_offset = 1280//2 - real_width // 2 
-    percentiles = add_corners(percentiles,5)
-    # We are getting the stats of the square by duplicating the texts that appear and making the y increase
-    '''
+    img_path = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Resources/'
+
     year_rating = stats[0]
-    stats = stats[1:]
-    stats_text = ''
-    text_height = 280
-    text_separation = 35
-    for stat in stats:
-        stats_text += f'<text fill="white" font-family="Inter" font-size="25" font-weight="bold" x="100" y="{text_height+stats.index(stat)*text_separation}">{stat}</text>\n'
-    percentile_height = text_height+(len(stats)-1)*(text_separation) + 20
-    # Now we are making the match part of the post
-        # We start calculating the separation needed between the rating and the badges
-    gamatch1 = matches[0][1]+matches[0][2]
-    gamatch2 = matches[1][1]+matches[1][2]
-    match_separation_half = (261 - (max(gamatch1,gamatch2)*50//2)) + ((max(gamatch1,gamatch2) * 50))
-    gamatch1_text = ''
-    g1,a1 = matches[0][1], matches[0][2]
-    gamatch2_text = ''
-    g2,a2 = matches[1][1], matches[1][2]
     
-    # Now we calculate the first match goals and assists
-            
-    # First we calculate the initial points knowing that the desired point is the half of the width 544 minus half of the ga's width
-            # In the one of the goal we substract 472 due to this being the displacement of the path
-            # In the one of the assist we add the length of the goals
-    # The path doesn't start at 0,0
-    starting_point = 38
 
-    inital_x_g = (261 - ((gamatch1*50)//2)) - starting_point#290, 370, 450
-    inital_x_a = inital_x_g + 50*g1 
-    if g1 > 0:
-        for g in range(g1):
-            gamatch1_text += f'<path transform="translate({inital_x_g+50*g},90) scale(0.65)" d="M38 76C32.7433 76 27.8033 75.0019 23.18 73.0056C18.5567 71.0119 14.535 68.305 11.115 64.885C7.695 61.465 4.98813 57.4433 2.9944 52.82C0.998134 48.1967 0 43.2567 0 38C0 32.7433 0.998134 27.8033 2.9944 23.18C4.98813 18.5567 7.695 14.535 11.115 11.115C14.535 7.695 18.5567 4.98687 23.18 2.9906C27.8033 0.996866 32.7433 0 38 0C43.2567 0 48.1967 0.996866 52.82 2.9906C57.4433 4.98687 61.465 7.695 64.885 11.115C68.305 14.535 71.0119 18.5567 73.0056 23.18C75.0019 27.8033 76 32.7433 76 38C76 43.2567 75.0019 48.1967 73.0056 52.82C71.0119 57.4433 68.305 61.465 64.885 64.885C61.465 68.305 57.4433 71.0119 52.82 73.0056C48.1967 75.0019 43.2567 76 38 76ZM57 28.5L62.13 26.79L63.65 21.66C61.6233 18.62 59.185 16.0069 56.335 13.8206C53.485 11.6369 50.35 10.0067 46.93 8.93L41.8 12.54V17.86L57 28.5ZM19 28.5L34.2 17.86V12.54L29.07 8.93C25.65 10.0067 22.515 11.6369 19.665 13.8206C16.815 16.0069 14.3767 18.62 12.35 21.66L13.87 26.79L19 28.5ZM15.01 57.76L19.38 57.38L22.23 52.25L16.72 35.72L11.4 33.82L7.6 36.67C7.6 40.7867 8.17 44.5385 9.31 47.9256C10.45 51.3152 12.35 54.5933 15.01 57.76ZM38 68.4C39.6467 68.4 41.2617 68.2733 42.845 68.02C44.4283 67.7667 45.98 67.3867 47.5 66.88L50.16 61.18L47.69 57H28.31L25.84 61.18L28.5 66.88C30.02 67.3867 31.5717 67.7667 33.155 68.02C34.7383 68.2733 36.3533 68.4 38 68.4ZM29.45 49.4H46.55L51.87 34.2L38 24.51L24.32 34.2L29.45 49.4ZM60.99 57.76C63.65 54.5933 65.55 51.3152 66.69 47.9256C67.83 44.5385 68.4 40.7867 68.4 36.67L64.6 34.01L59.28 35.72L53.77 52.25L56.62 57.38L60.99 57.76Z" fill="#0FB916"/>\n'
-    if a1 > 0:
-        for a in range(a1):
-            gamatch1_text += f'''<g width="59" height="50" fill="none" transform = "translate({inital_x_a+50*a},90) scale(0.9)">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M37.9998 3C37.9998 1 32.4998 0 32.4998 0L26.4998 10.5C24.4998 10.5 23.4998 14.5 23.4998 14.5C23.4998 14.5 21.1664 16.5 20.9998 18C19.7998 18.4 11.4998 26.5 7.49983 30.5C0.429491 36.1562 0.468828 38.2577 0.496511 39.7366C0.498194 39.8265 0.499834 39.914 0.499831 40C2.99983 44 7.1665 44 9.99983 44C12.0245 45.4666 57.9998 22 57.9998 19.5C57.9998 17 57.1998 15.5 53.9998 9.5C50.7998 3.5 45.9998 1.33333 43.9998 1V5C40.3998 10.6 36.1665 10.6667 34.4998 10C34.4998 10 37.9998 5 37.9998 3ZM21.4998 37.5L27.4998 34.5C26.4998 32 33.4998 24 37.9998 20.5C41.5998 17.7 47.8331 10.8333 50.4998 7.5L49.4998 6C47.3507 11.5877 37.4422 19.0228 31.8444 23.2233C30.9305 23.9091 30.1314 24.5087 29.4998 25C25.8998 27.8 22.6664 34.5 21.4998 37.5ZM52.4999 9L52.9999 9.5C51.3332 12 46.4998 18 46.4998 18C46.4998 18 38.4999 27 39.9999 28L33.4998 31.5C33.4998 31.5 35.4998 26.5 38.9998 23.5C42.4998 20.5 49.4998 13 52.4999 9Z" fill="#33F000"/>
-    <path d="M58 22.5L52.5 25.5L55 29L58.5 27.5L58 22.5Z" fill="#33F000"/>
-    <path d="M49.5 27L44 30L46.5 33.5L50 32L49.5 27Z" fill="#33F000"/>
-    <path d="M24.5 40L19 43L21.5 46L25.5 44L24.5 40Z" fill="#33F000"/>
-    <path d="M17 43.5L11.5 45L14.5 49.5L18 48L17 43.5Z" fill="#33F000"/>
-    </g>\n'''    
-    
-    # Now we calculate the second match goals and assists
-            
-    # First we calculate the initial points knowing that the desired point is the half of the width 544 minus half of the ga's width
-            # In the one of the goal we substract 472 due to this being the displacement of the path
-            # In the one of the assist we add the length of the goals
-    inital_x_g = (261 -((gamatch2*50)//2)) - starting_point # 290, 370, 450
-    inital_x_a = inital_x_g + 50*g2 
-    if g2 > 0:
-        for g in range(g2):
-            gamatch2_text += f'<path transform="translate({inital_x_g+50*g},160) scale(0.65)" d="M38 76C32.7433 76 27.8033 75.0019 23.18 73.0056C18.5567 71.0119 14.535 68.305 11.115 64.885C7.695 61.465 4.98813 57.4433 2.9944 52.82C0.998134 48.1967 0 43.2567 0 38C0 32.7433 0.998134 27.8033 2.9944 23.18C4.98813 18.5567 7.695 14.535 11.115 11.115C14.535 7.695 18.5567 4.98687 23.18 2.9906C27.8033 0.996866 32.7433 0 38 0C43.2567 0 48.1967 0.996866 52.82 2.9906C57.4433 4.98687 61.465 7.695 64.885 11.115C68.305 14.535 71.0119 18.5567 73.0056 23.18C75.0019 27.8033 76 32.7433 76 38C76 43.2567 75.0019 48.1967 73.0056 52.82C71.0119 57.4433 68.305 61.465 64.885 64.885C61.465 68.305 57.4433 71.0119 52.82 73.0056C48.1967 75.0019 43.2567 76 38 76ZM57 28.5L62.13 26.79L63.65 21.66C61.6233 18.62 59.185 16.0069 56.335 13.8206C53.485 11.6369 50.35 10.0067 46.93 8.93L41.8 12.54V17.86L57 28.5ZM19 28.5L34.2 17.86V12.54L29.07 8.93C25.65 10.0067 22.515 11.6369 19.665 13.8206C16.815 16.0069 14.3767 18.62 12.35 21.66L13.87 26.79L19 28.5ZM15.01 57.76L19.38 57.38L22.23 52.25L16.72 35.72L11.4 33.82L7.6 36.67C7.6 40.7867 8.17 44.5385 9.31 47.9256C10.45 51.3152 12.35 54.5933 15.01 57.76ZM38 68.4C39.6467 68.4 41.2617 68.2733 42.845 68.02C44.4283 67.7667 45.98 67.3867 47.5 66.88L50.16 61.18L47.69 57H28.31L25.84 61.18L28.5 66.88C30.02 67.3867 31.5717 67.7667 33.155 68.02C34.7383 68.2733 36.3533 68.4 38 68.4ZM29.45 49.4H46.55L51.87 34.2L38 24.51L24.32 34.2L29.45 49.4ZM60.99 57.76C63.65 54.5933 65.55 51.3152 66.69 47.9256C67.83 44.5385 68.4 40.7867 68.4 36.67L64.6 34.01L59.28 35.72L53.77 52.25L56.62 57.38L60.99 57.76Z" fill="#0FB916"/>\n'
-    if a2 > 0:
-        for a in range(a2):
-            gamatch2_text += f'''<g width="59" height="50" fill="none" transform = "translate({inital_x_a+50*a},160) scale(0.9)">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M37.9998 3C37.9998 1 32.4998 0 32.4998 0L26.4998 10.5C24.4998 10.5 23.4998 14.5 23.4998 14.5C23.4998 14.5 21.1664 16.5 20.9998 18C19.7998 18.4 11.4998 26.5 7.49983 30.5C0.429491 36.1562 0.468828 38.2577 0.496511 39.7366C0.498194 39.8265 0.499834 39.914 0.499831 40C2.99983 44 7.1665 44 9.99983 44C12.0245 45.4666 57.9998 22 57.9998 19.5C57.9998 17 57.1998 15.5 53.9998 9.5C50.7998 3.5 45.9998 1.33333 43.9998 1V5C40.3998 10.6 36.1665 10.6667 34.4998 10C34.4998 10 37.9998 5 37.9998 3ZM21.4998 37.5L27.4998 34.5C26.4998 32 33.4998 24 37.9998 20.5C41.5998 17.7 47.8331 10.8333 50.4998 7.5L49.4998 6C47.3507 11.5877 37.4422 19.0228 31.8444 23.2233C30.9305 23.9091 30.1314 24.5087 29.4998 25C25.8998 27.8 22.6664 34.5 21.4998 37.5ZM52.4999 9L52.9999 9.5C51.3332 12 46.4998 18 46.4998 18C46.4998 18 38.4999 27 39.9999 28L33.4998 31.5C33.4998 31.5 35.4998 26.5 38.9998 23.5C42.4998 20.5 49.4998 13 52.4999 9Z" fill="#33F000"/>
-    <path d="M58 22.5L52.5 25.5L55 29L58.5 27.5L58 22.5Z" fill="#33F000"/>
-    <path d="M49.5 27L44 30L46.5 33.5L50 32L49.5 27Z" fill="#33F000"/>
-    <path d="M24.5 40L19 43L21.5 46L25.5 44L24.5 40Z" fill="#33F000"/>
-    <path d="M17 43.5L11.5 45L14.5 49.5L18 48L17 43.5Z" fill="#33F000"/>
-    </g>\n'''    
-
-
-
-    
-    # In these part we will create the percentiles
-    percentile_text = ''
-    percentile_list = percentiles.loc[:,"Statistic"].tolist()
-    percentile_separation = 20
-    for attribute in percentile_list:
-        percentile = percentiles.set_index("Statistic").loc[attribute,'Percentile']
-        percentile_text += f"""
-            <text x="90" y="{percentile_height+10+percentile_list.index(attribute)*percentile_separation}" fill="black" font-family="Inter" font-size="12">{attribute}</text>
-            <text x="260" y="{percentile_height+10+percentile_list.index(attribute)*percentile_separation}" fill="black" font-family="Inter" font-size="12">{percentile}</text>
-            <rect width="{160*(percentile/100)}" height="12" fill="{'green' if percentile >90 else 'lightgreen' if percentile >75 else "yellow" }" transform="translate(280,{percentile_height+10+percentile_list.index(attribute)*percentile_separation-10})" rx="3"/>
-            <path d="M0 10H360 11" transform="translate(80,{percentile_height+10+percentile_list.index(attribute)*percentile_separation-5})" stroke="black"/>
-            """
-    percentile_size = (len(percentile_list))*percentile_separation+20
-    
+    def get_text_matches(matches):
+        match_list = []
+        icon_size = 50
+        for match in matches:
+            match_list += [match[1] + match[2]]
+        max_separation = max(match_list)
+        separation = 70
+        x_separation = 0
+        y_separation = 70
+        svg_width = 160 * 2 + max_separation * icon_size
+        match_text = ''
+        clubs = []
+        for match in matches:
+            g,a = match[1], match[2]
+            gamatch = g + a
+            inital_x_g = x_separation + (svg_width//2 - ((g+a)*icon_size)//2)
+            inital_x_a = inital_x_g + icon_size*g
+            clubs += [Image.open(img_path+f'Clubs/{match[0]}.webp').convert("RGBA")]
+            if g > 0:
+                for goal in range(g):
+                    match_text += f'<path transform="translate({inital_x_g+icon_size*goal},{y_separation}) scale(0.6)" d="M38 76C32.7433 76 27.8033 75.0019 23.18 73.0056C18.5567 71.0119 14.535 68.305 11.115 64.885C7.695 61.465 4.98813 57.4433 2.9944 52.82C0.998134 48.1967 0 43.2567 0 38C0 32.7433 0.998134 27.8033 2.9944 23.18C4.98813 18.5567 7.695 14.535 11.115 11.115C14.535 7.695 18.5567 4.98687 23.18 2.9906C27.8033 0.996866 32.7433 0 38 0C43.2567 0 48.1967 0.996866 52.82 2.9906C57.4433 4.98687 61.465 7.695 64.885 11.115C68.305 14.535 71.0119 18.5567 73.0056 23.18C75.0019 27.8033 76 32.7433 76 38C76 43.2567 75.0019 48.1967 73.0056 52.82C71.0119 57.4433 68.305 61.465 64.885 64.885C61.465 68.305 57.4433 71.0119 52.82 73.0056C48.1967 75.0019 43.2567 76 38 76ZM57 28.5L62.13 26.79L63.65 21.66C61.6233 18.62 59.185 16.0069 56.335 13.8206C53.485 11.6369 50.35 10.0067 46.93 8.93L41.8 12.54V17.86L57 28.5ZM19 28.5L34.2 17.86V12.54L29.07 8.93C25.65 10.0067 22.515 11.6369 19.665 13.8206C16.815 16.0069 14.3767 18.62 12.35 21.66L13.87 26.79L19 28.5ZM15.01 57.76L19.38 57.38L22.23 52.25L16.72 35.72L11.4 33.82L7.6 36.67C7.6 40.7867 8.17 44.5385 9.31 47.9256C10.45 51.3152 12.35 54.5933 15.01 57.76ZM38 68.4C39.6467 68.4 41.2617 68.2733 42.845 68.02C44.4283 67.7667 45.98 67.3867 47.5 66.88L50.16 61.18L47.69 57H28.31L25.84 61.18L28.5 66.88C30.02 67.3867 31.5717 67.7667 33.155 68.02C34.7383 68.2733 36.3533 68.4 38 68.4ZM29.45 49.4H46.55L51.87 34.2L38 24.51L24.32 34.2L29.45 49.4ZM60.99 57.76C63.65 54.5933 65.55 51.3152 66.69 47.9256C67.83 44.5385 68.4 40.7867 68.4 36.67L64.6 34.01L59.28 35.72L53.77 52.25L56.62 57.38L60.99 57.76Z" fill="#0FB916"/>\n'
+            if a > 0:
+                for assists in range(a):
+                    match_text += f'''<g width="59" height="50" fill="#0FB916" transform = "translate({inital_x_a+icon_size*assists},{y_separation}) scale(0.8)" >
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M37.9998 3C37.9998 1 32.4998 0 32.4998 0L26.4998 10.5C24.4998 10.5 23.4998 14.5 23.4998 14.5C23.4998 14.5 21.1664 16.5 20.9998 18C19.7998 18.4 11.4998 26.5 7.49983 30.5C0.429491 36.1562 0.468828 38.2577 0.496511 39.7366C0.498194 39.8265 0.499834 39.914 0.499831 40C2.99983 44 7.1665 44 9.99983 44C12.0245 45.4666 57.9998 22 57.9998 19.5C57.9998 17 57.1998 15.5 53.9998 9.5C50.7998 3.5 45.9998 1.33333 43.9998 1V5C40.3998 10.6 36.1665 10.6667 34.4998 10C34.4998 10 37.9998 5 37.9998 3ZM21.4998 37.5L27.4998 34.5C26.4998 32 33.4998 24 37.9998 20.5C41.5998 17.7 47.8331 10.8333 50.4998 7.5L49.4998 6C47.3507 11.5877 37.4422 19.0228 31.8444 23.2233C30.9305 23.9091 30.1314 24.5087 29.4998 25C25.8998 27.8 22.6664 34.5 21.4998 37.5ZM52.4999 9L52.9999 9.5C51.3332 12 46.4998 18 46.4998 18C46.4998 18 38.4999 27 39.9999 28L33.4998 31.5C33.4998 31.5 35.4998 26.5 38.9998 23.5C42.4998 20.5 49.4998 13 52.4999 9Z" fill="inherit"/>
+                                        <path d="M58 22.5L52.5 25.5L55 29L58.5 27.5L58 22.5Z" fill="inherit"/>
+                                        <path d="M49.5 27L44 30L46.5 33.5L50 32L49.5 27Z" fill="inherit"/>
+                                        <path d="M24.5 40L19 43L21.5 46L25.5 44L24.5 40Z" fill="inherit"/>
+                                        <path d="M17 43.5L11.5 45L14.5 49.5L18 48L17 43.5Z" fill="inherit"/>
+                                        </g>\n'''    
+            match_text += f'<text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="40" x="{30+svg_width//2+(max_separation*icon_size)//2}" y="{y_separation+45}">{match[3]}</text><text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="{110+svg_width//2+(max_separation*icon_size)//2}" y="{y_separation+45}">rtg</text>'
+            y_separation += separation 
+        return match_text, y_separation, svg_width, clubs
         
-            
-    
-    stats_height = 215
-    extra_height = 50
+    match_text, y_separation, svg_width, clubs = get_text_matches(matches)   
     # THIS IS THE SVG CODE
-    svg_code =f"""<svg width="522" height="{percentile_size + percentile_height + extra_height}" viewBox="0 0 522 {percentile_size + percentile_height + extra_height}" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <text fill="white" font-family="Inter" font-size="30" font-weight="bold" x="10" y="35">Season 2022/2023 Achievements</text>
-
-                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="54" y="75">Average Season Rating</text>
-                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="30" x="345" y="75">{year_rating}</text>
-                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="420" y="75">rtg</text>
-
-                    {gamatch1_text}
-                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="40" x="{10+match_separation_half}" y="128">{matches[0][3]}</text><text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="{100+match_separation_half}" y="128">rtg</text>
-
-                    {gamatch2_text}
-                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="40" x="{10+match_separation_half}" y="195">{matches[1][3]}</text><text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="25" x="{100+match_separation_half}" y="195">rtg</text>
-
-                    <rect width="450" height="{percentile_height+percentile_size-stats_height+ 40}" rx="40" transform="translate(36,{stats_height})" fill="#1D1D1D"/>
-                    <text fill="white" font-family="Inter" font-size="30" font-weight="bold" x="132" y="245">This season stats</text>
-                    <path transform="translate(-150,-162)" d="M206.373 415.18H615.355" stroke="#525252" stroke-linecap="round"/>
-
-                    {stats_text}
-
-                    <rect width="400" rx="15" height="{percentile_size}" transform="translate(60,{percentile_height -10})" fill="white"/>
-                    <path d="M0 10L1 {percentile_size - 10}" transform="translate(250,{percentile_height-10})" stroke="black"/>
-                    {percentile_text}
-    
-                    
+    svg_code =f"""<svg width="{svg_width+20}" height="{y_separation+20}" viewBox="0 0 {svg_width} {y_separation}" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="{svg_width+10}" height="{y_separation}" rx="40" transform="translate(0,0)" opacity="0.5" fill="#1D1D1D"/>
+                    <text fill="#FFFFFF" font-family="Inter" font-weight="bold" font-size="30" x="125" y="50">Top 5 Matches</text>
+                    {match_text}
                 </svg>"""
 
-
+    # The creation of the games graphic
     with open(path+'svg.svg','w') as f:
         f.write(svg_code)
-    doc = aw.Document()
-    builder = aw.DocumentBuilder(doc)
-    shape = builder.insert_image(path +"svg.svg")
-    shape.image_data.save(path +"svg.png")
     
+    command = 'wsl /usr/bin/python3 /mnt/c/Users/ignac/Documents/Documentos/Football/Futty\ Data/Automation\ Code/Template/Code/Scripts/SvgConvert.py'
+    subprocess.run(command, shell=True, check=True)
+    
+    # The creation of the text graphic
+    svg_code = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="650" height="720" viewBox="0 0 650 720" fill="none">
+                    <text fill="#FFFFFF" font-family="Inter" font-weight="bold" font-size="50" x="0" y="70">Key Performances</text>
+                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="20" x="120" y="120">Average Seasson Rating</text>
+                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="40" x="200" y="180">{year_rating}</text>
+                    <text fill="#0FB916" font-family="Inter" font-weight="bold" font-size="20" x="310" y="180">rtg</text>
+                </svg>
+    """
+    with open(path+"svg.svg",'w') as f:
+        f.write(svg_code)
+
+    command = 'wsl /usr/bin/python3 /mnt/c/Users/ignac/Documents/Documentos/Football/Futty\ Data/Automation\ Code/Template/Code/Scripts/SvgConvert.py'
+    subprocess.run(command, shell=True, check=True)
 
     background = cv2.imread(path_resources+'background.png')
     overlay = cv2.imread(path+'svg.png', cv2.IMREAD_UNCHANGED)
-    img_path = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Resources/'
-    club1 = Image.open(img_path+f'Clubs/{matches[0][0]}.webp').convert("RGBA")
-    club2 = Image.open(img_path+f'Clubs/{matches[1][0]}.webp').convert("RGBA")
+    player = Image.open(path+f'{photo}_nbg.png').convert("RGBA")
+    text = cv2.imread(path+f'svg-2.png', cv2.IMREAD_UNCHANGED)
 
     #Background adjusting
     height, width, channels = background.shape
@@ -1198,56 +1131,222 @@ def make_video_frame3(path,matches,stats,percentiles,position='middle'):
     height = int(height / scale)
     offset = abs((height-720)//2)
     background = cv2.resize(background,(1280,height))
-    if position == 'top':
-        background = background[0:720,0:1280]
-    elif position == 'middle':
-        background = background[offset:720 + offset,0:1280]
-    elif position == 'bottom':
-        background = background[2*offset:720 + 2*offset,0:1280]
+    background = background[offset:720 + offset,0:1280]
+    
+    #Overlay adjusting
+    height, width, channels = overlay.shape
+    offset_x = 50 + 1280//2
+    offset_y = 200
+    imgResult = cvzone.overlayPNG(background,overlay,[offset_x,offset_y])
+
+    #Text adjusting
+    height, width, channels = text.shape
+    offset_x = 640 - width//2
+    offset_y = 0
+    imgResult = cvzone.overlayPNG(imgResult,text,[offset_x,offset_y])
+    cv2.imwrite(path+'Video3(no player).png', imgResult)
+
+    #Picture adjusting
+    imgResult = Image.open(path+'video3(no player).png')
+    
+    # First we crop the png
+    bbox = player.getbbox()
+    player = player.crop(bbox)
+    width, height = player.size
+    if (width/height) > 1.336:
+        # In this case width is bigger and thus the point of struggle
+        scale = width / 710
+        height = int(height / scale)
+        player = player.resize((710,height))
+    else:
+        # In this case height is bigger and thus the point of struggle
+        scale = height / 520
+        width = int(width / scale)
+        player = player.resize((width,520))
+    width, height = player.size
+    offset_x =  int((1280//2 - width)/2)
+    if offset_x < 0:
+        offset_x = 0
+    offset_y = 720 - height
+    imgResult.paste(player,(offset_x,offset_y),mask=player)
+    imgResult.save(path+"video3(no clubs).png")
+
+    
+    # Club adjusting
+    imgResult = Image.open(path+"video3(no clubs).png")
+    club_size = 50
+    offset_x = 50 + 1280//2 + 85
+    offset_y = 325
+    separation = 70
+    for club in clubs:
+        width, height = club.size
+        scale = width / club_size
+        index = clubs.index(club)
+        height = int(height / scale)
+        if height > club_size * 1.5:
+            scale = int(height / (club_size*1.5))
+            width = int(club_size / scale)
+            height = int(club_size*1.5)
+            club = club.resize((width,int(club_size*1.5)))
+        else:
+            width = club_size
+            club = club.resize((club_size,height))
+        imgResult.paste(club, ((offset_x - width),(offset_y + (separation * index) - height)), mask= club)
+    imgResult.save(path+"Video3.png")
+
+    os.remove(path+'video3(no player).png')
+    os.remove(path+"Video3(no clubs).png")
+    os.remove(path+"svg-2.png")
+    os.remove(path+"svg.png")
+
+def make_video_frame4(path,stats,photo='photo2'):
+    path_resources = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/images/'
+    
+    stats = stats[1:]
+    stats_text = ''
+    text_height = 100
+    text_separation = 35
+    for stat in stats:
+        stats_text += f'<text fill="white" font-family="Inter" font-size="25" font-weight="bold" x="50" y="{text_height+stats.index(stat)*text_separation}">{stat}</text>\n'
+    height = text_height+(len(stats))*(text_separation) + 15
+
+    # THIS IS THE SVG CODE
+    svg_code =f"""<svg width="510" height="{height}" viewBox="0 0 510 {height}" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    
+                    <rect width="500" height="{height}" rx="40" fill="#1D1D1D"/>
+                    <text fill="white" font-family="Inter" font-size="30" font-weight="bold" x="100" y="50">This season stats</text>
+                    <path transform="translate(30,65)" d="M1 1H3 450" stroke="#525252" stroke-linecap="round"/>
+                    {stats_text}
+                </svg>"""
+
+
+    with open(path+'svg.svg','w') as f:
+        f.write(svg_code)
+    
+    command = 'wsl /usr/bin/python3 /mnt/c/Users/ignac/Documents/Documentos/Football/Futty\ Data/Automation\ Code/Template/Code/Scripts/SvgConvert.py'
+    subprocess.run(command, shell=True, check=True)
+    
+    svg_code = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="720" viewBox="0 0 500 720" fill="none">
+                    <text fill="#FFFFFF" font-family="Inter" font-weight="bold" font-size="50" x="0" y="100">Top Season Stats</text>
+                </svg>
+    """
+    with open(path+"svg.svg",'w') as f:
+        f.write(svg_code)
+
+    command = 'wsl /usr/bin/python3 /mnt/c/Users/ignac/Documents/Documentos/Football/Futty\ Data/Automation\ Code/Template/Code/Scripts/SvgConvert.py'
+    subprocess.run(command, shell=True, check=True)
+
+    background = cv2.imread(path_resources+'background.png')
+    overlay = cv2.imread(path+'svg.png', cv2.IMREAD_UNCHANGED)
+    player = Image.open(path+f'{photo}_nbg.png').convert("RGBA")
+    text = cv2.imread(path+f'svg-2.png', cv2.IMREAD_UNCHANGED)
+
+    #Background adjusting
+    height, width, channels = background.shape
+    scale = width / 1280
+    height = int(height / scale)
+    offset = abs((height-720)//2)
+    background = cv2.resize(background,(1280,height))
+    background = background[offset:720 + offset,0:1280]
+
+    #Overlay adjusting
+    height, width, channels = overlay.shape
+    offset_x = 100
+    imgResult = cvzone.overlayPNG(background,overlay,[offset_x,200])
+
+    #Text adjusting
+    height, width, channels = text.shape
+    offset_x = 640 - width//2
+    offset_y = 0
+    imgResult = cvzone.overlayPNG(imgResult,text,[offset_x,offset_y])
+    cv2.imwrite(path+'Video4(no player).png', imgResult)
+
+    #Picture adjusting
+    imgResult = Image.open(path+'video4(no player).png')
+    
+    # First we crop the png
+    bbox = player.getbbox()
+    player = player.crop(bbox)
+    width, height = player.size
+    if (width/height) > 1.336:
+        # In this case width is bigger and thus the point of struggle
+        scale = width / 710
+        height = int(height / scale)
+        player = player.resize((710,height))
+    else:
+        # In this case height is bigger and thus the point of struggle
+        scale = height / 520
+        width = int(width / scale)
+        player = player.resize((width,520))
+    width, height = player.size
+    offset_x =  int((1280 - width - 100))
+    offset_y = 720 - height
+    imgResult.paste(player,(offset_x,offset_y),mask=player)
+    imgResult.save(path+"Video4.png")
+
+    
+    os.remove(path+"Video4(no player).png")
+    os.remove(path+"svg.png")
+
+def make_video_frame5(path,percentiles):
+    path_resources = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/images/'
+    
+    percentile_height = 200
+    # In these part we will create the percentiles
+    percentile_text = ''
+    percentile_list = percentiles.loc[:,"Statistic"].tolist()
+    percentile_separation = 32
+    font_size = 22
+    for attribute in percentile_list:
+        percentile = percentiles.set_index("Statistic").loc[attribute,'Percentile']
+        percentile_text += f"""
+            <text x="80" y="{10+percentile_height+percentile_separation//2+percentile_list.index(attribute)*percentile_separation}" fill="black" font-family="Inter" font-size="{font_size}">{attribute}</text>
+            <text x="420" y="{10+percentile_height+percentile_separation//2+percentile_list.index(attribute)*percentile_separation}" fill="black" font-family="Inter" font-size="{font_size}">{percentile}</text>
+            <rect width="{250*(percentile/100)}" height="{font_size}" fill="{'green' if percentile >90 else 'lightgreen' if percentile >75 else "yellow" }" transform="translate(470,{10+percentile_height+percentile_separation//2+percentile_list.index(attribute)*percentile_separation-font_size+2})" rx="3"/>
+            <path d="M0 10H660 11" transform="translate(70,{10+percentile_height+percentile_separation//2+percentile_list.index(attribute)*percentile_separation-3})" stroke="black"/>
+            """
+    percentile_size = (len(percentile_list))*percentile_separation+20
+                
+    position = 'midfielders'
+    # THIS IS THE SVG CODE
+    svg_code =f"""<svg width="1000" height="720" viewBox="0 0 1000 720" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <text fill="white" font-family="Inter" font-size="50" font-weight="bold" x="25" y="40">Compared with Top 5 {position}</text>
+                    <g transform="translate(100,0)">
+                    <rect width="700" rx="15" height="{percentile_size}" transform="translate(50,{percentile_height -10})" fill="white"/>
+                    <path d="M0 10L1 {percentile_size - 10}" transform="translate(400,{percentile_height-10})" stroke="black"/>
+                    {percentile_text}
+                    </g>
+                </svg>"""
+
+
+    with open(path+'svg.svg','w') as f:
+        f.write(svg_code)
+    
+    command = 'wsl /usr/bin/python3 /mnt/c/Users/ignac/Documents/Documentos/Football/Futty\ Data/Automation\ Code/Template/Code/Scripts/SvgConvert.py'
+    subprocess.run(command, shell=True, check=True)
+    
+
+    background = cv2.imread(path_resources+'background.png')
+    overlay = cv2.imread(path+'svg.png', cv2.IMREAD_UNCHANGED)
+
+    #Background adjusting
+    height, width, channels = background.shape
+    scale = width / 1280
+    height = int(height / scale)
+    offset = abs((height-720)//2)
+    background = cv2.resize(background,(1280,height))
+    background = background[offset:720 + offset,0:1280]
 
     #Overlay adjusting
     height, width, channels = overlay.shape
     width = 1280//2 - width//2
-    imgResult = cvzone.overlayPNG(background,overlay,[width,50])
-    cv2.imwrite(path+'Video3(no clubs).png', imgResult)
-
-
-    # Club adjusting
-    club_size = 30
-
-    width, height = club1.size
-    scale = width / club_size
-    height1 = int(height / scale)
-    if height1 > club_size * 1.5:
-        scale = int(height / (club_size*1.5))
-        width1 = int(width / scale)
-        height1 = int(club_size*1.5)
-        club1 = club1.resize((width1,int(club_size*1.5)))
-    else:
-        width1 = club_size
-        club1 = club1.resize((club_size,height1))
-    width,height = club2.size
-    scale = width / club_size
-    height2 = int(height / scale)
-    if height2 > club_size * 1.5:
-        scale = int(height / (club_size*1.5))
-        width2 = int(width / scale)
-        height2 = int(club_size*1.5)
-        club2 = club2.resize((width2,int(club_size*1.5)))
-    else:
-        width2 = club_size
-        club2 = club2.resize((club_size,height2))
-
-    imgResult = Image.open(path+'video3(no clubs).png')
-    imgResult.paste(club1, ((520-width1),(145 - height1)), mask= club1)
-    imgResult.paste(club2, ((520-width2),(200 - height2)), mask= club2)
-    #imgResult.paste(percentiles, (percentile_offset,percentile_separation), mask= percentiles)
-    imgResult.save(path+"Video3.png")
+    imgResult = cvzone.overlayPNG(background,overlay,[width,20])
+    cv2.imwrite(path+'Video5.png', imgResult)
 
     
-    os.remove(path+"Video3(no clubs).png")
-    os.remove(path+"svg.svg")
     os.remove(path+"svg.png")
+
+#------------------------------------------------------------------------------------------------------------#
 
 def make_match_video1(path, player, short_photo='photo1'):
     path_resources = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/images/'
@@ -1959,28 +2058,40 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             thread3.start()
     player = unidecode.unidecode(player)
     response = ''
-    #p = Popen("C:/Users/ignac/Documents/Ai/Turtoise/ai-voice-cloning-v2_0/ai-voice-cloning/start.bat")
+    photo1, photo2 = "photo1.jpg","photo2.jpg"
+    folder_path = "C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code\images"
+    remove_bg([elem for elem in os.listdir(folder_path) if "photo" in elem.lower()])
     #thread = Thread(target=make_audios_clone_voice, args=("script",))
     #thread.start()
+
     while response.lower() not in ["yes","y","si"]:
         make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
         make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
-        make_video_frame3(path,matches,stats,position=positions['V3']['background'],percentiles=percentiles)
+        make_video_frame3(path,matches,stats,photo1.split(".")[0])
+        make_video_frame4(path,stats,photo2.split(".")[0])
+        make_video_frame5(path,percentiles)
         make_video1(path,player,short_photo[0])
         make_video2(path,player,info,short_photo[1])
         make_video3(path,matches,stats,percentiles)
-        response = input("Do you like the Images? (yes/position/youngster/other)")
+        response = input("Do you like the Images? (yes/position/youngster/photo/other)")
         if response.lower() in ["younster","young","w"]:
             youngster = True
         elif response.lower() in ["other","o"]:
             pass
+        elif response.lower() in ["foto","photo","ph","f"]:
+            changes = input(f"This are the photos {photo1},{photo2} change them if you want:\n")
+            photo1 = changes.split(",")[0]
+            photo2 = changes.split(",")[1]
+            remove_bg([elem for elem in os.listdir(folder_path) if "photo" in elem.lower()])
         elif response.lower() not in ["yes","y","si"]:
-            changes = input("This is the dictionary."+"\n"+ ''.join(['{} -> {}.\n'.format(image, ''.join([' {}:{},'.format(element, positions[image][element]) for element in positions[image].keys()])) for image in positions.keys()])+ "Give me the changes: ")
+            changes = input("This is the dictionary."+"\n"+ ''.join(['{} -> {}.\n'.format(image, ''.join(['{}:{}, '.format(element, positions[image][element]) for element in positions[image].keys()])) for image in positions.keys()])+ "Give me the changes: ")
             dictionary = changes.replace("."," ->  ").split(" ->  ")
             for e in range(len(dictionary)//2):
-                positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] for pair in dictionary[e*2+1][:-1].split(",")}
+                positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] for pair in dictionary[e*2+1][:-1].split(", ")}
     #thread.join()
-    create_vid('Video1','Video2','Video3',clone=clone,make_audio=True)
+    for file in [path+elem for elem in os.listdir(path) if "photo" in elem.lower()]:
+        os.remove(file)
+    create_vid(['Video1','Video2','Video3','Video4','Video5'],clone=clone,make_audio=True)
     
     if short:
         create_short('Video','Video-1','Video-2',clone=clone)
@@ -1999,10 +2110,11 @@ def make_yt_match_video(path,player,matches,stats,match,positions):
     #create_vid('Video','Video-1','Video-2','sort_script','short')
 positions={
 'V1':{'background':'middle','hook':'bottom'},
-'V2':{'background':'middle','description':'right-top','position':"right-bottom"},
-'V3':{'background':'middle'}
+'V2':{'background':'middle','description':'right-top','position':"right-bottom"}
 }
 
 #make_yt_match_video(path,"Cole Palmer",[["Man Utd",3,0,"10"],["Burnley",2,0,"10"]],["9.08","Goals: 10","Assists: 2","Big Chances Created: 4","Key Passes: 16","Shots per match: 6.6"],["Rating: 10.0","Goals: 4","Assists: 0","Expected Goals (xG): 2.50","Succesful Dribbles: 3/4","Penalty won: 1","Shots on target: 5","Shots on target %: 100%"],positions)
 #make_video_frame3(path,matches,stats,pd.DataFrame({"Percentile":[99, 97, 95, 92, 87, 81, 80, 77, 75, 71],"Statistic":["Goals/Shot", "Shots on Target %", "Goals - xG", "Goals/Shot on Target", "Through Balls", "Take-Ons Attempted", "Clearances", "Successful Take-Ons", "Carries into Penalty Area", "Goals"]}))
 #make_video_frame2(path,player,info)
+#matches = [["Man Utd", 3, 0, "10"],[ "Burnley", 2, 0, "10"],[ "Crystal Palace", 0, 2, "8.5"],[ "Sheffield Utd", 1, 1, "8.5"],[ "Leicester", 1, 1, "8.4"]]
+#make_video_frame5(path,pd.DataFrame({"Percentile":[99, 97, 95, 92, 87, 81, 80, 77, 75, 71],"Statistic":["Goals/Shot", "Shots on Target %", "Goals - xG", "Goals/Shot on Target", "Through Balls", "Take-Ons Attempted", "Clearances", "Successful Take-Ons", "Carries into Penalty Area", "Goals"]}))

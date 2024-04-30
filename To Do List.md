@@ -35,3 +35,4 @@
 - [ ] Add the image selection from google with Google Dork queries
 - [ ] Add the more detailed explanation in the normal videos
 - [ ] Add the more indepth percentile selection taking some more values since it will be in a unique frame
+- [ ] Add the conditions so large tasks don't over execute
