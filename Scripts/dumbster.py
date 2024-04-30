@@ -1313,10 +1313,97 @@ def old_make_video_frame3(path,matches,stats,percentiles,position='middle'):
     os.remove(path+"svg.svg")
     os.remove(path+"svg.png")
 
+def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_photo,short,percentiles,translate=False,clone=False):
 
-
-print(os.listdir())
-
+    if translate:
+        if translate:
+            thread1 = ThreadWithReturnValue(target=translate,args=("script",))
+            thread2 = ThreadWithReturnValue(target=translate,args=("sort_script",))
+            thread1.start()
+            thread2.start()
+            thread3 = ThreadWithReturnValue(target=make_audios_clone_voice(),args=("script",))
+            thread3.start()
+    player = unidecode.unidecode(player)
+    response = ''
+    #p = Popen("C:/Users/ignac/Documents/Ai/Turtoise/ai-voice-cloning-v2_0/ai-voice-cloning/start.bat")
+    thread = Thread(target=make_audios_clone_voice, args=("script",))
+    thread.start()
+    while response.lower() not in ["yes","y","si"]:
+        make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
+        make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
+        old_make_video_frame3(path,matches,stats,position=positions['V3']['background'],percentiles=percentiles)
+        make_video1(path,player,short_photo[0])
+        make_video2(path,player,info,short_photo[1])
+        make_video3(path,matches,stats,percentiles)
+        response = input("Do you like the Images? (yes/position/youngster/other)")
+        if response.lower() in ["younster","young","w"]:
+            youngster = True
+        elif response.lower() in ["other","o"]:
+            pass
+        elif response.lower() not in ["yes","y","si"]:
+            changes = input("This is the dictionary."+"\n"+ ''.join(['{} -> {}.\n'.format(image, ''.join([' {}:{},'.format(element, positions[image][element]) for element in positions[image].keys()])) for image in positions.keys()])+ "Give me the changes: ")
+            dictionary = changes.replace("."," ->  ").split(" ->  ")
+            for e in range(len(dictionary)//2):
+                positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] for pair in dictionary[e*2+1][:-1].split(",")}
+    thread.join()
+    create_vid('Video1','Video2','Video3',clone=clone,make_audio=True)
+    
+    if short:
+        create_short('Video','Video-1','Video-2',clone=clone)
+    if translate:
+        script = thread1.join()
+        sort_script = thread2.join()
+        get_audios(script,sort_script)
+    
+def get_season_script(player,stats,match_list):
+    with open(f'players\{player}.json') as f:
+        description = json.load(f)
+    matches = ''
+    percentile_text = ''
+    percentiles = description['percentiles']
+    statistics = description['statistics']
+    for attribute in statistics:
+        percentile_text += f"He is in the {100-int(percentiles[statistics.index(attribute)])} for {attribute}"
+    for x in match_list:
+        matches += f' Against {x[0]} with {"a hack trick" if x[1] == 3 else f"{x[1]} goals" if x[1]>0 else ""} {f"and {x[2]} assists" if x[2] > 0 else ""} and a rating for the match of {x[3]}.'
+    prompt = f"write a paragraph analysis about {player}'s season with a {stats[0]} average rating in sofascore and this other key stats {', '.join(stats[1:]).replace(':','')} also here are some other stats {percentile_text} his best matches this season are:{matches}. Other information that doesn't have to be mentioned is that he plays as a {description['position']} and he is {description['age']} years old"
+    response = ollama.chat(model='llama3', messages=[
+        {
+            'role':'system',
+            'content':'Write ONLY one paragraph'
+        },
+    {
+        'role': 'user',
+        'content': "write a descrition about Alejandro Grimaldo's season with a 7.7 average rating in sofascore and this other key stats Matches played 28.0(26.0), Goals 10.0, Assists 9.0, Big Chances 12.0, Team of the Week 6.0, Minutes per goal 71.9 min also his best matches this season are Against Qarabağ with 2 goals and 1 assists and a rating for the match of 9.3.Against Leipzig with 0 goals and 2 assists and a rating for the match of 8.9.",
+    },{
+        'role':'assistant',
+        'content':"Alejandro Grimaldo's season has been nothing short of impressive, with an average rating of 7.7 on SofaScore. The left-back has played 28 matches, scoring 10 goals and providing 9 assists, while creating a significant amount of big chances for his team. His minutes per goal rate of 71.9 min is among the best in the league, showcasing his efficiency in attack. Grimaldo's standout performances this season include his two-goal, one-assist display against Qarabağ, which earned him a rating of 9.3, and his zero-goal, two-assist effort against Leipzig, which earned him a rating of 8.9. These outings demonstrate Grimaldo's ability to produce high-quality performances on a consistent basis."
+    },{
+        'role': 'user',
+        'content': "write a paragraph analysis about Harry Kane's season with a 7.75 average rating in sofascore and this other key stats Matches played 35, Goals 37.0, Assists 10.0, Big Chances Missed 26.0, Minutes per goal 86.37 min, Shots per game 4.23 also his best matches this season are: Against Dortmund with 3 goals and 0 assists and a rating for the match of 9.9. Against Mainz 05 with 3 goals and 1 assists and a rating for the match of 9.8.. Other information that doesn't have to be mentioned is that he plays as a f and he is 30 yrs years old",
+    },{
+        'role':'assistant',
+        'content':"Harry Kane's season has been nothing short of remarkable, with an average SofaScore rating of 7.75. The England international has played 35 matches, finding the back of the net an impressive 37 times, while providing 10 assists. However, he has also missed a significant number of big chances with  26. Despite this, Kane's scores a goal every 86.37 minutes being among the best in Europe, showcasing his efficiency in attack. His standout performances this season include his Hack Trick against Borussia Dortmund, which earned him a rating of 9.9, and his Hack Trick and one-assist against Mainz, which earned him a rating of 9.8. These outings demonstrate Kane's ability to produce high-quality performances on a consistent basis, and cement his status as one of the top strikers in the league. Could the Champions league be his first carrear title?"
+    },{
+        'role':'user',
+        'content':"write a paragraph analysis about Antoine Griezmann's season with a 7.53 average rating in sofascore and this other key stats Matches played 34(32.0), Goals 17.0, Assists 6.0, Shots per game 2.37, Big Chances Missed 13.0, Team of the Week 4.0 also here are some other stats ['Passes Completed', 'Touches', 'Total Passing Distance', 'Progressive Passing Distance', 'xAG: Exp. Assisted Goals', 'Shot-Creating Actions', 'Switches', 'Miscontrols', 'Key Passes', 'Assists', 'xA: Expected Assists', 'Progressive Passes', 'Crosses', 'Carries', 'Goal-Creating Actions'] his best matches this season are: Against Celtic with 2 goals  and a rating for the match of 9.8. Against Inter with 1 goals  and a rating for the match of 8.8.. Other information that doesn't have to be mentioned is that he plays as a f and he is 33 yrs years old"
+    },{
+        'role':'assistant',
+        'content':"Antoine Griezmann's season has been spectacular, although this Atletico is not the same team he left years ago, with an average SofaScore rating of 7.53. The French forward has played 34 matches, finding the back of the net 17 times, while providing 6 assists. While his shot output per game is impressive at 2.37, he has missed a significant number of big chances with 13.0. Also he ranks as the best forward in Expected Assists and touches, while also being among the best in everything related to playmaking abilities, like progressive passes, key passes, shot and goal creating actions and expected assisted goals. It is also worth noting the efect a manager like Simeone has had on this player making him one of the Strikers with the best defensive performances. Griezmann's standout performances this season include his two-goal display against Celtic, which earned him a rating of 9.8, and his one-goal effort against Inter, which earned him a rating of 8.8. These outings demonstrate Griezmann's ability to produce high-quality performances on a consistent basis, although he may not be at the same level as some of the other top scorers in the league. Nonetheless, his experience and consistency make him the key player of his team."
+    },{
+        'role':'user',
+        'content':"write a paragraph analysis about Serhou Guirassy's season with a 7.77 average rating in sofascore and this other key stats Matches played 23(20.0), Goals 25, Assists 1, Big Chances Miss 13, Minutes per goal 71.0 min, Shots 3.2 also here are some other stats [99, 98, 97, 97, 94, 94, 93, 93, 92, 92] his best matches this season are: Against Mainz 05 with a hack trick  and a rating for the match of 10.0. Against Wolfsburg with a hack trick  and a rating for the match of 9.8.. Other information that doesn't have to be mentioned is that he plays as a f and he is 28 yrs years old"
+    },{
+        'role':'assistant',
+        'content':"Serhou Guirassy's season has been nothing short of impressive, with an average SofaScore rating of 7.77. The Guinean forward has played 23 matches, finding the back of the net a remarkable 25 times, while providing one assist. He scores a goal every 71.0 min being amoung the best in the world, showcasing his efficiency in attack. He is also very good in the creating aspect, despite the believe his is a bulky striker, he is in the top percentiles for shot and goal creating actions. Also he does well for himself in key passes and expected assists. Guirassy's standout performances this season include his hack-tricks against Wolfsburg and Mainz, which earned him a rating of 9.8, and 10 respectively. Also to note a couple braces like the one with one-assist against Darmstadt, which earned him a rating of 9.3. These outings demonstrate Guirassy's ability to produce high-quality performances on a consistent basis, and cement his status as one of the top strikers in the league. His impressive goal-scoring record and 3.2 shots per game make him a indispensable asset for his team, and he is likely to be a key player in their push for Europe this season."
+    },{
+        'role':'user',
+        'content':prompt
+    }])
+    with open("prompts.txt","a+") as file:
+        if f"Prompt Stats: {prompt}" not in file.read():
+            file.write(f"Prompt Stats: {prompt}\n")
+    return response['message']['content'].split('\n')[-1]
 
 """from wand.image import Image
 
