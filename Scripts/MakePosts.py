@@ -1286,6 +1286,7 @@ def make_video_frame4(path,stats,photo='photo2'):
 
     
     os.remove(path+"Video4(no player).png")
+    os.remove(path+"svg-2.png")
     os.remove(path+"svg.png")
 
 def make_video_frame5(path,percentiles):
@@ -2058,11 +2059,11 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             thread3.start()
     player = unidecode.unidecode(player)
     response = ''
-    photo1, photo2 = "photo1.jpg","photo2.jpg"
+    photo1, photo2 = "photo1.jpg","photo3.jpg"
     folder_path = "C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code\images"
     remove_bg([elem for elem in os.listdir(folder_path) if "photo" in elem.lower()])
-    #thread = Thread(target=make_audios_clone_voice, args=("script",))
-    #thread.start()
+    thread = Thread(target=make_audios_clone_voice, args=("script",))
+    thread.start()
 
     while response.lower() not in ["yes","y","si"]:
         make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
@@ -2088,7 +2089,7 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             dictionary = changes.replace("."," ->  ").split(" ->  ")
             for e in range(len(dictionary)//2):
                 positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] for pair in dictionary[e*2+1][:-1].split(", ")}
-    #thread.join()
+    thread.join()
     for file in [path+elem for elem in os.listdir(path) if "photo" in elem.lower()]:
         os.remove(file)
     create_vid(['Video1','Video2','Video3','Video4','Video5'],clone=clone,make_audio=True)
