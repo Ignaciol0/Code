@@ -38,3 +38,5 @@
 - [ ] Add the conditions so large tasks don't over execute
 - [ ] Fix the selection of normal attributes
 - [ ] Add the yt caption creation
+- [ ] Fix the pronunciation of the names
+- [ ] Add the highlight of the percentiles
