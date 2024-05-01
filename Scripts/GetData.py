@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Rafael Leão']
+player_list = ['Leroy Sané']
 
  
 
@@ -1021,7 +1021,7 @@ positions={
 "V1":{"background":"middle","hook":"bottom"},
 "V2":{"background":"middle","description":"bottom","position":False}
 }
-short_photo = ['photo1','photo2']
+short_photo = ['photo3','photo2']
 player = unidecode.unidecode(player_list[0])
 #scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
 make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)

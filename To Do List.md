@@ -18,6 +18,11 @@
 - [x] Add the better script writing with the percentiles
 - [x] Add the open .bat
 - [x] Fix the thread for the audio cleation-Image generation
+- [x] Fix the bad season script bias
+- [x] Add the selection of elements when talking about them
+- [x] Add the detection of a too long short video
+- [x] Add the more indepth percentile selection taking some more values since it will be in a unique frame
+- [x] Add the more detailed explanation in the normal videos
 - [ ] Add the pro percentile selection.
 - [ ] Add the translation.
 - [ ] Add the Euro Specific content.
@@ -25,14 +30,11 @@
 - [ ] Add the polls.
 - [ ] Add the cool read.me
 - [ ] Fix the prompts.txt
-- [ ] Fix the bad season script bias
-- [ ] Add the selection of elements when talking about them
 - [ ] Add the open ubuntu
 - [ ] Add the GUI flatter
 - [ ] Add the football games web addition
 - [ ] Fix the box of the sorts photo 3
-- [ ] Add the detection of a too long short video
 - [ ] Add the image selection from google with Google Dork queries
-- [ ] Add the more detailed explanation in the normal videos
-- [ ] Add the more indepth percentile selection taking some more values since it will be in a unique frame
 - [ ] Add the conditions so large tasks don't over execute
+- [ ] Fix the selection of normal attributes
+- [ ] Add the yt caption creation
