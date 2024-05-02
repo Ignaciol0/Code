@@ -2059,11 +2059,15 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             thread3.start()
     player = unidecode.unidecode(player)
     response = ''
-    photo1, photo2 = "photo1.jpg","photo3.jpg"
-    folder_path = "C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code\images"
-    remove_bg([elem for elem in os.listdir(folder_path) if "photo" in elem.lower()])
-    thread = Thread(target=make_audios_clone_voice, args=("script",))
-    thread.start()
+    photo1, photo2 = "photo2.jpg","photo3.jpg"
+    folder_path = "C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code"
+    rem_bg = True if 'photo2_nbg.png' not in os.listdir(folder_path+"\Video Output") else False
+    if rem_bg:
+        remove_bg([elem for elem in os.listdir(folder_path+"\images") if "photo" in elem.lower()])
+    make_audios = True if 'audio5.wav' not in os.listdir(folder_path) else False
+    if make_audios:
+        thread = Thread(target=make_audios_clone_voice, args=("script",))
+        thread.start()
 
     while response.lower() not in ["yes","y","si"]:
         make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
@@ -2083,13 +2087,14 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             changes = input(f"This are the photos {photo1},{photo2} change them if you want:\n")
             photo1 = changes.split(",")[0]
             photo2 = changes.split(",")[1]
-            remove_bg([elem for elem in os.listdir(folder_path) if "photo" in elem.lower()])
+            remove_bg([elem for elem in os.listdir(folder_path+"\images") if "photo" in elem.lower()])
         elif response.lower() not in ["yes","y","si"]:
             changes = input("This is the dictionary."+"\n"+ ''.join(['{} -> {}.\n'.format(image, ''.join(['{}:{}, '.format(element, positions[image][element]) for element in positions[image].keys()])) for image in positions.keys()])+ "Give me the changes: ")
-            dictionary = changes.replace("."," ->  ").split(" ->  ")
+            dictionary = changes.replace("."," -> ").split(" -> ")[:-1]
             for e in range(len(dictionary)//2):
-                positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] for pair in dictionary[e*2+1][:-1].split(", ")}
-    thread.join()
+                positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] if pair.split(":")[1] not in ["False","True"] else bool(pair.split(":")[1]) if pair.split(":")[1].lower() != 'false' else False for pair in dictionary[e*2+1].split(", ")[:-1]}
+    if make_audios:
+        thread.join()
     for file in [path+elem for elem in os.listdir(path) if "photo" in elem.lower()]:
         os.remove(file)
     create_vid(['Video1','Video2','Video3','Video4','Video5'],clone=clone,make_audio=True)

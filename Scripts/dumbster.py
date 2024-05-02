@@ -1432,7 +1432,6 @@ terminal_thread.start()
 print(translate("script"))
 terminal_thread.join()
 """
-
 positions={"V1":{"background":"top","hook":"bottom"},
 "V2":{"background":"middle","description":"bottom","position":False},
 "V3":{"background":"middle"}}

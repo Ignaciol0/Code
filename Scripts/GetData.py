@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Leroy Sané']
+player_list = ['Martin Ødegaard']
 
  
 
@@ -780,7 +780,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
             else:
                stats += [f'Crosses: {crosses}']
         if len(stats) > 10:
-            stats = stats[0:10]
+            stats = stats[0:11]
         elif len(stats) < 10:
             if int(big_chances) >= 1:
                 stats += [f'Big Chances: {int(big_chances)}']
@@ -798,7 +798,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
                 stats += [f'Minutes per goal: {min_goal} min']
             
             stats += [f'Shots: {shots}',f'Goal convertion %: {shot_conv}%',f'Shot on target %: {shots_ot}%']
-            stats = stats[0:7]
+            stats = stats[0:11]
     elif data['position'] == 'm':
         if int(goals) + int(assists) >= 5:
             stats += [match,f'Goals: {int(goals)}',f'Assists: {int(assists)}']
@@ -878,7 +878,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
                 stats += [f'Recoveries: {recoveries}']
         
         if len(stats) > 10:
-            stats = stats[0:10]
+            stats = stats[0:11]
         elif len(stats) < 10:
             if int(big_chances) >= 1:
                 stats += [f'Big Chances: {int(big_chances)}']
@@ -900,7 +900,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
                 stats += [f'Recoveries: {recoveries}']
             
             stats += [f'Key Passes: {key_pases}',f'Pass accurary: {pass_acuracy}%',f'Interceptions: {interceptions}']
-            stats = stats[0:7]
+            stats = stats[0:11]
     elif data['position'] == 'd':
         if int(goals) + int(assists) >= 5:
             stats += [match,f'Goals: {int(goals)}',f'Assists: {int(assists)}']
@@ -988,7 +988,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
         
         
         if len(stats) > 10:
-            stats = stats[0:10]
+            stats = stats[0:11]
         elif len(stats) < 10:
             if int(big_chances) >= 1:
                 stats += [f'Big Chances: {big_chances}']
@@ -1003,7 +1003,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
             if float(clearences) >= 2.5:
                 stats += [f'Clearences per game: {clearences}']
             stats += [f'Recoveries per game: {recoveries}',f'Tackles per game: {tackles}',f'Interceptions per game: {interceptions}']
-            stats = stats[0:7]
+            stats = stats[0:11]
     
     
     match_list = []
@@ -1021,7 +1021,7 @@ positions={
 "V1":{"background":"middle","hook":"bottom"},
 "V2":{"background":"middle","description":"bottom","position":False}
 }
-short_photo = ['photo3','photo2']
+short_photo = ['photo1','photo2']
 player = unidecode.unidecode(player_list[0])
 #scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
 make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)

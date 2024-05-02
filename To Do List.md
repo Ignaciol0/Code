@@ -23,6 +23,8 @@
 - [x] Add the detection of a too long short video
 - [x] Add the more indepth percentile selection taking some more values since it will be in a unique frame
 - [x] Add the more detailed explanation in the normal videos
+- [x] Add the conditions so large tasks don't over execute
+- [x] Fix the selection of normal attributes
 - [ ] Add the pro percentile selection.
 - [ ] Add the translation.
 - [ ] Add the Euro Specific content.
@@ -35,8 +37,7 @@
 - [ ] Add the football games web addition
 - [ ] Fix the box of the sorts photo 3
 - [ ] Add the image selection from google with Google Dork queries
-- [ ] Add the conditions so large tasks don't over execute
-- [ ] Fix the selection of normal attributes
 - [ ] Add the yt caption creation
 - [ ] Fix the pronunciation of the names
 - [ ] Add the highlight of the percentiles
+- [ ] Add the speed up of the audio

@@ -738,4 +738,3 @@ player = 'Kobbie Mainoo'
 #get_season_script(player,[7.69, 'Matches played: 32(28.0)', 'Goals: 10.0', 'Assists: 14.0', 'Big Chances: 15.0', 'Shots per game: 4.2', 'Key Passes per game: 5.5'],[['Stuttgart', 0, 2, 8.7], ['Frankfurt', 1, 1, 8.4]])
 #print(get_stats_script_es(player))
 
-
