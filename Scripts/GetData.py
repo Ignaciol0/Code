@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Martin Ødegaard']
+player_list = ['Vitinha']
 
  
 
@@ -666,7 +666,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
     if data['Total played'] == data['Started']:
         match = f"Matches played: {data['Total played']}"
     else:
-        match = f"Matches played: {data['Total played']}({data['Started']})"
+        match = f"Matches played: {data['Total played']}({int(data['Started'])})"
     stats = [data['rating']]
     goals = float(data['Goals'])
     assists = float(data['Assists'])

@@ -69,21 +69,26 @@ def get_match_script(player,stats,match_list):
     prompt = f"write a small paragraph analysis about {player}'s top performances with a {stats[0]} average rating in sofascore and this are his best matches this season, you don't have to mention them all,:{matches} Other information that doesn't have to be mentioned is that he plays as a {description['position']} and he is {description['age']} years old"
     response = ollama.chat(model='llama3', messages=[
         {
-            'role':'system',
-            'content':'Write ONLY one paragraph'
-        },
-    {
-        'role': 'user',
-        'content': "write a descrition about Alejandro Grimaldo's season with a 7.7 average rating in sofascore and this other key stats Matches played 28.0(26.0), Goals 10.0, Assists 9.0, Big Chances 12.0, Team of the Week 6.0, Minutes per goal 71.9 min also his best matches this season are Against Qarabağ with 2 goals and 1 assists and a rating for the match of 9.3.Against Leipzig with 0 goals and 2 assists and a rating for the match of 8.9.",
-    },{
-        'role':'user',
-        'content':"write a small paragraph analysis about Kobbie Mainoo's top performances with a 7.69 average rating in sofascore and this are his best matches this season, you don't have to mention them all,: Against Stuttgart with  and 2 assists and a rating for the match of 8.7. Against Frankfurt with 1 goals and 1 assists and a rating for the match of 8.4. Other information that doesn't have to be mentioned is that he plays as a m and he is 19 yrs years old"
-    },{
-        'role':'user',
-        'content':"Kobbie Mainoo has been on fire this season, boasting an impressive average rating of 7.69 on Sofascore. A key highlight from his campaign was his outstanding display against Stuttgart, where he notched up two assists to complement a stellar 8.7 match rating. He also impressed against Frankfurt, netting one goal and providing another assist, earning himself a 8.4 match rating in the process."
-    },{
-        'role':'user',
-        'content':prompt
+            'role':'user',
+            'content':"write a small paragraph analysis about Kobbie Mainoo's top performances with a 7.69 average rating in sofascore and this are his best matches this season, you don't have to mention them all,: Against Stuttgart with  and 2 assists and a rating for the match of 8.7. Against Frankfurt with 1 goals and 1 assists and a rating for the match of 8.4. Other information that doesn't have to be mentioned is that he plays as a m and he is 19 yrs years old"
+        },{
+            'role':'assistant',
+            'content':"Kobbie Mainoo has been on fire this season, boasting an impressive average rating of 7.69 on Sofascore. A key highlight from his campaign was his outstanding display against Stuttgart, where he notched up two assists to complement a stellar 8.7 match rating. He also impressed against Frankfurt, netting one goal and providing another assist, earning himself a 8.4 match rating in the process."
+        },{
+            'role': 'user',
+            'content':"write a small paragraph analysis about Federico Valverde's top performances with a 7.34 average rating in sofascore and this are his best matches this season, you don't have to mention them all,: Against Osasuna with  and 3 assists and a rating for the match of 8.8. Against Atletico Madrid with   and a rating for the match of 8.3. Against Mallorca with   and a rating for the match of 8.0. Against Celta Vigo with   and a rating for the match of 7.9. Against Rayo Vallecano with  and 1 assists and a rating for the match of 7.8. Other information that doesn't have to be mentioned is that he plays as a m and he is 25 yrs years old"
+        },{
+            'role': 'assistant',
+            'content':"Federico Valverde has been a force to be reckoned with this season, showcasing his attacking prowess with an impressive average rating of 7.34 on Sofascore. One of his standout performances came against Osasuna, where he netted two goals and contributed three assists, earning himself a 8.8 match rating. He also impressed in matches against Atletico Madrid, Mallorca, Celta Vigo, and Rayo Vallecano, notching up notable ratings of 8.3, 8.0, 7.9, and 7.8 respectively."
+        },{
+            'role':'user',
+            'content':"No, you should not add goals or assists that do not exist"
+        },{
+            'role':'assistant',
+            'content':"Federico Valverde has been a force to be reckoned with this season, showcasing his attacking prowess with an impressive average rating of 7.34 on Sofascore. One of his standout performances came against Osasuna, where he contributed three assists, earning himself a 8.8 match rating. He also impressed in matches against Atletico Madrid, Mallorca, Celta Vigo, and Rayo Vallecano, notching up notable ratings of 8.3, 8.0, 7.9, and 7.8 respectively."
+        },{
+            'role':'user',
+            'content':prompt
     }])
     with open("prompts.txt","a+") as file:
         if f"Prompt Stats: {prompt}" not in file.read():
@@ -733,7 +738,8 @@ def make_script(player,stats,match_list):
         if f"Response Short 2: {texts[1]}" not in file.read():
             file.write(f"Response Short 2: {texts[1]}\n")
  
-player = 'Kobbie Mainoo'
+player = 'Federico Valverde'
+
 #make_script(player,[7.69, 'Matches played: 32(28.0)', 'Goals: 10.0', 'Assists: 14.0', 'Big Chances: 15.0', 'Shots per game: 4.2', 'Key Passes per game: 5.5'],[['Stuttgart', 0, 2, 8.7], ['Frankfurt', 1, 1, 8.4]],get_fbref_percentiles(player,False))
 #get_season_script(player,[7.69, 'Matches played: 32(28.0)', 'Goals: 10.0', 'Assists: 14.0', 'Big Chances: 15.0', 'Shots per game: 4.2', 'Key Passes per game: 5.5'],[['Stuttgart', 0, 2, 8.7], ['Frankfurt', 1, 1, 8.4]])
 #print(get_stats_script_es(player))

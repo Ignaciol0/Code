@@ -50,7 +50,7 @@ def create_vid(images,script='script',output="video1",clone=False,make_audio=Tru
             os.remove(f'audio{images.index(img)+1}.wav')
             
 
-def create_short(img1,img2,img3,script='sort_script',clone=False,make_audio=True):
+def create_short(img1="Video",img2="Video-1",img3="Video-2",script='sort_script',clone=False,make_audio=True):
     if make_audio:
         if not clone:
             with open(f"{script}.txt") as t:
@@ -159,3 +159,4 @@ def make_audios_clone_voice(script="script"):
             data = response["data"]
             shutil.copy2(data[0]['name'],f"C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code/audio{texts.index(text)+1}.wav")
 
+create_short(clone=True)

@@ -41,3 +41,10 @@
 - [ ] Fix the pronunciation of the names
 - [ ] Add the highlight of the percentiles
 - [ ] Add the speed up of the audio
+- [ ] Add the raspberry pi match analyzer and storage
+- [ ] Fix the compare with other midfielders
+- [ ] Add the commun knowledge in the scripts creation (transfered, season number, last season's performance, UCL and league position)
+- [ ] Add the other important atributes to the match analysis, gca, sca, clearances, big chances ...
+- [ ] Fix the sorts script.
+- [ ] Fix the photo selection instead of photo2.jpg,photo3.jpg 2,3
+- [ ] Fix the too big percentiles
