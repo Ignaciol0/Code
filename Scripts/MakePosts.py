@@ -1308,7 +1308,7 @@ def make_video_frame5(path,percentiles):
             """
     percentile_size = (len(percentile_list))*percentile_separation+20
                 
-    position = 'midfielders'
+    position = 'wingers'
     # THIS IS THE SVG CODE
     svg_code =f"""<svg width="1000" height="720" viewBox="0 0 1000 720" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <text fill="white" font-family="Inter" font-size="50" font-weight="bold" x="25" y="40">Compared with Top 5 {position}</text>

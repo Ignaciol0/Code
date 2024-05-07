@@ -1,6 +1,7 @@
 import ollama
 import json
 from threading import Thread
+import unidecode
 import sys
 # This makes the code think is in the root folder. Only done for organizing
 sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code")
@@ -59,7 +60,7 @@ def get_profile_script(player):
     with open("prompts.txt","a+") as file:
         if f"Prompt Description: {prompt}" not in file.read():
             file.write(f"Prompt Description: {prompt}\n")
-    return response['message']['content'].split('\n')[-1]
+    return unidecode.unidecode(response['message']['content'].split('\n')[-1])
 def get_match_script(player,stats,match_list):
     with open(f'players\{player}.json') as f:
         description = json.load(f)
