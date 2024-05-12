@@ -1289,9 +1289,35 @@ def make_video_frame4(path,stats,photo='photo2'):
     os.remove(path+"svg-2.png")
     os.remove(path+"svg.png")
 
-def make_video_frame5(path,percentiles):
+def make_video_frame5(path,percentiles,positions):
     path_resources = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/images/'
     
+    for e in positions:
+        if 'L' in e:
+            if 'W' in e:
+                position = 'wingers'
+            elif 'B' in e:
+                position = "fullbacks"
+        elif 'R' in e:
+            if 'W' in e:
+                position = 'wingers'
+            elif 'B' in e:
+                position = "fullbacks"
+        else:
+            if 'F' in e:
+                position = "strikers"
+            elif 'B' in e:
+                position = "center backs"
+            elif 'C' in e:
+                position = "midfielders"
+            elif 'A' in e:
+                position = "attacking midfielders"
+        if 'WB' in e:
+            if "RWB" == e:
+                position = 'fullbacks'
+            if "LWB" == e:
+                position = "fullbacks"
+                
     percentile_height = 200
     # In these part we will create the percentiles
     percentile_text = ''
@@ -1308,7 +1334,6 @@ def make_video_frame5(path,percentiles):
             """
     percentile_size = (len(percentile_list))*percentile_separation+20
                 
-    position = 'wingers'
     # THIS IS THE SVG CODE
     svg_code =f"""<svg width="1000" height="720" viewBox="0 0 1000 720" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <text fill="white" font-family="Inter" font-size="50" font-weight="bold" x="25" y="40">Compared with Top 5 {position}</text>
@@ -2059,7 +2084,7 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             thread3.start()
     player = unidecode.unidecode(player)
     response = ''
-    photo1, photo2 = "photo2.jpg","photo3.jpg"
+    photo1, photo2 = "photo3.jpg","photo4.jpg"
     folder_path = "C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code"
     rem_bg = True if 'photo2_nbg.png' not in os.listdir(folder_path+"\Video Output") else False
     if rem_bg:
@@ -2074,7 +2099,7 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
         make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
         make_video_frame3(path,matches,stats,photo1.split(".")[0])
         make_video_frame4(path,stats,photo2.split(".")[0])
-        make_video_frame5(path,percentiles)
+        make_video_frame5(path,percentiles,info[6])
         make_video1(path,player,short_photo[0])
         make_video2(path,player,info,short_photo[1])
         make_video3(path,matches,stats,percentiles)

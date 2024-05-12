@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Mathys Tel']
+player_list = ['Florian Wirtz']
 
  
 
@@ -29,7 +29,7 @@ def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,posi
 
         #browser = p.chromium.launch()
 
-        browser = p.chromium.launch(headless=False, slow_mo=500)
+        browser = p.chromium.launch(headless=True, slow_mo=500)
 
         page = browser.new_page()
 

@@ -148,7 +148,7 @@ def make_audios_clone_voice(script="script"):
                     0.8,
                     1,
                     1,
-                    2,
+                    4,
                     2,
                     ["Half Precision"],
                     False,
