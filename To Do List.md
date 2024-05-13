@@ -49,4 +49,4 @@
 - [ ] Fix the photo selection instead of photo2.jpg,photo3.jpg 2,3
 - [ ] Fix the too big percentiles
 - [ ] Fix the club naming
-- [ ] Fix the 
+- [ ] Add the ability to change the json in the selection of the images

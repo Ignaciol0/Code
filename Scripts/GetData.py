@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Florian Wirtz']
+player_list = ['Jeremie Frimpong']
 
  
 
@@ -221,11 +221,11 @@ def get_best_matches_and_positions(matches,player, year):
 
         try:
             fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{date[0]}')
-            matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
+            matches += [unidecode.unidecode(opponent[fbref_index]),gls[fbref_index],ast[fbref_index],ratings[index]]
         except:
             try:
                 fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{int(date[0])-1}')
-                matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
+                matches += [unidecode.unidecode(opponent[fbref_index]),gls[fbref_index],ast[fbref_index],ratings[index]]
             except:
                 pass
         index += 1
