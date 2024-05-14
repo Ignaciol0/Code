@@ -135,7 +135,7 @@ class ImageGridApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    query = "Jeremie Frimpong"  # Replace "your_query_here" with your desired query
+    query = "Benjamin Šeško"  # Replace "your_query_here" with your desired query
     app = ImageGridApp(root, query)
     root.mainloop()
 

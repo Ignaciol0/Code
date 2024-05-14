@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Jeremie Frimpong']
+player_list = ['Benjamin Šeško']
 
  
 
@@ -29,7 +29,7 @@ def scrape_player_list(player_list,delay, post=True,youngster=True, year=24,posi
 
         #browser = p.chromium.launch()
 
-        browser = p.chromium.launch(headless=True, slow_mo=500)
+        browser = p.chromium.launch(headless=False, slow_mo=500)
 
         page = browser.new_page()
 
@@ -501,13 +501,15 @@ def get_sofascore_stats(info,page,year=24):
 
     drop_down= drop_down.split('\n')
 
+    drop_down = list(set(drop_down))
+
     int_stats, int_rating, int_stats2, int_rating2, league_rating, league_stats, league_rating2, league_stats2 = '','','','','','','',''
 
     # Get league stats
 
     for e in drop_down:
 
-        if e in ['UEFA Europa Conference League','UEFA Champions League','UEFA Europa League','CONMEBOL Libertadores','CONMEBOL Sudamericana']:
+        if e in ['UEFA Europa Conference League','UEFA Champions League','UEFA Europa League','CONMEBOL Libertadores','CONMEBOL Sudamericana','European Championship, Qualification']:
 
             element = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/div[1]/ul/li[{drop_down.index(e)+1}]')
                          
