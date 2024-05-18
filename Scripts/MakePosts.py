@@ -1183,57 +1183,22 @@ def make_video_frame3(path,matches,stats,photo='photo1'):
     offset_y = 325
     separation = 70
     matches_teams = [x[0] for x in matches]
-    if len(matches_teams) == len(list(set(matches_teams))):
-        for club in clubs:
-            width, height = club.size
-            scale = width / club_size
-            index = clubs.index(club)
-            height = int(height / scale)
-            if height > club_size * 1.5:
-                scale = int(height / (club_size*1.5))
-                width = int(club_size / scale)
-                height = int(club_size*1.5)
-                club = club.resize((width,int(club_size*1.5)))
-            else:
-                width = club_size
-                club = club.resize((club_size,height))
-            imgResult.paste(club, ((offset_x - width),(offset_y + (separation * index) - height)), mask= club)
-    else:
-        prev_matches = []
-        index = 0
-        for club in clubs:
-            match = matches_teams[clubs.index(club)]
-            if match not in prev_matches:
-                width, height = club.size
-                scale = width / club_size
-                height = int(height / scale)
-                if height > club_size * 1.5:
-                    scale = int(height / (club_size*1.5))
-                    width = int(club_size / scale)
-                    height = int(club_size*1.5)
-                    club = club.resize((width,int(club_size*1.5)))
-                else:
-                    width = club_size
-                    club = club.resize((club_size,height))
-                imgResult.paste(club, ((offset_x - width),(offset_y + (separation * index) - height)), mask= club)
-                prev_matches += [match]
-                index += 1
-            else:
-                imgResult.save(path+"Video3.png")
-                imgResult = Image.open(path+"Video3.png")
-                width, height = club.size
-                scale = width / club_size
-                height = int(height / scale)
-                if height > club_size * 1.5:
-                    scale = int(height / (club_size*1.5))
-                    width = int(club_size / scale)
-                    height = int(club_size*1.5)
-                    club = club.resize((width,int(club_size*1.5)))
-                else:
-                    width = club_size
-                    club = club.resize((club_size,height))
-                imgResult.paste(club, ((offset_x - width),(offset_y + (separation * index) - height)), mask= club)
-                index += 1
+    index = 0
+    for club in clubs:
+        width, height = club.size
+        scale = width / club_size
+        height = int(height / scale)
+        if height > club_size * 1.5:
+            scale = int(height / (club_size*1.5))
+            width = int(club_size / scale)
+            height = int(club_size*1.5)
+            club = club.resize((width,int(club_size*1.5)))
+        else:
+            width = club_size
+            club = club.resize((club_size,height))
+        imgResult.paste(club, ((offset_x - width),(offset_y + (separation * index) - height)), mask= club)
+        index += 1
+
     imgResult.save(path+"Video3.png")
     os.remove(path+'video3(no player).png')
     os.remove(path+"Video3(no clubs).png")
