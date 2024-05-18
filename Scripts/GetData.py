@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Leroy Sané']
+player_list = ['Joshua Zirkzee']
 
  
 
@@ -146,7 +146,6 @@ def get_best_matches_and_positions(matches,player, year):
     url = url.split('/')
 
     name = url[4] + '-Match-Logs'
-
     url[4] = 'matchlogs'
 
     url[0] = 'https://fbref.com'
@@ -221,11 +220,11 @@ def get_best_matches_and_positions(matches,player, year):
 
         try:
             fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{date[0]}')
-            matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
+            matches += [unidecode.unidecode(opponent[fbref_index]),gls[fbref_index],ast[fbref_index],ratings[index]]
         except:
             try:
                 fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{int(date[0])-1}')
-                matches += [opponent[fbref_index],gls[fbref_index],ast[fbref_index],ratings[index]]
+                matches += [unidecode.unidecode(opponent[fbref_index]),gls[fbref_index],ast[fbref_index],ratings[index]]
             except:
                 pass
         index += 1
@@ -235,13 +234,24 @@ def get_best_matches_and_positions(matches,player, year):
 def matches_sofascore(page):
     ratings = []
     dates = []
-    for e in range(0,3):
-        for num in range(1,11):
-            rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span/div/span').all_inner_texts()
-            date = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[2]').all_inner_texts()
-            if rating != []:
-                ratings += [rating[0]]
-                dates += [date[0]]
+    num = 0
+    for e in range(0,5):
+        while True:
+            try:
+                rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span/div/span').all_inner_texts()
+                if rating == []:
+                    rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span').all_inner_texts()
+                date = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[2]').all_inner_texts()
+                if rating != []:
+                    ratings += [rating[0]]
+                    dates += [date[0]]
+                num += 1
+                if num > 20:
+                    num = 0
+                    break
+            except:
+                num = 0
+                break
         page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[1]/div[1]/button').click()
 
         time.sleep(5)
@@ -507,7 +517,7 @@ def get_sofascore_stats(info,page,year=24):
 
     for e in drop_down:
 
-        if e in ['UEFA Europa Conference League','UEFA Champions League','UEFA Europa League','CONMEBOL Libertadores','CONMEBOL Sudamericana']:
+        if e in ['UEFA Europa Conference League','UEFA Champions League','UEFA Europa League','CONMEBOL Libertadores','CONMEBOL Sudamericana','European Championship, Qualification']:
 
             element = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/div[1]/ul/li[{drop_down.index(e)+1}]')
                          
@@ -666,7 +676,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
     if data['Total played'] == data['Started']:
         match = f"Matches played: {data['Total played']}"
     else:
-        match = f"Matches played: {data['Total played']}({data['Started']})"
+        match = f"Matches played: {data['Total played']}({int(data['Started'])})"
     stats = [data['rating']]
     goals = float(data['Goals'])
     assists = float(data['Assists'])
@@ -780,7 +790,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
             else:
                stats += [f'Crosses: {crosses}']
         if len(stats) > 10:
-            stats = stats[0:10]
+            stats = stats[0:11]
         elif len(stats) < 10:
             if int(big_chances) >= 1:
                 stats += [f'Big Chances: {int(big_chances)}']
@@ -798,7 +808,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
                 stats += [f'Minutes per goal: {min_goal} min']
             
             stats += [f'Shots: {shots}',f'Goal convertion %: {shot_conv}%',f'Shot on target %: {shots_ot}%']
-            stats = stats[0:7]
+            stats = stats[0:11]
     elif data['position'] == 'm':
         if int(goals) + int(assists) >= 5:
             stats += [match,f'Goals: {int(goals)}',f'Assists: {int(assists)}']
@@ -878,7 +888,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
                 stats += [f'Recoveries: {recoveries}']
         
         if len(stats) > 10:
-            stats = stats[0:10]
+            stats = stats[0:11]
         elif len(stats) < 10:
             if int(big_chances) >= 1:
                 stats += [f'Big Chances: {int(big_chances)}']
@@ -900,7 +910,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
                 stats += [f'Recoveries: {recoveries}']
             
             stats += [f'Key Passes: {key_pases}',f'Pass accurary: {pass_acuracy}%',f'Interceptions: {interceptions}']
-            stats = stats[0:7]
+            stats = stats[0:11]
     elif data['position'] == 'd':
         if int(goals) + int(assists) >= 5:
             stats += [match,f'Goals: {int(goals)}',f'Assists: {int(assists)}']
@@ -988,7 +998,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
         
         
         if len(stats) > 10:
-            stats = stats[0:10]
+            stats = stats[0:11]
         elif len(stats) < 10:
             if int(big_chances) >= 1:
                 stats += [f'Big Chances: {big_chances}']
@@ -1003,7 +1013,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
             if float(clearences) >= 2.5:
                 stats += [f'Clearences per game: {clearences}']
             stats += [f'Recoveries per game: {recoveries}',f'Tackles per game: {tackles}',f'Interceptions per game: {interceptions}']
-            stats = stats[0:7]
+            stats = stats[0:11]
     
     
     match_list = []
@@ -1021,7 +1031,7 @@ positions={
 "V1":{"background":"middle","hook":"bottom"},
 "V2":{"background":"middle","description":"bottom","position":False}
 }
-short_photo = ['photo3','photo2']
+short_photo = ['photo1','photo2']
 player = unidecode.unidecode(player_list[0])
 #scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
 make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)

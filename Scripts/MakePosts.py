@@ -21,7 +21,7 @@ player = "Maradona"
 Hook = f'Have you watched {player}?'
 path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/"
 info = ["100","193","31","fra","Real Madrid",False,['RW','CM']]
-matches = [['Barcelona',0,2,'10'],['Manchester United',1,0,'9.57']]
+matches = [['Barcelona',0,2,'10'],['Manchester United',1,0,'9.57'],['Manchester United',1,0,'9.57']]
 percentiles = pd.DataFrame({'Statistic':['Expected Assist','Goals','Assists','Key Passes','Progressive Pases'],'Percentile':[99,80,70,60,10]})
 stats = [9.05,'Matches Played: 24(14)','Goals: 11','Assist: 4','Big Chances: 7','Progresive Passes: 39','Dribbles %: 61.6% ','Prog. Passes Recieved: 13.22']
 def add_corners(im, rad):
@@ -1074,7 +1074,11 @@ def make_video_frame3(path,matches,stats,photo='photo1'):
             gamatch = g + a
             inital_x_g = x_separation + (svg_width//2 - ((g+a)*icon_size)//2)
             inital_x_a = inital_x_g + icon_size*g
-            clubs += [Image.open(img_path+f'Clubs/{match[0]}.webp').convert("RGBA")]
+            try:
+                clubs += [Image.open(img_path+f'Clubs/{match[0]}.webp').convert("RGBA")]
+            except:
+                input(f"{match[0]}.webp is missing")
+                clubs += [Image.open(img_path+f'Clubs/{match[0]}.webp').convert("RGBA")]
             if g > 0:
                 for goal in range(g):
                     match_text += f'<path transform="translate({inital_x_g+icon_size*goal},{y_separation}) scale(0.6)" d="M38 76C32.7433 76 27.8033 75.0019 23.18 73.0056C18.5567 71.0119 14.535 68.305 11.115 64.885C7.695 61.465 4.98813 57.4433 2.9944 52.82C0.998134 48.1967 0 43.2567 0 38C0 32.7433 0.998134 27.8033 2.9944 23.18C4.98813 18.5567 7.695 14.535 11.115 11.115C14.535 7.695 18.5567 4.98687 23.18 2.9906C27.8033 0.996866 32.7433 0 38 0C43.2567 0 48.1967 0.996866 52.82 2.9906C57.4433 4.98687 61.465 7.695 64.885 11.115C68.305 14.535 71.0119 18.5567 73.0056 23.18C75.0019 27.8033 76 32.7433 76 38C76 43.2567 75.0019 48.1967 73.0056 52.82C71.0119 57.4433 68.305 61.465 64.885 64.885C61.465 68.305 57.4433 71.0119 52.82 73.0056C48.1967 75.0019 43.2567 76 38 76ZM57 28.5L62.13 26.79L63.65 21.66C61.6233 18.62 59.185 16.0069 56.335 13.8206C53.485 11.6369 50.35 10.0067 46.93 8.93L41.8 12.54V17.86L57 28.5ZM19 28.5L34.2 17.86V12.54L29.07 8.93C25.65 10.0067 22.515 11.6369 19.665 13.8206C16.815 16.0069 14.3767 18.62 12.35 21.66L13.87 26.79L19 28.5ZM15.01 57.76L19.38 57.38L22.23 52.25L16.72 35.72L11.4 33.82L7.6 36.67C7.6 40.7867 8.17 44.5385 9.31 47.9256C10.45 51.3152 12.35 54.5933 15.01 57.76ZM38 68.4C39.6467 68.4 41.2617 68.2733 42.845 68.02C44.4283 67.7667 45.98 67.3867 47.5 66.88L50.16 61.18L47.69 57H28.31L25.84 61.18L28.5 66.88C30.02 67.3867 31.5717 67.7667 33.155 68.02C34.7383 68.2733 36.3533 68.4 38 68.4ZM29.45 49.4H46.55L51.87 34.2L38 24.51L24.32 34.2L29.45 49.4ZM60.99 57.76C63.65 54.5933 65.55 51.3152 66.69 47.9256C67.83 44.5385 68.4 40.7867 68.4 36.67L64.6 34.01L59.28 35.72L53.77 52.25L56.62 57.38L60.99 57.76Z" fill="#0FB916"/>\n'
@@ -1178,10 +1182,11 @@ def make_video_frame3(path,matches,stats,photo='photo1'):
     offset_x = 50 + 1280//2 + 85
     offset_y = 325
     separation = 70
+    matches_teams = [x[0] for x in matches]
+    index = 0
     for club in clubs:
         width, height = club.size
         scale = width / club_size
-        index = clubs.index(club)
         height = int(height / scale)
         if height > club_size * 1.5:
             scale = int(height / (club_size*1.5))
@@ -1192,8 +1197,9 @@ def make_video_frame3(path,matches,stats,photo='photo1'):
             width = club_size
             club = club.resize((club_size,height))
         imgResult.paste(club, ((offset_x - width),(offset_y + (separation * index) - height)), mask= club)
-    imgResult.save(path+"Video3.png")
+        index += 1
 
+    imgResult.save(path+"Video3.png")
     os.remove(path+'video3(no player).png')
     os.remove(path+"Video3(no clubs).png")
     os.remove(path+"svg-2.png")
@@ -1206,9 +1212,14 @@ def make_video_frame4(path,stats,photo='photo2'):
     stats_text = ''
     text_height = 100
     text_separation = 35
+    stats_viewed = list(set(stats))
+    index = 0
     for stat in stats:
-        stats_text += f'<text fill="white" font-family="Inter" font-size="25" font-weight="bold" x="50" y="{text_height+stats.index(stat)*text_separation}">{stat}</text>\n'
-    height = text_height+(len(stats))*(text_separation) + 15
+        if stat in stats_viewed:
+            stats_text += f'<text fill="white" font-family="Inter" font-size="25" font-weight="bold" x="50" y="{text_height+index*text_separation}">{stat}</text>\n'
+            stats_viewed.remove(stat)
+            index += 1
+    height = text_height+(len(set(stats)))*(text_separation) + 15
 
     # THIS IS THE SVG CODE
     svg_code =f"""<svg width="510" height="{height}" viewBox="0 0 510 {height}" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -1289,9 +1300,35 @@ def make_video_frame4(path,stats,photo='photo2'):
     os.remove(path+"svg-2.png")
     os.remove(path+"svg.png")
 
-def make_video_frame5(path,percentiles):
+def make_video_frame5(path,percentiles,positions):
     path_resources = 'C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/images/'
     
+    for e in positions:
+        if 'L' in e:
+            if 'W' in e:
+                position = 'wingers'
+            elif 'B' in e:
+                position = "fullbacks"
+        elif 'R' in e:
+            if 'W' in e:
+                position = 'wingers'
+            elif 'B' in e:
+                position = "fullbacks"
+        else:
+            if 'F' in e:
+                position = "strikers"
+            elif 'B' in e:
+                position = "center backs"
+            elif 'C' in e:
+                position = "midfielders"
+            elif 'A' in e:
+                position = "attacking midfielders"
+        if 'WB' in e:
+            if "RWB" == e:
+                position = 'fullbacks'
+            if "LWB" == e:
+                position = "fullbacks"
+                
     percentile_height = 200
     # In these part we will create the percentiles
     percentile_text = ''
@@ -1308,7 +1345,6 @@ def make_video_frame5(path,percentiles):
             """
     percentile_size = (len(percentile_list))*percentile_separation+20
                 
-    position = 'midfielders'
     # THIS IS THE SVG CODE
     svg_code =f"""<svg width="1000" height="720" viewBox="0 0 1000 720" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <text fill="white" font-family="Inter" font-size="50" font-weight="bold" x="25" y="40">Compared with Top 5 {position}</text>
@@ -2059,37 +2095,46 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
             thread3.start()
     player = unidecode.unidecode(player)
     response = ''
-    photo1, photo2 = "photo1.jpg","photo3.jpg"
-    folder_path = "C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code\images"
-    remove_bg([elem for elem in os.listdir(folder_path) if "photo" in elem.lower()])
-    thread = Thread(target=make_audios_clone_voice, args=("script",))
-    thread.start()
+    photo1, photo2 = "photo3.jpg","photo4.jpg"
+    folder_path = "C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code"
+    rem_bg = True if 'photo2_nbg.png' not in os.listdir(folder_path+"\Video Output") else False
+    if rem_bg:
+        remove_bg([elem for elem in os.listdir(folder_path+"\images") if "photo" in elem.lower()])
+    make_audios = True if 'audio5.wav' not in os.listdir(folder_path) else False
+    if make_audios:
+        thread = Thread(target=make_audios_clone_voice, args=("script",))
+        thread.start()
 
     while response.lower() not in ["yes","y","si"]:
         make_video_frame1(path,player,youngster,position=positions['V1']['background'],hook_position=positions['V1']['hook'])
         make_video_frame2(path,player,info,position=positions['V2']['background'],description=positions['V2']['description'],position_top=positions['V2']['position'])
         make_video_frame3(path,matches,stats,photo1.split(".")[0])
         make_video_frame4(path,stats,photo2.split(".")[0])
-        make_video_frame5(path,percentiles)
+        make_video_frame5(path,percentiles,info[6])
         make_video1(path,player,short_photo[0])
         make_video2(path,player,info,short_photo[1])
         make_video3(path,matches,stats,percentiles)
-        response = input("Do you like the Images? (yes/position/youngster/photo/other)")
+        response = input("Do you like the Images? (yes/position/youngster/photo/short photo/other)")
         if response.lower() in ["younster","young","w"]:
             youngster = True
         elif response.lower() in ["other","o"]:
             pass
+        elif response.lower() in ["short photo","s","short","sort"]:
+            changes = input(f"This are the photos {photo1},{photo2} change them if you want:\n")
+            short_photo[0] = changes.split(",")[0]
+            short_photo[1] = changes.split(",")[1]
         elif response.lower() in ["foto","photo","ph","f"]:
             changes = input(f"This are the photos {photo1},{photo2} change them if you want:\n")
             photo1 = changes.split(",")[0]
             photo2 = changes.split(",")[1]
-            remove_bg([elem for elem in os.listdir(folder_path) if "photo" in elem.lower()])
+            remove_bg([elem for elem in os.listdir(folder_path+"\images") if "photo" in elem.lower()])
         elif response.lower() not in ["yes","y","si"]:
             changes = input("This is the dictionary."+"\n"+ ''.join(['{} -> {}.\n'.format(image, ''.join(['{}:{}, '.format(element, positions[image][element]) for element in positions[image].keys()])) for image in positions.keys()])+ "Give me the changes: ")
-            dictionary = changes.replace("."," ->  ").split(" ->  ")
+            dictionary = changes.replace("."," -> ").split(" -> ")[:-1]
             for e in range(len(dictionary)//2):
-                positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] for pair in dictionary[e*2+1][:-1].split(", ")}
-    thread.join()
+                positions[dictionary[e*2]] = {pair.split(":")[0]: pair.split(":")[1] if pair.split(":")[1] not in ["False","True"] else bool(pair.split(":")[1]) if pair.split(":")[1].lower() != 'false' else False for pair in dictionary[e*2+1].split(", ")[:-1]}
+    if make_audios:
+        thread.join()
     for file in [path+elem for elem in os.listdir(path) if "photo" in elem.lower()]:
         os.remove(file)
     create_vid(['Video1','Video2','Video3','Video4','Video5'],clone=clone,make_audio=True)
@@ -2119,3 +2164,5 @@ positions={
 #make_video_frame2(path,player,info)
 #matches = [["Man Utd", 3, 0, "10"],[ "Burnley", 2, 0, "10"],[ "Crystal Palace", 0, 2, "8.5"],[ "Sheffield Utd", 1, 1, "8.5"],[ "Leicester", 1, 1, "8.4"]]
 #make_video_frame5(path,pd.DataFrame({"Percentile":[99, 97, 95, 92, 87, 81, 80, 77, 75, 71],"Statistic":["Goals/Shot", "Shots on Target %", "Goals - xG", "Goals/Shot on Target", "Through Balls", "Take-Ons Attempted", "Clearances", "Successful Take-Ons", "Carries into Penalty Area", "Goals"]}))
+stats = [7.12, 'Matches played: 34(32)', 'Goals: 11', 'Assists: 4', 'Shots: 2.5', 'Big Chances: 11', 'Team of the Week: 2', 'Big Chances: 11', 'Shot Creating Actions: 3.16', 'Shots: 2.5', 'Goal convertion %: 13.0%']
+make_video_frame3(path,matches,stats)

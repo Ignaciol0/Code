@@ -23,6 +23,12 @@
 - [x] Add the detection of a too long short video
 - [x] Add the more indepth percentile selection taking some more values since it will be in a unique frame
 - [x] Add the more detailed explanation in the normal videos
+- [x] Add the conditions so large tasks don't over execute
+- [x] Fix the selection of normal attributes
+- [x] Add the error catching for the images error.
+- [x] Fix the duplicate stats.
+- [x] Fix the duplicate images not appearing.
+- [ ] Fix the same league name duplication error.
 - [ ] Add the pro percentile selection.
 - [ ] Add the translation.
 - [ ] Add the Euro Specific content.
@@ -31,12 +37,22 @@
 - [ ] Add the cool read.me
 - [ ] Fix the prompts.txt
 - [ ] Add the open ubuntu
-- [ ] Add the GUI flatter
+- [ ] Add the GUI Tinker
 - [ ] Add the football games web addition
 - [ ] Fix the box of the sorts photo 3
 - [ ] Add the image selection from google with Google Dork queries
-- [ ] Add the conditions so large tasks don't over execute
-- [ ] Fix the selection of normal attributes
 - [ ] Add the yt caption creation
 - [ ] Fix the pronunciation of the names
 - [ ] Add the highlight of the percentiles
+- [ ] Add the speed up of the audio
+- [ ] Add the raspberry pi match analyzer and storage
+- [ ] Fix the compare with other midfielders
+- [ ] Add the commun knowledge in the scripts creation (transfered, season number, last season's performance, UCL and league position)
+- [ ] Add the other important atributes to the match analysis, gca, sca, clearances, big chances ...
+- [ ] Fix the sorts script.
+- [ ] Fix the photo selection instead of photo2.jpg,photo3.jpg 2,3
+- [ ] Fix the too big percentiles
+- [ ] Fix the club naming
+- [ ] Add the ability to change the json in the selection of the images
+- [ ] Add the international competitions to the analysis
+- [ ] Fix the defaul other voice.
