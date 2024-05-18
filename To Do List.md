@@ -25,7 +25,10 @@
 - [x] Add the more detailed explanation in the normal videos
 - [x] Add the conditions so large tasks don't over execute
 - [x] Fix the selection of normal attributes
-- [x] Fix the same league name duplication error.
+- [x] Add the error catching for the images error.
+- [x] Fix the duplicate stats.
+- [x] Fix the duplicate images not appearing.
+- [ ] Fix the same league name duplication error.
 - [ ] Add the pro percentile selection.
 - [ ] Add the translation.
 - [ ] Add the Euro Specific content.
@@ -52,3 +55,4 @@
 - [ ] Fix the club naming
 - [ ] Add the ability to change the json in the selection of the images
 - [ ] Add the international competitions to the analysis
+- [ ] Fix the defaul other voice.

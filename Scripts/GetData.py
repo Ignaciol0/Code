@@ -19,7 +19,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Benjamin Šeško']
+player_list = ['Joshua Zirkzee']
 
  
 
@@ -146,7 +146,6 @@ def get_best_matches_and_positions(matches,player, year):
     url = url.split('/')
 
     name = url[4] + '-Match-Logs'
-
     url[4] = 'matchlogs'
 
     url[0] = 'https://fbref.com'
@@ -235,13 +234,24 @@ def get_best_matches_and_positions(matches,player, year):
 def matches_sofascore(page):
     ratings = []
     dates = []
-    for e in range(0,3):
-        for num in range(1,11):
-            rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span/div/span').all_inner_texts()
-            date = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[2]').all_inner_texts()
-            if rating != []:
-                ratings += [rating[0]]
-                dates += [date[0]]
+    num = 0
+    for e in range(0,5):
+        while True:
+            try:
+                rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span/div/span').all_inner_texts()
+                if rating == []:
+                    rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span').all_inner_texts()
+                date = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[2]').all_inner_texts()
+                if rating != []:
+                    ratings += [rating[0]]
+                    dates += [date[0]]
+                num += 1
+                if num > 20:
+                    num = 0
+                    break
+            except:
+                num = 0
+                break
         page.locator('//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[1]/div[1]/button').click()
 
         time.sleep(5)
@@ -500,8 +510,6 @@ def get_sofascore_stats(info,page,year=24):
     drop_down = page.locator('//*[@id="__next"]/main/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/div[1]/ul').all_inner_texts()[0]
 
     drop_down= drop_down.split('\n')
-
-    drop_down = list(set(drop_down))
 
     int_stats, int_rating, int_stats2, int_rating2, league_rating, league_stats, league_rating2, league_stats2 = '','','','','','','',''
 

@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter as tk
 from PIL import Image, ImageTk
 import requests
+from requests_html import HTMLSession
 from io import BytesIO
 import os
 from urllib.parse import urlencode
@@ -132,17 +133,18 @@ class ImageGridApp:
             print(f"Index set to {index}")
         else:
             print("Invalid index.")
-
+'''
 if __name__ == "__main__":
     root = tk.Tk()
     query = "Benjamin Šeško"  # Replace "your_query_here" with your desired query
     app = ImageGridApp(root, query)
     root.mainloop()
-
-
+'''
+query = "Benjamin Šeško"
 
 def ImageSearch(player):
     root = tk.Tk()
     query =  "Jeremie Frimpong" # Replace "your_query_here" with your desired query
     app = ImageGridApp(root, query)
     root.mainloop()
+
