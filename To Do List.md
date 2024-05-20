@@ -28,6 +28,7 @@
 - [x] Add the error catching for the images error.
 - [x] Fix the duplicate stats.
 - [x] Fix the duplicate images not appearing.
+- [ ] Fix the same day error. It doesn't appear in fbref
 - [ ] Fix the same league name duplication error.
 - [ ] Add the pro percentile selection.
 - [ ] Add the translation.
