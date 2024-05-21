@@ -20,7 +20,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Alexander Sørloth']
+player_list = ['Toni Kroos']
 
  
 
@@ -99,9 +99,8 @@ def scrape_player(player,page, verbose=True, year = 24):
         contract = contract.split('\n')
 
         info['team'] = contract[0]
-
                       
-        info['matches'], info['positions'] = get_best_matches_and_positions(matches_sofascore(page),old_player,year)
+        info['matches'], info['positions'] = get_best_matches_and_positions(matches_sofascore(page,50),old_player,year)
         
         info['contract'] = contract[1]
 
@@ -151,7 +150,7 @@ def get_best_matches_and_positions(matches,player, year):
 
     url[0] = 'https://fbref.com'
 
-    url += ['2023-2024',name]
+    url += [f'20{year-1}-20{year}',name]
 
     url = '/'.join(url)
 
@@ -159,7 +158,7 @@ def get_best_matches_and_positions(matches,player, year):
 
     match_log = match_log[0].loc[:,['Unnamed: 0_level_0','Unnamed: 7_level_0','Unnamed: 9_level_0','Performance']]
 
-    matches = pd.DataFrame({'Date':matches[0],'Rating':matches[1]})
+    matches = pd.DataFrame({'Date':matches[0],'Rating':matches[1]}).to_csv("Kross.csv")
 
     matches['Rating'] = matches['Rating'].astype(float)
 
@@ -242,11 +241,11 @@ def get_best_matches_and_positions(matches,player, year):
 
     return matches, positions
 
-def matches_sofascore(page):
+def matches_sofascore(page,pages=5):
     ratings = []
     dates = []
     num = 0
-    for e in range(0,5):
+    for e in range(0,pages):
         while True:
             try:
                 rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span/div/span').all_inner_texts()
@@ -385,10 +384,17 @@ def get_fbref_stats(player,info,year=24):
 
     match_log = pd.read_html(url)
 
-    gsca = match_log[5]
+    try:
+        gsca = match_log[5]
 
-    xga = match_log[1]
+        xga = match_log[1]
 
+        xga.loc[:,"Progression"]
+    except:
+        # When the season is over the table indexed 0 of "Last 5 Matches disapears"
+        gsca = match_log[4]
+
+        xga = match_log[0]
 
     try:
         xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year-1}-20{year}']
@@ -444,9 +450,17 @@ def get_fbref_stats(player,info,year=24):
 
     match_log = pd.read_html(url)
 
-    gsca = match_log[5]
+    try:
+        gsca = match_log[5]
 
-    xga = match_log[1]
+        xga = match_log[1]
+
+        xga.loc[:,"Progression"]
+    except:
+        # When the season is over the table indexed 0 of "Last 5 Matches disapears"
+        gsca = match_log[4]
+
+        xga = match_log[0]
 
     try:
         xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year-1}-20{year}']
@@ -1044,6 +1058,6 @@ positions={
 }
 short_photo = ['photo1','photo2']
 player = unidecode.unidecode(player_list[0])
-#scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo,clone=True)
-make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
+scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo,clone=True)
+#make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
 

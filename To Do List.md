@@ -28,6 +28,7 @@
 - [x] Add the error catching for the images error.
 - [x] Fix the duplicate stats.
 - [x] Fix the duplicate images not appearing.
+- [X] Fix the end of season canges in fbref
 - [ ] Fix the same day error. It doesn't appear in fbref
 - [ ] Fix the same league name duplication error.
 - [ ] Add the pro percentile selection.
@@ -57,3 +58,4 @@
 - [ ] Add the ability to change the json in the selection of the images
 - [ ] Add the international competitions to the analysis
 - [ ] Fix the defaul other voice.
+- [ ] Add the career analysis
