@@ -20,7 +20,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Toni Kroos']
+player_list = ['Mohammed Kudus']
 
  
 
@@ -100,7 +100,7 @@ def scrape_player(player,page, verbose=True, year = 24):
 
         info['team'] = contract[0]
                       
-        info['matches'], info['positions'] = get_best_matches_and_positions(matches_sofascore(page,50),old_player,year)
+        info['matches'], info['positions'] = get_best_matches_and_positions(matches_sofascore(page),old_player,year)
         
         info['contract'] = contract[1]
 
@@ -158,7 +158,9 @@ def get_best_matches_and_positions(matches,player, year):
 
     match_log = match_log[0].loc[:,['Unnamed: 0_level_0','Unnamed: 7_level_0','Unnamed: 9_level_0','Performance']]
 
-    matches = pd.DataFrame({'Date':matches[0],'Rating':matches[1]}).to_csv("Kross.csv")
+    matches = pd.DataFrame({'Date':matches[0],'Rating':matches[1]})
+
+    matches['Rating'] = matches['Rating'].fillna(0).replace('-',0)
 
     matches['Rating'] = matches['Rating'].astype(float)
 
@@ -189,9 +191,9 @@ def get_best_matches_and_positions(matches,player, year):
         if e == len(selected_matches):
             current = True
 
-    selected_matches = selected_matches[0:5]
+    selected_matches = selected_matches[0:8]
 
-    ratings = ratings[0:5]
+    ratings = ratings[0:8]
 
     dates = match_log.loc[:,'Unnamed: 0_level_0'].loc[:,'Date'].tolist()
 
@@ -238,6 +240,8 @@ def get_best_matches_and_positions(matches,player, year):
             except:
                 pass
         index += 1
+        if len(matches) == 5:
+            break
 
     return matches, positions
 
@@ -1056,8 +1060,8 @@ positions={
 "V1":{"background":"middle","hook":"bottom"},
 "V2":{"background":"middle","description":"bottom","position":False}
 }
-short_photo = ['photo1','photo2']
+short_photo = ['photo1','photo3']
 player = unidecode.unidecode(player_list[0])
-scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo,clone=True)
-#make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
+#scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo,clone=True)
+make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
 

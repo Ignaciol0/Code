@@ -59,3 +59,4 @@
 - [ ] Add the international competitions to the analysis
 - [ ] Fix the defaul other voice.
 - [ ] Add the career analysis
+- [ ] Fix the selection of stats

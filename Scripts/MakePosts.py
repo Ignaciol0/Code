@@ -1323,6 +1323,8 @@ def make_video_frame5(path,percentiles,positions):
                 position = "midfielders"
             elif 'A' in e:
                 position = "attacking midfielders"
+            elif 'DM' in e:
+                position = "defensive mid."
         if 'WB' in e:
             if "RWB" == e:
                 position = 'fullbacks'
