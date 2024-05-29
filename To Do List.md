@@ -60,3 +60,5 @@
 - [ ] Fix the defaul other voice.
 - [ ] Add the career analysis
 - [ ] Fix the selection of stats
+- [ ] Add the percentiles for south americans.
+- [ ] Add the way to have stats be more telling and visial. (appearing has they are said)
