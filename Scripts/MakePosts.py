@@ -2122,7 +2122,7 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
         elif response.lower() in ["other","o"]:
             pass
         elif response.lower() in ["short photo","s","short","sort"]:
-            changes = input(f"This are the photos {photo1},{photo2} change them if you want:\n")
+            changes = input(f"This are the photos {short_photo[0]},{short_photo[1]} change them if you want:\n")
             short_photo[0] = changes.split(",")[0]
             short_photo[1] = changes.split(",")[1]
         elif response.lower() in ["foto","photo","ph","f"]:
