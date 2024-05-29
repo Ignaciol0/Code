@@ -28,31 +28,35 @@
 - [x] Add the error catching for the images error.
 - [x] Fix the duplicate stats.
 - [x] Fix the duplicate images not appearing.
+- [x] Fix the end of season canges in fbref
+- [x] Add the raspberry pi match analyzer and storage
+- [x] Fix the compare with other midfielders
+- [x] Fix the photo selection instead of photo2.jpg,photo3.jpg 2,3
+- [x] Add the ability to change the json in the selection of the images. (Added an error catching way diferent but acomplishes it)
+- [x] Fix the defaul other voice.
+- [ ] Fix the same day error. It doesn't appear in fbref
 - [ ] Fix the same league name duplication error.
-- [ ] Add the pro percentile selection.
 - [ ] Add the translation.
-- [ ] Add the Euro Specific content.
-- [ ] Add the match analysis.
-- [ ] Add the polls.
 - [ ] Add the cool read.me
 - [ ] Fix the prompts.txt
 - [ ] Add the open ubuntu
 - [ ] Add the GUI Tinker
-- [ ] Add the football games web addition
-- [ ] Fix the box of the sorts photo 3
 - [ ] Add the image selection from google with Google Dork queries
 - [ ] Add the yt caption creation
 - [ ] Fix the pronunciation of the names
-- [ ] Add the highlight of the percentiles
 - [ ] Add the speed up of the audio
-- [ ] Add the raspberry pi match analyzer and storage
-- [ ] Fix the compare with other midfielders
 - [ ] Add the commun knowledge in the scripts creation (transfered, season number, last season's performance, UCL and league position)
 - [ ] Add the other important atributes to the match analysis, gca, sca, clearances, big chances ...
 - [ ] Fix the sorts script.
-- [ ] Fix the photo selection instead of photo2.jpg,photo3.jpg 2,3
+- [ ] Fix the box/ percentiles of the sorts photo 3
 - [ ] Fix the too big percentiles
+- [ ] Add the polls.
 - [ ] Fix the club naming
-- [ ] Add the ability to change the json in the selection of the images
 - [ ] Add the international competitions to the analysis
-- [ ] Fix the defaul other voice.
+- [ ] Add the Euro Specific content.
+- [ ] Add the match analysis.
+- [ ] Add the career analysis
+- [ ] Fix the selection of stats
+- [ ] Add the percentiles for south americans.
+- [ ] Add the way to have stats be more telling and visial. (appearing has they are said)
+- [ ] Add the highlight of the percentiles

@@ -7,6 +7,7 @@ import os
 import unidecode
 from ScriptWriter import make_script
 from MakePosts import make_ig_posts, make_yt_videos
+import datetime
 import sys
 
 
@@ -19,7 +20,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['Joshua Zirkzee']
+player_list = ['João Pedro']
 
  
 
@@ -98,7 +99,6 @@ def scrape_player(player,page, verbose=True, year = 24):
         contract = contract.split('\n')
 
         info['team'] = contract[0]
-
                       
         info['matches'], info['positions'] = get_best_matches_and_positions(matches_sofascore(page),old_player,year)
         
@@ -150,7 +150,7 @@ def get_best_matches_and_positions(matches,player, year):
 
     url[0] = 'https://fbref.com'
 
-    url += ['2023-2024',name]
+    url += [f'20{year-1}-20{year}',name]
 
     url = '/'.join(url)
 
@@ -159,6 +159,8 @@ def get_best_matches_and_positions(matches,player, year):
     match_log = match_log[0].loc[:,['Unnamed: 0_level_0','Unnamed: 7_level_0','Unnamed: 9_level_0','Performance']]
 
     matches = pd.DataFrame({'Date':matches[0],'Rating':matches[1]})
+
+    matches['Rating'] = matches['Rating'].fillna(0).replace('-',0)
 
     matches['Rating'] = matches['Rating'].astype(float)
 
@@ -176,15 +178,22 @@ def get_best_matches_and_positions(matches,player, year):
                 selected_matches.remove(selected_matches[e])
                 ratings.remove(ratings[e])
         else:
-            selected_matches.remove(selected_matches[e])
-            ratings.remove(ratings[e])
+            if 'T' in selected_matches[e].split("\n")[1]:
+                if datetime.datetime.now().replace(hour =int(selected_matches[e].split("\n")[0].split(":")[0]),minute=int(selected_matches[e].split('\n')[0].split(":")[1])) <= datetime.datetime.now():
+                    pass
+                else:
+                    selected_matches.remove(selected_matches[e])
+                    ratings.remove(ratings[e])
+            else:
+                selected_matches.remove(selected_matches[e])
+                ratings.remove(ratings[e])
         e += 1
         if e == len(selected_matches):
             current = True
 
-    selected_matches = selected_matches[0:5]
+    selected_matches = selected_matches[0:8]
 
-    ratings = ratings[0:5]
+    ratings = ratings[0:8]
 
     dates = match_log.loc[:,'Unnamed: 0_level_0'].loc[:,'Date'].tolist()
 
@@ -215,8 +224,11 @@ def get_best_matches_and_positions(matches,player, year):
     index = 0
 
     for date in selected_matches:
-
-        date = date.split('/')
+        if '/' not in date:
+            today = datetime.datetime.now()
+            date = [str(today.day),str(today.month),str(today.year-2000)]
+        else:
+            date = date.split('/')
 
         try:
             fbref_index = dates.index(f'20{date[2][:2]}-{date[1]}-{date[0]}')
@@ -228,14 +240,16 @@ def get_best_matches_and_positions(matches,player, year):
             except:
                 pass
         index += 1
+        if len(matches) == 5:
+            break
 
     return matches, positions
 
-def matches_sofascore(page):
+def matches_sofascore(page,pages=5):
     ratings = []
     dates = []
     num = 0
-    for e in range(0,5):
+    for e in range(0,pages):
         while True:
             try:
                 rating = page.locator(f'//*[@id="__next"]/main/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div[{num}]/a/div/div/div[6]/div/button/div/div/span/div/span').all_inner_texts()
@@ -246,7 +260,7 @@ def matches_sofascore(page):
                     ratings += [rating[0]]
                     dates += [date[0]]
                 num += 1
-                if num > 20:
+                if num > 15:
                     num = 0
                     break
             except:
@@ -374,10 +388,17 @@ def get_fbref_stats(player,info,year=24):
 
     match_log = pd.read_html(url)
 
-    gsca = match_log[5]
+    try:
+        gsca = match_log[5]
 
-    xga = match_log[1]
+        xga = match_log[1]
 
+        xga.loc[:,"Progression"]
+    except:
+        # When the season is over the table indexed 0 of "Last 5 Matches disapears"
+        gsca = match_log[4]
+
+        xga = match_log[0]
 
     try:
         xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year-1}-20{year}']
@@ -433,9 +454,17 @@ def get_fbref_stats(player,info,year=24):
 
     match_log = pd.read_html(url)
 
-    gsca = match_log[5]
+    try:
+        gsca = match_log[5]
 
-    xga = match_log[1]
+        xga = match_log[1]
+
+        xga.loc[:,"Progression"]
+    except:
+        # When the season is over the table indexed 0 of "Last 5 Matches disapears"
+        gsca = match_log[4]
+
+        xga = match_log[0]
 
     try:
         xga = xga.loc[:,'Unnamed: 0_level_0'].join(xga.loc[:,'Progression'].join(xga.loc[:,'Per 90 Minutes'].join(xga.loc[:,'Playing Time']))).fillna(0).set_index("Season").loc[f'20{year-1}-20{year}']
@@ -706,7 +735,7 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
     offset = 0
     if data['position'] == 'f':
         stats += [match,f'Goals: {int(goals)}',f'Assists: {int(assists)}']
-        if int(big_chances_missed) >= int(goals)/2 and int(big_chances_missed) >=5 and int(big_chances_missed)-int(big_chances) >= 0:
+        if int(big_chances_missed) >= int(goals) and int(big_chances_missed)-int(big_chances) >= 0:
             stats += [f'Big Chances Miss: {int(big_chances_missed)}']
             offset += 1
         elif int(big_chances) >= 5:
@@ -1031,8 +1060,8 @@ positions={
 "V1":{"background":"middle","hook":"bottom"},
 "V2":{"background":"middle","description":"bottom","position":False}
 }
-short_photo = ['photo1','photo2']
+short_photo = ['photo1','photo3']
 player = unidecode.unidecode(player_list[0])
-#scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo)
+#scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo,clone=True)
 make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
 

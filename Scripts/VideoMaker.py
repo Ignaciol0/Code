@@ -49,7 +49,6 @@ def create_vid(images,script='script',output="video1",clone=False,make_audio=Tru
         else:
             os.remove(f'audio{images.index(img)+1}.wav')
             
-
 def create_short(img1="Video",img2="Video-1",img3="Video-2",script='sort_script',clone=False,make_audio=True):
     if make_audio:
         if not clone:
@@ -97,6 +96,7 @@ def create_short(img1="Video",img2="Video-1",img3="Video-2",script='sort_script'
     else:
         os.remove('audio1.wav')
         os.remove('audio2.wav')
+
 def make_translation(script="script",sort="sort_script"):
     script = translate(script)
     sort = translate(sort)

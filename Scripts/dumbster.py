@@ -5,6 +5,7 @@ import time
 import os
 import pyautogui
 import sys
+import datetime
 from ScriptWriter import translate
 # This makes the code think is in the root folder. Only done for organizing
 sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code")
@@ -1070,8 +1071,8 @@ def get_best_matches(matches,player):
     current = False
     e = 0
     while not current:
-        if selected_matches[e].split("/")[2] == '23' and int(selected_matches[e].split("/")[1]) <= 7:
-            selected_matches.remove(selected_matches[e])
+        if take.split("/")[2] == '23' and int(take.split("/")[1]) <= 7:
+            selected_matches.remove(take)
             ratings.remove(ratings[e])
             opponent.remove(opponent[e])
 

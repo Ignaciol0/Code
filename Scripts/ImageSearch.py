@@ -148,3 +148,4 @@ def ImageSearch(player):
     app = ImageGridApp(root, query)
     root.mainloop()
 
+ImageSearch(query)

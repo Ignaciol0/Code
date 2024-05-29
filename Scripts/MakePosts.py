@@ -1323,6 +1323,8 @@ def make_video_frame5(path,percentiles,positions):
                 position = "midfielders"
             elif 'A' in e:
                 position = "attacking midfielders"
+            elif 'DM' in e:
+                position = "defensive mid."
         if 'WB' in e:
             if "RWB" == e:
                 position = 'fullbacks'
@@ -2120,7 +2122,7 @@ def make_yt_videos(path,player,youngster,matches,stats,info,positions,short_phot
         elif response.lower() in ["other","o"]:
             pass
         elif response.lower() in ["short photo","s","short","sort"]:
-            changes = input(f"This are the photos {photo1},{photo2} change them if you want:\n")
+            changes = input(f"This are the photos {short_photo[0]},{short_photo[1]} change them if you want:\n")
             short_photo[0] = changes.split(",")[0]
             short_photo[1] = changes.split(",")[1]
         elif response.lower() in ["foto","photo","ph","f"]:
@@ -2164,5 +2166,4 @@ positions={
 #make_video_frame2(path,player,info)
 #matches = [["Man Utd", 3, 0, "10"],[ "Burnley", 2, 0, "10"],[ "Crystal Palace", 0, 2, "8.5"],[ "Sheffield Utd", 1, 1, "8.5"],[ "Leicester", 1, 1, "8.4"]]
 #make_video_frame5(path,pd.DataFrame({"Percentile":[99, 97, 95, 92, 87, 81, 80, 77, 75, 71],"Statistic":["Goals/Shot", "Shots on Target %", "Goals - xG", "Goals/Shot on Target", "Through Balls", "Take-Ons Attempted", "Clearances", "Successful Take-Ons", "Carries into Penalty Area", "Goals"]}))
-stats = [7.12, 'Matches played: 34(32)', 'Goals: 11', 'Assists: 4', 'Shots: 2.5', 'Big Chances: 11', 'Team of the Week: 2', 'Big Chances: 11', 'Shot Creating Actions: 3.16', 'Shots: 2.5', 'Goal convertion %: 13.0%']
-make_video_frame3(path,matches,stats)
+#stats = [7.12, 'Matches played: 34(32)', 'Goals: 11', 'Assists: 4', 'Shots: 2.5', 'Big Chances: 11', 'Team of the Week: 2', 'Big Chances: 11', 'Shot Creating Actions: 3.16', 'Shots: 2.5', 'Goal convertion %: 13.0%']
