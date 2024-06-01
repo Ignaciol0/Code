@@ -55,7 +55,10 @@
 - [ ] Add the international competitions to the analysis
 - [ ] Add the Euro Specific content.
 - [ ] Add the match analysis.
-- [ ] Add the career analysis
+- [ ] Add the career analysis.
+- [ ] Add the indepth analysis with video. (Pythagoras in Boots inspiration)
+- [ ] Add the Best in potition comparison
+- [ ] Add the Best for a club comparison
 - [ ] Fix the selection of stats
 - [ ] Add the percentiles for south americans.
 - [ ] Add the way to have stats be more telling and visial. (appearing has they are said)

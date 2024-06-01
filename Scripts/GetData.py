@@ -20,7 +20,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['João Pedro']
+player_list = ['António Silva']
 
  
 
@@ -140,8 +140,14 @@ def get_best_matches_and_positions(matches,player, year):
     names = pd.read_csv('resources/NAME_DB.csv')
 
     names = names.set_index('Name')
+    try:
+        url = names.loc[player].values[1]
+    except:
+        input(f"Add {player} to the NAME_DB")
+        names = pd.read_csv('resources/NAME_DB.csv')
+        names = names.set_index('Name')
+        url = names.loc[player].values[1]
 
-    url = names.loc[player].values[1]
 
     url = url.split('/')
 
@@ -1062,6 +1068,6 @@ positions={
 }
 short_photo = ['photo1','photo3']
 player = unidecode.unidecode(player_list[0])
-#scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo,clone=True)
-make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
+scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo,clone=True)
+#make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
 
