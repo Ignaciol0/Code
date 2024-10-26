@@ -146,8 +146,67 @@ def get_percentiles_script(player):
         if f"Prompt Stats: {prompt}" not in file.read():
             file.write(f"Prompt percentiles: {prompt}\n")
     return response['message']['content'].split('\n')[-1]
+def get_intro_script(player,year=2024):
+    with open('resources/Next_players.json', 'r', encoding='utf-8') as f:
+        players_data = json.load(f)
+    with open(f'players\{player}.json') as f:
+        player_description = json.load(f)
 
-
+    player_info = next((p for p in players_data if p['name'] == player), None)
+    
+    if player_info is None:
+        print(f"Player {player} not found in Next_players.json")
+        return
+    prompt = f"Write an introduction paragraph about an analisys of {player_info['name']} that is selected for being in the top at {player_info['category']} and playing for {player_info['team']} which are at {player_info['position']} position in the {player_info['league']} league you don't have to mention the information given just make a paragraph about why I am analysing the player. Bare in mind you are trained with old data so if you use common knowledge make sure it is not from the past. Example: Real Madrid's coach is not Zidane but Ancelotti. This is some data that you should avoid using directly but that can make you be more updated the player is a {player_description['age']} year old {player_description['position']} from {player_description['nationality']} and has a transfer value of {player_description['value']} million euros with the number {player_description['shirt number']} on the back and {player_description['contract']}"
+    
+    response = ollama.chat(model='llama3', messages=[
+        {
+        "role": "user",
+        "content": "Write an introduction paragraph about an analisys of Arda Guler that is selected for being in the top at rating and playing for fenerbache which are at 3rd  in the turkish league you don't have to mention the information given just make a paragraph about why I am analysing the player"
+        },
+        {
+        "role": "assistant",
+        "content": "The new Turkish gem Arda Guler. He is one of those wonderkids that has been talked about for a long time since he made lots of people excited for his debut. And last season that happend but its now that he is getting some more consistency and getting some starts for Fenerbache."
+        },
+        {
+        "role": "user",
+        "content": "Write an introduction paragraph about an analisys of Jude Bellingham that is selected for being in the top at goals and playing for Real Madrid which are at 1st in the La Liga you don't have to mention the information given just make a paragraph about why I am analysing the player"
+        },
+        {
+        "role": "assistant",
+        "content": "The New Galactico, today was the presentation of Jude Bellingham with Real Madrid. Jude had very lucrative ofers from england and from PSG but he decided to stall them and choose to go to Real. He has taken the number 5 of Zidane so lets hope he lives up to his potential."
+        },
+        {
+        "role": "user",
+        "content": "Write an introduction paragraph about an analisys of Domenico Berardi that is selected for being in the top at rating and playing for Sassuolo which are at 7th in the Calcio a you don't have to mention the information given just make a paragraph about why I am analysing the player"
+        },
+        {
+        "role": "assistant",
+        "content": "Sasuolo is having a very wierd season having some very good games against the top clubs in italy but also losing some very easy fixtures agaisnt the relegation teams. They are now in a worst for than normally but still a solid mid table team in Italy and the one constant in this team is Domenico Berardi."
+        },
+        {
+        "role": "user",
+        "content": "Write an introduction paragraph about an analisys of Nabil Fekir that is selected for being in the top at rating and playing for Real Betis which are at 7th in the La Liga you don't have to mention the information given just make a paragraph about why I am analysing the player"
+        },
+        {
+        "role": "assistant",
+        "content": "What a player Nabil Fekir has been for the last couple years. With interest of very big clubs like Liverpool ex Olimpique Lyon player Nabil Fekir chose Betis as his destination. His transfer to the spanish club was a delight and he has become one of the players of La Liga."
+        },
+        {
+            'role':'user',
+            'content': "Write an introduction paragraph about an analisys of Federico Valverde that is selected for being in the top at rating and playing for Real Madrid which are at 2 position in the La Liga league you don't have to mention the information given just make a paragraph about why I am analysing the player. Bare in mind you are trained with old data so if you use common knowledge make sure it is not from the past. Example: Real Madrid's coach is not Zidane but Ancelotti. This is some data that you should avoid using directly but that can make you be more updated the player is a 25 yrs year old m from uru and has a transfer value of 97 million euros with the number 15 on the back and Contract until 30 Jun 2029"
+        },{
+            'role':'assistant',
+            'content':"As Real Madrid continues to dominate the La Liga, one player stands out for his exceptional skills and contributions to the team's success. Federico Valverde, the young Uruguayan midfielder, has been a revelation in the Spanish capital. With his impressive transfer value of 97 million euros and a contract that runs until 2029, it's clear that this talented 25-year-old is an integral part of Carlo Ancelotti's squad. As I delve into Valverde's analysis, I'll examine what makes him such a crucial cog in the Real Madrid machine, and explore his strengths and weaknesses that have made him a fan favorite at the Santiago Bernabéu."
+        },{
+            'role':'user',
+            'content':f'No, you should not mention directly the information given in the last part of the prompt the one refering to the age, market value, nationality, position and contract unless it is relevant so {year+1} this is because the aim of this script is to be the introduction of the player and not the player description that would be another script that you dont have to do'
+        },{
+            'role':'user',
+            'content':prompt
+        }
+    ])
+    return response['message']['content'].split('\n')[-1]
 
 def make_post(player, youngster=True):
     with open(f'players/{player}.json') as json_file:
@@ -666,12 +725,13 @@ def make_script(player,stats,match_list):
     thread2.start()
     thread3.start()
     thread4.start()
-    paragraph1 = input(f'Give me the first parragraph about {player}\n')
     paragraph2 = threat1.join()
     paragraph3 = thread2.join()
     paragraph4 = thread3.join()
     paragraph5 = thread4.join()
     
+    # Generate introduction script
+    paragraph1 = get_intro_script(player)
     
     while True:
         try:
@@ -741,7 +801,6 @@ def make_script(player,stats,match_list):
  
 player = 'Federico Valverde'
 
-#make_script(player,[7.69, 'Matches played: 32(28.0)', 'Goals: 10.0', 'Assists: 14.0', 'Big Chances: 15.0', 'Shots per game: 4.2', 'Key Passes per game: 5.5'],[['Stuttgart', 0, 2, 8.7], ['Frankfurt', 1, 1, 8.4]],get_fbref_percentiles(player,False))
-#get_season_script(player,[7.69, 'Matches played: 32(28.0)', 'Goals: 10.0', 'Assists: 14.0', 'Big Chances: 15.0', 'Shots per game: 4.2', 'Key Passes per game: 5.5'],[['Stuttgart', 0, 2, 8.7], ['Frankfurt', 1, 1, 8.4]])
-#print(get_stats_script_es(player))
+#make_script(player,[7.69, 'Matches played: 32(28.0)', 'Goals: 10.0', 'Assists: 14.0', 'Big Chances: 15.0', 'Shots per game: 4.2', 'Key Passes per game: 5.5'],[['Stuttgart', 0, 2, 8.7], ['Frankfurt', 1, 1, 8.4]]))
+
 
