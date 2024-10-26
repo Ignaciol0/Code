@@ -11,3 +11,4 @@ def remove_bg(photo):
         output = remove(image_input)
         output.save(f'C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code\Video Output\\{photo.split(".")[0]}_nbg.png')
    
+remove_bg("photo1.jpg")

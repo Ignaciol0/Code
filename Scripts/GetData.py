@@ -20,7 +20,7 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 delay = 0
 
-player_list = ['António Silva']
+player_list = ['Dani Olmo']
 
  
 
@@ -1069,5 +1069,5 @@ positions={
 short_photo = ['photo1','photo3']
 player = unidecode.unidecode(player_list[0])
 scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo,clone=True)
-#make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
+make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
 
