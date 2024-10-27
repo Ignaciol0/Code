@@ -7,95 +7,92 @@ import shutil
 from serpapi import GoogleSearch
 
 class ImageGridApp:
-    def __init__(self, root, query):
+    def __init__(self, root, player):
         self.root = root
-        self.root.title("Image Grid Viewer")
-
-        self.query = query
-        self.image_urls = self.serpapi_image_search(query)[:10]  # Limit to first 10 results
-        self.selected_images = []
-
-        self.create_image_grid()
-
-        self.close_button = tk.Button(self.root, text="Download Selected", command=self.download_selected_images)
-        self.close_button.grid(row=len(self.image_urls) // 5 + 1, columnspan=5, pady=10)
-
-    def serpapi_image_search(self, query):
-        params = {
-            "api_key": 'af1fa8c30b3a1265ea073c76a8bd957295a20f108ba0a6558f815ea7394cbce9',
-            "engine": "google_images",
-            "q": f"{query}",
-            "tbm": "isch",
-            "num": "10",
-            "ijn": "0",
-            "image_type": "photo",
-            "safe": "off",
-            "filter": "1",
-            "tbs": "isz:l"  # This parameter requests large images
-        }
-
-        try:
-            search = GoogleSearch(params)
-            results = search.get_dict()
-            
-            image_results = results.get("images_results", [])
-            return [img["original"] for img in image_results if self.is_valid_image(img)]
-        except Exception as e:
-            print(f"Error occurred during image search: {e}")
-            return []
-
-    def is_valid_image(self, img):
-        return img.get("original") is not None and img.get("original_width", 0) >= 800 and img.get("original_height", 0) >= 600
-
-    def create_image_grid(self):
-        num_columns = 5
-        for index, url in enumerate(self.image_urls):
-            try:
-                response = requests.get(url, timeout=10)
-                image_data = response.content
-                image = Image.open(BytesIO(image_data))
-                image.thumbnail((200, 200))  # Resize image to fit in grid
-                photo = ImageTk.PhotoImage(image)
-
-                label = tk.Label(self.root, image=photo, bd=2, relief="solid")
-                label.image = photo
-                label.grid(row=index // num_columns, column=index % num_columns, padx=5, pady=5)
-
-                label.bind("<Button-1>", lambda event, index=index: self.toggle_selection(event, index))
-            except Exception as e:
-                print(f"Error loading image {index}: {e}")
-
-    def toggle_selection(self, event, index):
-        label = event.widget
-        if index in self.selected_images:
-            self.selected_images.remove(index)
-            label.config(bd=2, relief="solid")
-        else:
-            self.selected_images.append(index)
-            label.config(bd=2, relief="sunken")
-
-    def download_selected_images(self):
-        path = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/images"
-        for index in self.selected_images:
-            url = self.image_urls[index]
-            try:
-                response = requests.get(url, timeout=10)
-                if response.status_code == 200:
-                    images_downloaded = len([image for image in os.listdir(path) if 'photo' in image])
-                    filename = f"{path}/photo{images_downloaded+1}.jpg"
-                    with open(filename, "wb") as f:
-                        f.write(response.content)
-                    print(f"Image {images_downloaded+1} downloaded successfully!")
-                else:
-                    print(f"Failed to download image {index+1}: HTTP status {response.status_code}")
-            except Exception as e:
-                print(f"Error downloading image {index+1}: {e}")
+        self.player = player
+        self.root.title(f"Image Search - {player}")
         
-        self.root.destroy()
+        # Configure API
+        self.api_key = 'af1fa8c30b3a1265ea073c76a8bd957295a20f108ba0a6558f815ea7394cbce9'
+        
+        # Get images
+        self.images = self.search_images()
+        self.selected_images = []
+        
+        # Create grid
+        self.create_grid()
+        
+        # Create download button
+        self.download_button = tk.Button(root, text="Download Selected", command=self.download_images)
+        self.download_button.grid(row=(len(self.images) // 3) + 1, column=1, pady=10)
 
- 
+    def search_images(self):
+        params = {
+            "api_key": self.api_key,
+            "engine": "google",
+            "q": f"{self.player} soccer player 2024",
+            "tbm": "isch",
+            "num": 10
+        }
+        
+        search = GoogleSearch(params)
+        results = search.get_dict()
+        return results.get("images_results", [])[:10]
+
+    def create_grid(self):
+        self.buttons = []
+        for i, img_data in enumerate(self.images):
+            try:
+                response = requests.get(img_data["original"])
+                img = Image.open(BytesIO(response.content))
+                img = img.resize((200, 200), Image.Resampling.LANCZOS)
+                photo = ImageTk.PhotoImage(img)
+                
+                button = tk.Button(self.root, image=photo, relief="raised")
+                button.image = photo
+                button.grid(row=i//3, column=i%3, padx=5, pady=5)
+                button.bind('<Button-1>', lambda e, idx=i: self.toggle_selection(e, idx))
+                self.buttons.append(button)
+            except Exception as e:
+                print(f"Error loading image {i}: {e}")
+
+    def toggle_selection(self, event, idx):
+        if idx in self.selected_images:
+            self.selected_images.remove(idx)
+            event.widget.config(relief="raised")
+        else:
+            self.selected_images.append(idx)
+            event.widget.config(relief="sunken")
+
+    def download_images(self):
+        output_dir = "C:/Users/ignac/Documents/Documentos/Football/Futty Data/Automation Code/Template/Code/Video Output/photos"
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+
+        # Remove existing photo files
+        for filename in os.listdir(output_dir):
+            if filename.startswith('photo') and filename.endswith('.jpg'):
+                os.remove(os.path.join(output_dir, filename))
+
+        # Download selected images with sequential naming
+        for i, idx in enumerate(self.selected_images, 1):
+            try:
+                response = requests.get(self.images[idx]["original"])
+                output_path = os.path.join(output_dir, f"photo{i}.jpg")
+                
+                with open(output_path, 'wb') as f:
+                    f.write(response.content)
+                print(f"Downloaded: photo{i}.jpg")
+            except Exception as e:
+                print(f"Error downloading image {i}: {e}")
+
+        self.root.destroy()
 
 def ImageSearch(player):
     root = tk.Tk()
     app = ImageGridApp(root, player)
     root.mainloop()
+
+# Example usage
+if __name__ == "__main__":
+    ImageSearch("Jeremie Frimpong")

@@ -123,7 +123,7 @@ def get_percentiles_script(player):
     matches = ''
     percentile_text = ''
     percentiles = description['percentiles']
-    statistics = description['statistics']
+    statistics = description['percentile_attributes']
     for attribute in statistics:
         percentile_text += f"He is in the {100-int(percentiles[statistics.index(attribute)])} percentile for {attribute} "
     

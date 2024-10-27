@@ -1090,7 +1090,7 @@ def update_past_players(player_name):
     
     with open('resources/Past_players.json', 'w', encoding='utf-8') as f:
         json.dump(past_players, f, indent=2, ensure_ascii=False)
-'''
+
 if __name__ == "__main__":
     positions = {
         "V1": {"background": "middle", "hook": "bottom"},
@@ -1116,5 +1116,3 @@ if __name__ == "__main__":
         print(f"Finished processing {player}")
 
     print("All players have been processed and added to Past_players.json")
-'''
-print(get_fbref_percentiles('Raphinha', default=True, year=25))

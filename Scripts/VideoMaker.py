@@ -11,28 +11,11 @@ sys.path.append("C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automa
 
 def create_vid(images,script='script',output="video1",clone=False,make_audio=True):
     videoclips = []
+    if make_audio and clone:
+        make_audios_clone_voice(script)
+    elif make_audio:
+        create_audio(script,"audio")
     for img in images:
-        if make_audio:
-            if not clone:
-                with open(f"{script}.txt") as t:
-                    lines = t.readlines()
-                text = ''
-                texts = []
-                voice = pyttsx3.init()
-                voice.setProperty('voice','HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0')
-                for e in lines:
-                    if e == '\n':
-                        texts += [text]
-                        text = ''
-                    else:
-                        text += e
-                index = 0
-                for text in texts:
-                    index += 1
-                    voice.save_to_file(text,f"audio{index}.mp3")
-                    voice.runAndWait()
-
-
         if not clone:
             audio = AudioFileClip(f'audio{images.index(img)+1}.mp3')
         else:
@@ -101,17 +84,34 @@ def create_short(img1="Video",img2="Video-1",img3="Video-2",script='sort_script'
 def make_translation(script="script",sort="sort_script"):
     script = translate(script)
     sort = translate(sort)
-    make_audio(script,'script_es')
-    make_audio(sort,'sort_es')
 
-def make_audio(texts, output="es_audio", voice_id="EXAVITQu4vr4xnSDxMaL"):
+def create_audio(text_filename, output="es_audio", voice_id="EXAVITQu4vr4xnSDxMaL"):
     """
     Generate AI-powered audio using Eleven Labs API.
     
-    :param texts: List of text strings to convert to audio
+    :param text_filename: Name of the text file to read
     :param output: Base name for the output audio file
     :param voice_id: ID of the voice to use (default is "Antoni" - a Spanish voice)
     """
+    # Read the text file and split into sections
+    with open(f"{text_filename}.txt", 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+    
+    # Process the lines into separate texts
+    texts = []
+    current_text = ''
+    for line in lines:
+        if line.strip() == '':  # Empty line marks the end of a section
+            if current_text:
+                texts.append(current_text.strip())
+                current_text = ''
+        else:
+            current_text += line
+    
+    # Add the last section if it exists
+    if current_text:
+        texts.append(current_text.strip())
+
     api_key = 'sk_c5a45f079ff58a624bf3fa33dc482e7f0118a1d58e080abb'
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
     
@@ -121,8 +121,10 @@ def make_audio(texts, output="es_audio", voice_id="EXAVITQu4vr4xnSDxMaL"):
         "xi-api-key": api_key
     }
 
-    audios = []
     for i, text in enumerate(texts, 1):
+        if not text:  # Skip empty texts
+            continue
+            
         data = {
             "text": text,
             "model_id": "eleven_monolingual_v1",
@@ -135,23 +137,17 @@ def make_audio(texts, output="es_audio", voice_id="EXAVITQu4vr4xnSDxMaL"):
         response = requests.post(url, json=data, headers=headers)
 
         if response.status_code == 200:
-            temp_filename = f"temp_audio_{i}.mp3"
+            temp_filename = f"{output}{i}.mp3"
             with open(temp_filename, "wb") as f:
                 f.write(response.content)
-            audios.append(AudioFileClip(temp_filename))
             print(f"Generated audio file: {temp_filename}")
         else:
             print(f"Error generating audio for text {i}: {response.status_code}")
             print(response.text)
 
-    # Combine all generated audio files
-    combined_audio = concatenate_audioclips(audios)
-    combined_audio.write_audiofile(f"Youtube Output/{output}.mp3")
-
-    # Clean up temporary audio files
-    for i in range(1, len(texts) + 1):
-        os.remove(f"temp_audio_{i}.mp3")
-
+def make_audios_clone_voice(script="script"):
+    pass
+'''
 def make_audios_clone_voice(script="script"):
     with open(f"C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code\{script}.txt") as t:
         lines = t.readlines()
@@ -195,3 +191,4 @@ def make_audios_clone_voice(script="script"):
             print(f"audio({texts.index(text)+1}) done")
             data = response["data"]
             shutil.copy2(data[0]['name'],f"C:\\Users\ignac\Documents\Documentos\Football\Futty Data\Automation Code\Template\Code/audio{texts.index(text)+1}.wav")
+'''
