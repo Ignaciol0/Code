@@ -1,0 +1,7 @@
+get matches of the player   https://www.sofascore.com/api/v1/player/868812/last-year-summary
+
+Stats of the la liga https://www.sofascore.com/api/v1/player/868812/unique-tournament/7/season/61644/statistics/overall
+
+get team players https://www.sofascore.com/api/v1/team/2829/players
+
+get teams standings https://www.sofascore.com/api/v1/unique-tournament/7/season/61644/standings/total

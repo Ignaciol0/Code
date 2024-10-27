@@ -6,9 +6,11 @@ import pandas as pd
 import os
 import unidecode
 from ScriptWriter import make_script
-from MakePosts import make_ig_posts, make_yt_videos
+from MakePosts import make_yt_videos
+from ImageSearch import ImageSearch
 import datetime
 import sys
+
 
 
 # This makes the code think is in the root folder. Only done for organizing
@@ -1062,12 +1064,55 @@ def make_post(player,positions, youngster,short_photo,short=False,year = 24, tra
     make_yt_videos(path,player,youngster,match_list,stats,info,positions,short_photo,short,percentile,translate,clone=clone)
  
 
-positions={
-"V1":{"background":"middle","hook":"bottom"},
-"V2":{"background":"middle","description":"bottom","position":False}
-}
-short_photo = ['photo1','photo3']
-player = unidecode.unidecode(player_list[0])
-scrape_player_list(player_list,0.3,post=True,youngster=False,positions=positions,short_photo=short_photo,clone=True)
-make_post(player,positions,youngster=False,short_photo=short_photo,short=True,clone=True)
+def load_next_players():
+    try:
+        with open('resources/Next_players.json', 'r', encoding='utf-8') as f:
+            next_players = json.load(f)
+        
+        # Clear the contents of Next_players.json
+        with open('resources/Next_players.json', 'w', encoding='utf-8') as f:
+            json.dump([], f)
+        
+        return next_players
+    except FileNotFoundError:
+        print("Next_players.json not found. Please make sure the file exists.")
+        return []
+
+def update_past_players(player_name):
+    try:
+        with open('resources/Past_players.json', 'r', encoding='utf-8') as f:
+            past_players = json.load(f)
+    except FileNotFoundError:
+        past_players = []
+    
+    past_players.append({"name": player_name})
+    
+    with open('resources/Past_players.json', 'w', encoding='utf-8') as f:
+        json.dump(past_players, f, indent=2, ensure_ascii=False)
+
+if __name__ == "__main__":
+    positions = {
+        "V1": {"background": "middle", "hook": "bottom"},
+        "V2": {"background": "middle", "description": "bottom", "position": False}
+    }
+    short_photo = ['photo1', 'photo3']
+
+    next_players = load_next_players()
+    next_players = [next_players[0]]
+    
+    for player_info in next_players:
+        player_name = player_info['name']
+        player = unidecode.unidecode(player_name)
+        print(f"Processing player: {player}")
+
+        scrape_player_list([player], 0.3, post=True, youngster=False, positions=positions, short_photo=short_photo, clone=True)
+        ImageSearch(player)
+        make_post(player, positions, youngster=False, short_photo=short_photo, short=True, clone=True)
+
+        # After processing, update Past_players.json
+        update_past_players(player_name)
+        
+        print(f"Finished processing {player}")
+
+    print("All players have been processed and added to Past_players.json")
 

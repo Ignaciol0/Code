@@ -1,0 +1,1178 @@
+{
+  "Manchester City": {
+    "id": 17,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Liverpool": {
+    "id": 44,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Aston Villa": {
+    "id": 40,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Arsenal": {
+    "id": 42,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Brighton & Hove Albion": {
+    "id": 30,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Nottingham Forest": {
+    "id": 14,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Chelsea": {
+    "id": 38,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": 17015,
+    "international_season_id": 61648
+  },
+  "Tottenham Hotspur": {
+    "id": 33,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": 679,
+    "international_season_id": 61645
+  },
+  "Brentford": {
+    "id": 50,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Fulham": {
+    "id": 43,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Bournemouth": {
+    "id": 60,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Newcastle United": {
+    "id": 39,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Manchester United": {
+    "id": 35,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": 679,
+    "international_season_id": 61645
+  },
+  "Leicester City": {
+    "id": 31,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Everton": {
+    "id": 48,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "West Ham United": {
+    "id": 37,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Ipswich Town": {
+    "id": 32,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Crystal Palace": {
+    "id": 7,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Wolverhampton": {
+    "id": 3,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Southampton": {
+    "id": 45,
+    "league_id": 17,
+    "league_season_id": 61627,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Barcelona": {
+    "id": 2817,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Real Madrid": {
+    "id": 2829,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Villarreal": {
+    "id": 2819,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Atlético Madrid": {
+    "id": 2836,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Athletic Club": {
+    "id": 2825,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": 679,
+    "international_season_id": 61645
+  },
+  "Mallorca": {
+    "id": 2826,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Rayo Vallecano": {
+    "id": 2818,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Real Betis": {
+    "id": 2816,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": 17015,
+    "international_season_id": 61648
+  },
+  "Osasuna": {
+    "id": 2820,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Sevilla": {
+    "id": 2833,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Celta Vigo": {
+    "id": 2821,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Real Sociedad": {
+    "id": 2824,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": 679,
+    "international_season_id": 61645
+  },
+  "Girona FC": {
+    "id": 24264,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Deportivo Alavés": {
+    "id": 2885,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Espanyol": {
+    "id": 2814,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Getafe": {
+    "id": 2859,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Las Palmas": {
+    "id": 6577,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Leganés": {
+    "id": 2845,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Real Valladolid": {
+    "id": 2831,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Valencia": {
+    "id": 2828,
+    "league_id": 8,
+    "league_season_id": 61643,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "RB Leipzig": {
+    "id": 36360,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "FC Bayern München": {
+    "id": 2672,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Bayer 04 Leverkusen": {
+    "id": 2681,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "SC Freiburg": {
+    "id": 2538,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "1. FC Union Berlin": {
+    "id": 2547,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Eintracht Frankfurt": {
+    "id": 2674,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": 679,
+    "international_season_id": 61645
+  },
+  "Borussia Dortmund": {
+    "id": 2673,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "VfB Stuttgart": {
+    "id": 2677,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "SV Werder Bremen": {
+    "id": 2534,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Borussia M'gladbach": {
+    "id": 2527,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FC Augsburg": {
+    "id": 2600,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "1. FC Heidenheim": {
+    "id": 5885,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": 17015,
+    "international_season_id": 61648
+  },
+  "1. FSV Mainz 05": {
+    "id": 2556,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "VfL Wolfsburg": {
+    "id": 2524,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "TSG Hoffenheim": {
+    "id": 2569,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": 679,
+    "international_season_id": 61645
+  },
+  "FC St. Pauli": {
+    "id": 2526,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Holstein Kiel": {
+    "id": 2573,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "VfL Bochum 1848": {
+    "id": 2542,
+    "league_id": 35,
+    "league_season_id": 63516,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Napoli": {
+    "id": 2714,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Inter": {
+    "id": 2697,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Atalanta": {
+    "id": 2686,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Juventus": {
+    "id": 2687,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Udinese": {
+    "id": 2695,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Milan": {
+    "id": 2692,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Torino": {
+    "id": 2696,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Fiorentina": {
+    "id": 2693,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": 17015,
+    "international_season_id": 61648
+  },
+  "Lazio": {
+    "id": 2699,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": 679,
+    "international_season_id": 61645
+  },
+  "Roma": {
+    "id": 2702,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": 679,
+    "international_season_id": 61645
+  },
+  "Empoli": {
+    "id": 2705,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Bologna": {
+    "id": 2685,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Como": {
+    "id": 2704,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Cagliari": {
+    "id": 2719,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Hellas Verona": {
+    "id": 2701,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Monza": {
+    "id": 2729,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Parma": {
+    "id": 2690,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Genoa": {
+    "id": 2713,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Lecce": {
+    "id": 2689,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Venezia": {
+    "id": 2688,
+    "league_id": 23,
+    "league_season_id": 63515,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Paris Saint-Germain": {
+    "id": 1644,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "AS Monaco": {
+    "id": 1653,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Olympique de Marseille": {
+    "id": 1641,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Lille": {
+    "id": 1643,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "RC Lens": {
+    "id": 1648,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Stade de Reims": {
+    "id": 1682,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Olympique Lyonnais": {
+    "id": 1649,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": 679,
+    "international_season_id": 61645
+  },
+  "Stade Brestois": {
+    "id": 1715,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": 7,
+    "international_season_id": 61644
+  },
+  "Stade Rennais": {
+    "id": 1658,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Nice": {
+    "id": 1661,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": 679,
+    "international_season_id": 61645
+  },
+  "Nantes": {
+    "id": 1647,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "RC Strasbourg": {
+    "id": 1659,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Auxerre": {
+    "id": 1646,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Angers": {
+    "id": 1684,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Saint-Étienne": {
+    "id": 1678,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Toulouse": {
+    "id": 1681,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Le Havre": {
+    "id": 1662,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Montpellier": {
+    "id": 1642,
+    "league_id": 34,
+    "league_season_id": 61736,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Sporting": {
+    "id": 3001,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Benfica": {
+    "id": 3006,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Feyenoord": {
+    "id": 2959,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Celtic": {
+    "id": 2352,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "AC Sparta Praha": {
+    "id": 2218,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "GNK Dinamo Zagreb": {
+    "id": 2032,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Club Brugge KV": {
+    "id": 2888,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "PSV Eindhoven": {
+    "id": 2952,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Shakhtar Donetsk": {
+    "id": 3313,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "SK Sturm Graz": {
+    "id": 2051,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FK Crvena zvezda": {
+    "id": 5149,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Red Bull Salzburg": {
+    "id": 2046,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Young Boys": {
+    "id": 2445,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "ŠK Slovan Bratislava": {
+    "id": 2404,
+    "league_id": 7,
+    "league_season_id": 61644,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "RSC Anderlecht": {
+    "id": 2900,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Ajax": {
+    "id": 2953,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Galatasaray": {
+    "id": 3061,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FC Midtjylland": {
+    "id": 1289,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Bodø/Glimt": {
+    "id": 656,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Rangers": {
+    "id": 2351,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Olympiacos FC": {
+    "id": 3245,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FCSB": {
+    "id": 3301,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Fenerbahçe": {
+    "id": 3052,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FC Porto": {
+    "id": 3002,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "SK Slavia Praha": {
+    "id": 2216,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Viktoria Plzeň": {
+    "id": 4502,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "IF Elfsborg": {
+    "id": 1762,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Ferencváros TC": {
+    "id": 1925,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "AZ Alkmaar": {
+    "id": 2950,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Malmö FF": {
+    "id": 1892,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Sporting Braga": {
+    "id": 2999,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Beşiktaş": {
+    "id": 3050,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FC Twente": {
+    "id": 2955,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Royale Union Saint-Gilloise": {
+    "id": 4860,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "PAOK": {
+    "id": 3251,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "RFS": {
+    "id": 68718,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Ludogorets": {
+    "id": 43840,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Maccabi Tel Aviv": {
+    "id": 5198,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Dynamo Kyiv": {
+    "id": 3305,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Qarabağ": {
+    "id": 5962,
+    "league_id": 679,
+    "league_season_id": 61645,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Legia Warszawa": {
+    "id": 3106,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FC Lugano": {
+    "id": 2443,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Vitória SC": {
+    "id": 3009,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Heart of Midlothian": {
+    "id": 2353,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Jagiellonia Białystok": {
+    "id": 7691,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "SK Rapid Wien": {
+    "id": 2055,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Shamrock Rovers": {
+    "id": 3177,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FK Borac Banja Luka": {
+    "id": 5235,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Cercle Brugge": {
+    "id": 2929,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "NK Celje": {
+    "id": 2413,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Pafos FC": {
+    "id": 171626,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Molde FK": {
+    "id": 661,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Omonia Nicosia": {
+    "id": 3395,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "NK Olimpija Ljubljana": {
+    "id": 2416,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FC Noah": {
+    "id": 262228,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "The New Saints": {
+    "id": 4921,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "KAA Gent": {
+    "id": 2903,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Astana": {
+    "id": 36155,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Víkingur Reykjavík": {
+    "id": 1908,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "HJK": {
+    "id": 2242,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Djurgårdens IF": {
+    "id": 1759,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FC København": {
+    "id": 1284,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "APOEL Nicosia": {
+    "id": 3398,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "LASK": {
+    "id": 2058,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Panathinaikos": {
+    "id": 3248,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Dinamo Minsk": {
+    "id": 3361,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Mladá Boleslav": {
+    "id": 2224,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FK TSC Bačka Topola": {
+    "id": 263360,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Başakşehir FK": {
+    "id": 3086,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FC Petrocub Hîncesti": {
+    "id": 167232,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "FC St. Gallen 1879": {
+    "id": 2442,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  },
+  "Larne FC": {
+    "id": 5184,
+    "league_id": 17015,
+    "league_season_id": 61648,
+    "international_id": null,
+    "international_season_id": null
+  }
+}

@@ -1,24 +1,10 @@
 [
   {
-    "name": "Wilfred Ndidi",
-    "team": "Leicester City",
-    "league": "Premier League",
-    "category": "assists",
-    "position": 14
-  },
-  {
-    "name": "Bukayo Saka",
-    "team": "Arsenal",
-    "league": "Premier League",
+    "name": "Raphinha",
+    "team": "Barcelona",
+    "league": "La Liga",
     "category": "rating",
-    "position": 5
-  },
-  {
-    "name": "Vincenzo Grifo",
-    "team": "SC Freiburg",
-    "league": "Bundesliga",
-    "category": "rating",
-    "position": 3
+    "position": 1
   },
   {
     "name": "Ayoze Perez",
@@ -28,46 +14,11 @@
     "position": 3
   },
   {
-    "name": "Kylian Mbappe",
-    "team": "Real Madrid",
-    "league": "La Liga",
-    "category": "goals",
-    "position": 2
-  },
-  {
     "name": "Bryan Mbeumo",
     "team": "Brentford",
     "league": "Premier League",
     "category": "goals",
-    "position": 12
-  },
-  {
-    "name": "Oscar Mingueza",
-    "team": "Celta Vigo",
-    "league": "La Liga",
-    "category": "assists",
-    "position": 11
-  },
-  {
-    "name": "Florian Wirtz",
-    "team": "Bayer 04 Leverkusen",
-    "league": "Bundesliga",
-    "category": "rating",
-    "position": 4
-  },
-  {
-    "name": "Omar Marmoush",
-    "team": "Eintracht Frankfurt",
-    "league": "Bundesliga",
-    "category": "rating",
-    "position": 6
-  },
-  {
-    "name": "Harry Kane",
-    "team": "FC Bayern Munchen",
-    "league": "Bundesliga",
-    "category": "rating",
-    "position": 2
+    "position": 9
   },
   {
     "name": "Chris Wood",
@@ -77,60 +28,11 @@
     "position": 6
   },
   {
-    "name": "Erling Haaland",
-    "team": "Manchester City",
-    "league": "Premier League",
-    "category": "rating",
-    "position": 1
-  },
-  {
-    "name": "Giovani Lo Celso",
-    "team": "Real Betis",
-    "league": "La Liga",
-    "category": "goals",
-    "position": 7
-  },
-  {
-    "name": "Heung-min Son",
-    "team": "Tottenham Hotspur",
-    "league": "Premier League",
-    "category": "rating",
-    "position": 8
-  },
-  {
-    "name": "Robert Lewandowski",
-    "team": "Barcelona",
-    "league": "La Liga",
-    "category": "rating",
-    "position": 1
-  },
-  {
-    "name": "Alejandro Baena",
-    "team": "Villarreal",
-    "league": "La Liga",
-    "category": "rating",
-    "position": 3
-  },
-  {
-    "name": "Lamine Yamal",
-    "team": "Barcelona",
-    "league": "La Liga",
-    "category": "rating",
-    "position": 1
-  },
-  {
-    "name": "Willi Orban",
-    "team": "RB Leipzig",
+    "name": "Vincenzo Grifo",
+    "team": "SC Freiburg",
     "league": "Bundesliga",
     "category": "rating",
-    "position": 1
-  },
-  {
-    "name": "Vinicius Junior",
-    "team": "Real Madrid",
-    "league": "La Liga",
-    "category": "assists",
-    "position": 2
+    "position": 4
   },
   {
     "name": "Cole Palmer",
@@ -140,18 +42,60 @@
     "position": 7
   },
   {
-    "name": "Federico Valverde",
-    "team": "Real Madrid",
+    "name": "Bukayo Saka",
+    "team": "Arsenal",
+    "league": "Premier League",
+    "category": "rating",
+    "position": 4
+  },
+  {
+    "name": "Oscar Mingueza",
+    "team": "Celta Vigo",
+    "league": "La Liga",
+    "category": "assists",
+    "position": 11
+  },
+  {
+    "name": "Lamine Yamal",
+    "team": "Barcelona",
     "league": "La Liga",
     "category": "rating",
+    "position": 1
+  },
+  {
+    "name": "James Maddison",
+    "team": "Tottenham Hotspur",
+    "league": "Premier League",
+    "category": "assists",
+    "position": 8
+  },
+  {
+    "name": "Kylian Mbappe",
+    "team": "Real Madrid",
+    "league": "La Liga",
+    "category": "goals",
     "position": 2
   },
   {
-    "name": "Dwight McNeil",
-    "team": "Everton",
+    "name": "Josko Gvardiol",
+    "team": "Manchester City",
+    "league": "Premier League",
+    "category": "rating",
+    "position": 1
+  },
+  {
+    "name": "Antoine Griezmann",
+    "team": "Atletico Madrid",
+    "league": "La Liga",
+    "category": "assists",
+    "position": 4
+  },
+  {
+    "name": "Wilfred Ndidi",
+    "team": "Leicester City",
     "league": "Premier League",
     "category": "assists",
-    "position": 16
+    "position": 14
   },
   {
     "name": "Mohamed Salah",
@@ -161,17 +105,73 @@
     "position": 2
   },
   {
-    "name": "Tim Kleindienst",
-    "team": "Borussia M'gladbach",
-    "league": "Bundesliga",
+    "name": "Erling Haaland",
+    "team": "Manchester City",
+    "league": "Premier League",
     "category": "goals",
-    "position": 10
+    "position": 1
   },
   {
-    "name": "Raphinha",
+    "name": "Robert Lewandowski",
     "team": "Barcelona",
     "league": "La Liga",
     "category": "rating",
     "position": 1
+  },
+  {
+    "name": "Federico Valverde",
+    "team": "Real Madrid",
+    "league": "La Liga",
+    "category": "rating",
+    "position": 2
+  },
+  {
+    "name": "Harry Kane",
+    "team": "FC Bayern Munchen",
+    "league": "Bundesliga",
+    "category": "rating",
+    "position": 2
+  },
+  {
+    "name": "Florian Wirtz",
+    "team": "Bayer 04 Leverkusen",
+    "league": "Bundesliga",
+    "category": "rating",
+    "position": 3
+  },
+  {
+    "name": "Danny Welbeck",
+    "team": "Brighton & Hove Albion",
+    "league": "Premier League",
+    "category": "goals",
+    "position": 5
+  },
+  {
+    "name": "Heung-min Son",
+    "team": "Tottenham Hotspur",
+    "league": "Premier League",
+    "category": "rating",
+    "position": 8
+  },
+  {
+    "name": "Giovani Lo Celso",
+    "team": "Real Betis",
+    "league": "La Liga",
+    "category": "goals",
+    "position": 8
+  },
+  {
+    "name": "Omar Marmoush",
+    "team": "Eintracht Frankfurt",
+    "league": "Bundesliga",
+    "category": "rating",
+    "position": 6
+  },
+  {
+    "name": "Alejandro Baena",
+    "team": "Villarreal",
+    "league": "La Liga",
+    "category": "rating",
+    "position": 3
   }
 ]

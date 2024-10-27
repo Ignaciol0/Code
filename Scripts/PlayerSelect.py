@@ -3,28 +3,36 @@ import json
 import random
 import unidecode
 
+SEASON_IDS = {
+    'premier_league': 61627,
+    'la_liga': 61643,
+    'bundesliga': 63516,
+    'serie_a': 63515,
+    'ligue_1': 61736,
+    'champions_league': 61644,
+    'europa_league': 61645,
+    'europa_conference_league': 61648
+}
+
 TOP_5_LEAGUES = {
-    'premier_league': {'id': 17, 'name': 'Premier League'},
-    'la_liga': {'id': 8, 'name': 'La Liga'},
-    'bundesliga': {'id': 35, 'name': 'Bundesliga'},
-    'serie_a': {'id': 23, 'name': 'Serie A'},
-    'ligue_1': {'id': 34, 'name': 'Ligue 1'},
+    'premier_league': {'id': 17, 'name': 'Premier League', 'season_id': SEASON_IDS['premier_league']},
+    'la_liga': {'id': 8, 'name': 'La Liga', 'season_id': SEASON_IDS['la_liga']},
+    'bundesliga': {'id': 35, 'name': 'Bundesliga', 'season_id': SEASON_IDS['bundesliga']},
+    'serie_a': {'id': 23, 'name': 'Serie A', 'season_id': SEASON_IDS['serie_a']},
+    'ligue_1': {'id': 34, 'name': 'Ligue 1', 'season_id': SEASON_IDS['ligue_1']},
 }
 
 EUROPEAN_COMPETITIONS = {
-    'champions_league': {'id': 7, 'name': 'Champions League'},
-    'europa_league': {'id': 679, 'name': 'Europa League'},
-    'europa_conference_league': {'id': 17015, 'name': 'Europa Conference League'}
+    'champions_league': {'id': 7, 'name': 'Champions League', 'season_id': SEASON_IDS['champions_league']},
+    'europa_league': {'id': 679, 'name': 'Europa League', 'season_id': SEASON_IDS['europa_league']},
+    'europa_conference_league': {'id': 17015, 'name': 'Europa Conference League', 'season_id': SEASON_IDS['europa_conference_league']}
 }
 
-HEADERS = {
-    "accept": "*/*",
-    "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1",
-}
 
 def get_current_season_id(league_id):
+    # Keep this function for potential future use
     url = f"https://api.sofascore.com/api/v1/unique-tournament/{league_id}/seasons"
-    response = requests.get(url, headers=HEADERS)
+    response = requests.get(url)
     if response.status_code == 200:
         seasons = response.json()['seasons']
         return max(season['id'] for season in seasons)
@@ -32,15 +40,24 @@ def get_current_season_id(league_id):
         print(f"Failed to fetch seasons for league {league_id}: {response.status_code}")
         return None
 
+def get_league_standings(league_key, leagues_dict):
+    league = leagues_dict[league_key]
+    url = f"https://api.sofascore.com/api/v1/unique-tournament/{league['id']}/season/{league['season_id']}/standings/total"
+    
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        standings = data['standings'][0]['rows']
+        return {team['team']['name']: team['position'] for team in standings}
+    else:
+        print(f"Failed to fetch standings: {response.status_code}")
+        return {}
+
 def get_league_top_players(league_key, leagues_dict):
     league = leagues_dict[league_key]
-    season_id = get_current_season_id(league['id'])
-    if not season_id:
-        return []
+    url = f"https://api.sofascore.com/api/v1/unique-tournament/{league['id']}/season/{league['season_id']}/top-players/overall"
     
-    url = f"https://api.sofascore.com/api/v1/unique-tournament/{league['id']}/season/{season_id}/top-players/overall"
-    
-    response = requests.get(url, headers=HEADERS)
+    response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
         top_players = []
@@ -73,17 +90,6 @@ def load_past_players():
         print("Past_players.json not found. Creating an empty list.")
         return []
 
-def get_league_standings(league_id, season_id):
-    url = f"https://api.sofascore.com/api/v1/unique-tournament/{league_id}/season/{season_id}/standings/total"
-    response = requests.get(url, headers=HEADERS)
-    if response.status_code == 200:
-        data = response.json()
-        standings = data['standings'][0]['rows']
-        return {team['team']['name']: team['position'] for team in standings}
-    else:
-        print(f"Failed to fetch standings: {response.status_code}")
-        return {}
-
 def scout_players():
     all_players = []
     past_players = load_past_players()
@@ -92,9 +98,7 @@ def scout_players():
     
     for leagues_dict in [TOP_5_LEAGUES, EUROPEAN_COMPETITIONS]:
         for league_key, league_info in leagues_dict.items():
-            season_id = get_current_season_id(league_info['id'])
-            if season_id:
-                standings[league_info['name']] = get_league_standings(league_info['id'], season_id)
+            standings[league_info['name']] = get_league_standings(league_key, leagues_dict)
             top_players = get_league_top_players(league_key, leagues_dict)
             all_players.extend(top_players)
     
@@ -146,3 +150,4 @@ if __name__ == "__main__":
     selected_players, standings = scout_players()
     create_player_file(selected_players, standings)
     print("Selected players have been saved to 'resources/Next_players.json'")
+    

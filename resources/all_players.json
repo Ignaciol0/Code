@@ -1,0 +1,10402 @@
+{
+  "Manchester City": [
+    {
+      "id": 839956,
+      "name": "Erling Haaland"
+    },
+    {
+      "id": 934386,
+      "name": "Jérémy Doku"
+    },
+    {
+      "id": 189061,
+      "name": "Jack Grealish"
+    },
+    {
+      "id": 136710,
+      "name": "Mateo Kovačić"
+    },
+    {
+      "id": 1136731,
+      "name": "Rico Lewis"
+    },
+    {
+      "id": 1003334,
+      "name": "James McAtee"
+    },
+    {
+      "id": 1142703,
+      "name": "Nico O'Reilly"
+    },
+    {
+      "id": 964994,
+      "name": "Joško Gvardiol"
+    },
+    {
+      "id": 44614,
+      "name": "Kyle Walker"
+    },
+    {
+      "id": 152077,
+      "name": "John Stones"
+    },
+    {
+      "id": 149663,
+      "name": "Nathan Aké"
+    },
+    {
+      "id": 383560,
+      "name": "Manuel Akanji"
+    },
+    {
+      "id": 125274,
+      "name": "Stefan Ortega"
+    }
+  ],
+  "Liverpool": [
+    {
+      "id": 924871,
+      "name": "Darwin Núñez"
+    },
+    {
+      "id": 862967,
+      "name": "Cody Gakpo"
+    },
+    {
+      "id": 606164,
+      "name": "Diogo Jota"
+    },
+    {
+      "id": 845386,
+      "name": "Federico Chiesa"
+    },
+    {
+      "id": 895324,
+      "name": "Alexis Mac Allister"
+    },
+    {
+      "id": 869856,
+      "name": "Dominik Szoboszlai"
+    },
+    {
+      "id": 955245,
+      "name": "Harvey Elliott"
+    },
+    {
+      "id": 904897,
+      "name": "Ryan Gravenberch"
+    },
+    {
+      "id": 151545,
+      "name": "Virgil van Dijk"
+    },
+    {
+      "id": 826215,
+      "name": "Ibrahima Konaté"
+    },
+    {
+      "id": 243609,
+      "name": "Alisson"
+    },
+    {
+      "id": 927359,
+      "name": "Vítězslav Jaroš"
+    },
+    {
+      "id": 1008403,
+      "name": "Harvey Davies"
+    }
+  ],
+  "Aston Villa": [
+    {
+      "id": 555386,
+      "name": "Ollie Watkins"
+    },
+    {
+      "id": 974577,
+      "name": "Jhon Durán"
+    },
+    {
+      "id": 923973,
+      "name": "Amadou Onana"
+    },
+    {
+      "id": 808590,
+      "name": "Leon Bailey"
+    },
+    {
+      "id": 783126,
+      "name": "Emiliano Buendía"
+    },
+    {
+      "id": 948261,
+      "name": "Morgan Rogers"
+    },
+    {
+      "id": 976263,
+      "name": "Ian Maatsen"
+    },
+    {
+      "id": 1152923,
+      "name": "Kosta Nedeljković"
+    },
+    {
+      "id": 604232,
+      "name": "Diego Carlos"
+    },
+    {
+      "id": 303638,
+      "name": "Tyrone Mings"
+    },
+    {
+      "id": 158263,
+      "name": "Emiliano Martínez"
+    },
+    {
+      "id": 26025,
+      "name": "Robin Olsen"
+    },
+    {
+      "id": 966874,
+      "name": "Joe Gauci"
+    }
+  ],
+  "Arsenal": [
+    {
+      "id": 934235,
+      "name": "Bukayo Saka"
+    },
+    {
+      "id": 1401702,
+      "name": "Ethan Nwaneri"
+    },
+    {
+      "id": 547410,
+      "name": "Martin Ødegaard"
+    },
+    {
+      "id": 856714,
+      "name": "Declan Rice"
+    },
+    {
+      "id": 592010,
+      "name": "Mikel Merino"
+    },
+    {
+      "id": 941168,
+      "name": "William Saliba"
+    },
+    {
+      "id": 869792,
+      "name": "Gabriel Magalhães"
+    },
+    {
+      "id": 287643,
+      "name": "Oleksandr Zinchenko"
+    },
+    {
+      "id": 957602,
+      "name": "Riccardo Calafiori"
+    },
+    {
+      "id": 804434,
+      "name": "Takehiro Tomiyasu"
+    },
+    {
+      "id": 846036,
+      "name": "Ben White"
+    },
+    {
+      "id": 1411039,
+      "name": "Josh Nichols"
+    },
+    {
+      "id": 1088909,
+      "name": "Zane Monlouis"
+    },
+    {
+      "id": 1432629,
+      "name": "Josh Robinson"
+    },
+    {
+      "id": 84844,
+      "name": "Neto"
+    }
+  ],
+  "Brighton & Hove Albion": [
+    {
+      "id": 1400106,
+      "name": "Yankuba Minteh"
+    },
+    {
+      "id": 936849,
+      "name": "Kaoru Mitoma"
+    },
+    {
+      "id": 1110842,
+      "name": "Simon Adingra"
+    },
+    {
+      "id": 886242,
+      "name": "Jakub Moder"
+    },
+    {
+      "id": 791,
+      "name": "James Milner"
+    },
+    {
+      "id": 891829,
+      "name": "Matt O'Riley"
+    },
+    {
+      "id": 301288,
+      "name": "Solly March"
+    },
+    {
+      "id": 825844,
+      "name": "Ferdi Kadıoğlu"
+    },
+    {
+      "id": 805465,
+      "name": "Pervis Estupiñán"
+    },
+    {
+      "id": 842513,
+      "name": "Igor Júlio"
+    },
+    {
+      "id": 1142315,
+      "name": "Jack Hinshelwood"
+    },
+    {
+      "id": 1008114,
+      "name": "Imari Samuels"
+    },
+    {
+      "id": 994363,
+      "name": "Bart Verbruggen"
+    },
+    {
+      "id": 31867,
+      "name": "Jason Steele"
+    },
+    {
+      "id": 1092408,
+      "name": "Killian Cahill"
+    }
+  ],
+  "Nottingham Forest": [
+    {
+      "id": 359664,
+      "name": "Taiwo Awoniyi"
+    },
+    {
+      "id": 50480,
+      "name": "Chris Wood"
+    },
+    {
+      "id": 1418646,
+      "name": "Eric da Silva Moreira"
+    },
+    {
+      "id": 867442,
+      "name": "Callum Hudson-Odoi"
+    },
+    {
+      "id": 843754,
+      "name": "Ibrahim Sangaré"
+    },
+    {
+      "id": 161717,
+      "name": "James Ward-Prowse"
+    },
+    {
+      "id": 994546,
+      "name": "Elliot Anderson"
+    },
+    {
+      "id": 846252,
+      "name": "Ryan Yates"
+    },
+    {
+      "id": 1199282,
+      "name": "Murillo"
+    },
+    {
+      "id": 139310,
+      "name": "Willy Boly"
+    },
+    {
+      "id": 985086,
+      "name": "Morato"
+    },
+    {
+      "id": 294593,
+      "name": "Álex Moreno"
+    },
+    {
+      "id": 973738,
+      "name": "Carlos Miguel"
+    },
+    {
+      "id": 78152,
+      "name": "Matz Sels"
+    }
+  ],
+  "Chelsea": [
+    {
+      "id": 1085381,
+      "name": "Nicolas Jackson"
+    },
+    {
+      "id": 974505,
+      "name": "Enzo Fernández"
+    },
+    {
+      "id": 958966,
+      "name": "Mykhaylo Mudryk"
+    },
+    {
+      "id": 966547,
+      "name": "Noni Madueke"
+    },
+    {
+      "id": 1016788,
+      "name": "Cesare Casadei"
+    },
+    {
+      "id": 994556,
+      "name": "Carney Chukwuemeka"
+    },
+    {
+      "id": 861970,
+      "name": "Kiernan Dewsbury-Hall"
+    },
+    {
+      "id": 1150955,
+      "name": "Sam Rak-Sakyi"
+    },
+    {
+      "id": 885908,
+      "name": "Reece James"
+    },
+    {
+      "id": 794939,
+      "name": "Marc Cucurella"
+    },
+    {
+      "id": 802695,
+      "name": "Ben Chilwell"
+    },
+    {
+      "id": 996958,
+      "name": "Malo Gusto"
+    },
+    {
+      "id": 904827,
+      "name": "Benoît Badiashile"
+    },
+    {
+      "id": 352668,
+      "name": "Tosin Adarabioyo"
+    },
+    {
+      "id": 920546,
+      "name": "Robert Sánchez"
+    },
+    {
+      "id": 257993,
+      "name": "Marcus Bettinelli"
+    }
+  ],
+  "Tottenham Hotspur": [
+    {
+      "id": 111505,
+      "name": "Heung-min Son"
+    },
+    {
+      "id": 232306,
+      "name": "Timo Werner"
+    },
+    {
+      "id": 844842,
+      "name": "Yves Bissouma"
+    },
+    {
+      "id": 1391251,
+      "name": "Lucas Bergvall"
+    },
+    {
+      "id": 1142679,
+      "name": "Wilson Odobert"
+    },
+    {
+      "id": 829932,
+      "name": "Cristian Romero"
+    },
+    {
+      "id": 998247,
+      "name": "Micky van de Ven"
+    },
+    {
+      "id": 983572,
+      "name": "Destiny Udogie"
+    },
+    {
+      "id": 858195,
+      "name": "Sergio Reguilón"
+    },
+    {
+      "id": 1142335,
+      "name": "Archie Gray"
+    },
+    {
+      "id": 553606,
+      "name": "Guglielmo Vicario"
+    },
+    {
+      "id": 19314,
+      "name": "Fraser Forster"
+    },
+    {
+      "id": 822504,
+      "name": "Alfie Whiteman"
+    }
+  ],
+  "Brentford": [
+    {
+      "id": 1016907,
+      "name": "Igor Thiago"
+    },
+    {
+      "id": 972421,
+      "name": "Keane Lewis-Potter"
+    },
+    {
+      "id": 991604,
+      "name": "Fabio Carvalho"
+    },
+    {
+      "id": 907072,
+      "name": "Mikkel Damsgaard"
+    },
+    {
+      "id": 1518589,
+      "name": "Yunus Konak"
+    },
+    {
+      "id": 856260,
+      "name": "Joshua Dasilva"
+    },
+    {
+      "id": 826057,
+      "name": "Mads Roerslev"
+    },
+    {
+      "id": 907500,
+      "name": "Edmond-Paris Maghoma"
+    },
+    {
+      "id": 1177007,
+      "name": "Ryan Trevitt"
+    },
+    {
+      "id": 855864,
+      "name": "Ethan Pinnock"
+    },
+    {
+      "id": 1185061,
+      "name": "Kim Ji-Soo"
+    },
+    {
+      "id": 137774,
+      "name": "Ben Mee"
+    },
+    {
+      "id": 171919,
+      "name": "Mark Flekken"
+    },
+    {
+      "id": 1005959,
+      "name": "Hákon Rafn Valdimarsson"
+    },
+    {
+      "id": 1065525,
+      "name": "Matthew Cox"
+    }
+  ],
+  "Fulham": [
+    {
+      "id": 286165,
+      "name": "Adama Traoré"
+    },
+    {
+      "id": 192442,
+      "name": "Raúl Jiménez"
+    },
+    {
+      "id": 1015256,
+      "name": "Rodrigo Muniz"
+    },
+    {
+      "id": 285949,
+      "name": "Andreas Pereira"
+    },
+    {
+      "id": 352770,
+      "name": "Alex Iwobi"
+    },
+    {
+      "id": 355528,
+      "name": "Harry Wilson"
+    },
+    {
+      "id": 82566,
+      "name": "Tom Cairney"
+    },
+    {
+      "id": 365802,
+      "name": "Harrison Reed"
+    },
+    {
+      "id": 329417,
+      "name": "Timothy Castagne"
+    },
+    {
+      "id": 362682,
+      "name": "Joachim Andersen"
+    },
+    {
+      "id": 868715,
+      "name": "Jorge Cuenca"
+    },
+    {
+      "id": 103335,
+      "name": "Bernd Leno"
+    }
+  ],
+  "Bournemouth": [
+    {
+      "id": 998490,
+      "name": "Evanilson"
+    },
+    {
+      "id": 836070,
+      "name": "Luis Sinisterra"
+    },
+    {
+      "id": 1106451,
+      "name": "Dango Ouattara"
+    },
+    {
+      "id": 800419,
+      "name": "Tyler Adams"
+    },
+    {
+      "id": 322391,
+      "name": "Ryan Christie"
+    },
+    {
+      "id": 548188,
+      "name": "Lewis Cook"
+    },
+    {
+      "id": 978150,
+      "name": "Julian Araujo"
+    },
+    {
+      "id": 943645,
+      "name": "Max Aarons"
+    },
+    {
+      "id": 44566,
+      "name": "Adam Smith"
+    },
+    {
+      "id": 1156586,
+      "name": "James Hill"
+    },
+    {
+      "id": 232422,
+      "name": "Kepa Arrizabalaga"
+    },
+    {
+      "id": 856720,
+      "name": "Mark Travers"
+    }
+  ],
+  "Newcastle United": [
+    {
+      "id": 823941,
+      "name": "Alexander Isak"
+    },
+    {
+      "id": 333373,
+      "name": "Miguel Almirón"
+    },
+    {
+      "id": 1169124,
+      "name": "Garang Kuol"
+    },
+    {
+      "id": 1122603,
+      "name": "William Osula"
+    },
+    {
+      "id": 866469,
+      "name": "Bruno Guimarães"
+    },
+    {
+      "id": 892673,
+      "name": "Sandro Tonali"
+    },
+    {
+      "id": 855647,
+      "name": "Harvey Barnes"
+    },
+    {
+      "id": 1136730,
+      "name": "Lewis Hall"
+    },
+    {
+      "id": 101882,
+      "name": "Fabian Schär"
+    },
+    {
+      "id": 865167,
+      "name": "Lloyd Kelly"
+    },
+    {
+      "id": 1125214,
+      "name": "Alex Murphy"
+    },
+    {
+      "id": 162653,
+      "name": "Nick Pope"
+    },
+    {
+      "id": 138149,
+      "name": "Odysseas Vlachodimos"
+    },
+    {
+      "id": 42209,
+      "name": "Martin Dúbravka"
+    },
+    {
+      "id": 108508,
+      "name": "Mark Gillespie"
+    },
+    {
+      "id": 1131,
+      "name": "John Ruddy"
+    }
+  ],
+  "Manchester United": [
+    {
+      "id": 917007,
+      "name": "Joshua Zirkzee"
+    },
+    {
+      "id": 1426625,
+      "name": "Ethan Wheatley"
+    },
+    {
+      "id": 288205,
+      "name": "Bruno Fernandes"
+    },
+    {
+      "id": 814590,
+      "name": "Marcus Rashford"
+    },
+    {
+      "id": 1142175,
+      "name": "Kobbie Mainoo"
+    },
+    {
+      "id": 105734,
+      "name": "Christian Eriksen"
+    },
+    {
+      "id": 1084356,
+      "name": "Toby Collyer"
+    },
+    {
+      "id": 859999,
+      "name": "Lisandro Martínez"
+    },
+    {
+      "id": 803031,
+      "name": "Matthijs de Ligt"
+    },
+    {
+      "id": 190839,
+      "name": "Luke Shaw"
+    },
+    {
+      "id": 143334,
+      "name": "Victor Lindelöf"
+    },
+    {
+      "id": 825839,
+      "name": "Tyrell Malacia"
+    },
+    {
+      "id": 30144,
+      "name": "Jonny Evans"
+    },
+    {
+      "id": 787498,
+      "name": "André Onana"
+    },
+    {
+      "id": 815890,
+      "name": "Altay Bayındır"
+    }
+  ],
+  "Leicester City": [
+    {
+      "id": 103045,
+      "name": "Jordan Ayew"
+    },
+    {
+      "id": 1103589,
+      "name": "Abdul Fatawu Issahaku"
+    },
+    {
+      "id": 833057,
+      "name": "Hamza Choudhury"
+    },
+    {
+      "id": 545780,
+      "name": "Harry Winks"
+    },
+    {
+      "id": 887581,
+      "name": "Boubakary Soumaré"
+    },
+    {
+      "id": 1403055,
+      "name": "Michael Golding"
+    },
+    {
+      "id": 1065134,
+      "name": "Kasey McAteer"
+    },
+    {
+      "id": 361696,
+      "name": "Wout Faes"
+    },
+    {
+      "id": 1092409,
+      "name": "Victor Kristiansen"
+    },
+    {
+      "id": 221200,
+      "name": "Ricardo Pereira"
+    },
+    {
+      "id": 827681,
+      "name": "James Justin"
+    },
+    {
+      "id": 991584,
+      "name": "Luke Thomas"
+    },
+    {
+      "id": 197428,
+      "name": "Danny Ward"
+    },
+    {
+      "id": 997830,
+      "name": "Jakub Stolarczyk"
+    }
+  ],
+  "Everton": [
+    {
+      "id": 914309,
+      "name": "Iliman Ndiaye"
+    },
+    {
+      "id": 996985,
+      "name": "Armando Broja"
+    },
+    {
+      "id": 372344,
+      "name": "Dominic Calvert-Lewin"
+    },
+    {
+      "id": 1145627,
+      "name": "Youssef Chermiti"
+    },
+    {
+      "id": 96535,
+      "name": "Abdoulaye Doucouré"
+    },
+    {
+      "id": 935543,
+      "name": "Dwight McNeil"
+    },
+    {
+      "id": 927361,
+      "name": "James Garner"
+    },
+    {
+      "id": 1085950,
+      "name": "Tim Iroegbunam"
+    },
+    {
+      "id": 979563,
+      "name": "Jarrad Branthwaite"
+    },
+    {
+      "id": 10589,
+      "name": "Ashley Young"
+    },
+    {
+      "id": 145188,
+      "name": "James Tarkowski"
+    },
+    {
+      "id": 76632,
+      "name": "Séamus Coleman"
+    },
+    {
+      "id": 138530,
+      "name": "Jordan Pickford"
+    },
+    {
+      "id": 13918,
+      "name": "Asmir Begović"
+    }
+  ],
+  "West Ham United": [
+    {
+      "id": 130181,
+      "name": "Danny Ings"
+    },
+    {
+      "id": 905163,
+      "name": "Mohammed Kudus"
+    },
+    {
+      "id": 847151,
+      "name": "Edson Álvarez"
+    },
+    {
+      "id": 552884,
+      "name": "Jarrod Bowen"
+    },
+    {
+      "id": 609752,
+      "name": "Guido Rodríguez"
+    },
+    {
+      "id": 832427,
+      "name": "Carlos Soler"
+    },
+    {
+      "id": 799041,
+      "name": "Tomáš Souček"
+    },
+    {
+      "id": 863653,
+      "name": "Aaron Wan-Bissaka"
+    },
+    {
+      "id": 945217,
+      "name": "Jean-Clair Todibo"
+    },
+    {
+      "id": 155997,
+      "name": "Emerson Palmieri"
+    },
+    {
+      "id": 43443,
+      "name": "Aaron Cresswell"
+    },
+    {
+      "id": 187861,
+      "name": "Wesley Foderingham"
+    }
+  ],
+  "Ipswich Town": [
+    {
+      "id": 849309,
+      "name": "Chiedozie Ogbene"
+    },
+    {
+      "id": 1090963,
+      "name": "Omari Hutchinson"
+    },
+    {
+      "id": 921005,
+      "name": "Jack Clarke"
+    },
+    {
+      "id": 354782,
+      "name": "Sammie Szmodics"
+    },
+    {
+      "id": 857671,
+      "name": "Jens Cajuste"
+    },
+    {
+      "id": 204300,
+      "name": "Massimo Luongo"
+    },
+    {
+      "id": 856669,
+      "name": "Jack Taylor"
+    },
+    {
+      "id": 305302,
+      "name": "Wes Burns"
+    },
+    {
+      "id": 914412,
+      "name": "Ben Johnson"
+    },
+    {
+      "id": 358084,
+      "name": "Cameron Burgess"
+    },
+    {
+      "id": 993439,
+      "name": "Harry Clarke"
+    },
+    {
+      "id": 888971,
+      "name": "Arijanet Murić"
+    },
+    {
+      "id": 1001845,
+      "name": "Cieran Slicker"
+    },
+    {
+      "id": 198038,
+      "name": "Christian Walton"
+    }
+  ],
+  "Crystal Palace": [
+    {
+      "id": 864921,
+      "name": "Eberechi Eze"
+    },
+    {
+      "id": 1116593,
+      "name": "Matheus França"
+    },
+    {
+      "id": 1799984,
+      "name": "Asher Agbinone"
+    },
+    {
+      "id": 906047,
+      "name": "Cheick Doucouré"
+    },
+    {
+      "id": 148710,
+      "name": "Jeffrey Schlupp"
+    },
+    {
+      "id": 1064218,
+      "name": "Chadi Riad"
+    },
+    {
+      "id": 870360,
+      "name": "Daniel Muñoz"
+    },
+    {
+      "id": 793228,
+      "name": "Rob Holding"
+    },
+    {
+      "id": 931844,
+      "name": "Chris Richards"
+    },
+    {
+      "id": 43215,
+      "name": "Nathaniel Clyne"
+    },
+    {
+      "id": 1465401,
+      "name": "Caleb Kporha"
+    },
+    {
+      "id": 788134,
+      "name": "Dean Henderson"
+    },
+    {
+      "id": 833943,
+      "name": "Matt Turner"
+    },
+    {
+      "id": 980633,
+      "name": "Louie Moulden"
+    }
+  ],
+  "Wolverhampton": [
+    {
+      "id": 786186,
+      "name": "Hee-Chan Hwang"
+    },
+    {
+      "id": 280979,
+      "name": "Gonçalo Guedes"
+    },
+    {
+      "id": 138573,
+      "name": "Pablo Sarabia"
+    },
+    {
+      "id": 1069486,
+      "name": "Carlos Borges"
+    },
+    {
+      "id": 1015267,
+      "name": "João Gomes"
+    },
+    {
+      "id": 1035996,
+      "name": "André"
+    },
+    {
+      "id": 307284,
+      "name": "Mario Lemina"
+    },
+    {
+      "id": 143047,
+      "name": "Matt Doherty"
+    },
+    {
+      "id": 1006073,
+      "name": "Rodrigo Gomes"
+    },
+    {
+      "id": 932628,
+      "name": "Tommy Doyle"
+    },
+    {
+      "id": 1819718,
+      "name": "Luke Rawlings"
+    },
+    {
+      "id": 1923323,
+      "name": "Sebastian Lochhead"
+    },
+    {
+      "id": 1597270,
+      "name": "Pedro Lima"
+    },
+    {
+      "id": 1014835,
+      "name": "Yerson Mosquera"
+    },
+    {
+      "id": 101367,
+      "name": "Daniel Bentley"
+    },
+    {
+      "id": 603922,
+      "name": "Tom King"
+    }
+  ],
+  "Southampton": [
+    {
+      "id": 1019442,
+      "name": "Kamaldeen Sulemana"
+    },
+    {
+      "id": 295123,
+      "name": "Paul Onuachu"
+    },
+    {
+      "id": 280439,
+      "name": "Maxwel Cornet"
+    },
+    {
+      "id": 361352,
+      "name": "Adam Armstrong"
+    },
+    {
+      "id": 993451,
+      "name": "Cameron Archer"
+    },
+    {
+      "id": 1174472,
+      "name": "Tyler Dibling"
+    },
+    {
+      "id": 886117,
+      "name": "Ross Stewart"
+    },
+    {
+      "id": 1048916,
+      "name": "Lesley Ugochukwu"
+    },
+    {
+      "id": 17054,
+      "name": "Adam Lallana"
+    },
+    {
+      "id": 1923290,
+      "name": "Joe O'Brien-Whitmarsh"
+    },
+    {
+      "id": 823085,
+      "name": "Kyle Walker-Peters"
+    },
+    {
+      "id": 1012415,
+      "name": "Ronnie Edwards"
+    },
+    {
+      "id": 166381,
+      "name": "Charlie Taylor"
+    },
+    {
+      "id": 1134532,
+      "name": "Juan Larios"
+    },
+    {
+      "id": 134361,
+      "name": "Jack Stephens"
+    },
+    {
+      "id": 944200,
+      "name": "Nathan Wood"
+    },
+    {
+      "id": 555406,
+      "name": "James Bree"
+    },
+    {
+      "id": 591620,
+      "name": "Joe Lumley"
+    }
+  ],
+  "Barcelona": [
+    {
+      "id": 41789,
+      "name": "Robert Lewandowski"
+    },
+    {
+      "id": 831005,
+      "name": "Raphinha"
+    },
+    {
+      "id": 992587,
+      "name": "Pedri"
+    },
+    {
+      "id": 795222,
+      "name": "Frenkie de Jong"
+    },
+    {
+      "id": 789071,
+      "name": "Dani Olmo"
+    },
+    {
+      "id": 1082981,
+      "name": "Pablo Torre"
+    },
+    {
+      "id": 1000483,
+      "name": "Marc Casadó"
+    },
+    {
+      "id": 827212,
+      "name": "Jules Koundé"
+    },
+    {
+      "id": 186795,
+      "name": "Andreas Christensen"
+    },
+    {
+      "id": 173883,
+      "name": "Iñigo Martínez"
+    },
+    {
+      "id": 876214,
+      "name": "Eric García"
+    },
+    {
+      "id": 1153335,
+      "name": "Sergi Domínguez"
+    },
+    {
+      "id": 88625,
+      "name": "Marc-André ter Stegen"
+    },
+    {
+      "id": 50490,
+      "name": "Wojciech Szczęsny"
+    }
+  ],
+  "Real Madrid": [
+    {
+      "id": 826643,
+      "name": "Kylian Mbappé"
+    },
+    {
+      "id": 831808,
+      "name": "Federico Valverde"
+    },
+    {
+      "id": 973887,
+      "name": "Eduardo Camavinga"
+    },
+    {
+      "id": 859025,
+      "name": "Aurélien Tchouaméni"
+    },
+    {
+      "id": 547838,
+      "name": "Dani Ceballos"
+    },
+    {
+      "id": 142622,
+      "name": "Antonio Rüdiger"
+    },
+    {
+      "id": 822519,
+      "name": "Éder Militão"
+    },
+    {
+      "id": 138572,
+      "name": "Daniel Carvajal"
+    },
+    {
+      "id": 66492,
+      "name": "David Alaba"
+    },
+    {
+      "id": 255239,
+      "name": "Lucas Vázquez"
+    },
+    {
+      "id": 851271,
+      "name": "Fran García"
+    },
+    {
+      "id": 857574,
+      "name": "Andriy Lunin"
+    },
+    {
+      "id": 1493226,
+      "name": "Fran Gonzalez"
+    }
+  ],
+  "Villarreal": [
+    {
+      "id": 146866,
+      "name": "Gerard Moreno"
+    },
+    {
+      "id": 879694,
+      "name": "Pape Gueye"
+    },
+    {
+      "id": 345195,
+      "name": "Ayoze Pérez"
+    },
+    {
+      "id": 39182,
+      "name": "Dani Parejo"
+    },
+    {
+      "id": 843678,
+      "name": "Santi Comesaña"
+    },
+    {
+      "id": 606346,
+      "name": "Eric Bailly"
+    },
+    {
+      "id": 873189,
+      "name": "Juan Foyth"
+    },
+    {
+      "id": 96368,
+      "name": "Juan Bernat"
+    },
+    {
+      "id": 3041,
+      "name": "Raúl Albiol"
+    },
+    {
+      "id": 986245,
+      "name": "Sergi Cardona"
+    },
+    {
+      "id": 797290,
+      "name": "Alfonso Pedraza"
+    },
+    {
+      "id": 1066603,
+      "name": "Luiz Júnior"
+    },
+    {
+      "id": 1407702,
+      "name": "Rubén Gómez"
+    }
+  ],
+  "Atlético Madrid": [
+    {
+      "id": 944656,
+      "name": "Julián Álvarez"
+    },
+    {
+      "id": 85859,
+      "name": "Antoine Griezmann"
+    },
+    {
+      "id": 1099352,
+      "name": "Giuliano Simeone"
+    },
+    {
+      "id": 353138,
+      "name": "Marcos Llorente"
+    },
+    {
+      "id": 84539,
+      "name": "Koke"
+    },
+    {
+      "id": 191182,
+      "name": "Thomas Lemar"
+    },
+    {
+      "id": 1142586,
+      "name": "Aitor Gismera"
+    },
+    {
+      "id": 1130743,
+      "name": "Javi Serrano"
+    },
+    {
+      "id": 831799,
+      "name": "Nahuel Molina"
+    },
+    {
+      "id": 580550,
+      "name": "Clément Lenglet"
+    },
+    {
+      "id": 35612,
+      "name": "Axel Witsel"
+    },
+    {
+      "id": 831424,
+      "name": "Reinildo Mandava"
+    },
+    {
+      "id": 1145621,
+      "name": "Ilias Kostis"
+    },
+    {
+      "id": 69768,
+      "name": "Jan Oblak"
+    }
+  ],
+  "Athletic Club": [
+    {
+      "id": 1085400,
+      "name": "Nico Williams"
+    },
+    {
+      "id": 783374,
+      "name": "Iñaki Williams"
+    },
+    {
+      "id": 966801,
+      "name": "Oihan Sancet"
+    },
+    {
+      "id": 592012,
+      "name": "Álex Berenguer"
+    },
+    {
+      "id": 1160960,
+      "name": "Álvaro Djaló"
+    },
+    {
+      "id": 1391375,
+      "name": "Unai Gómez"
+    },
+    {
+      "id": 1012409,
+      "name": "Beñat Prados"
+    },
+    {
+      "id": 84531,
+      "name": "Yuri Berchiche"
+    },
+    {
+      "id": 52663,
+      "name": "Óscar de Marcos"
+    },
+    {
+      "id": 959872,
+      "name": "Aitor Paredes"
+    },
+    {
+      "id": 866810,
+      "name": "Andoni Gorosabel"
+    },
+    {
+      "id": 801837,
+      "name": "Íñigo Lekue"
+    },
+    {
+      "id": 797291,
+      "name": "Unai Simón"
+    }
+  ],
+  "Mallorca": [
+    {
+      "id": 309546,
+      "name": "Takuma Asano"
+    },
+    {
+      "id": 146852,
+      "name": "Abdón Prats"
+    },
+    {
+      "id": 1162309,
+      "name": "Javi Llabrés"
+    },
+    {
+      "id": 988351,
+      "name": "Samuel Costa"
+    },
+    {
+      "id": 349526,
+      "name": "Dani Rodríguez"
+    },
+    {
+      "id": 944165,
+      "name": "Robert Navarro"
+    },
+    {
+      "id": 1015826,
+      "name": "Chiquinho"
+    },
+    {
+      "id": 949722,
+      "name": "Antonio Sánchez"
+    },
+    {
+      "id": 807116,
+      "name": "Antonio Raíllo"
+    },
+    {
+      "id": 879543,
+      "name": "Mateu Morey"
+    },
+    {
+      "id": 828239,
+      "name": "Toni Lato"
+    },
+    {
+      "id": 842164,
+      "name": "Siebe Van Der Heyden"
+    },
+    {
+      "id": 791046,
+      "name": "Dominik Greif"
+    },
+    {
+      "id": 1131909,
+      "name": "Leo Román"
+    }
+  ],
+  "Rayo Vallecano": [
+    {
+      "id": 910024,
+      "name": "Sergio Camello"
+    },
+    {
+      "id": 1923274,
+      "name": "Etienne Eto'o"
+    },
+    {
+      "id": 913679,
+      "name": "Ismaila Ciss"
+    },
+    {
+      "id": 900003,
+      "name": "Jorge de Frutos"
+    },
+    {
+      "id": 21949,
+      "name": "Óscar Trejo"
+    },
+    {
+      "id": 900008,
+      "name": "Óscar Valentín"
+    },
+    {
+      "id": 326471,
+      "name": "Gerard Gumbau"
+    },
+    {
+      "id": 900669,
+      "name": "Pedro Díaz"
+    },
+    {
+      "id": 1392573,
+      "name": "Diego Mendez"
+    },
+    {
+      "id": 846147,
+      "name": "Abdul Mumin"
+    },
+    {
+      "id": 542634,
+      "name": "Alfonso Espino"
+    },
+    {
+      "id": 41013,
+      "name": "Aridane Hernández"
+    },
+    {
+      "id": 1139724,
+      "name": "Pelayo Fernández"
+    },
+    {
+      "id": 965832,
+      "name": "Dani Cárdenas"
+    }
+  ],
+  "Real Betis": [
+    {
+      "id": 1011375,
+      "name": "Abdessamad Ezzalzouli"
+    },
+    {
+      "id": 789381,
+      "name": "Chimy Ávila"
+    },
+    {
+      "id": 96369,
+      "name": "Juanmi"
+    },
+    {
+      "id": 103417,
+      "name": "Isco"
+    },
+    {
+      "id": 798835,
+      "name": "Giovani Lo Celso"
+    },
+    {
+      "id": 990169,
+      "name": "Johnny"
+    },
+    {
+      "id": 816763,
+      "name": "Pablo Fornals"
+    },
+    {
+      "id": 188365,
+      "name": "Héctor Bellerín"
+    },
+    {
+      "id": 99519,
+      "name": "Marc Bartra"
+    },
+    {
+      "id": 893062,
+      "name": "Aitor Ruibal"
+    },
+    {
+      "id": 50539,
+      "name": "Adrián"
+    },
+    {
+      "id": 253809,
+      "name": "Rui Silva"
+    },
+    {
+      "id": 929975,
+      "name": "Francisco Vieites"
+    },
+    {
+      "id": 1823954,
+      "name": "Manu González"
+    }
+  ],
+  "Osasuna": [
+    {
+      "id": 37318,
+      "name": "Ante Budimir"
+    },
+    {
+      "id": 824130,
+      "name": "José Manuel Arnáiz"
+    },
+    {
+      "id": 591132,
+      "name": "Kike Barja"
+    },
+    {
+      "id": 1084730,
+      "name": "Bryan Zaragoza"
+    },
+    {
+      "id": 985329,
+      "name": "Aimar Oroz"
+    },
+    {
+      "id": 149370,
+      "name": "Moi Gómez"
+    },
+    {
+      "id": 1119586,
+      "name": "Iker Muñoz"
+    },
+    {
+      "id": 1084381,
+      "name": "Pablo Ibáñez Lumbreras"
+    },
+    {
+      "id": 900792,
+      "name": "Alejandro Catena"
+    },
+    {
+      "id": 1010165,
+      "name": "Abel Bretones"
+    },
+    {
+      "id": 910267,
+      "name": "Jesús Areso"
+    },
+    {
+      "id": 255973,
+      "name": "Rubén Peña"
+    },
+    {
+      "id": 99516,
+      "name": "Aitor Fernández"
+    }
+  ],
+  "Sevilla": [
+    {
+      "id": 823631,
+      "name": "Dodi Lukebakio"
+    },
+    {
+      "id": 116955,
+      "name": "Saúl Ñíguez"
+    },
+    {
+      "id": 901892,
+      "name": "Albert Sambi Lokonga"
+    },
+    {
+      "id": 96370,
+      "name": "Suso"
+    },
+    {
+      "id": 1010655,
+      "name": "Juanlu Sánchez"
+    },
+    {
+      "id": 1923283,
+      "name": "Alberto Collado Lopez"
+    },
+    {
+      "id": 11869,
+      "name": "Jesús Navas"
+    },
+    {
+      "id": 1006489,
+      "name": "Loïc Badé"
+    },
+    {
+      "id": 840951,
+      "name": "Marcão"
+    },
+    {
+      "id": 928672,
+      "name": "Adrià Pedrosa"
+    },
+    {
+      "id": 1015240,
+      "name": "José Ángel Carmona"
+    },
+    {
+      "id": 1097719,
+      "name": "Kike Salas"
+    },
+    {
+      "id": 852412,
+      "name": "Álvaro Fernández"
+    }
+  ],
+  "Celta Vigo": [
+    {
+      "id": 1398524,
+      "name": "Pablo Durán"
+    },
+    {
+      "id": 1468090,
+      "name": "Alfon González"
+    },
+    {
+      "id": 962890,
+      "name": "Ilaix Moriba"
+    },
+    {
+      "id": 846492,
+      "name": "Luca De La Torre"
+    },
+    {
+      "id": 835484,
+      "name": "Fran Beltrán"
+    },
+    {
+      "id": 1154935,
+      "name": "Hugo Álvarez"
+    },
+    {
+      "id": 69408,
+      "name": "Marcos Alonso"
+    },
+    {
+      "id": 859773,
+      "name": "Óscar Mingueza"
+    },
+    {
+      "id": 363774,
+      "name": "Mihailo Ristić"
+    },
+    {
+      "id": 210082,
+      "name": "Javier Manquillo"
+    },
+    {
+      "id": 1069703,
+      "name": "Carlos Domínguez"
+    },
+    {
+      "id": 1526627,
+      "name": "Javi Rodríguez"
+    },
+    {
+      "id": 1002764,
+      "name": "Sergio Carreira"
+    },
+    {
+      "id": 32023,
+      "name": "Vicente Guaita"
+    }
+  ],
+  "Real Sociedad": [
+    {
+      "id": 1026015,
+      "name": "Orri Steinn Óskarsson"
+    },
+    {
+      "id": 966862,
+      "name": "Ander Barrenetxea"
+    },
+    {
+      "id": 845385,
+      "name": "Brais Méndez"
+    },
+    {
+      "id": 1139409,
+      "name": "Pablo Marín"
+    },
+    {
+      "id": 1010383,
+      "name": "Jon Ander Olasagasti"
+    },
+    {
+      "id": 1134396,
+      "name": "Jon Magunazelaia"
+    },
+    {
+      "id": 877102,
+      "name": "Nayef Aguerd"
+    },
+    {
+      "id": 362014,
+      "name": "Hamari Traoré"
+    },
+    {
+      "id": 353250,
+      "name": "Álvaro Odriozola"
+    },
+    {
+      "id": 1116388,
+      "name": "Jon Aramburu"
+    },
+    {
+      "id": 838159,
+      "name": "Igor Zubeldia"
+    },
+    {
+      "id": 966441,
+      "name": "Aihen Muñoz"
+    },
+    {
+      "id": 945404,
+      "name": "Javi López"
+    },
+    {
+      "id": 1466116,
+      "name": "Jon Martin"
+    },
+    {
+      "id": 1000247,
+      "name": "Aitor Fraga"
+    }
+  ],
+  "Girona FC": [
+    {
+      "id": 827064,
+      "name": "Arnaut Danjuma"
+    },
+    {
+      "id": 32048,
+      "name": "Cristhian Stuani"
+    },
+    {
+      "id": 218616,
+      "name": "Portu"
+    },
+    {
+      "id": 1482463,
+      "name": "Juan Arango"
+    },
+    {
+      "id": 319735,
+      "name": "Viktor Tsygankov"
+    },
+    {
+      "id": 910026,
+      "name": "Bryan Gil"
+    },
+    {
+      "id": 1142566,
+      "name": "Gabriel Misehouy"
+    },
+    {
+      "id": 1513673,
+      "name": "Silvi Clúa"
+    },
+    {
+      "id": 1897196,
+      "name": "Papa Dame Ba"
+    },
+    {
+      "id": 1937396,
+      "name": "Raúl Martínez"
+    },
+    {
+      "id": 908716,
+      "name": "Miguel Gutiérrez"
+    },
+    {
+      "id": 856250,
+      "name": "Ladislav Krejčí"
+    },
+    {
+      "id": 1471513,
+      "name": "Antal Yaakobishvili"
+    },
+    {
+      "id": 135116,
+      "name": "David López"
+    },
+    {
+      "id": 1002347,
+      "name": "Alejandro Francés"
+    },
+    {
+      "id": 548848,
+      "name": "Pau López"
+    }
+  ],
+  "Deportivo Alavés": [
+    {
+      "id": 355072,
+      "name": "Asier Villalibre"
+    },
+    {
+      "id": 1923281,
+      "name": "Julen Lartitegi Ugarte"
+    },
+    {
+      "id": 855832,
+      "name": "Antonio Blanco"
+    },
+    {
+      "id": 591750,
+      "name": "Joan Jordán"
+    },
+    {
+      "id": 1082968,
+      "name": "Abderrahman Rebbach"
+    },
+    {
+      "id": 1084399,
+      "name": "Carlos Vicente"
+    },
+    {
+      "id": 566894,
+      "name": "Stoichkov"
+    },
+    {
+      "id": 873717,
+      "name": "Carlos Benavídez"
+    },
+    {
+      "id": 1001967,
+      "name": "Hugo Novoa Ramos"
+    },
+    {
+      "id": 891931,
+      "name": "Ander Guevara"
+    },
+    {
+      "id": 1101232,
+      "name": "Abdelkabir Abqar"
+    },
+    {
+      "id": 985262,
+      "name": "Moussa Diarra"
+    },
+    {
+      "id": 1923285,
+      "name": "Adrian Pica"
+    },
+    {
+      "id": 990659,
+      "name": "Jesús Owono"
+    }
+  ],
+  "Espanyol": [
+    {
+      "id": 917485,
+      "name": "Walid Cheddira"
+    },
+    {
+      "id": 1116987,
+      "name": "Alejo Véliz"
+    },
+    {
+      "id": 954317,
+      "name": "Naci Ünüvar"
+    },
+    {
+      "id": 891511,
+      "name": "Javi Puado"
+    },
+    {
+      "id": 825740,
+      "name": "Alex Král"
+    },
+    {
+      "id": 877262,
+      "name": "Edu Expósito"
+    },
+    {
+      "id": 966940,
+      "name": "José Gragera"
+    },
+    {
+      "id": 826010,
+      "name": "Pol Lozano"
+    },
+    {
+      "id": 81992,
+      "name": "Leandro Cabrera"
+    },
+    {
+      "id": 826679,
+      "name": "Álvaro Tejero"
+    },
+    {
+      "id": 1396048,
+      "name": "Carlos Romero"
+    },
+    {
+      "id": 351500,
+      "name": "Brian Oliván"
+    },
+    {
+      "id": 1082734,
+      "name": "Angel Fortuno"
+    }
+  ],
+  "Getafe": [
+    {
+      "id": 604954,
+      "name": "Borja Mayoral"
+    },
+    {
+      "id": 1382235,
+      "name": "Bertuğ Yıldırım"
+    },
+    {
+      "id": 1048927,
+      "name": "Peter González"
+    },
+    {
+      "id": 1884145,
+      "name": "Christantus Uche"
+    },
+    {
+      "id": 1211005,
+      "name": "Yellu Santiago"
+    },
+    {
+      "id": 307702,
+      "name": "Djené"
+    },
+    {
+      "id": 805137,
+      "name": "Omar Alderete"
+    },
+    {
+      "id": 1136806,
+      "name": "Nabil Aberdin"
+    },
+    {
+      "id": 949707,
+      "name": "Juan Iglesias"
+    },
+    {
+      "id": 851226,
+      "name": "Juan Berrocal"
+    },
+    {
+      "id": 1936438,
+      "name": "Guillem Trilla"
+    },
+    {
+      "id": 826047,
+      "name": "Jiří Letáček"
+    },
+    {
+      "id": 1645004,
+      "name": "Djordjije Medenica"
+    }
+  ],
+  "Las Palmas": [
+    {
+      "id": 960401,
+      "name": "Marvin Park"
+    },
+    {
+      "id": 367228,
+      "name": "Oliver McBurnie"
+    },
+    {
+      "id": 188407,
+      "name": "Sandro Ramírez"
+    },
+    {
+      "id": 351140,
+      "name": "Jaime Mata"
+    },
+    {
+      "id": 1012444,
+      "name": "Alberto Moleiro"
+    },
+    {
+      "id": 328145,
+      "name": "Adnan Januzaj"
+    },
+    {
+      "id": 96373,
+      "name": "José Campaña"
+    },
+    {
+      "id": 353154,
+      "name": "Javier Muñoz"
+    },
+    {
+      "id": 925220,
+      "name": "Pejiño"
+    },
+    {
+      "id": 358108,
+      "name": "Scott McKenna"
+    },
+    {
+      "id": 914848,
+      "name": "Alex Suárez"
+    },
+    {
+      "id": 377206,
+      "name": "Daley Sinkgraven"
+    },
+    {
+      "id": 273227,
+      "name": "Álex Muñoz"
+    },
+    {
+      "id": 123865,
+      "name": "Jasper Cillessen"
+    }
+  ],
+  "Leganés": [
+    {
+      "id": 149731,
+      "name": "Sébastien Haller"
+    },
+    {
+      "id": 914212,
+      "name": "Miguel de la Fuente"
+    },
+    {
+      "id": 958018,
+      "name": "Roberto López"
+    },
+    {
+      "id": 1121475,
+      "name": "Diego Garcia"
+    },
+    {
+      "id": 350170,
+      "name": "Munir El Haddadi"
+    },
+    {
+      "id": 906065,
+      "name": "Seydouba Cisse"
+    },
+    {
+      "id": 1134395,
+      "name": "Naim García"
+    },
+    {
+      "id": 94539,
+      "name": "Darko Brašanac"
+    },
+    {
+      "id": 842419,
+      "name": "Valentin Rosier"
+    },
+    {
+      "id": 1031658,
+      "name": "Javier Hernández"
+    },
+    {
+      "id": 377234,
+      "name": "Sergio González"
+    },
+    {
+      "id": 980732,
+      "name": "Adrià Altimira"
+    },
+    {
+      "id": 547246,
+      "name": "Juan Soriano"
+    }
+  ],
+  "Real Valladolid": [
+    {
+      "id": 966679,
+      "name": "Juanmi Latasa"
+    },
+    {
+      "id": 801391,
+      "name": "Kenedy"
+    },
+    {
+      "id": 980383,
+      "name": "Raúl Moro"
+    },
+    {
+      "id": 845168,
+      "name": "Amath Ndiaye"
+    },
+    {
+      "id": 880157,
+      "name": "Marcos André"
+    },
+    {
+      "id": 252863,
+      "name": "Darwin Machís"
+    },
+    {
+      "id": 601962,
+      "name": "Anuar"
+    },
+    {
+      "id": 921417,
+      "name": "Stanko Jurić"
+    },
+    {
+      "id": 1010335,
+      "name": "Víctor Meseguer"
+    },
+    {
+      "id": 1391895,
+      "name": "Ivan Cantalejo"
+    },
+    {
+      "id": 953097,
+      "name": "Cenk Özkaçar"
+    },
+    {
+      "id": 943713,
+      "name": "Javi Sánchez"
+    },
+    {
+      "id": 1184311,
+      "name": "Koke"
+    },
+    {
+      "id": 1182710,
+      "name": "Raúl Chasco"
+    },
+    {
+      "id": 1112734,
+      "name": "Alvaro Aceves Catalina"
+    }
+  ],
+  "Valencia": [
+    {
+      "id": 909119,
+      "name": "Hugo Duro"
+    },
+    {
+      "id": 888930,
+      "name": "Dani Gómez"
+    },
+    {
+      "id": 1087316,
+      "name": "Enzo Barrenechea"
+    },
+    {
+      "id": 826948,
+      "name": "Pepelu"
+    },
+    {
+      "id": 1122610,
+      "name": "Javier Guerra"
+    },
+    {
+      "id": 962710,
+      "name": "Germán Valera"
+    },
+    {
+      "id": 797306,
+      "name": "Mouctar Diakhaby"
+    },
+    {
+      "id": 227922,
+      "name": "José Luis Gayà"
+    },
+    {
+      "id": 1144630,
+      "name": "Cristhian Mosquera"
+    },
+    {
+      "id": 1184317,
+      "name": "Yarek Gasiorowski"
+    },
+    {
+      "id": 151138,
+      "name": "Dimitri Foulquier"
+    },
+    {
+      "id": 800349,
+      "name": "Maximiliano Caufriez"
+    },
+    {
+      "id": 235386,
+      "name": "Jaume Doménech"
+    }
+  ],
+  "RB Leipzig": [
+    {
+      "id": 190159,
+      "name": "André Silva"
+    },
+    {
+      "id": 135264,
+      "name": "Yussuf Poulsen"
+    },
+    {
+      "id": 997183,
+      "name": "Xavi Simons"
+    },
+    {
+      "id": 822708,
+      "name": "Amadou Haidara"
+    },
+    {
+      "id": 838232,
+      "name": "Eljif Elmas"
+    },
+    {
+      "id": 825956,
+      "name": "Christoph Baumgartner"
+    },
+    {
+      "id": 791079,
+      "name": "Xaver Schlager"
+    },
+    {
+      "id": 84251,
+      "name": "Kevin Kampl"
+    },
+    {
+      "id": 1900995,
+      "name": "Viggo Gebel"
+    },
+    {
+      "id": 856739,
+      "name": "Lutsharel Geertruida"
+    },
+    {
+      "id": 856076,
+      "name": "David Raum"
+    },
+    {
+      "id": 319853,
+      "name": "Lukas Klostermann"
+    },
+    {
+      "id": 934385,
+      "name": "Maarten Vandevoordt"
+    }
+  ],
+  "FC Bayern München": [
+    {
+      "id": 108579,
+      "name": "Harry Kane"
+    },
+    {
+      "id": 1142248,
+      "name": "Arijon Ibrahimović"
+    },
+    {
+      "id": 1010231,
+      "name": "Jamal Musiala"
+    },
+    {
+      "id": 293519,
+      "name": "Leroy Sané"
+    },
+    {
+      "id": 35166,
+      "name": "Thomas Müller"
+    },
+    {
+      "id": 280441,
+      "name": "Kingsley Coman"
+    },
+    {
+      "id": 187433,
+      "name": "Serge Gnabry"
+    },
+    {
+      "id": 364612,
+      "name": "João Palhinha"
+    },
+    {
+      "id": 980418,
+      "name": "Sacha Boey"
+    },
+    {
+      "id": 927407,
+      "name": "Josip Stanišić"
+    },
+    {
+      "id": 1466124,
+      "name": "Adam Aznou"
+    },
+    {
+      "id": 873106,
+      "name": "Hiroki Ito"
+    },
+    {
+      "id": 1153298,
+      "name": "Tarek Buchmann"
+    },
+    {
+      "id": 8959,
+      "name": "Manuel Neuer"
+    }
+  ],
+  "Bayer 04 Leverkusen": [
+    {
+      "id": 991478,
+      "name": "Amine Adli"
+    },
+    {
+      "id": 280609,
+      "name": "Patrik Schick"
+    },
+    {
+      "id": 142390,
+      "name": "Jonas Hofmann"
+    },
+    {
+      "id": 846445,
+      "name": "Martin Terrier"
+    },
+    {
+      "id": 117777,
+      "name": "Granit Xhaka"
+    },
+    {
+      "id": 822600,
+      "name": "Exequiel Palacios"
+    },
+    {
+      "id": 177177,
+      "name": "Alejandro Grimaldo"
+    },
+    {
+      "id": 883262,
+      "name": "Edmond Tapsoba"
+    },
+    {
+      "id": 227672,
+      "name": "Jonathan Tah"
+    },
+    {
+      "id": 780014,
+      "name": "Nordi Mukiele"
+    },
+    {
+      "id": 1174761,
+      "name": "Arthur"
+    },
+    {
+      "id": 1173172,
+      "name": "Jeanuël Belocian"
+    },
+    {
+      "id": 142471,
+      "name": "Niklas Lomb"
+    }
+  ],
+  "SC Freiburg": [
+    {
+      "id": 902381,
+      "name": "Chukwubuike Adamu"
+    },
+    {
+      "id": 171927,
+      "name": "Maximilian Philipp"
+    },
+    {
+      "id": 280009,
+      "name": "Lucas Höler"
+    },
+    {
+      "id": 790965,
+      "name": "Ritsu Doan"
+    },
+    {
+      "id": 171961,
+      "name": "Vincenzo Grifo"
+    },
+    {
+      "id": 882019,
+      "name": "Florent Muslija"
+    },
+    {
+      "id": 569784,
+      "name": "Maximilian Eggestein"
+    },
+    {
+      "id": 1048820,
+      "name": "Noah Weißhaupt"
+    },
+    {
+      "id": 49639,
+      "name": "Nicolas Höfler"
+    },
+    {
+      "id": 914755,
+      "name": "Patrick Osterhage"
+    },
+    {
+      "id": 1518931,
+      "name": "Johan Manzambi"
+    },
+    {
+      "id": 142525,
+      "name": "Lukas Kübler"
+    },
+    {
+      "id": 71952,
+      "name": "Manuel Gulde"
+    },
+    {
+      "id": 842858,
+      "name": "Florian Müller"
+    }
+  ],
+  "1. FC Union Berlin": [
+    {
+      "id": 909958,
+      "name": "Yorbe Vertessen"
+    },
+    {
+      "id": 796672,
+      "name": "Ivan Prtajin"
+    },
+    {
+      "id": 953767,
+      "name": "Andrej Ilić"
+    },
+    {
+      "id": 800252,
+      "name": "Tim Skarke"
+    },
+    {
+      "id": 1518974,
+      "name": "David Preu"
+    },
+    {
+      "id": 877302,
+      "name": "András Schäfer"
+    },
+    {
+      "id": 787889,
+      "name": "Lucas Tousart"
+    },
+    {
+      "id": 149479,
+      "name": "Rani Khedira"
+    },
+    {
+      "id": 791642,
+      "name": "Josip Juranović"
+    },
+    {
+      "id": 855663,
+      "name": "Diogo Leite"
+    },
+    {
+      "id": 1086547,
+      "name": "Leopold Querfeld"
+    },
+    {
+      "id": 830803,
+      "name": "Danilho Doekhi"
+    },
+    {
+      "id": 146500,
+      "name": "Jérôme Roussillon"
+    },
+    {
+      "id": 1130672,
+      "name": "Yannic Stein"
+    },
+    {
+      "id": 148167,
+      "name": "Carl Klaus"
+    }
+  ],
+  "Eintracht Frankfurt": [
+    {
+      "id": 873554,
+      "name": "Omar Marmoush"
+    },
+    {
+      "id": 1192318,
+      "name": "Farès Chaïbi"
+    },
+    {
+      "id": 997012,
+      "name": "Ansgar Knauff"
+    },
+    {
+      "id": 1214485,
+      "name": "Krisztián Lisztes"
+    },
+    {
+      "id": 1146148,
+      "name": "Jean-Mattéo Bahoya"
+    },
+    {
+      "id": 591706,
+      "name": "Ellyes Skhiri"
+    },
+    {
+      "id": 66518,
+      "name": "Mario Götze"
+    },
+    {
+      "id": 341589,
+      "name": "Mahmoud Dahoud"
+    },
+    {
+      "id": 1142211,
+      "name": "Hugo Larsson"
+    },
+    {
+      "id": 1126573,
+      "name": "Mehdi Loune"
+    },
+    {
+      "id": 921789,
+      "name": "Rasmus Kristensen"
+    },
+    {
+      "id": 580750,
+      "name": "Jérôme Onguene"
+    },
+    {
+      "id": 1159759,
+      "name": "Nathaniel Brown"
+    },
+    {
+      "id": 38440,
+      "name": "Kevin Trapp"
+    },
+    {
+      "id": 27214,
+      "name": "Jens Grahl"
+    }
+  ],
+  "Borussia Dortmund": [
+    {
+      "id": 328027,
+      "name": "Serhou Guirassy"
+    },
+    {
+      "id": 940054,
+      "name": "Karim Adeyemi"
+    },
+    {
+      "id": 1171540,
+      "name": "Julien Duranville"
+    },
+    {
+      "id": 226978,
+      "name": "Julian Brandt"
+    },
+    {
+      "id": 138156,
+      "name": "Emre Can"
+    },
+    {
+      "id": 48480,
+      "name": "Pascal Groß"
+    },
+    {
+      "id": 907463,
+      "name": "Felix Nmecha"
+    },
+    {
+      "id": 990210,
+      "name": "Ayman Azhil"
+    },
+    {
+      "id": 577726,
+      "name": "Ramy Bensebaini"
+    },
+    {
+      "id": 1002813,
+      "name": "Yan Couto"
+    },
+    {
+      "id": 1418620,
+      "name": "Almugera Kabar"
+    },
+    {
+      "id": 1138040,
+      "name": "Yannik Lührs"
+    },
+    {
+      "id": 556866,
+      "name": "Gregor Kobel"
+    },
+    {
+      "id": 138491,
+      "name": "Alexander Meyer"
+    }
+  ],
+  "VfB Stuttgart": [
+    {
+      "id": 1000397,
+      "name": "Wahid Faghir"
+    },
+    {
+      "id": 980623,
+      "name": "Nick Woltemade"
+    },
+    {
+      "id": 1146132,
+      "name": "Justin Diehl"
+    },
+    {
+      "id": 1005996,
+      "name": "Thomas Kastanaras"
+    },
+    {
+      "id": 1418665,
+      "name": "Jarzinho Malanga"
+    },
+    {
+      "id": 901882,
+      "name": "Angelo Stiller"
+    },
+    {
+      "id": 990201,
+      "name": "Jamie Leweling"
+    },
+    {
+      "id": 861981,
+      "name": "Nikolas Nartey"
+    },
+    {
+      "id": 788949,
+      "name": "Maximilian Mittelstädt"
+    },
+    {
+      "id": 826205,
+      "name": "Dan-Axel Zagadou"
+    },
+    {
+      "id": 991479,
+      "name": "Anthony Rouault"
+    },
+    {
+      "id": 916943,
+      "name": "Ramon Hendriks"
+    },
+    {
+      "id": 352562,
+      "name": "Pascal Stenzel"
+    },
+    {
+      "id": 877842,
+      "name": "Yannik Keitel"
+    },
+    {
+      "id": 584722,
+      "name": "Alexander Nübel"
+    },
+    {
+      "id": 152463,
+      "name": "Fabian Bredlow"
+    }
+  ],
+  "SV Werder Bremen": [
+    {
+      "id": 258325,
+      "name": "Marvin Ducksch"
+    },
+    {
+      "id": 1166832,
+      "name": "Keke Topp"
+    },
+    {
+      "id": 1005343,
+      "name": "Justin Njinmah"
+    },
+    {
+      "id": 815612,
+      "name": "Marco Grüll"
+    },
+    {
+      "id": 960114,
+      "name": "Olivier Deman"
+    },
+    {
+      "id": 830142,
+      "name": "Jens Stage"
+    },
+    {
+      "id": 933398,
+      "name": "Felix Agu"
+    },
+    {
+      "id": 111969,
+      "name": "Leonardo Bittencourt"
+    },
+    {
+      "id": 886737,
+      "name": "Derrick Köhn"
+    },
+    {
+      "id": 227224,
+      "name": "Miloš Veljković"
+    },
+    {
+      "id": 851254,
+      "name": "Amos Pieper"
+    },
+    {
+      "id": 229544,
+      "name": "Niklas Stark"
+    },
+    {
+      "id": 103442,
+      "name": "Anthony Jung"
+    },
+    {
+      "id": 190161,
+      "name": "Michael Zetterer"
+    }
+  ],
+  "Borussia M'gladbach": [
+    {
+      "id": 228981,
+      "name": "Tim Kleindienst"
+    },
+    {
+      "id": 1130950,
+      "name": "Grant-Leon Ranos"
+    },
+    {
+      "id": 929163,
+      "name": "Tomáš Čvančara"
+    },
+    {
+      "id": 1493496,
+      "name": "Shio Fukuda "
+    },
+    {
+      "id": 237068,
+      "name": "Julian Weigl"
+    },
+    {
+      "id": 837205,
+      "name": "Florian Neuhaus"
+    },
+    {
+      "id": 939880,
+      "name": "Philipp Sander"
+    },
+    {
+      "id": 282229,
+      "name": "Nico Elvedi"
+    },
+    {
+      "id": 1002920,
+      "name": "Joseph Scally"
+    },
+    {
+      "id": 113920,
+      "name": "Stefan Lainer"
+    },
+    {
+      "id": 254449,
+      "name": "Marvin Friedrich"
+    },
+    {
+      "id": 1083382,
+      "name": "Lukas Ullrich"
+    },
+    {
+      "id": 578166,
+      "name": "Moritz Nicolas"
+    },
+    {
+      "id": 972510,
+      "name": "Jan Olschowsky"
+    }
+  ],
+  "FC Augsburg": [
+    {
+      "id": 345035,
+      "name": "Steve Mounié"
+    },
+    {
+      "id": 855808,
+      "name": "Samuel Essende"
+    },
+    {
+      "id": 1130113,
+      "name": "Yusuf Kabadayi"
+    },
+    {
+      "id": 822877,
+      "name": "Alexis Claude-Maurice"
+    },
+    {
+      "id": 796206,
+      "name": "Kristijan Jakić"
+    },
+    {
+      "id": 794770,
+      "name": "Masaya Okugawa"
+    },
+    {
+      "id": 1388328,
+      "name": "Mahmut Kücüksahin"
+    },
+    {
+      "id": 1490863,
+      "name": "Dominik Lindermeir"
+    },
+    {
+      "id": 891651,
+      "name": "Keven Schlotterbeck"
+    },
+    {
+      "id": 963198,
+      "name": "Chrislain Matsima"
+    },
+    {
+      "id": 788768,
+      "name": "Reece Oxford"
+    },
+    {
+      "id": 809219,
+      "name": "Mads Pedersen"
+    },
+    {
+      "id": 940393,
+      "name": "Maximilian Bauer"
+    },
+    {
+      "id": 1597260,
+      "name": "Noahkai Banks"
+    },
+    {
+      "id": 947986,
+      "name": "Nediljko Labrović"
+    },
+    {
+      "id": 822564,
+      "name": "Finn Dahmen"
+    }
+  ],
+  "1. FC Heidenheim": [
+    {
+      "id": 935281,
+      "name": "Maximilian Breunig"
+    },
+    {
+      "id": 800400,
+      "name": "Sirlord Conteh"
+    },
+    {
+      "id": 842922,
+      "name": "Stefan Schimmer"
+    },
+    {
+      "id": 794995,
+      "name": "Niklas Dorsch"
+    },
+    {
+      "id": 893962,
+      "name": "Lennard Maloney"
+    },
+    {
+      "id": 575952,
+      "name": "Mathias Honsak"
+    },
+    {
+      "id": 933707,
+      "name": "Jan Schöppner"
+    },
+    {
+      "id": 845742,
+      "name": "Adrian Beck"
+    },
+    {
+      "id": 1097453,
+      "name": "Luca Kerber"
+    },
+    {
+      "id": 122578,
+      "name": "Denis Thomalla"
+    },
+    {
+      "id": 254429,
+      "name": "Patrick Mainka"
+    },
+    {
+      "id": 988252,
+      "name": "Tim Siersleben"
+    },
+    {
+      "id": 15004,
+      "name": "Norman Theuerkauf"
+    },
+    {
+      "id": 121908,
+      "name": "Kevin Müller"
+    },
+    {
+      "id": 1083359,
+      "name": "Frank Feller"
+    }
+  ],
+  "1. FSV Mainz 05": [
+    {
+      "id": 1129940,
+      "name": "Gabriel Vidović"
+    },
+    {
+      "id": 537552,
+      "name": "Jae-sung Lee"
+    },
+    {
+      "id": 856594,
+      "name": "Aymen Barkok"
+    },
+    {
+      "id": 1028307,
+      "name": "Kaishu Sano"
+    },
+    {
+      "id": 157377,
+      "name": "Silvan Widmer"
+    },
+    {
+      "id": 138126,
+      "name": "Phillipp Mwene"
+    },
+    {
+      "id": 846471,
+      "name": "Anthony Caci"
+    },
+    {
+      "id": 97926,
+      "name": "Danny da Costa"
+    },
+    {
+      "id": 1138150,
+      "name": "Nikolas Veratschnig"
+    },
+    {
+      "id": 920525,
+      "name": "Moritz Jenz"
+    },
+    {
+      "id": 152206,
+      "name": "Dominik Kohr"
+    },
+    {
+      "id": 106662,
+      "name": "Stefan Bell"
+    },
+    {
+      "id": 1152512,
+      "name": "Philipp Schulz"
+    },
+    {
+      "id": 174345,
+      "name": "Robin Zentner"
+    }
+  ],
+  "VfL Wolfsburg": [
+    {
+      "id": 1107591,
+      "name": "Mohamed El Amine Amoura"
+    },
+    {
+      "id": 826069,
+      "name": "Jonas Wind"
+    },
+    {
+      "id": 983540,
+      "name": "Tiago Tomás"
+    },
+    {
+      "id": 803185,
+      "name": "Lukas Nmecha"
+    },
+    {
+      "id": 841947,
+      "name": "Lovro Majer"
+    },
+    {
+      "id": 801263,
+      "name": "Jakub Kamiński"
+    },
+    {
+      "id": 795005,
+      "name": "Salih Özcan"
+    },
+    {
+      "id": 796987,
+      "name": "Mattias Svanberg"
+    },
+    {
+      "id": 1184855,
+      "name": "Konstantinos Koulierakis"
+    },
+    {
+      "id": 826167,
+      "name": "Sebastiaan Bornauw"
+    },
+    {
+      "id": 293127,
+      "name": "Denis Vavro"
+    },
+    {
+      "id": 1606624,
+      "name": "Mathys Angely"
+    },
+    {
+      "id": 902080,
+      "name": "Kamil Grabara"
+    },
+    {
+      "id": 35976,
+      "name": "Pavao Pervan"
+    },
+    {
+      "id": 241812,
+      "name": "Niklas Klinger"
+    }
+  ],
+  "TSG Hoffenheim": [
+    {
+      "id": 963801,
+      "name": "Adam Hložek"
+    },
+    {
+      "id": 259803,
+      "name": "Haris Tabaković"
+    },
+    {
+      "id": 770083,
+      "name": "Mergim Berisha"
+    },
+    {
+      "id": 1418703,
+      "name": "Max Moerstedt"
+    },
+    {
+      "id": 978062,
+      "name": "Alexander Prass"
+    },
+    {
+      "id": 378340,
+      "name": "Marius Bülter"
+    },
+    {
+      "id": 253993,
+      "name": "Grischa Prömel"
+    },
+    {
+      "id": 168897,
+      "name": "Christopher Lenz"
+    },
+    {
+      "id": 795004,
+      "name": "Dennis Geiger"
+    },
+    {
+      "id": 979821,
+      "name": "Finn Ole Becker"
+    },
+    {
+      "id": 823092,
+      "name": "Attila Szalai"
+    },
+    {
+      "id": 1030711,
+      "name": "David Jurásek"
+    },
+    {
+      "id": 187423,
+      "name": "Kevin Akpoguma"
+    },
+    {
+      "id": 1122806,
+      "name": "Arthur Chaves"
+    },
+    {
+      "id": 1152499,
+      "name": "Tim Drexler"
+    },
+    {
+      "id": 40244,
+      "name": "Oliver Baumann"
+    },
+    {
+      "id": 943550,
+      "name": "Luca Philipp"
+    }
+  ],
+  "FC St. Pauli": [
+    {
+      "id": 990743,
+      "name": "Morgan Guilavogui"
+    },
+    {
+      "id": 1130946,
+      "name": "Elias Saad"
+    },
+    {
+      "id": 591588,
+      "name": "Johannes Eggestein"
+    },
+    {
+      "id": 88471,
+      "name": "Simon Zoller"
+    },
+    {
+      "id": 89713,
+      "name": "Andreas Albers"
+    },
+    {
+      "id": 887500,
+      "name": "Danel Sinani"
+    },
+    {
+      "id": 1131338,
+      "name": "Robert Wagner"
+    },
+    {
+      "id": 979820,
+      "name": "Philipp Treu"
+    },
+    {
+      "id": 980742,
+      "name": "Erik Ahlstrand"
+    },
+    {
+      "id": 873347,
+      "name": "Lars Ritzka"
+    },
+    {
+      "id": 252343,
+      "name": "Adam Dźwigała"
+    },
+    {
+      "id": 542038,
+      "name": "Eric Smith"
+    },
+    {
+      "id": 966889,
+      "name": "David Nemeth"
+    },
+    {
+      "id": 1481919,
+      "name": "Muhammad Dahaba"
+    },
+    {
+      "id": 325061,
+      "name": "Nikola Vasilj"
+    },
+    {
+      "id": 253515,
+      "name": "Eric Oelschlägel"
+    },
+    {
+      "id": 833368,
+      "name": "Sören Ahlers"
+    },
+    {
+      "id": 1962115,
+      "name": "Julien Yanda"
+    }
+  ],
+  "Holstein Kiel": [
+    {
+      "id": 877837,
+      "name": "Jann-Fiete Arp"
+    },
+    {
+      "id": 122573,
+      "name": "Steven Skrzybski"
+    },
+    {
+      "id": 843709,
+      "name": "Benedikt Pichler"
+    },
+    {
+      "id": 980916,
+      "name": "Alexander Bernhardsson"
+    },
+    {
+      "id": 988893,
+      "name": "Armin Gigović"
+    },
+    {
+      "id": 1135884,
+      "name": "Lewis Holtby"
+    },
+    {
+      "id": 1064305,
+      "name": "Nicolai Remberg"
+    },
+    {
+      "id": 1138554,
+      "name": "Aurel Wagbe"
+    },
+    {
+      "id": 1105869,
+      "name": "Marko Ivezić"
+    },
+    {
+      "id": 254003,
+      "name": "Patrick Erras"
+    },
+    {
+      "id": 347116,
+      "name": "Carl Johansson"
+    },
+    {
+      "id": 579260,
+      "name": "Marco Komenda"
+    },
+    {
+      "id": 126346,
+      "name": "Thomas Dähne"
+    },
+    {
+      "id": 126531,
+      "name": "Marcel Engelhardt"
+    }
+  ],
+  "VfL Bochum 1848": [
+    {
+      "id": 856744,
+      "name": "Myron Boadu"
+    },
+    {
+      "id": 1002357,
+      "name": "Aliou Balde"
+    },
+    {
+      "id": 340719,
+      "name": "Philipp Hofmann"
+    },
+    {
+      "id": 855854,
+      "name": "Dani de Wit"
+    },
+    {
+      "id": 1083404,
+      "name": "Samuel Bamba"
+    },
+    {
+      "id": 995719,
+      "name": "Agon Elezi"
+    },
+    {
+      "id": 886132,
+      "name": "Moritz-Broni Kwarteng"
+    },
+    {
+      "id": 1197157,
+      "name": "Mats Pannewig"
+    },
+    {
+      "id": 1159760,
+      "name": "Niklas Jahn"
+    },
+    {
+      "id": 1634278,
+      "name": "Lennart Koerdt"
+    },
+    {
+      "id": 833213,
+      "name": "Erhan Mašović"
+    },
+    {
+      "id": 828571,
+      "name": "Bernardo"
+    },
+    {
+      "id": 789138,
+      "name": "Noah Loosli"
+    },
+    {
+      "id": 97923,
+      "name": "Timo Horn"
+    },
+    {
+      "id": 132607,
+      "name": "Patrick Drewes"
+    },
+    {
+      "id": 1962250,
+      "name": "Alessandro Crimaldi"
+    }
+  ],
+  "Napoli": [
+    {
+      "id": 869888,
+      "name": "Alessio Zerbin"
+    },
+    {
+      "id": 850993,
+      "name": "David Neres"
+    },
+    {
+      "id": 787941,
+      "name": "Frank Anguissa"
+    },
+    {
+      "id": 907668,
+      "name": "Billy Gilmour"
+    },
+    {
+      "id": 377512,
+      "name": "Pasquale Mazzocchi"
+    },
+    {
+      "id": 805078,
+      "name": "Mathías Olivera"
+    },
+    {
+      "id": 870263,
+      "name": "Alessandro Buongiorno"
+    },
+    {
+      "id": 332155,
+      "name": "Amir Rrahmani"
+    },
+    {
+      "id": 984623,
+      "name": "Rafa Marín"
+    },
+    {
+      "id": 99546,
+      "name": "Mário Rui"
+    },
+    {
+      "id": 592794,
+      "name": "Alex Meret"
+    },
+    {
+      "id": 947954,
+      "name": "Elia Caprile"
+    },
+    {
+      "id": 352728,
+      "name": "Nikita Contini"
+    }
+  ],
+  "Inter": [
+    {
+      "id": 823984,
+      "name": "Lautaro Martínez"
+    },
+    {
+      "id": 812533,
+      "name": "Mehdi Taremi"
+    },
+    {
+      "id": 21927,
+      "name": "Marko Arnautović"
+    },
+    {
+      "id": 138605,
+      "name": "Piotr Zieliński"
+    },
+    {
+      "id": 363856,
+      "name": "Nicolò Barella"
+    },
+    {
+      "id": 759520,
+      "name": "Denzel Dumfries"
+    },
+    {
+      "id": 835600,
+      "name": "Davide Frattesi"
+    },
+    {
+      "id": 787505,
+      "name": "Benjamin Pavard"
+    },
+    {
+      "id": 126816,
+      "name": "Francesco Acerbi"
+    },
+    {
+      "id": 1173598,
+      "name": "Tomás Palacios"
+    },
+    {
+      "id": 1154903,
+      "name": "Mike Aidoo"
+    },
+    {
+      "id": 16206,
+      "name": "Yann Sommer"
+    },
+    {
+      "id": 845291,
+      "name": "Josep Martínez"
+    },
+    {
+      "id": 301162,
+      "name": "Raffaele Di Gennaro"
+    }
+  ],
+  "Atalanta": [
+    {
+      "id": 824200,
+      "name": "Ademola Lookman"
+    },
+    {
+      "id": 807301,
+      "name": "Gianluca Scamacca"
+    },
+    {
+      "id": 914501,
+      "name": "Mateo Retegui"
+    },
+    {
+      "id": 47743,
+      "name": "Juan Cuadrado"
+    },
+    {
+      "id": 864898,
+      "name": "Nicolò Zaniolo"
+    },
+    {
+      "id": 826185,
+      "name": "Raoul Bellanova"
+    },
+    {
+      "id": 132318,
+      "name": "Davide Zappacosta"
+    },
+    {
+      "id": 965011,
+      "name": "Matteo Ruggeri"
+    },
+    {
+      "id": 928800,
+      "name": "Marco Brescianini"
+    },
+    {
+      "id": 1012176,
+      "name": "Giorgio Scalvini"
+    },
+    {
+      "id": 142148,
+      "name": "Sead Kolašinac"
+    },
+    {
+      "id": 82943,
+      "name": "Rafael Tolói"
+    },
+    {
+      "id": 1397736,
+      "name": "Marco Palestra"
+    },
+    {
+      "id": 17737,
+      "name": "Rui Patrício"
+    },
+    {
+      "id": 865646,
+      "name": "Marco Carnesecchi"
+    },
+    {
+      "id": 80074,
+      "name": "Francesco Rossi"
+    }
+  ],
+  "Juventus": [
+    {
+      "id": 161325,
+      "name": "Arkadiusz Milik"
+    },
+    {
+      "id": 1100836,
+      "name": "Samuel Mbangula"
+    },
+    {
+      "id": 111802,
+      "name": "Paul Pogba"
+    },
+    {
+      "id": 901325,
+      "name": "Nicolás González"
+    },
+    {
+      "id": 794927,
+      "name": "Arthur"
+    },
+    {
+      "id": 979222,
+      "name": "Francisco Conceição"
+    },
+    {
+      "id": 363860,
+      "name": "Manuel Locatelli"
+    },
+    {
+      "id": 881931,
+      "name": "Weston McKennie"
+    },
+    {
+      "id": 917048,
+      "name": "Andrea Cambiaso"
+    },
+    {
+      "id": 124992,
+      "name": "Danilo"
+    },
+    {
+      "id": 885197,
+      "name": "Bremer"
+    },
+    {
+      "id": 988037,
+      "name": "Juan Cabal"
+    },
+    {
+      "id": 1087749,
+      "name": "Jonas Rouhi"
+    },
+    {
+      "id": 46420,
+      "name": "Carlo Pinsoglio"
+    }
+  ],
+  "Udinese": [
+    {
+      "id": 1177565,
+      "name": "Damián Pizarro"
+    },
+    {
+      "id": 962364,
+      "name": "Lorenzo Lucca"
+    },
+    {
+      "id": 1155571,
+      "name": "Iker Bravo"
+    },
+    {
+      "id": 884980,
+      "name": "Brenner"
+    },
+    {
+      "id": 830858,
+      "name": "Keinan Davis"
+    },
+    {
+      "id": 964119,
+      "name": "Jordan Zemura"
+    },
+    {
+      "id": 1068286,
+      "name": "Rui Modesto"
+    },
+    {
+      "id": 1009661,
+      "name": "Oier Zarraga"
+    },
+    {
+      "id": 1444690,
+      "name": "Arthur Atta"
+    },
+    {
+      "id": 233856,
+      "name": "Lautaro Giannetti"
+    },
+    {
+      "id": 58351,
+      "name": "Christian Kabasele"
+    },
+    {
+      "id": 1063373,
+      "name": "Thomas Kristensen"
+    },
+    {
+      "id": 848279,
+      "name": "Enzo Ebosse"
+    },
+    {
+      "id": 891656,
+      "name": "Maduka Okoye"
+    },
+    {
+      "id": 1001997,
+      "name": "Răzvan Sava"
+    },
+    {
+      "id": 1001017,
+      "name": "Edoardo Piana"
+    }
+  ],
+  "Milan": [
+    {
+      "id": 851284,
+      "name": "Rafael Leão"
+    },
+    {
+      "id": 125407,
+      "name": "Álvaro Morata"
+    },
+    {
+      "id": 610766,
+      "name": "Tammy Abraham"
+    },
+    {
+      "id": 865523,
+      "name": "Noah Okafor"
+    },
+    {
+      "id": 817957,
+      "name": "Christian Pulišić"
+    },
+    {
+      "id": 823733,
+      "name": "Ismaël Bennacer"
+    },
+    {
+      "id": 284441,
+      "name": "Ruben Loftus-Cheek"
+    },
+    {
+      "id": 893549,
+      "name": "Tijjani Reijnders"
+    },
+    {
+      "id": 983815,
+      "name": "Yunus Musah"
+    },
+    {
+      "id": 1397348,
+      "name": "Kevin Zeroli"
+    },
+    {
+      "id": 965893,
+      "name": "Strahinja Pavlović"
+    },
+    {
+      "id": 856123,
+      "name": "Emerson Royal"
+    },
+    {
+      "id": 152420,
+      "name": "Alessandro Florenzi"
+    },
+    {
+      "id": 1034303,
+      "name": "Filippo Terracciano"
+    },
+    {
+      "id": 176301,
+      "name": "Marco Sportiello"
+    }
+  ],
+  "Torino": [
+    {
+      "id": 333261,
+      "name": "Antonio Sanabria"
+    },
+    {
+      "id": 802149,
+      "name": "Yann Karamoh"
+    },
+    {
+      "id": 1526925,
+      "name": "Tommaso Gabellini"
+    },
+    {
+      "id": 1001725,
+      "name": "Brian Bayeye"
+    },
+    {
+      "id": 1142612,
+      "name": "Emirhan İlkhan"
+    },
+    {
+      "id": 798147,
+      "name": "Mërgim Vojvoda"
+    },
+    {
+      "id": 1114354,
+      "name": "Aaron Ciammaglichella"
+    },
+    {
+      "id": 1002113,
+      "name": "Brian Jephte Bayeye"
+    },
+    {
+      "id": 1154617,
+      "name": "Zanos Savva"
+    },
+    {
+      "id": 886243,
+      "name": "Sebastian Walukiewicz"
+    },
+    {
+      "id": 339909,
+      "name": "Guillermo Maripán"
+    },
+    {
+      "id": 831677,
+      "name": "Perr Schuurs"
+    },
+    {
+      "id": 1089453,
+      "name": "Saul Coco"
+    },
+    {
+      "id": 139235,
+      "name": "Adrien Tameze"
+    },
+    {
+      "id": 1533812,
+      "name": "Edoardo Zaia"
+    },
+    {
+      "id": 356160,
+      "name": "Vanja Milinković-Savić"
+    },
+    {
+      "id": 1951653,
+      "name": "Francesco Saverio Plaia"
+    }
+  ],
+  "Fiorentina": [
+    {
+      "id": 835601,
+      "name": "Moise Kean"
+    },
+    {
+      "id": 812946,
+      "name": "Christian Kouamé"
+    },
+    {
+      "id": 928122,
+      "name": "Andrea Colpani"
+    },
+    {
+      "id": 1121333,
+      "name": "Amir Richardson"
+    },
+    {
+      "id": 859024,
+      "name": "Yacine Adli"
+    },
+    {
+      "id": 802142,
+      "name": "Jonathan Ikoné"
+    },
+    {
+      "id": 548178,
+      "name": "Rolando Mandragora"
+    },
+    {
+      "id": 317301,
+      "name": "Danilo Cataldi"
+    },
+    {
+      "id": 847467,
+      "name": "Marin Pongračić"
+    },
+    {
+      "id": 893998,
+      "name": "Luca Ranieri"
+    },
+    {
+      "id": 1951651,
+      "name": "Eddy Kouadio"
+    },
+    {
+      "id": 69378,
+      "name": "David De Gea"
+    },
+    {
+      "id": 136856,
+      "name": "Pietro Terracciano"
+    },
+    {
+      "id": 1397756,
+      "name": "Tommaso Martinelli"
+    }
+  ],
+  "Lazio": [
+    {
+      "id": 293581,
+      "name": "Mattia Zaccagni"
+    },
+    {
+      "id": 158615,
+      "name": "Matías Vecino"
+    },
+    {
+      "id": 937324,
+      "name": "Nicolò Rovella"
+    },
+    {
+      "id": 1069244,
+      "name": "Tijjani Noslin"
+    },
+    {
+      "id": 587628,
+      "name": "Gaetano Castrovilli"
+    },
+    {
+      "id": 947171,
+      "name": "André Anderson"
+    },
+    {
+      "id": 1470920,
+      "name": "Filipe Bordon"
+    },
+    {
+      "id": 944973,
+      "name": "Nuno Tavares"
+    },
+    {
+      "id": 826186,
+      "name": "Luca Pellegrini"
+    },
+    {
+      "id": 273405,
+      "name": "Manuel Lazzari"
+    },
+    {
+      "id": 339231,
+      "name": "Samuel Gigot"
+    },
+    {
+      "id": 217784,
+      "name": "Patric"
+    },
+    {
+      "id": 308182,
+      "name": "Ivan Provedel"
+    },
+    {
+      "id": 913762,
+      "name": "Christos Mandas"
+    },
+    {
+      "id": 1472205,
+      "name": "Davide Renzetti"
+    }
+  ],
+  "Roma": [
+    {
+      "id": 256219,
+      "name": "Paulo Dybala"
+    },
+    {
+      "id": 45925,
+      "name": "Stephan El Shaarawy"
+    },
+    {
+      "id": 984184,
+      "name": "Nicola Zalewski"
+    },
+    {
+      "id": 555540,
+      "name": "Lorenzo Pellegrini"
+    },
+    {
+      "id": 984014,
+      "name": "Enzo Le Fée"
+    },
+    {
+      "id": 1175821,
+      "name": "Niccolò Pisilli"
+    },
+    {
+      "id": 16632,
+      "name": "Mats Hummels"
+    },
+    {
+      "id": 966849,
+      "name": "Saud Abdulhamid"
+    },
+    {
+      "id": 848355,
+      "name": "Angeliño"
+    },
+    {
+      "id": 893008,
+      "name": "Zeki Çelik"
+    },
+    {
+      "id": 993101,
+      "name": "Samuel Dahl"
+    },
+    {
+      "id": 1542721,
+      "name": "Buba Sangare"
+    },
+    {
+      "id": 793986,
+      "name": "Mile Svilar"
+    }
+  ],
+  "Empoli": [
+    {
+      "id": 839226,
+      "name": "Pietro Pellegri"
+    },
+    {
+      "id": 920744,
+      "name": "Ola Solbakken"
+    },
+    {
+      "id": 1000015,
+      "name": "Emmanuel Ekong"
+    },
+    {
+      "id": 907667,
+      "name": "Faustino Anjorin"
+    },
+    {
+      "id": 541578,
+      "name": "Emmanuel Gyasi"
+    },
+    {
+      "id": 1012179,
+      "name": "Jacopo Fazzini"
+    },
+    {
+      "id": 814589,
+      "name": "Giuseppe Pezzella"
+    },
+    {
+      "id": 186845,
+      "name": "Alberto Grassi"
+    },
+    {
+      "id": 603738,
+      "name": "Junior Sambia"
+    },
+    {
+      "id": 580512,
+      "name": "Tyronne Ebuehi"
+    },
+    {
+      "id": 1126175,
+      "name": "Saba Goglichidze"
+    },
+    {
+      "id": 1009268,
+      "name": "Mattia Viti"
+    },
+    {
+      "id": 925285,
+      "name": "Devis Vásquez"
+    },
+    {
+      "id": 794784,
+      "name": "Samuele Perisan"
+    }
+  ],
+  "Bologna": [
+    {
+      "id": 905381,
+      "name": "Thijs Dallinga"
+    },
+    {
+      "id": 1116577,
+      "name": "Santiago Castro"
+    },
+    {
+      "id": 826064,
+      "name": "Jens Odgaard"
+    },
+    {
+      "id": 1127191,
+      "name": "Oussama El Azzouzi"
+    },
+    {
+      "id": 1012383,
+      "name": "Kacper Urbański"
+    },
+    {
+      "id": 793645,
+      "name": "Riccardo Orsolini"
+    },
+    {
+      "id": 814882,
+      "name": "Nikola Moro"
+    },
+    {
+      "id": 907152,
+      "name": "Lewis Ferguson"
+    },
+    {
+      "id": 834597,
+      "name": "Jesper Karlsson"
+    },
+    {
+      "id": 928796,
+      "name": "Tommaso Pobega"
+    },
+    {
+      "id": 965264,
+      "name": "Emil Holm"
+    },
+    {
+      "id": 355486,
+      "name": "Stefan Posch"
+    },
+    {
+      "id": 862697,
+      "name": "Nicolò Casale"
+    },
+    {
+      "id": 14718,
+      "name": "Lorenzo De Silvestri"
+    },
+    {
+      "id": 44906,
+      "name": "Łukasz Skorupski"
+    },
+    {
+      "id": 850952,
+      "name": "Federico Ravaglia"
+    }
+  ],
+  "Como": [
+    {
+      "id": 795044,
+      "name": "Patrick Cutrone"
+    },
+    {
+      "id": 187121,
+      "name": "Alberto Cerri"
+    },
+    {
+      "id": 813070,
+      "name": "Alessandro Gabrielloni"
+    },
+    {
+      "id": 1171451,
+      "name": "Nico Paz"
+    },
+    {
+      "id": 123976,
+      "name": "Sergi Roberto"
+    },
+    {
+      "id": 1066729,
+      "name": "Ali Jasim"
+    },
+    {
+      "id": 1086286,
+      "name": "Máximo Perrone"
+    },
+    {
+      "id": 1031548,
+      "name": "Alieu Fadera"
+    },
+    {
+      "id": 911848,
+      "name": "Lucas Da Cunha"
+    },
+    {
+      "id": 962282,
+      "name": "Matthias Braunöder"
+    },
+    {
+      "id": 369866,
+      "name": "Luca Mazzitelli"
+    },
+    {
+      "id": 990209,
+      "name": "Yannik Engelhardt"
+    },
+    {
+      "id": 874583,
+      "name": "Moutir Chajia"
+    },
+    {
+      "id": 226974,
+      "name": "Marc-Oliver Kempf"
+    },
+    {
+      "id": 350882,
+      "name": "Alessio Iovine"
+    },
+    {
+      "id": 967672,
+      "name": "Pierre Bolchini"
+    }
+  ],
+  "Cagliari": [
+    {
+      "id": 279563,
+      "name": "Răzvan Marin"
+    },
+    {
+      "id": 920391,
+      "name": "Antoine Makoumbou"
+    },
+    {
+      "id": 569556,
+      "name": "Jakub Jankto"
+    },
+    {
+      "id": 21608,
+      "name": "Nicolas Viola"
+    },
+    {
+      "id": 928777,
+      "name": "Michel Ndary Adopo"
+    },
+    {
+      "id": 328109,
+      "name": "Alessandro Deiola"
+    },
+    {
+      "id": 383314,
+      "name": "Paulo Azzi"
+    },
+    {
+      "id": 286087,
+      "name": "Mateusz Wieteska"
+    },
+    {
+      "id": 352736,
+      "name": "Sebastiano Luperto"
+    },
+    {
+      "id": 596736,
+      "name": "Tommaso Augello"
+    },
+    {
+      "id": 964153,
+      "name": "Adam Obert"
+    },
+    {
+      "id": 284349,
+      "name": "Simone Scuffet"
+    },
+    {
+      "id": 992605,
+      "name": "Giuseppe Ciocci"
+    },
+    {
+      "id": 1923320,
+      "name": "Velizar Iliev"
+    }
+  ],
+  "Hellas Verona": [
+    {
+      "id": 957937,
+      "name": "Casper Tengstedt"
+    },
+    {
+      "id": 1018179,
+      "name": "Daniel Mosquera"
+    },
+    {
+      "id": 1426235,
+      "name": "Mathis Lambourde"
+    },
+    {
+      "id": 1389689,
+      "name": "Reda Belahyane"
+    },
+    {
+      "id": 246319,
+      "name": "Ondrej Duda"
+    },
+    {
+      "id": 800408,
+      "name": "Suat Serdar"
+    },
+    {
+      "id": 974863,
+      "name": "Daniel Silva"
+    },
+    {
+      "id": 1149141,
+      "name": "Luca Monticelli"
+    },
+    {
+      "id": 901885,
+      "name": "Flavius Daniliuc"
+    },
+    {
+      "id": 32040,
+      "name": "Davide Faraoni"
+    },
+    {
+      "id": 1050692,
+      "name": "Diego Coppola"
+    },
+    {
+      "id": 812829,
+      "name": "Giangiacomo Magnani"
+    },
+    {
+      "id": 874812,
+      "name": "Martin Frese"
+    },
+    {
+      "id": 1167514,
+      "name": "Yllan Okou"
+    },
+    {
+      "id": 1418078,
+      "name": "Karlson Nwanege"
+    },
+    {
+      "id": 253369,
+      "name": "Simone Perilli"
+    },
+    {
+      "id": 1126870,
+      "name": "Federico Magro"
+    },
+    {
+      "id": 147700,
+      "name": "Alessandro Berardi"
+    }
+  ],
+  "Monza": [
+    {
+      "id": 76132,
+      "name": "Milan Đurić"
+    },
+    {
+      "id": 295973,
+      "name": "Andrea Petagna"
+    },
+    {
+      "id": 1119364,
+      "name": "Samuele Vignato"
+    },
+    {
+      "id": 350210,
+      "name": "Matteo Pessina"
+    },
+    {
+      "id": 1000366,
+      "name": "Warren Bondo"
+    },
+    {
+      "id": 346676,
+      "name": "Patrick Ciurria"
+    },
+    {
+      "id": 1101992,
+      "name": "Alessandro Bianco"
+    },
+    {
+      "id": 139397,
+      "name": "Mattia Valoti"
+    },
+    {
+      "id": 107936,
+      "name": "Danilo D'Ambrosio"
+    },
+    {
+      "id": 856729,
+      "name": "Samuele Birindelli"
+    },
+    {
+      "id": 807291,
+      "name": "Pedro Pereira"
+    },
+    {
+      "id": 970978,
+      "name": "Andrea Carboni"
+    },
+    {
+      "id": 100565,
+      "name": "Luca Caldirola"
+    },
+    {
+      "id": 923820,
+      "name": "Semuel Pizzignacco"
+    }
+  ],
+  "Parma": [
+    {
+      "id": 1017649,
+      "name": "Matteo Cancellieri"
+    },
+    {
+      "id": 856065,
+      "name": "Pontus Almqvist"
+    },
+    {
+      "id": 979043,
+      "name": "Gabriel Charpentier"
+    },
+    {
+      "id": 812145,
+      "name": "Dennis Man"
+    },
+    {
+      "id": 925242,
+      "name": "Valentin Mihăilă"
+    },
+    {
+      "id": 934384,
+      "name": "Adrián Bernabé"
+    },
+    {
+      "id": 928295,
+      "name": "Adrian Benedyczak"
+    },
+    {
+      "id": 895868,
+      "name": "Nahuel Estévez"
+    },
+    {
+      "id": 1394202,
+      "name": "Antoine Hainaut"
+    },
+    {
+      "id": 983510,
+      "name": "Botond Balogh"
+    },
+    {
+      "id": 789958,
+      "name": "Yordan Osorio"
+    },
+    {
+      "id": 989894,
+      "name": "Woyo Coulibaly"
+    },
+    {
+      "id": 928103,
+      "name": "Enrico Del Prato"
+    },
+    {
+      "id": 958517,
+      "name": "Lautaro Valenti"
+    },
+    {
+      "id": 905351,
+      "name": "Zion Suzuki"
+    }
+  ],
+  "Genoa": [
+    {
+      "id": 1093695,
+      "name": "Vitinha"
+    },
+    {
+      "id": 309156,
+      "name": "Caleb Ekuban"
+    },
+    {
+      "id": 311396,
+      "name": "Gastón Pereiro"
+    },
+    {
+      "id": 1010223,
+      "name": "Fabio Miretti"
+    },
+    {
+      "id": 888219,
+      "name": "Junior Messias"
+    },
+    {
+      "id": 797286,
+      "name": "Aarón Martín"
+    },
+    {
+      "id": 1087514,
+      "name": "Brooke Norton-Cuffy"
+    },
+    {
+      "id": 1605340,
+      "name": "Lior Kasa"
+    },
+    {
+      "id": 889785,
+      "name": "Johan Vásquez"
+    },
+    {
+      "id": 1001828,
+      "name": "Koni De Winter"
+    },
+    {
+      "id": 1177401,
+      "name": "Alan Matturro"
+    },
+    {
+      "id": 922928,
+      "name": "Alessandro Zanoli"
+    },
+    {
+      "id": 250547,
+      "name": "Mattia Bani"
+    },
+    {
+      "id": 1634980,
+      "name": "Honest Ahanor"
+    },
+    {
+      "id": 98059,
+      "name": "Nicola Leali"
+    },
+    {
+      "id": 985848,
+      "name": "Franz Stolz"
+    }
+  ],
+  "Lecce": [
+    {
+      "id": 839156,
+      "name": "Nikola Krstović"
+    },
+    {
+      "id": 984998,
+      "name": "Santiago Pierotti"
+    },
+    {
+      "id": 804621,
+      "name": "Lassana Coulibaly"
+    },
+    {
+      "id": 1082407,
+      "name": "Luis Hasa"
+    },
+    {
+      "id": 842709,
+      "name": "Rémi Oudin"
+    },
+    {
+      "id": 605374,
+      "name": "Tete Morente"
+    },
+    {
+      "id": 1014651,
+      "name": "Balthazar Pierret"
+    },
+    {
+      "id": 886628,
+      "name": "Þórir Jóhann Helgason"
+    },
+    {
+      "id": 1139767,
+      "name": "Dario Daka"
+    },
+    {
+      "id": 1397168,
+      "name": "Patrick Dorgu"
+    },
+    {
+      "id": 1090374,
+      "name": "Kialonda Gaspar"
+    },
+    {
+      "id": 372430,
+      "name": "Frédéric Guilbert"
+    },
+    {
+      "id": 365992,
+      "name": "Kevin Bonifazi"
+    },
+    {
+      "id": 877978,
+      "name": "Andy Pelmard"
+    },
+    {
+      "id": 1392819,
+      "name": "Gaby Jean"
+    },
+    {
+      "id": 1517676,
+      "name": "Vernon Addo"
+    },
+    {
+      "id": 256667,
+      "name": "Wladimiro Falcone"
+    },
+    {
+      "id": 1000347,
+      "name": "Alexandru Borbei"
+    }
+  ],
+  "Venezia": [
+    {
+      "id": 137155,
+      "name": "Joel Pohjanpalo"
+    },
+    {
+      "id": 78939,
+      "name": "Christian Gytkjær"
+    },
+    {
+      "id": 896180,
+      "name": "Gianluca Busio"
+    },
+    {
+      "id": 232224,
+      "name": "Alfred Duncan"
+    },
+    {
+      "id": 1086199,
+      "name": "Franco Carboni"
+    },
+    {
+      "id": 1887618,
+      "name": "Saad El Haddad"
+    },
+    {
+      "id": 1198069,
+      "name": "Richie Sagrado"
+    },
+    {
+      "id": 232096,
+      "name": "Domen Črnigoj"
+    },
+    {
+      "id": 1141754,
+      "name": "Issa Doumbia"
+    },
+    {
+      "id": 805983,
+      "name": "Luca Fiordilino"
+    },
+    {
+      "id": 933641,
+      "name": "Jay Idzes"
+    },
+    {
+      "id": 822485,
+      "name": "Marin Šverko"
+    },
+    {
+      "id": 882004,
+      "name": "Giorgio Altare"
+    },
+    {
+      "id": 97978,
+      "name": "Jesse Joronen"
+    },
+    {
+      "id": 977078,
+      "name": "Filippo Neri"
+    }
+  ],
+  "Paris Saint-Germain": [
+    {
+      "id": 818244,
+      "name": "Ousmane Dembélé"
+    },
+    {
+      "id": 996952,
+      "name": "Bradley Barcola"
+    },
+    {
+      "id": 1590918,
+      "name": "Ibrahim Mbaye"
+    },
+    {
+      "id": 1142673,
+      "name": "Ayman Kari"
+    },
+    {
+      "id": 784655,
+      "name": "Fabián Ruiz"
+    },
+    {
+      "id": 1154605,
+      "name": "Désiré Doué"
+    },
+    {
+      "id": 1473491,
+      "name": "Senny Mayulu"
+    },
+    {
+      "id": 814594,
+      "name": "Achraf Hakimi"
+    },
+    {
+      "id": 155995,
+      "name": "Marquinhos"
+    },
+    {
+      "id": 1108441,
+      "name": "Lucas Beraldo"
+    },
+    {
+      "id": 187205,
+      "name": "Milan Škriniar"
+    },
+    {
+      "id": 979480,
+      "name": "Willian Pacho"
+    },
+    {
+      "id": 1403218,
+      "name": "Yoram Zague"
+    },
+    {
+      "id": 800749,
+      "name": "Matvey Safonov"
+    }
+  ],
+  "AS Monaco": [
+    {
+      "id": 318963,
+      "name": "Aleksandr Golovin"
+    },
+    {
+      "id": 934237,
+      "name": "Folarin Balogun"
+    },
+    {
+      "id": 1462434,
+      "name": "George Ilenikhena"
+    },
+    {
+      "id": 1394353,
+      "name": "Eliesse Ben Seghir"
+    },
+    {
+      "id": 873534,
+      "name": "Krépin Diatta"
+    },
+    {
+      "id": 845170,
+      "name": "Caio Henrique"
+    },
+    {
+      "id": 1046150,
+      "name": "Eliot Matazo"
+    },
+    {
+      "id": 1426581,
+      "name": "Saimon Bouabre"
+    },
+    {
+      "id": 1390575,
+      "name": "Edan Diop"
+    },
+    {
+      "id": 946158,
+      "name": "Mohammed Salisu"
+    },
+    {
+      "id": 1090694,
+      "name": "Vanderson"
+    },
+    {
+      "id": 281277,
+      "name": "Thilo Kehrer"
+    },
+    {
+      "id": 849114,
+      "name": "Radosław Majecki"
+    },
+    {
+      "id": 868964,
+      "name": "Philipp Köhn"
+    }
+  ],
+  "Olympique de Marseille": [
+    {
+      "id": 979315,
+      "name": "Elye Wahi"
+    },
+    {
+      "id": 977679,
+      "name": "Luís Henrique"
+    },
+    {
+      "id": 268903,
+      "name": "Neal Maupay"
+    },
+    {
+      "id": 1606630,
+      "name": "Enzo Sternal"
+    },
+    {
+      "id": 1844117,
+      "name": "Keyliane Abdallah"
+    },
+    {
+      "id": 827522,
+      "name": "Amine Harit"
+    },
+    {
+      "id": 1153083,
+      "name": "Valentín Carboni"
+    },
+    {
+      "id": 96544,
+      "name": "Geoffrey Kondogbia"
+    },
+    {
+      "id": 1129527,
+      "name": "Bilal Nadir"
+    },
+    {
+      "id": 928236,
+      "name": "Leonardo Balerdi"
+    },
+    {
+      "id": 839493,
+      "name": "Michael Murillo"
+    },
+    {
+      "id": 1102502,
+      "name": "Quentin Merlin"
+    },
+    {
+      "id": 988907,
+      "name": "Lilian Brassier"
+    },
+    {
+      "id": 1131541,
+      "name": "Bamo Meïté"
+    },
+    {
+      "id": 1403124,
+      "name": "Emran Soglo"
+    },
+    {
+      "id": 180515,
+      "name": "Rubén Blanco"
+    }
+  ],
+  "Lille": [
+    {
+      "id": 935564,
+      "name": "Jonathan David"
+    },
+    {
+      "id": 1402698,
+      "name": "Ethan Mbappé"
+    },
+    {
+      "id": 867441,
+      "name": "Angel Gomes"
+    },
+    {
+      "id": 1564180,
+      "name": "Ayyoub Bouaddi"
+    },
+    {
+      "id": 235460,
+      "name": "André Gomes"
+    },
+    {
+      "id": 72998,
+      "name": "Rémy Cabella"
+    },
+    {
+      "id": 1391541,
+      "name": "Ngal'ayel Mukau"
+    },
+    {
+      "id": 51665,
+      "name": "Benjamin André"
+    },
+    {
+      "id": 1515932,
+      "name": "Lilian Baret"
+    },
+    {
+      "id": 96547,
+      "name": "Samuel Umtiti"
+    },
+    {
+      "id": 1087364,
+      "name": "Tiago Santos"
+    },
+    {
+      "id": 1049775,
+      "name": "Alexsandro Ribeiro"
+    },
+    {
+      "id": 834308,
+      "name": "Gabriel Gudmundsson"
+    },
+    {
+      "id": 1513466,
+      "name": "Ousmane Touré"
+    },
+    {
+      "id": 1149293,
+      "name": "Vincent Burlet"
+    },
+    {
+      "id": 1936804,
+      "name": "Isaac Cossier"
+    },
+    {
+      "id": 17053,
+      "name": "Vito Mannone"
+    },
+    {
+      "id": 1155225,
+      "name": "Lisandru Olmeta"
+    }
+  ],
+  "RC Lens": [
+    {
+      "id": 788921,
+      "name": "Florian Sotoca"
+    },
+    {
+      "id": 227862,
+      "name": "Wesley Saïd"
+    },
+    {
+      "id": 1401005,
+      "name": "Remy Labeau Lascary"
+    },
+    {
+      "id": 123166,
+      "name": "Nampalys Mendy"
+    },
+    {
+      "id": 877036,
+      "name": "Anass Zaroury"
+    },
+    {
+      "id": 286909,
+      "name": "Przemysław Frankowski"
+    },
+    {
+      "id": 822110,
+      "name": "Deiver Machado"
+    },
+    {
+      "id": 1002447,
+      "name": "Hamzat Ojediran"
+    },
+    {
+      "id": 1418332,
+      "name": "Nolan Bonté"
+    },
+    {
+      "id": 1387163,
+      "name": "Tom Pouilly"
+    },
+    {
+      "id": 794953,
+      "name": "Kevin Danso"
+    },
+    {
+      "id": 369650,
+      "name": "Jonathan Gradit"
+    },
+    {
+      "id": 1408080,
+      "name": "Pierre Ganiou"
+    },
+    {
+      "id": 867299,
+      "name": "Hervé Koffi"
+    },
+    {
+      "id": 20705,
+      "name": "Denis Petrić"
+    },
+    {
+      "id": 1545303,
+      "name": "Adam Delplace"
+    }
+  ],
+  "Stade de Reims": [
+    {
+      "id": 783278,
+      "name": "Junya Ito"
+    },
+    {
+      "id": 1401006,
+      "name": "Yaya Fofana"
+    },
+    {
+      "id": 1586875,
+      "name": "Amadou Kone"
+    },
+    {
+      "id": 1013842,
+      "name": "Emmanuel Agbadou"
+    },
+    {
+      "id": 985933,
+      "name": "Joseph Okumu"
+    },
+    {
+      "id": 357752,
+      "name": "Aurélio Buta"
+    },
+    {
+      "id": 827942,
+      "name": "Sergio Akieme"
+    },
+    {
+      "id": 943926,
+      "name": "Maxime Busi"
+    },
+    {
+      "id": 844744,
+      "name": "Thibault De Smet"
+    },
+    {
+      "id": 1426221,
+      "name": "Nhoa Sangui"
+    },
+    {
+      "id": 1035512,
+      "name": "Kobi Henry"
+    },
+    {
+      "id": 1859949,
+      "name": "Abdoul Koné"
+    },
+    {
+      "id": 845183,
+      "name": "Yehvann Diouf"
+    }
+  ],
+  "Olympique Lyonnais": [
+    {
+      "id": 354808,
+      "name": "Saïd Benrahma"
+    },
+    {
+      "id": 50070,
+      "name": "Alexandre Lacazette"
+    },
+    {
+      "id": 1009372,
+      "name": "Georges Mikautadze"
+    },
+    {
+      "id": 1217613,
+      "name": "Gift Orban"
+    },
+    {
+      "id": 1195784,
+      "name": "Malick Fofana"
+    },
+    {
+      "id": 44241,
+      "name": "Nemanja Matić"
+    },
+    {
+      "id": 343067,
+      "name": "Corentin Tolisso"
+    },
+    {
+      "id": 151124,
+      "name": "Jordan Veretout"
+    },
+    {
+      "id": 352768,
+      "name": "Ainsley Maitland-Niles"
+    },
+    {
+      "id": 1407658,
+      "name": "Chaim El Djebali"
+    },
+    {
+      "id": 839309,
+      "name": "Paul Akouokou"
+    },
+    {
+      "id": 1385467,
+      "name": "Florent Sanchez Da Silva"
+    },
+    {
+      "id": 158243,
+      "name": "Nicolás Tagliafico"
+    },
+    {
+      "id": 257091,
+      "name": "Duje Ćaleta-Car"
+    },
+    {
+      "id": 999030,
+      "name": "Warmed Omari"
+    },
+    {
+      "id": 871290,
+      "name": "Lucas Perri"
+    }
+  ],
+  "Stade Brestois": [
+    {
+      "id": 1386639,
+      "name": "Ibrahim Salah"
+    },
+    {
+      "id": 1902020,
+      "name": "Ibrahim Kanté"
+    },
+    {
+      "id": 1922996,
+      "name": "Serigne Diop"
+    },
+    {
+      "id": 913942,
+      "name": "Romain Faivre"
+    },
+    {
+      "id": 916041,
+      "name": "Mahdi Camara"
+    },
+    {
+      "id": 831400,
+      "name": "Mathias Pereira Lage"
+    },
+    {
+      "id": 861324,
+      "name": "Hugo Magnetti"
+    },
+    {
+      "id": 984527,
+      "name": "Abdoulaye Ndiaye"
+    },
+    {
+      "id": 143344,
+      "name": "Massadio Haïdara"
+    },
+    {
+      "id": 141080,
+      "name": "Kenny Lala"
+    },
+    {
+      "id": 342915,
+      "name": "Jordan Amavi"
+    },
+    {
+      "id": 1499870,
+      "name": "Luc Zogbe"
+    },
+    {
+      "id": 100390,
+      "name": "Marco Bizot"
+    },
+    {
+      "id": 1910904,
+      "name": "Noah Jauny"
+    }
+  ],
+  "Stade Rennais": [
+    {
+      "id": 859026,
+      "name": "Amine Gouiri"
+    },
+    {
+      "id": 954061,
+      "name": "Arnaud Kalimuendo"
+    },
+    {
+      "id": 806076,
+      "name": "Ludovic Blas"
+    },
+    {
+      "id": 1160386,
+      "name": "Andrés Gómez"
+    },
+    {
+      "id": 1136409,
+      "name": "Jordan James"
+    },
+    {
+      "id": 856495,
+      "name": "Azor Matusiwa"
+    },
+    {
+      "id": 1445628,
+      "name": "Djaoui Cissé"
+    },
+    {
+      "id": 930231,
+      "name": "Christopher Wooh"
+    },
+    {
+      "id": 1049515,
+      "name": "Alidu Seidu"
+    },
+    {
+      "id": 999028,
+      "name": "Adrien Truffert"
+    },
+    {
+      "id": 1009334,
+      "name": "Lorenz Assignon"
+    },
+    {
+      "id": 1606627,
+      "name": "Yael Thebault"
+    },
+    {
+      "id": 1891059,
+      "name": "Arsène Do Marcolino"
+    },
+    {
+      "id": 27029,
+      "name": "Steve Mandanda"
+    },
+    {
+      "id": 74008,
+      "name": "Geoffrey Lembet"
+    }
+  ],
+  "Nice": [
+    {
+      "id": 367056,
+      "name": "Jérémie Boga"
+    },
+    {
+      "id": 1063235,
+      "name": "Mohamed-Ali Cho"
+    },
+    {
+      "id": 1897296,
+      "name": "Victor Orakpo"
+    },
+    {
+      "id": 985923,
+      "name": "Hicham Boudaoui"
+    },
+    {
+      "id": 845486,
+      "name": "Tanguy Ndombélé"
+    },
+    {
+      "id": 804472,
+      "name": "Pablo Rosario"
+    },
+    {
+      "id": 926506,
+      "name": "Mohamed Abdelmonem"
+    },
+    {
+      "id": 919027,
+      "name": "Ali Abdi"
+    },
+    {
+      "id": 3577,
+      "name": "Dante"
+    },
+    {
+      "id": 1120615,
+      "name": "Antoine Mendy"
+    },
+    {
+      "id": 1551013,
+      "name": "Amidou Doumbouya"
+    },
+    {
+      "id": 889590,
+      "name": "Marcin Bułka"
+    },
+    {
+      "id": 1035770,
+      "name": "Teddy Boulhendi"
+    },
+    {
+      "id": 96542,
+      "name": "Maxime Dupé"
+    }
+  ],
+  "Nantes": [
+    {
+      "id": 890329,
+      "name": "Ignatius Ganago"
+    },
+    {
+      "id": 1218074,
+      "name": "Adel Mahamoud"
+    },
+    {
+      "id": 963299,
+      "name": "Johann Lepenant"
+    },
+    {
+      "id": 326343,
+      "name": "Jean-Philippe Gbamin"
+    },
+    {
+      "id": 809034,
+      "name": "Douglas Augusto"
+    },
+    {
+      "id": 234230,
+      "name": "Florent Mollet"
+    },
+    {
+      "id": 1405912,
+      "name": "Dehmaine Assoumani"
+    },
+    {
+      "id": 1499150,
+      "name": "Malang Gomes"
+    },
+    {
+      "id": 802143,
+      "name": "Kelvin Amian"
+    },
+    {
+      "id": 106496,
+      "name": "Nicolas Pallois"
+    },
+    {
+      "id": 802034,
+      "name": "Fabien Centonze"
+    },
+    {
+      "id": 886286,
+      "name": "Nicolas Cozza"
+    },
+    {
+      "id": 1130504,
+      "name": "Moutanabi Bodiang"
+    },
+    {
+      "id": 1405999,
+      "name": "Hugo Boutsingkham"
+    },
+    {
+      "id": 826201,
+      "name": "Alban Lafont"
+    }
+  ],
+  "RC Strasbourg": [
+    {
+      "id": 1047484,
+      "name": "Sékou Mara"
+    },
+    {
+      "id": 963298,
+      "name": "Dilane Bakwa"
+    },
+    {
+      "id": 1113031,
+      "name": "Dion Moise Sahi"
+    },
+    {
+      "id": 1634355,
+      "name": "Mohamed Bechikh"
+    },
+    {
+      "id": 962068,
+      "name": "Sebastian Nanasi"
+    },
+    {
+      "id": 1185986,
+      "name": "Óscar Perea"
+    },
+    {
+      "id": 1049517,
+      "name": "Ismael Doukoure"
+    },
+    {
+      "id": 1426223,
+      "name": "Nolan Ferro"
+    },
+    {
+      "id": 153218,
+      "name": "Thomas Delaine"
+    },
+    {
+      "id": 1063237,
+      "name": "Saïdou Sow"
+    },
+    {
+      "id": 1035645,
+      "name": "Caleb Wiley"
+    },
+    {
+      "id": 1002033,
+      "name": "Guéla Doué"
+    },
+    {
+      "id": 1170197,
+      "name": "Abakar Sylla"
+    },
+    {
+      "id": 1087805,
+      "name": "Marvin Senaya"
+    },
+    {
+      "id": 1804794,
+      "name": "Elies Araar Fernandez"
+    },
+    {
+      "id": 1000501,
+      "name": "Alaa Bellaarouch"
+    },
+    {
+      "id": 1387161,
+      "name": "Robin Risser"
+    }
+  ],
+  "Auxerre": [
+    {
+      "id": 936848,
+      "name": "Thelonius Bair"
+    },
+    {
+      "id": 892924,
+      "name": "Hamed Junior Traorè"
+    },
+    {
+      "id": 827506,
+      "name": "Gaëtan Perrin"
+    },
+    {
+      "id": 1142138,
+      "name": "Nathan Buayi-Kiala"
+    },
+    {
+      "id": 1151803,
+      "name": "Kévin Danois"
+    },
+    {
+      "id": 1936455,
+      "name": "Aristide Zossou"
+    },
+    {
+      "id": 844942,
+      "name": "Gideon Mensah"
+    },
+    {
+      "id": 954044,
+      "name": "Ki-Jana Hoever"
+    },
+    {
+      "id": 996951,
+      "name": "Sinaly Diomandé"
+    },
+    {
+      "id": 919680,
+      "name": "Saad Agouzoul"
+    },
+    {
+      "id": 920680,
+      "name": "Gabriel Osho"
+    },
+    {
+      "id": 329195,
+      "name": "Jubal"
+    },
+    {
+      "id": 159837,
+      "name": "Donovan Léon"
+    },
+    {
+      "id": 1129363,
+      "name": "Tom Negrel"
+    },
+    {
+      "id": 821737,
+      "name": "Raphael Adiceam"
+    }
+  ],
+  "Angers": [
+    {
+      "id": 294641,
+      "name": "Loïs Diony"
+    },
+    {
+      "id": 966621,
+      "name": "Esteban Lepaul"
+    },
+    {
+      "id": 945830,
+      "name": "Himad Abdelli"
+    },
+    {
+      "id": 842400,
+      "name": "Zinedine Ferhat"
+    },
+    {
+      "id": 930584,
+      "name": "Farid El Melali"
+    },
+    {
+      "id": 156004,
+      "name": "Jean-Eudes Aholou"
+    },
+    {
+      "id": 989899,
+      "name": "Zinédine Ould Khaled"
+    },
+    {
+      "id": 187993,
+      "name": "Joseph Lopy"
+    },
+    {
+      "id": 209768,
+      "name": "Pierrick Capelle"
+    },
+    {
+      "id": 794373,
+      "name": "Carlens Arcus"
+    },
+    {
+      "id": 1146166,
+      "name": "Yacine Gaya"
+    },
+    {
+      "id": 121180,
+      "name": "Abdoulaye Bamba"
+    },
+    {
+      "id": 928334,
+      "name": "Halid Šabanović"
+    },
+    {
+      "id": 1506932,
+      "name": "Marius Courcoul"
+    },
+    {
+      "id": 877977,
+      "name": "Yahia Fofana"
+    },
+    {
+      "id": 963201,
+      "name": "Melvin Zinga"
+    },
+    {
+      "id": 1651830,
+      "name": "Oumar Pona"
+    }
+  ],
+  "Saint-Étienne": [
+    {
+      "id": 921369,
+      "name": "Zuriko Davitashvili"
+    },
+    {
+      "id": 1126521,
+      "name": "Lucas Stassin"
+    },
+    {
+      "id": 1138352,
+      "name": "Augustine Boakye"
+    },
+    {
+      "id": 1195740,
+      "name": "Ayman Aiki"
+    },
+    {
+      "id": 1426224,
+      "name": "Mathis Amougou"
+    },
+    {
+      "id": 1507455,
+      "name": "Jebryl Sahraoui"
+    },
+    {
+      "id": 822878,
+      "name": "Lamine Fomba"
+    },
+    {
+      "id": 150865,
+      "name": "Thomas Monconduit"
+    },
+    {
+      "id": 1172936,
+      "name": "Louis Mouton"
+    },
+    {
+      "id": 352912,
+      "name": "Dylan Batubinsika"
+    },
+    {
+      "id": 123164,
+      "name": "Dennis Appiah"
+    },
+    {
+      "id": 1006486,
+      "name": "Yvann Maçon"
+    },
+    {
+      "id": 558522,
+      "name": "Anthony Briançon"
+    },
+    {
+      "id": 1090196,
+      "name": "Boubacar Fall"
+    },
+    {
+      "id": 72818,
+      "name": "Brice Maubleu"
+    }
+  ],
+  "Toulouse": [
+    {
+      "id": 100621,
+      "name": "Joshua King"
+    },
+    {
+      "id": 1169436,
+      "name": "Frank Magri"
+    },
+    {
+      "id": 139256,
+      "name": "Miha Zajc"
+    },
+    {
+      "id": 878938,
+      "name": "Cristian Cásseres Jr."
+    },
+    {
+      "id": 794412,
+      "name": "Vincent Sierro"
+    },
+    {
+      "id": 1444641,
+      "name": "Edhy Zuliani"
+    },
+    {
+      "id": 795002,
+      "name": "Niklas Schmidt"
+    },
+    {
+      "id": 1198264,
+      "name": "Rafik Messali"
+    },
+    {
+      "id": 862773,
+      "name": "Denis Genreau"
+    },
+    {
+      "id": 1884150,
+      "name": "Mathis Saka"
+    },
+    {
+      "id": 123388,
+      "name": "Djibril Sidibé"
+    },
+    {
+      "id": 1387160,
+      "name": "Nicolas Wasbauer"
+    },
+    {
+      "id": 1154630,
+      "name": "Guillaume Restes"
+    },
+    {
+      "id": 909272,
+      "name": "Alex Domínguez"
+    },
+    {
+      "id": 1513621,
+      "name": "Justin Lacombe"
+    }
+  ],
+  "Le Havre": [
+    {
+      "id": 1154632,
+      "name": "Ilyes Housni"
+    },
+    {
+      "id": 880765,
+      "name": "Emmanuel Sabbi"
+    },
+    {
+      "id": 1035986,
+      "name": "Josué Casimir"
+    },
+    {
+      "id": 857762,
+      "name": "Yann Kitala"
+    },
+    {
+      "id": 1895833,
+      "name": "Noam Obougou Jacquet"
+    },
+    {
+      "id": 149732,
+      "name": "Abdoulaye Touré"
+    },
+    {
+      "id": 541426,
+      "name": "Daler Kuzyaev"
+    },
+    {
+      "id": 54308,
+      "name": "Loic Négo"
+    },
+    {
+      "id": 794374,
+      "name": "Alois Confais"
+    },
+    {
+      "id": 1121330,
+      "name": "Mathéo Bodmer"
+    },
+    {
+      "id": 1035988,
+      "name": "Arouna Sangante"
+    },
+    {
+      "id": 1824137,
+      "name": "Timothee Pembele"
+    },
+    {
+      "id": 363532,
+      "name": "Oualid El Hajjam"
+    },
+    {
+      "id": 980406,
+      "name": "Étienne Youte Kinkoue"
+    },
+    {
+      "id": 1397882,
+      "name": "Yanis Zouaoui"
+    },
+    {
+      "id": 785518,
+      "name": "Yoann Salmier"
+    }
+  ],
+  "Montpellier": [
+    {
+      "id": 51640,
+      "name": "Wahbi Khazri"
+    },
+    {
+      "id": 946381,
+      "name": "Akor Adams"
+    },
+    {
+      "id": 1893822,
+      "name": "Glenn Ngosso"
+    },
+    {
+      "id": 156682,
+      "name": "Teji Savanier"
+    },
+    {
+      "id": 1387157,
+      "name": "Khalil Fayad"
+    },
+    {
+      "id": 976396,
+      "name": "Joris Chotard"
+    },
+    {
+      "id": 954060,
+      "name": "Tanguy Coulibaly"
+    },
+    {
+      "id": 123229,
+      "name": "Jordan Ferri"
+    },
+    {
+      "id": 981541,
+      "name": "Gabriel Bares"
+    },
+    {
+      "id": 291695,
+      "name": "Issiaga Sylla"
+    },
+    {
+      "id": 1103548,
+      "name": "Enzo Tchato Mbiayi"
+    },
+    {
+      "id": 1512339,
+      "name": "Lucas Mincarelli Davin"
+    },
+    {
+      "id": 901152,
+      "name": "Theo Sainte Luce"
+    },
+    {
+      "id": 123207,
+      "name": "Benjamin Lecomte"
+    }
+  ],
+  "Sporting": [
+    {
+      "id": 804508,
+      "name": "Viktor Gyökeres"
+    },
+    {
+      "id": 1402589,
+      "name": "Mauro Couto"
+    },
+    {
+      "id": 859917,
+      "name": "Morten Hjulmand"
+    },
+    {
+      "id": 1001140,
+      "name": "Geny Catamo"
+    },
+    {
+      "id": 861979,
+      "name": "Daniel Bragança"
+    },
+    {
+      "id": 1107867,
+      "name": "Bento Estrela"
+    },
+    {
+      "id": 1951639,
+      "name": "Joao Pedro Aranuth Barrocas Simoes"
+    },
+    {
+      "id": 1001196,
+      "name": "Gonçalo Inácio"
+    },
+    {
+      "id": 1126512,
+      "name": "Zeno Debast"
+    },
+    {
+      "id": 1167818,
+      "name": "Iván Fresneda"
+    },
+    {
+      "id": 787640,
+      "name": "Jeremiah St. Juste"
+    },
+    {
+      "id": 1514286,
+      "name": "Bruno Ramos"
+    },
+    {
+      "id": 1528330,
+      "name": "Lucas Taibo"
+    },
+    {
+      "id": 1084846,
+      "name": "Franco Israel"
+    },
+    {
+      "id": 1130378,
+      "name": "Diego Callai"
+    },
+    {
+      "id": 1142575,
+      "name": "Diogo Pinto"
+    }
+  ],
+  "Benfica": [
+    {
+      "id": 795236,
+      "name": "Vangelis Pavlidis"
+    },
+    {
+      "id": 1100952,
+      "name": "Andreas Schjelderup"
+    },
+    {
+      "id": 990550,
+      "name": "Zeki Amdouni"
+    },
+    {
+      "id": 1146305,
+      "name": "Gustavo Varela"
+    },
+    {
+      "id": 30027,
+      "name": "Ángel Di María"
+    },
+    {
+      "id": 1006189,
+      "name": "Issa Kaboré"
+    },
+    {
+      "id": 855845,
+      "name": "Florentino Luís"
+    },
+    {
+      "id": 922454,
+      "name": "Benjamín Rollheiser"
+    },
+    {
+      "id": 836711,
+      "name": "Jan-Niklas Beste"
+    },
+    {
+      "id": 906800,
+      "name": "Leandro Barreiro"
+    },
+    {
+      "id": 1158353,
+      "name": "João Rêgo"
+    },
+    {
+      "id": 1006069,
+      "name": "António Silva"
+    },
+    {
+      "id": 1085081,
+      "name": "Álvaro Carreras"
+    },
+    {
+      "id": 228364,
+      "name": "Fredrik Aursnes"
+    },
+    {
+      "id": 1000192,
+      "name": "Adrian Bajrami"
+    }
+  ],
+  "Feyenoord": [
+    {
+      "id": 892141,
+      "name": "Santiago Giménez"
+    },
+    {
+      "id": 985823,
+      "name": "Ayase Ueda"
+    },
+    {
+      "id": 1471095,
+      "name": "Ibrahim Osman"
+    },
+    {
+      "id": 1479467,
+      "name": "Aymen Sliti"
+    },
+    {
+      "id": 981815,
+      "name": "Igor Paixão"
+    },
+    {
+      "id": 959805,
+      "name": "Quinten Timber"
+    },
+    {
+      "id": 1433802,
+      "name": "Gjivai Zechiël"
+    },
+    {
+      "id": 807771,
+      "name": "Dávid Hancko"
+    },
+    {
+      "id": 1013928,
+      "name": "Hugo Bueno"
+    },
+    {
+      "id": 797279,
+      "name": "Bart Nieuwkoop"
+    },
+    {
+      "id": 860160,
+      "name": "Gijs Smal"
+    },
+    {
+      "id": 1127916,
+      "name": "Thomas Beelen"
+    },
+    {
+      "id": 1122621,
+      "name": "Plamen Andreev"
+    },
+    {
+      "id": 253875,
+      "name": "Timon Wellenreuther"
+    },
+    {
+      "id": 1390118,
+      "name": "Mannou Berger"
+    }
+  ],
+  "Celtic": [
+    {
+      "id": 877766,
+      "name": "Kyogo Furuhashi"
+    },
+    {
+      "id": 1403159,
+      "name": "Lewis Dobbie"
+    },
+    {
+      "id": 1001867,
+      "name": "Arne Engels"
+    },
+    {
+      "id": 975575,
+      "name": "Odin Thiago Holm"
+    },
+    {
+      "id": 39283,
+      "name": "James McCarthy"
+    },
+    {
+      "id": 926363,
+      "name": "Luke McCowan"
+    },
+    {
+      "id": 1424323,
+      "name": "Francis Turley"
+    },
+    {
+      "id": 1403160,
+      "name": "Jude Bonnar"
+    },
+    {
+      "id": 1622153,
+      "name": "Aiden Haddow"
+    },
+    {
+      "id": 1899997,
+      "name": "Aidan Cannon"
+    },
+    {
+      "id": 1563606,
+      "name": "Sean Mcardle"
+    },
+    {
+      "id": 984183,
+      "name": "Maik Nawrocki"
+    },
+    {
+      "id": 795972,
+      "name": "Cameron Carter-Vickers"
+    },
+    {
+      "id": 847990,
+      "name": "Liam Scales"
+    },
+    {
+      "id": 839097,
+      "name": "Greg Taylor"
+    },
+    {
+      "id": 862953,
+      "name": "Stephen Welsh"
+    },
+    {
+      "id": 1104982,
+      "name": "Adam Montgomery"
+    },
+    {
+      "id": 1542644,
+      "name": "Liam Bonetig"
+    },
+    {
+      "id": 1403154,
+      "name": "Mitchell Robertson"
+    },
+    {
+      "id": 995654,
+      "name": "Viljami Sinisalo"
+    },
+    {
+      "id": 96493,
+      "name": "Scott Bain"
+    },
+    {
+      "id": 1464429,
+      "name": "Joe Morrison"
+    }
+  ],
+  "AC Sparta Praha": [
+    {
+      "id": 325121,
+      "name": "Lukáš Haraslín"
+    },
+    {
+      "id": 1124624,
+      "name": "Albion Rrahmani"
+    },
+    {
+      "id": 931823,
+      "name": "Victor Olatunji"
+    },
+    {
+      "id": 985412,
+      "name": "Indrit Tuci"
+    },
+    {
+      "id": 1478391,
+      "name": "Roman Mokrovics"
+    },
+    {
+      "id": 881844,
+      "name": "Ángelo Preciado"
+    },
+    {
+      "id": 284395,
+      "name": "Qazim Laci"
+    },
+    {
+      "id": 1160858,
+      "name": "Ermal Krasniqi"
+    },
+    {
+      "id": 547862,
+      "name": "Kaan Kairinen"
+    },
+    {
+      "id": 827561,
+      "name": "Tomáš Wiesner"
+    },
+    {
+      "id": 1009662,
+      "name": "Imanol García de Albéniz"
+    },
+    {
+      "id": 828570,
+      "name": "Elias Cobbaut"
+    },
+    {
+      "id": 280729,
+      "name": "Asger Sørensen"
+    },
+    {
+      "id": 537342,
+      "name": "Vojtěch Vorel"
+    }
+  ],
+  "GNK Dinamo Zagreb": [
+    {
+      "id": 826026,
+      "name": "Sandro Kulenović"
+    },
+    {
+      "id": 963399,
+      "name": "Nathanaël Mbuku"
+    },
+    {
+      "id": 1090019,
+      "name": "Martin Baturina"
+    },
+    {
+      "id": 190435,
+      "name": "Marko Pjaca"
+    },
+    {
+      "id": 51168,
+      "name": "Arijan Ademi"
+    },
+    {
+      "id": 1102829,
+      "name": "Luka Stojković"
+    },
+    {
+      "id": 1162190,
+      "name": "Juan Córdoba"
+    },
+    {
+      "id": 826024,
+      "name": "Dario Špikić"
+    },
+    {
+      "id": 795169,
+      "name": "Luka Menalo"
+    },
+    {
+      "id": 1493479,
+      "name": "Branko Pavić"
+    },
+    {
+      "id": 1584953,
+      "name": "Sven Šunta"
+    },
+    {
+      "id": 1936205,
+      "name": "Fallou Faye"
+    },
+    {
+      "id": 359358,
+      "name": "Sadegh Moharrami"
+    },
+    {
+      "id": 578198,
+      "name": "Samy Mmaee"
+    },
+    {
+      "id": 1048923,
+      "name": "Mauro Perković"
+    },
+    {
+      "id": 286917,
+      "name": "Dino Perić"
+    },
+    {
+      "id": 925904,
+      "name": "Takuya Ogiwara"
+    },
+    {
+      "id": 1479508,
+      "name": "Noa Mikić"
+    },
+    {
+      "id": 286915,
+      "name": "Ivan Filipović"
+    }
+  ],
+  "Club Brugge KV": [
+    {
+      "id": 949962,
+      "name": "Ferran Jutglà"
+    },
+    {
+      "id": 942479,
+      "name": "Michał Skóraś"
+    },
+    {
+      "id": 927440,
+      "name": "Kamal Sowah"
+    },
+    {
+      "id": 1069336,
+      "name": "Romeo Vermant"
+    },
+    {
+      "id": 1403098,
+      "name": "Kaye Iyowuna Furo"
+    },
+    {
+      "id": 888537,
+      "name": "Andreas Skov Olsen"
+    },
+    {
+      "id": 247471,
+      "name": "Casper Nielsen"
+    },
+    {
+      "id": 1104897,
+      "name": "Jorne Spileers"
+    },
+    {
+      "id": 103928,
+      "name": "Dedryck Boyata"
+    },
+    {
+      "id": 1101258,
+      "name": "Kyriani Sabbe"
+    },
+    {
+      "id": 1108450,
+      "name": "Zaid Romero"
+    },
+    {
+      "id": 248331,
+      "name": "Brandon Mechele"
+    },
+    {
+      "id": 10406,
+      "name": "Simon Mignolet"
+    },
+    {
+      "id": 1049432,
+      "name": "Dani van den Heuvel"
+    }
+  ],
+  "PSV Eindhoven": [
+    {
+      "id": 40878,
+      "name": "Luuk de Jong"
+    },
+    {
+      "id": 875136,
+      "name": "Noa Lang"
+    },
+    {
+      "id": 986395,
+      "name": "Ricardo Pepi"
+    },
+    {
+      "id": 38710,
+      "name": "Ivan Perišić"
+    },
+    {
+      "id": 1063767,
+      "name": "Ismael Saibari"
+    },
+    {
+      "id": 850816,
+      "name": "Joey Veerman"
+    },
+    {
+      "id": 844234,
+      "name": "Jerdy Schouten"
+    },
+    {
+      "id": 845798,
+      "name": "Guus Til"
+    },
+    {
+      "id": 1120701,
+      "name": "Isaac Babadi"
+    },
+    {
+      "id": 788784,
+      "name": "Olivier Boscagli"
+    },
+    {
+      "id": 893499,
+      "name": "Mauro Júnior"
+    },
+    {
+      "id": 825838,
+      "name": "Armando Obispo"
+    },
+    {
+      "id": 1005648,
+      "name": "Fredrik Oppegård"
+    },
+    {
+      "id": 249859,
+      "name": "Walter Benítez"
+    }
+  ],
+  "Shakhtar Donetsk": [
+    {
+      "id": 1112879,
+      "name": "Kevin"
+    },
+    {
+      "id": 1123925,
+      "name": "Georgiy Sudakov"
+    },
+    {
+      "id": 874030,
+      "name": "Pedrinho"
+    },
+    {
+      "id": 1390545,
+      "name": "Eguinaldo"
+    },
+    {
+      "id": 880742,
+      "name": "Bartol Franjić"
+    },
+    {
+      "id": 791170,
+      "name": "Marian Shved"
+    },
+    {
+      "id": 1067639,
+      "name": "Vinícius Tobias"
+    },
+    {
+      "id": 1011994,
+      "name": "Alaa Ghram"
+    },
+    {
+      "id": 353272,
+      "name": "Mykola Matviyenko"
+    },
+    {
+      "id": 904852,
+      "name": "Yukhym Konoplia"
+    },
+    {
+      "id": 904850,
+      "name": "Valeriy Bondar"
+    },
+    {
+      "id": 1514356,
+      "name": "Maryan Faryna"
+    },
+    {
+      "id": 1002780,
+      "name": "Kiril Fesyun"
+    },
+    {
+      "id": 1127399,
+      "name": "Denys Tvardovskyi"
+    }
+  ],
+  "SK Sturm Graz": [
+    {
+      "id": 1083007,
+      "name": "Mika Biereth"
+    },
+    {
+      "id": 1516047,
+      "name": "Amady Camara"
+    },
+    {
+      "id": 1387712,
+      "name": "Leon Grgić"
+    },
+    {
+      "id": 1120914,
+      "name": "Lovro Zvonarek"
+    },
+    {
+      "id": 797994,
+      "name": "Otar Kiteishvili"
+    },
+    {
+      "id": 994007,
+      "name": "Tochi Chukwuani"
+    },
+    {
+      "id": 906698,
+      "name": "Tomi Horvat"
+    },
+    {
+      "id": 796032,
+      "name": "Emir Karić"
+    },
+    {
+      "id": 907530,
+      "name": "Jusuf Gazibegović"
+    },
+    {
+      "id": 1048192,
+      "name": "Max Johnston"
+    },
+    {
+      "id": 1500291,
+      "name": "Arjan Malić"
+    },
+    {
+      "id": 825950,
+      "name": "Alexandar Borković"
+    },
+    {
+      "id": 1017135,
+      "name": "Niklas Geyrhofer"
+    },
+    {
+      "id": 1101753,
+      "name": "Daniil Khudyakov"
+    }
+  ],
+  "FK Crvena zvezda": [
+    {
+      "id": 949062,
+      "name": "Silas Katompa Mvumpa"
+    },
+    {
+      "id": 868268,
+      "name": "Cherif Ndiaye"
+    },
+    {
+      "id": 1427148,
+      "name": "Lazar Jovanović"
+    },
+    {
+      "id": 155449,
+      "name": "Rade Krunić"
+    },
+    {
+      "id": 1406171,
+      "name": "Andrija Maksimović"
+    },
+    {
+      "id": 885664,
+      "name": "Luka Ilić"
+    },
+    {
+      "id": 278763,
+      "name": "Mirko Ivanić"
+    },
+    {
+      "id": 1153956,
+      "name": "Jovan Šljivić"
+    },
+    {
+      "id": 1019333,
+      "name": "Young-woo Seol"
+    },
+    {
+      "id": 908617,
+      "name": "Vanja Drkušić"
+    },
+    {
+      "id": 111752,
+      "name": "Uroš Spajić"
+    },
+    {
+      "id": 1146274,
+      "name": "Ognjen Mimović"
+    },
+    {
+      "id": 1406130,
+      "name": "Veljko Milosavljević"
+    },
+    {
+      "id": 1493918,
+      "name": "Adem Avdić"
+    },
+    {
+      "id": 797083,
+      "name": "Omri Glazer"
+    },
+    {
+      "id": 843151,
+      "name": "Marko Ilić"
+    }
+  ],
+  "Red Bull Salzburg": [
+    {
+      "id": 1102788,
+      "name": "Nene Dorgeles"
+    },
+    {
+      "id": 911195,
+      "name": "Fernando"
+    },
+    {
+      "id": 1652719,
+      "name": "Gaoussou Diakite"
+    },
+    {
+      "id": 1142636,
+      "name": "Stefan Bajčetić"
+    },
+    {
+      "id": 1155158,
+      "name": "Oscar Gloukh"
+    },
+    {
+      "id": 987818,
+      "name": "Maurits Kjaergaard"
+    },
+    {
+      "id": 918429,
+      "name": "Mads Bidstrup"
+    },
+    {
+      "id": 1805062,
+      "name": "Edmund Baidoo"
+    },
+    {
+      "id": 873215,
+      "name": "Takumu Kawamura"
+    },
+    {
+      "id": 1471049,
+      "name": "Joane Gadou"
+    },
+    {
+      "id": 876860,
+      "name": "Aleksa Terzić"
+    },
+    {
+      "id": 1140597,
+      "name": "Hendry Blank"
+    },
+    {
+      "id": 987491,
+      "name": "Bryan Okoh"
+    },
+    {
+      "id": 1135938,
+      "name": "Leandro Morgalla"
+    },
+    {
+      "id": 1424607,
+      "name": "John Mellberg"
+    },
+    {
+      "id": 282073,
+      "name": "Alexander Schlager"
+    }
+  ],
+  "Young Boys": [
+    {
+      "id": 862078,
+      "name": "Meschack Elia"
+    },
+    {
+      "id": 352290,
+      "name": "Cédric Itten"
+    },
+    {
+      "id": 1048014,
+      "name": "Alan Virginius"
+    },
+    {
+      "id": 857482,
+      "name": "Filip Ugrinić"
+    },
+    {
+      "id": 972523,
+      "name": "Cheikh Niasse"
+    },
+    {
+      "id": 1065154,
+      "name": "Joël Monteiro"
+    },
+    {
+      "id": 988277,
+      "name": "Darian Maleš"
+    },
+    {
+      "id": 801072,
+      "name": "Sandro Lauper"
+    },
+    {
+      "id": 966670,
+      "name": "Lewin Blum"
+    },
+    {
+      "id": 851276,
+      "name": "Abdu Conté"
+    },
+    {
+      "id": 1409700,
+      "name": "Zachary Athekame"
+    },
+    {
+      "id": 1122387,
+      "name": "Anel Husić"
+    },
+    {
+      "id": 242883,
+      "name": "David von Ballmoos"
+    },
+    {
+      "id": 797687,
+      "name": "Dario Marzino"
+    },
+    {
+      "id": 1142186,
+      "name": "Ardian Bajrami"
+    }
+  ],
+  "ŠK Slovan Bratislava": [
+    {
+      "id": 1390414,
+      "name": "Elvis Isaac"
+    },
+    {
+      "id": 844018,
+      "name": "Adler Da Silva"
+    },
+    {
+      "id": 48563,
+      "name": "Juraj Kucka"
+    },
+    {
+      "id": 95494,
+      "name": "Tigran Barseghyan"
+    },
+    {
+      "id": 87087,
+      "name": "Róbert Mak"
+    },
+    {
+      "id": 1087830,
+      "name": "Artur Gajdoš"
+    },
+    {
+      "id": 927799,
+      "name": "Alen Mustafić"
+    },
+    {
+      "id": 237412,
+      "name": "Július Szőke"
+    },
+    {
+      "id": 1862612,
+      "name": "Maxim Mateas"
+    },
+    {
+      "id": 1150944,
+      "name": "Maximilian Marko"
+    },
+    {
+      "id": 43136,
+      "name": "Guram Kashia"
+    },
+    {
+      "id": 841793,
+      "name": "César Blackman"
+    },
+    {
+      "id": 141203,
+      "name": "Kevin Wimmer"
+    },
+    {
+      "id": 998471,
+      "name": "Sharani Zuberu"
+    },
+    {
+      "id": 230932,
+      "name": "Kenan Bajrić"
+    },
+    {
+      "id": 877984,
+      "name": "Matúš Vojtko"
+    },
+    {
+      "id": 918471,
+      "name": "Alexander Toth"
+    },
+    {
+      "id": 1035839,
+      "name": "Michal Boledovic"
+    },
+    {
+      "id": 1873556,
+      "name": "Robert Tomanek"
+    }
+  ],
+  "RSC Anderlecht": [
+    {
+      "id": 809280,
+      "name": "Anders Dreyer"
+    },
+    {
+      "id": 974713,
+      "name": "Luis Vázquez"
+    },
+    {
+      "id": 901889,
+      "name": "Francis Amuzu"
+    },
+    {
+      "id": 788895,
+      "name": "Amadou Diawara"
+    },
+    {
+      "id": 901149,
+      "name": "Majeed Ashimeru"
+    },
+    {
+      "id": 190405,
+      "name": "Leander Dendoncker"
+    },
+    {
+      "id": 1101702,
+      "name": "Mario Stroeykens"
+    },
+    {
+      "id": 70961,
+      "name": "Mats Rits"
+    },
+    {
+      "id": 1436187,
+      "name": "Tristan Degreef"
+    },
+    {
+      "id": 1637689,
+      "name": "Nathan De Cat"
+    },
+    {
+      "id": 245615,
+      "name": "Thomas Foket"
+    },
+    {
+      "id": 122399,
+      "name": "Colin Coosemans"
+    },
+    {
+      "id": 1150049,
+      "name": "Timon Vanhoutte"
+    }
+  ],
+  "Ajax": [
+    {
+      "id": 252215,
+      "name": "Wout Weghorst"
+    },
+    {
+      "id": 910048,
+      "name": "Brian Brobbey"
+    },
+    {
+      "id": 190867,
+      "name": "Chuba Akpom"
+    },
+    {
+      "id": 1149146,
+      "name": "Mika Godts"
+    },
+    {
+      "id": 1140601,
+      "name": "Julian Rijkhoff"
+    },
+    {
+      "id": 218160,
+      "name": "Bertrand Traoré"
+    },
+    {
+      "id": 100386,
+      "name": "Steven Berghuis"
+    },
+    {
+      "id": 1102659,
+      "name": "Benjamin Tahirović"
+    },
+    {
+      "id": 190883,
+      "name": "Branco van den Boomen"
+    },
+    {
+      "id": 97410,
+      "name": "Davy Klaassen"
+    },
+    {
+      "id": 954836,
+      "name": "Josip Šutalo"
+    },
+    {
+      "id": 982778,
+      "name": "Devyne Rensch"
+    },
+    {
+      "id": 1120315,
+      "name": "Anton Gaaei"
+    },
+    {
+      "id": 981562,
+      "name": "Diant Ramaj"
+    },
+    {
+      "id": 2622,
+      "name": "Remko Pasveer"
+    }
+  ],
+  "Galatasaray": [
+    {
+      "id": 233114,
+      "name": "Mauro Icardi"
+    },
+    {
+      "id": 147745,
+      "name": "Michy Batshuayi"
+    },
+    {
+      "id": 904096,
+      "name": "Barış Alper Yılmaz"
+    },
+    {
+      "id": 962283,
+      "name": "Yusuf Demir"
+    },
+    {
+      "id": 142619,
+      "name": "Kerem Demirbay"
+    },
+    {
+      "id": 1130115,
+      "name": "Eyüp Aydın"
+    },
+    {
+      "id": 1215206,
+      "name": "Efe Akman"
+    },
+    {
+      "id": 566102,
+      "name": "Davinson Sánchez"
+    },
+    {
+      "id": 897291,
+      "name": "Ismail Jakobs"
+    },
+    {
+      "id": 178963,
+      "name": "Abdülkerim Bardakcı"
+    },
+    {
+      "id": 138152,
+      "name": "Kaan Ayhan"
+    },
+    {
+      "id": 997155,
+      "name": "Metehan Baltacı"
+    },
+    {
+      "id": 28381,
+      "name": "Fernando Muslera"
+    },
+    {
+      "id": 103457,
+      "name": "Günay Güvenç"
+    }
+  ],
+  "FC Midtjylland": [
+    {
+      "id": 1014281,
+      "name": "Gue-sung Cho"
+    },
+    {
+      "id": 824139,
+      "name": "Jan Kuchta"
+    },
+    {
+      "id": 926871,
+      "name": "Marrony"
+    },
+    {
+      "id": 1008246,
+      "name": "Frederik Heiselberg"
+    },
+    {
+      "id": 1106824,
+      "name": "Darío Osorio"
+    },
+    {
+      "id": 973533,
+      "name": "Emiliano Martínez"
+    },
+    {
+      "id": 999186,
+      "name": "Aral Şimşir"
+    },
+    {
+      "id": 1145126,
+      "name": "Denil Castillo"
+    },
+    {
+      "id": 957921,
+      "name": "Oliver Sørensen"
+    },
+    {
+      "id": 181617,
+      "name": "Kristoffer Olsson"
+    },
+    {
+      "id": 1146404,
+      "name": "Valdemar Byskov"
+    },
+    {
+      "id": 1002448,
+      "name": "Han-Beom Lee"
+    },
+    {
+      "id": 1085914,
+      "name": "Adam Gabriel"
+    },
+    {
+      "id": 137695,
+      "name": "Christian Sørensen"
+    },
+    {
+      "id": 791954,
+      "name": "Joel Andersson"
+    },
+    {
+      "id": 1942258,
+      "name": "Bilal Krubally"
+    },
+    {
+      "id": 879183,
+      "name": "Elías Ólafsson"
+    }
+  ],
+  "Bodø/Glimt": [
+    {
+      "id": 838805,
+      "name": "Jens Petter Hauge"
+    },
+    {
+      "id": 932108,
+      "name": "Kasper Høgh"
+    },
+    {
+      "id": 823715,
+      "name": "Runar Espejord"
+    },
+    {
+      "id": 1142216,
+      "name": "Samuel Burakowsky"
+    },
+    {
+      "id": 1908130,
+      "name": "Gift Sunday"
+    },
+    {
+      "id": 1835929,
+      "name": "Anderson Mahse"
+    },
+    {
+      "id": 328247,
+      "name": "Philip Zinckernagel"
+    },
+    {
+      "id": 151700,
+      "name": "Ulrik Saltnes"
+    },
+    {
+      "id": 1029163,
+      "name": "Sondre Auklend"
+    },
+    {
+      "id": 1165446,
+      "name": "Syver Skundberg Skeide"
+    },
+    {
+      "id": 795154,
+      "name": "Fredrik André Bjørkan"
+    },
+    {
+      "id": 100619,
+      "name": "Omar Elabdellaoui"
+    },
+    {
+      "id": 825972,
+      "name": "Michal Tomič"
+    },
+    {
+      "id": 577266,
+      "name": "Brice Wembangomo"
+    },
+    {
+      "id": 926558,
+      "name": "Adam Sørensen"
+    },
+    {
+      "id": 929978,
+      "name": "Odin Luras Bjørtuft"
+    },
+    {
+      "id": 149955,
+      "name": "Brede Moe"
+    }
+  ],
+  "Rangers": [
+    {
+      "id": 541464,
+      "name": "Cyriel Dessers"
+    },
+    {
+      "id": 1140859,
+      "name": "Hamza Igamane"
+    },
+    {
+      "id": 902049,
+      "name": "Rabbi Matondo"
+    },
+    {
+      "id": 1020145,
+      "name": "Ross McCausland"
+    },
+    {
+      "id": 756344,
+      "name": "Ianis Hagi"
+    },
+    {
+      "id": 1018785,
+      "name": "Mohammed Diomande"
+    },
+    {
+      "id": 889378,
+      "name": "Nicolas Raskin"
+    },
+    {
+      "id": 135246,
+      "name": "Tom Lawrence"
+    },
+    {
+      "id": 784503,
+      "name": "Kieran Dowell"
+    },
+    {
+      "id": 1127515,
+      "name": "Alex Lowry"
+    },
+    {
+      "id": 1008436,
+      "name": "Cole McKinnon"
+    },
+    {
+      "id": 1489210,
+      "name": "Findlay Curtis"
+    },
+    {
+      "id": 37234,
+      "name": "Leon Balogun"
+    },
+    {
+      "id": 794100,
+      "name": "Dujon Sterling"
+    },
+    {
+      "id": 98448,
+      "name": "Jack Butland"
+    },
+    {
+      "id": 287555,
+      "name": "Liam Kelly"
+    },
+    {
+      "id": 1403474,
+      "name": "Mason Munn"
+    }
+  ],
+  "Olympiacos FC": [
+    {
+      "id": 919793,
+      "name": "Ayoub El Kaabi"
+    },
+    {
+      "id": 829296,
+      "name": "Roman Yaremchuk"
+    },
+    {
+      "id": 31417,
+      "name": "Willian"
+    },
+    {
+      "id": 827804,
+      "name": "Yusuf Yazıcı"
+    },
+    {
+      "id": 989886,
+      "name": "Santiago Hezze"
+    },
+    {
+      "id": 1416540,
+      "name": "Christos Mouzakitis"
+    },
+    {
+      "id": 1002620,
+      "name": "Marko Stamenić"
+    },
+    {
+      "id": 298920,
+      "name": "Dani García"
+    },
+    {
+      "id": 1196014,
+      "name": "Antonis Papakanellos"
+    },
+    {
+      "id": 1562121,
+      "name": "Theofanis Bakoulas"
+    },
+    {
+      "id": 913647,
+      "name": "Francisco Ortega"
+    },
+    {
+      "id": 965331,
+      "name": "Giulian Biancone"
+    },
+    {
+      "id": 817600,
+      "name": "Athanasios Androutsos"
+    },
+    {
+      "id": 1173786,
+      "name": "Isidoros Koutsidis"
+    },
+    {
+      "id": 41073,
+      "name": "Alexandros Paschalakis"
+    },
+    {
+      "id": 796997,
+      "name": "Alexandros Anagnostopoulos"
+    }
+  ],
+  "FCSB": [
+    {
+      "id": 970969,
+      "name": "Daniel Bîrligea"
+    },
+    {
+      "id": 942700,
+      "name": "Alexandru Băluță"
+    },
+    {
+      "id": 905096,
+      "name": "David Miculescu"
+    },
+    {
+      "id": 537032,
+      "name": "Florin Tănase"
+    },
+    {
+      "id": 914694,
+      "name": "Malcom Edjouma"
+    },
+    {
+      "id": 839577,
+      "name": "Adrian Șut"
+    },
+    {
+      "id": 974310,
+      "name": "Luis Phelipe"
+    },
+    {
+      "id": 1142723,
+      "name": "Alexandru Musi"
+    },
+    {
+      "id": 1000573,
+      "name": "Andrei Pandele"
+    },
+    {
+      "id": 798307,
+      "name": "David Kiki"
+    },
+    {
+      "id": 928336,
+      "name": "Joyskim Dawa"
+    },
+    {
+      "id": 117128,
+      "name": "Risto Radunović"
+    },
+    {
+      "id": 870126,
+      "name": "Ionuț Panțîru"
+    },
+    {
+      "id": 798298,
+      "name": "Mihai Popescu"
+    },
+    {
+      "id": 914414,
+      "name": "Ștefan Târnovanu"
+    }
+  ],
+  "Fenerbahçe": [
+    {
+      "id": 14990,
+      "name": "Edin Džeko"
+    },
+    {
+      "id": 38560,
+      "name": "Dušan Tadić"
+    },
+    {
+      "id": 347010,
+      "name": "Allan Saint-Maximin"
+    },
+    {
+      "id": 226986,
+      "name": "İrfan Can Kahveci"
+    },
+    {
+      "id": 952600,
+      "name": "İsmail Yüksek"
+    },
+    {
+      "id": 856849,
+      "name": "Mert Hakan Yandaş"
+    },
+    {
+      "id": 997165,
+      "name": "Bartuğ Elmaz"
+    },
+    {
+      "id": 836686,
+      "name": "Burak Kapacak"
+    },
+    {
+      "id": 1977520,
+      "name": "Sukur Tograk"
+    },
+    {
+      "id": 289977,
+      "name": "Alexander Djiku"
+    },
+    {
+      "id": 791616,
+      "name": "Bright Osayi-Samuel"
+    },
+    {
+      "id": 880207,
+      "name": "Rodrigo Becão"
+    },
+    {
+      "id": 43528,
+      "name": "Serdar Aziz"
+    },
+    {
+      "id": 1085938,
+      "name": "Münir Levent Mercan"
+    },
+    {
+      "id": 1023481,
+      "name": "Osman Ertuğrul Çetin"
+    }
+  ],
+  "FC Porto": [
+    {
+      "id": 1503836,
+      "name": "Samuel Omorodion"
+    },
+    {
+      "id": 867440,
+      "name": "Danny Namaso"
+    },
+    {
+      "id": 914772,
+      "name": "Fran Navarro"
+    },
+    {
+      "id": 979221,
+      "name": "Gonçalo Borges"
+    },
+    {
+      "id": 845754,
+      "name": "Wenderson Galeno"
+    },
+    {
+      "id": 1066560,
+      "name": "Alan Varela"
+    },
+    {
+      "id": 951986,
+      "name": "Iván Jaime"
+    },
+    {
+      "id": 892735,
+      "name": "Tiago Djaló"
+    },
+    {
+      "id": 987510,
+      "name": "Zaidu Sanusi"
+    },
+    {
+      "id": 1069159,
+      "name": "Otávio"
+    },
+    {
+      "id": 1142585,
+      "name": "Martim Fernandes"
+    },
+    {
+      "id": 26056,
+      "name": "Iván Marcano"
+    },
+    {
+      "id": 985138,
+      "name": "Francisco Moura"
+    },
+    {
+      "id": 1142587,
+      "name": "Gabriel Brás"
+    },
+    {
+      "id": 843115,
+      "name": "Diogo Costa"
+    }
+  ],
+  "SK Slavia Praha": [
+    {
+      "id": 188307,
+      "name": "Tomáš Chorý"
+    },
+    {
+      "id": 1471764,
+      "name": "El Hadji Malick Diouf"
+    },
+    {
+      "id": 1008382,
+      "name": "Matěj Jurásek"
+    },
+    {
+      "id": 891442,
+      "name": "David Doudera"
+    },
+    {
+      "id": 1126520,
+      "name": "Simion Michez"
+    },
+    {
+      "id": 965795,
+      "name": "Lukáš Vorlický"
+    },
+    {
+      "id": 1436351,
+      "name": "Alexandr Bužek"
+    },
+    {
+      "id": 1418636,
+      "name": "Dominik Pech"
+    },
+    {
+      "id": 927493,
+      "name": "Igoh Ogbu"
+    },
+    {
+      "id": 963084,
+      "name": "David Zima"
+    },
+    {
+      "id": 151440,
+      "name": "Tomáš Holeš"
+    },
+    {
+      "id": 152684,
+      "name": "Lukáš Masopust"
+    },
+    {
+      "id": 1144329,
+      "name": "Stepan Chaloupek"
+    },
+    {
+      "id": 942689,
+      "name": "Ondřej Zmrzlý"
+    },
+    {
+      "id": 1397701,
+      "name": "Eric Hunal"
+    },
+    {
+      "id": 280601,
+      "name": "Jindřich Staněk"
+    },
+    {
+      "id": 986295,
+      "name": "Ondřej Kolář"
+    },
+    {
+      "id": 151967,
+      "name": "Aleš Mandous"
+    }
+  ],
+  "Viktoria Plzeň": [
+    {
+      "id": 1152386,
+      "name": "Rafiu Durosinmi"
+    },
+    {
+      "id": 1105992,
+      "name": "Ricardinho"
+    },
+    {
+      "id": 1065545,
+      "name": "Christophe Kabongo"
+    },
+    {
+      "id": 937325,
+      "name": "Daniel Vasulin"
+    },
+    {
+      "id": 591682,
+      "name": "Jhon Mosquera"
+    },
+    {
+      "id": 1032956,
+      "name": "Cadu"
+    },
+    {
+      "id": 1046473,
+      "name": "Cheick Souare"
+    },
+    {
+      "id": 1489154,
+      "name": "Jiri Panos"
+    },
+    {
+      "id": 1408987,
+      "name": "Tom Sloncik"
+    },
+    {
+      "id": 122185,
+      "name": "Jan Kopic"
+    },
+    {
+      "id": 1403491,
+      "name": "Alexandr Sojka"
+    },
+    {
+      "id": 802317,
+      "name": "Václav Jemelka"
+    },
+    {
+      "id": 1149234,
+      "name": "Jan Paluska"
+    },
+    {
+      "id": 1196255,
+      "name": "Viktor Baier"
+    },
+    {
+      "id": 772347,
+      "name": "Marián Tvrdoň"
+    },
+    {
+      "id": 869476,
+      "name": "Florian Wiegele"
+    }
+  ],
+  "IF Elfsborg": [
+    {
+      "id": 845352,
+      "name": "Emil Holten"
+    },
+    {
+      "id": 1800434,
+      "name": "Leo Östman"
+    },
+    {
+      "id": 227892,
+      "name": "Arbër Zeneli"
+    },
+    {
+      "id": 1101887,
+      "name": "Ahmed Qasem"
+    },
+    {
+      "id": 932856,
+      "name": "Andri Baldursson"
+    },
+    {
+      "id": 1481338,
+      "name": "Enzo Andrén"
+    },
+    {
+      "id": 834724,
+      "name": "Rami Kaib"
+    },
+    {
+      "id": 1200442,
+      "name": "Terry Yegbe"
+    },
+    {
+      "id": 1217910,
+      "name": "Buhari Ibrahim"
+    },
+    {
+      "id": 67761,
+      "name": "Johan Larsson"
+    },
+    {
+      "id": 1652255,
+      "name": "Ludvig Richtner"
+    },
+    {
+      "id": 981794,
+      "name": "Marcus Bundgaard Sorensen"
+    },
+    {
+      "id": 1211886,
+      "name": "Melker Uppenberg"
+    }
+  ],
+  "Ferencváros TC": [
+    {
+      "id": 852434,
+      "name": "Barnabás Varga"
+    },
+    {
+      "id": 1018290,
+      "name": "Matheus Saldanha"
+    },
+    {
+      "id": 966891,
+      "name": "Mohamed Ali Ben Romdhane"
+    },
+    {
+      "id": 1194442,
+      "name": "Kady Borges"
+    },
+    {
+      "id": 1172372,
+      "name": "Adama Malouda Traoré"
+    },
+    {
+      "id": 548312,
+      "name": "Kristoffer Zachariassen"
+    },
+    {
+      "id": 606190,
+      "name": "Philippe Rommens"
+    },
+    {
+      "id": 148623,
+      "name": "Virgil Misidjan"
+    },
+    {
+      "id": 359246,
+      "name": "Habib Maïga"
+    },
+    {
+      "id": 1476524,
+      "name": "Alex Tóth"
+    },
+    {
+      "id": 1147932,
+      "name": "Gábor Szalai"
+    },
+    {
+      "id": 603740,
+      "name": "Ibrahim Cissé"
+    },
+    {
+      "id": 1023427,
+      "name": "Lóránd Pászka"
+    },
+    {
+      "id": 1385121,
+      "name": "Norbert Kaján"
+    },
+    {
+      "id": 75425,
+      "name": "Dénes Dibusz"
+    },
+    {
+      "id": 921139,
+      "name": "Ádám Varga"
+    },
+    {
+      "id": 1462747,
+      "name": "Dániel Radnóti"
+    }
+  ],
+  "AZ Alkmaar": [
+    {
+      "id": 966555,
+      "name": "Troy Parrott"
+    },
+    {
+      "id": 1046028,
+      "name": "Mayckel Lahdo"
+    },
+    {
+      "id": 1118181,
+      "name": "Lequincio Zeefuik"
+    },
+    {
+      "id": 994591,
+      "name": "Kristijan Belić"
+    },
+    {
+      "id": 1177723,
+      "name": "Jayden Addai"
+    },
+    {
+      "id": 116946,
+      "name": "Jordy Clasie"
+    },
+    {
+      "id": 1050828,
+      "name": "Zico Buurmeester"
+    },
+    {
+      "id": 1146002,
+      "name": "Dave Kwakman"
+    },
+    {
+      "id": 1028330,
+      "name": "Seiya Maikuma"
+    },
+    {
+      "id": 1145982,
+      "name": "Wouter Goes"
+    },
+    {
+      "id": 893559,
+      "name": "Mees de Wit"
+    },
+    {
+      "id": 1145999,
+      "name": "Rome Jayden Owusu-Oduro"
+    },
+    {
+      "id": 40963,
+      "name": "Jeroen Zoet"
+    },
+    {
+      "id": 1050825,
+      "name": "Sem Westerveld"
+    },
+    {
+      "id": 97401,
+      "name": "Hobie Verhulst"
+    }
+  ],
+  "Malmö FF": [
+    {
+      "id": 844292,
+      "name": "Erik Botheim"
+    },
+    {
+      "id": 791978,
+      "name": "Sead Hakšabanović"
+    },
+    {
+      "id": 356388,
+      "name": "Stefano Vecchia"
+    },
+    {
+      "id": 1153194,
+      "name": "Daníel Tristan Gudjohnsen"
+    },
+    {
+      "id": 1142210,
+      "name": "Hugo Bolin"
+    },
+    {
+      "id": 947923,
+      "name": "Sebastian Jørgensen"
+    },
+    {
+      "id": 977825,
+      "name": "Lasse Berg Johnsen"
+    },
+    {
+      "id": 793170,
+      "name": "Oliver Berg"
+    },
+    {
+      "id": 1423255,
+      "name": "Zakaria Loukili"
+    },
+    {
+      "id": 113664,
+      "name": "Oscar Lewicki"
+    },
+    {
+      "id": 44848,
+      "name": "Jens Stryger Larsen"
+    },
+    {
+      "id": 1503622,
+      "name": "Adrian Skogmar"
+    },
+    {
+      "id": 794783,
+      "name": "Ricardo Friedrich"
+    },
+    {
+      "id": 7298,
+      "name": "Johan Dahlin"
+    },
+    {
+      "id": 1977522,
+      "name": "Joakim Persson"
+    }
+  ],
+  "Sporting Braga": [
+    {
+      "id": 1014048,
+      "name": "Amine El Ouazzani"
+    },
+    {
+      "id": 1087321,
+      "name": "Joao Marques"
+    },
+    {
+      "id": 6562,
+      "name": "João Moutinho"
+    },
+    {
+      "id": 775699,
+      "name": "André Horta"
+    },
+    {
+      "id": 1134430,
+      "name": "Gabriel Martínez"
+    },
+    {
+      "id": 1828923,
+      "name": "João Vasconcelos"
+    },
+    {
+      "id": 997173,
+      "name": "Bright Arrey-Mbi"
+    },
+    {
+      "id": 357730,
+      "name": "Yuri Ribeiro"
+    },
+    {
+      "id": 106751,
+      "name": "Paulo Oliveira"
+    },
+    {
+      "id": 547242,
+      "name": "Adrián Marín"
+    },
+    {
+      "id": 1536297,
+      "name": "Jonatás Noro"
+    },
+    {
+      "id": 1000568,
+      "name": "André Ferreira"
+    },
+    {
+      "id": 1120056,
+      "name": "José Pedro"
+    },
+    {
+      "id": 963744,
+      "name": "Lukáš Horníček"
+    },
+    {
+      "id": 344159,
+      "name": "Tiago Sá"
+    }
+  ],
+  "Beşiktaş": [
+    {
+      "id": 924670,
+      "name": "Ernest Muçi"
+    },
+    {
+      "id": 1524303,
+      "name": "Mustafa Hekimoglu"
+    },
+    {
+      "id": 1639816,
+      "name": "Yakup Arda Kılıç"
+    },
+    {
+      "id": 252577,
+      "name": "Rafa Silva"
+    },
+    {
+      "id": 10577,
+      "name": "Alex Oxlade-Chamberlain"
+    },
+    {
+      "id": 800411,
+      "name": "Milot Rashica"
+    },
+    {
+      "id": 918408,
+      "name": "Can Keleş"
+    },
+    {
+      "id": 174975,
+      "name": "Arthur Masuaku"
+    },
+    {
+      "id": 887382,
+      "name": "Bakhtiyar Zaynutdinov"
+    },
+    {
+      "id": 98199,
+      "name": "Jonas Svensson"
+    },
+    {
+      "id": 792142,
+      "name": "Felix Uduokhai"
+    },
+    {
+      "id": 895009,
+      "name": "Emirhan Topçu"
+    },
+    {
+      "id": 851909,
+      "name": "Tayyip Talha Sanuç"
+    },
+    {
+      "id": 142494,
+      "name": "Onur Bulut"
+    },
+    {
+      "id": 39573,
+      "name": "Mert Günok"
+    },
+    {
+      "id": 913656,
+      "name": "Ersin Destanoğlu"
+    }
+  ],
+  "FC Twente": [
+    {
+      "id": 944467,
+      "name": "Sem Steijn"
+    },
+    {
+      "id": 996940,
+      "name": "Youri Regeer"
+    },
+    {
+      "id": 1048430,
+      "name": "Daan Rots"
+    },
+    {
+      "id": 798181,
+      "name": "Michel Vlap"
+    },
+    {
+      "id": 1014288,
+      "name": "Mees Hilgers"
+    },
+    {
+      "id": 961684,
+      "name": "Anass Salah-Eddine"
+    },
+    {
+      "id": 965263,
+      "name": "Gustaf Lagerbielke"
+    },
+    {
+      "id": 946506,
+      "name": "Bart van Rooij"
+    },
+    {
+      "id": 974203,
+      "name": "Alec Van Hoorenbeeck"
+    },
+    {
+      "id": 1470014,
+      "name": "Julien Mesbahi"
+    },
+    {
+      "id": 27691,
+      "name": "Przemysław Tytoń"
+    },
+    {
+      "id": 94835,
+      "name": "Lars Unnerstall"
+    },
+    {
+      "id": 1201942,
+      "name": "Sam Karssies"
+    }
+  ],
+  "Royale Union Saint-Gilloise": [
+    {
+      "id": 964764,
+      "name": "Anouar Ait El Hadj"
+    },
+    {
+      "id": 1119328,
+      "name": "Promise David"
+    },
+    {
+      "id": 844745,
+      "name": "Elton Kabangu"
+    },
+    {
+      "id": 1171417,
+      "name": "Soulaimane Berradi"
+    },
+    {
+      "id": 845136,
+      "name": "Jean Thierry Lazare"
+    },
+    {
+      "id": 1171539,
+      "name": "Noah Sadiki"
+    },
+    {
+      "id": 1403362,
+      "name": "Anan Khalaili"
+    },
+    {
+      "id": 839898,
+      "name": "Alessio Castro-Montes"
+    },
+    {
+      "id": 880780,
+      "name": "Ousseynou Niang"
+    },
+    {
+      "id": 928033,
+      "name": "Charles Vanhoutte"
+    },
+    {
+      "id": 790977,
+      "name": "Koki Machida"
+    },
+    {
+      "id": 303634,
+      "name": "Christian Burgess"
+    },
+    {
+      "id": 845558,
+      "name": "Ross Sykes"
+    },
+    {
+      "id": 1821119,
+      "name": "Daniel Tshilanda"
+    },
+    {
+      "id": 1108599,
+      "name": "Vic Chambaere"
+    },
+    {
+      "id": 943256,
+      "name": "Joachim Imbrechts"
+    }
+  ],
+  "PAOK": [
+    {
+      "id": 825088,
+      "name": "Mbwana Ally Samatta"
+    },
+    {
+      "id": 584472,
+      "name": "Tarik Tissoudali"
+    },
+    {
+      "id": 966655,
+      "name": "Shola Shoretire"
+    },
+    {
+      "id": 1174900,
+      "name": "Jorge Cabezas"
+    },
+    {
+      "id": 1002007,
+      "name": "Giannis Konstantelias"
+    },
+    {
+      "id": 188133,
+      "name": "Andrija Živković"
+    },
+    {
+      "id": 226972,
+      "name": "Kiril Despodov"
+    },
+    {
+      "id": 48912,
+      "name": "Stefan Schwab"
+    },
+    {
+      "id": 239632,
+      "name": "Abdul Rahman Baba"
+    },
+    {
+      "id": 238408,
+      "name": "Omar Colley"
+    },
+    {
+      "id": 1025190,
+      "name": "Jonathan Gómez"
+    },
+    {
+      "id": 235648,
+      "name": "Jonny Otto"
+    },
+    {
+      "id": 813738,
+      "name": "Joan Sastre"
+    },
+    {
+      "id": 1146329,
+      "name": "Dimitrios Monastirlis"
+    },
+    {
+      "id": 947160,
+      "name": "Konstantinos Balomenos"
+    }
+  ],
+  "RFS": [
+    {
+      "id": 1393073,
+      "name": "Victor Osuagwu"
+    },
+    {
+      "id": 794596,
+      "name": "Darko Lemajić"
+    },
+    {
+      "id": 1514012,
+      "name": "Rostand Ndjiki"
+    },
+    {
+      "id": 1158558,
+      "name": "Maksym Derkach"
+    },
+    {
+      "id": 1943063,
+      "name": "Ruslans Deružinskis"
+    },
+    {
+      "id": 990149,
+      "name": "Emerson Deocleciano"
+    },
+    {
+      "id": 1484683,
+      "name": "Mikaze Nagasawa"
+    },
+    {
+      "id": 1108547,
+      "name": "Alfusainey Jatta"
+    },
+    {
+      "id": 980796,
+      "name": "Dragoljub Savić"
+    },
+    {
+      "id": 799189,
+      "name": "Stefan Panić"
+    },
+    {
+      "id": 1046505,
+      "name": "Jevgenijs Minins"
+    },
+    {
+      "id": 1469661,
+      "name": "Ceti Tchibinda"
+    },
+    {
+      "id": 63482,
+      "name": "Roberts Savaļnieks"
+    },
+    {
+      "id": 149669,
+      "name": "Herdi Prenga"
+    },
+    {
+      "id": 316088,
+      "name": "Fabrice Ondoa"
+    },
+    {
+      "id": 24980,
+      "name": "Pāvels Šteinbors"
+    },
+    {
+      "id": 1024047,
+      "name": "Sergejs Vilkovs"
+    }
+  ],
+  "Ludogorets": [
+    {
+      "id": 827531,
+      "name": "Kwadwo Duah"
+    },
+    {
+      "id": 1403439,
+      "name": "Erick Marcus"
+    },
+    {
+      "id": 869017,
+      "name": "Georgi Rusev"
+    },
+    {
+      "id": 867599,
+      "name": "Raí Nascimento"
+    },
+    {
+      "id": 825271,
+      "name": "Jakub Piotrowski"
+    },
+    {
+      "id": 1067629,
+      "name": "Caio Vidal"
+    },
+    {
+      "id": 94681,
+      "name": "Ivajlo Chochev"
+    },
+    {
+      "id": 94684,
+      "name": "Todor Nedelev"
+    },
+    {
+      "id": 872390,
+      "name": "Pedro Naressi"
+    },
+    {
+      "id": 987212,
+      "name": "Ivan Yordanov"
+    },
+    {
+      "id": 889680,
+      "name": "Olivier Verdon"
+    },
+    {
+      "id": 597716,
+      "name": "Son"
+    },
+    {
+      "id": 173521,
+      "name": "Anton Nedyalkov"
+    },
+    {
+      "id": 76015,
+      "name": "Georgi Terziev"
+    }
+  ],
+  "Maccabi Tel Aviv": [
+    {
+      "id": 1148468,
+      "name": "Weslley Patati"
+    },
+    {
+      "id": 1005586,
+      "name": "Dor Turgeman"
+    },
+    {
+      "id": 1004222,
+      "name": "Osher Davida"
+    },
+    {
+      "id": 186953,
+      "name": "Dor Peretz"
+    },
+    {
+      "id": 1513792,
+      "name": "Sagiv Jehezkel"
+    },
+    {
+      "id": 1048267,
+      "name": "Ido Shahar"
+    },
+    {
+      "id": 1002898,
+      "name": "Hisham Layous"
+    },
+    {
+      "id": 1130884,
+      "name": "Tyrese Asante"
+    },
+    {
+      "id": 861825,
+      "name": "Raz Shlomo"
+    },
+    {
+      "id": 82488,
+      "name": "Nir Bitton"
+    },
+    {
+      "id": 850969,
+      "name": "Ofir Davidzada"
+    },
+    {
+      "id": 94234,
+      "name": "Simon Sluga"
+    },
+    {
+      "id": 1214872,
+      "name": "Ofek Melika"
+    },
+    {
+      "id": 1479514,
+      "name": "Roei Amedi"
+    },
+    {
+      "id": 1900606,
+      "name": "Asaf Hershqo"
+    },
+    {
+      "id": 1957269,
+      "name": "Idan Weinberg"
+    }
+  ],
+  "Dynamo Kyiv": [
+    {
+      "id": 41116,
+      "name": "Andriy Yarmolenko"
+    },
+    {
+      "id": 792296,
+      "name": "Oleksandr Pikhalyonok"
+    },
+    {
+      "id": 1006066,
+      "name": "Nazar Voloshyn"
+    },
+    {
+      "id": 976375,
+      "name": "Mykola Mykhailenko"
+    },
+    {
+      "id": 827410,
+      "name": "Volodymyr Shepeliev"
+    },
+    {
+      "id": 1592322,
+      "name": "Roman Salenko"
+    },
+    {
+      "id": 978286,
+      "name": "Oleksandr Tymchyk"
+    },
+    {
+      "id": 1413197,
+      "name": "Taras Mykhavko"
+    },
+    {
+      "id": 1111786,
+      "name": "Maksym Bragaru"
+    },
+    {
+      "id": 859393,
+      "name": "Vladyslav Dubinchak"
+    },
+    {
+      "id": 976373,
+      "name": "Kristian Bilovar"
+    },
+    {
+      "id": 138813,
+      "name": "Heorhiy Bushchan"
+    },
+    {
+      "id": 976364,
+      "name": "Ruslan Neshcheret"
+    },
+    {
+      "id": 1087626,
+      "name": "Valentyn Morhun"
+    },
+    {
+      "id": 1006083,
+      "name": "Denys Ihnatenko"
+    }
+  ],
+  "Qarabağ": [
+    {
+      "id": 833236,
+      "name": "Juninho Vieira"
+    },
+    {
+      "id": 992237,
+      "name": "Musa Qurbanlı"
+    },
+    {
+      "id": 903440,
+      "name": "Redon Xhixha"
+    },
+    {
+      "id": 214080,
+      "name": "Abdellah Zoubir"
+    },
+    {
+      "id": 1156696,
+      "name": "Nariman Akhundzade"
+    },
+    {
+      "id": 981624,
+      "name": "Júlio Romão"
+    },
+    {
+      "id": 789070,
+      "name": "Patrick Andrade"
+    },
+    {
+      "id": 880229,
+      "name": "Oleksiy Kashchuk"
+    },
+    {
+      "id": 1145242,
+      "name": "Alexey Isayev"
+    },
+    {
+      "id": 981246,
+      "name": "Toral Bayramov"
+    },
+    {
+      "id": 939724,
+      "name": "Kevin Medina"
+    },
+    {
+      "id": 58170,
+      "name": "Marko Vešović"
+    },
+    {
+      "id": 931496,
+      "name": "Matheus Silva"
+    },
+    {
+      "id": 813105,
+      "name": "Şahrudin Mahammadaliev"
+    }
+  ],
+  "Legia Warszawa": [
+    {
+      "id": 1133052,
+      "name": "Jordan Majchrzak"
+    },
+    {
+      "id": 41999,
+      "name": "Tomáš Pekhart"
+    },
+    {
+      "id": 1104297,
+      "name": "Migouel Alfarela"
+    },
+    {
+      "id": 1153355,
+      "name": "Maxi Oyedele"
+    },
+    {
+      "id": 281307,
+      "name": "Patryk Kun"
+    },
+    {
+      "id": 949819,
+      "name": "Juergen Elitim"
+    },
+    {
+      "id": 341833,
+      "name": "Claude Gonçalves"
+    },
+    {
+      "id": 1144607,
+      "name": "Ramil Mustafaev"
+    },
+    {
+      "id": 942334,
+      "name": "Kacper Chodyna"
+    },
+    {
+      "id": 1536342,
+      "name": "Wojciech Urbański"
+    },
+    {
+      "id": 54429,
+      "name": "Artur Jędrzejczyk"
+    },
+    {
+      "id": 338475,
+      "name": "Rafał Augustyniak"
+    },
+    {
+      "id": 1499991,
+      "name": "Jan Ziółkowski"
+    },
+    {
+      "id": 1019957,
+      "name": "Steve Kapuadi"
+    },
+    {
+      "id": 988276,
+      "name": "Marco Burch"
+    },
+    {
+      "id": 1823942,
+      "name": "Jan Leszczyński"
+    },
+    {
+      "id": 1083777,
+      "name": "Kacper Tobiasz"
+    }
+  ],
+  "FC Lugano": [
+    {
+      "id": 95358,
+      "name": "Kacper Przybyłko"
+    },
+    {
+      "id": 243049,
+      "name": "Renato Steffen"
+    },
+    {
+      "id": 940697,
+      "name": "Ignacio Aliseda"
+    },
+    {
+      "id": 1065145,
+      "name": "Shkelqim Vladi"
+    },
+    {
+      "id": 318741,
+      "name": "Anto Grgić"
+    },
+    {
+      "id": 892104,
+      "name": "Hicham Mahou"
+    },
+    {
+      "id": 844484,
+      "name": "Roman Macek"
+    },
+    {
+      "id": 1504959,
+      "name": "Ilija Maslarov"
+    },
+    {
+      "id": 1194332,
+      "name": "Ayman El Wafi"
+    },
+    {
+      "id": 1012175,
+      "name": "Mattia Zanotti"
+    },
+    {
+      "id": 888954,
+      "name": "Antonios Papadopoulos"
+    },
+    {
+      "id": 877844,
+      "name": "Lars Lukas Mai"
+    },
+    {
+      "id": 985068,
+      "name": "Amir Saipi"
+    },
+    {
+      "id": 813876,
+      "name": "Sebastian Osigwe"
+    }
+  ],
+  "Vitória SC": [
+    {
+      "id": 987597,
+      "name": "Jesús Ramírez"
+    },
+    {
+      "id": 1396009,
+      "name": "Kaio César"
+    },
+    {
+      "id": 930552,
+      "name": "Nuno Santos"
+    },
+    {
+      "id": 252095,
+      "name": "Tiago Silva"
+    },
+    {
+      "id": 252819,
+      "name": "Bruno Gaspar"
+    },
+    {
+      "id": 1167194,
+      "name": "Marco Cruz"
+    },
+    {
+      "id": 886843,
+      "name": "Toni Borevković"
+    },
+    {
+      "id": 1133568,
+      "name": "João Mendes"
+    },
+    {
+      "id": 814673,
+      "name": "Jorge Fernandes"
+    },
+    {
+      "id": 1085740,
+      "name": "Manuel Silva"
+    },
+    {
+      "id": 138895,
+      "name": "Bruno Varela"
+    },
+    {
+      "id": 155985,
+      "name": "Charles"
+    },
+    {
+      "id": 1170170,
+      "name": "Joao Oliveira"
+    }
+  ],
+  "Heart of Midlothian": [
+    {
+      "id": 981714,
+      "name": "Yutaro Oda"
+    },
+    {
+      "id": 1083273,
+      "name": "Blair Spittal"
+    },
+    {
+      "id": 843626,
+      "name": "Alan Forrest"
+    },
+    {
+      "id": 1114426,
+      "name": "Musa Drammeh"
+    },
+    {
+      "id": 944054,
+      "name": "Cameron Devlin"
+    },
+    {
+      "id": 920396,
+      "name": "Yan Dhanda"
+    },
+    {
+      "id": 1020669,
+      "name": "Malachi Boateng"
+    },
+    {
+      "id": 587102,
+      "name": "Jorge Grant"
+    },
+    {
+      "id": 1138463,
+      "name": "Macaulay Tait"
+    },
+    {
+      "id": 1184789,
+      "name": "Gerald Taylor"
+    },
+    {
+      "id": 1174790,
+      "name": "Andrés Salazar"
+    },
+    {
+      "id": 998830,
+      "name": "Daniel Oyegoke"
+    },
+    {
+      "id": 151118,
+      "name": "Stephen Kingsley"
+    },
+    {
+      "id": 9370,
+      "name": "Craig Gordon"
+    }
+  ],
+  "Jagiellonia Białystok": [
+    {
+      "id": 886127,
+      "name": "Afimico Pululu"
+    },
+    {
+      "id": 876345,
+      "name": "Darko Churlinov"
+    },
+    {
+      "id": 950032,
+      "name": "Miguel Villar Miki"
+    },
+    {
+      "id": 578364,
+      "name": "Taras Romanczuk"
+    },
+    {
+      "id": 1031562,
+      "name": "Peter Kováčik"
+    },
+    {
+      "id": 826206,
+      "name": "Aurelien Nguiamba"
+    },
+    {
+      "id": 1648980,
+      "name": "Szymon Stypulkowski"
+    },
+    {
+      "id": 1941359,
+      "name": "Eryk Kozlowski"
+    },
+    {
+      "id": 981527,
+      "name": "Mateusz Skrzypczak"
+    },
+    {
+      "id": 1176102,
+      "name": "Tomás Silva"
+    },
+    {
+      "id": 1144613,
+      "name": "Cezary Polak"
+    },
+    {
+      "id": 930636,
+      "name": "Jetmir Haliti"
+    },
+    {
+      "id": 814808,
+      "name": "Max Stryjek"
+    },
+    {
+      "id": 800155,
+      "name": "Bartłomiej Żynel"
+    }
+  ],
+  "SK Rapid Wien": [
+    {
+      "id": 995773,
+      "name": "Dion Drena Beljo"
+    },
+    {
+      "id": 825274,
+      "name": "Ryan Mmaee"
+    },
+    {
+      "id": 23486,
+      "name": "Guido Burgstaller"
+    },
+    {
+      "id": 1423470,
+      "name": "Jovan Živković"
+    },
+    {
+      "id": 1149221,
+      "name": "Furkan Dursun"
+    },
+    {
+      "id": 921140,
+      "name": "Bendegúz Bolla"
+    },
+    {
+      "id": 1104216,
+      "name": "Christoph Lang"
+    },
+    {
+      "id": 859689,
+      "name": "Tobias Borkeeiet"
+    },
+    {
+      "id": 1064835,
+      "name": "Moritz Oswald"
+    },
+    {
+      "id": 245699,
+      "name": "Roman Kerschbaum"
+    },
+    {
+      "id": 989887,
+      "name": "Serge-Philippe Raux-Yao"
+    },
+    {
+      "id": 962272,
+      "name": "Benjamin Böckle"
+    },
+    {
+      "id": 878471,
+      "name": "Nenad Cvetković"
+    },
+    {
+      "id": 190823,
+      "name": "Maximilian Hofmann"
+    },
+    {
+      "id": 918421,
+      "name": "Niklas Hedl"
+    },
+    {
+      "id": 1102786,
+      "name": "Laurenz Orgler"
+    }
+  ],
+  "Shamrock Rovers": [
+    {
+      "id": 204272,
+      "name": "Graham Burke"
+    },
+    {
+      "id": 109785,
+      "name": "Aaron Greene"
+    },
+    {
+      "id": 56883,
+      "name": "Rory Gaffney"
+    },
+    {
+      "id": 122585,
+      "name": "Marc McNulty"
+    },
+    {
+      "id": 1855215,
+      "name": "Max Kovaleskis"
+    },
+    {
+      "id": 1405843,
+      "name": "Cian Dillion"
+    },
+    {
+      "id": 1855214,
+      "name": "Matthew Britton"
+    },
+    {
+      "id": 279451,
+      "name": "Jack Byrne"
+    },
+    {
+      "id": 1005670,
+      "name": "Darragh Burns"
+    },
+    {
+      "id": 795522,
+      "name": "Dylan Watts"
+    },
+    {
+      "id": 1082321,
+      "name": "Conan Noonan"
+    },
+    {
+      "id": 100563,
+      "name": "Richie Towell"
+    },
+    {
+      "id": 136366,
+      "name": "Sean Kavanagh"
+    },
+    {
+      "id": 189059,
+      "name": "Gary O'Neill"
+    },
+    {
+      "id": 291211,
+      "name": "Sean Hoare"
+    },
+    {
+      "id": 279445,
+      "name": "Dan Cleary"
+    },
+    {
+      "id": 847885,
+      "name": "Lee Steacy"
+    }
+  ],
+  "FK Borac Banja Luka": [
+    {
+      "id": 138144,
+      "name": "Stefan Savić"
+    },
+    {
+      "id": 1405982,
+      "name": "Stefan Marčetić"
+    },
+    {
+      "id": 139247,
+      "name": "Gregor Bajde"
+    },
+    {
+      "id": 1149058,
+      "name": "Sergej Bogdanic"
+    },
+    {
+      "id": 1123208,
+      "name": "David Vuković"
+    },
+    {
+      "id": 897602,
+      "name": "Dino Skorup"
+    },
+    {
+      "id": 195974,
+      "name": "Boban Nikolov"
+    },
+    {
+      "id": 63867,
+      "name": "Stojan Vranješ"
+    },
+    {
+      "id": 139251,
+      "name": "Aleks Pihler"
+    },
+    {
+      "id": 1118215,
+      "name": "Damir Hrelja"
+    },
+    {
+      "id": 1020017,
+      "name": "Petar Karaklajić"
+    },
+    {
+      "id": 1149072,
+      "name": "Luka Misimović"
+    },
+    {
+      "id": 1823973,
+      "name": "Sinisa Ristic"
+    },
+    {
+      "id": 808381,
+      "name": "Sebastian Herrera"
+    },
+    {
+      "id": 1149060,
+      "name": "Savo Šušić"
+    },
+    {
+      "id": 1166005,
+      "name": "Mateja Stašević"
+    },
+    {
+      "id": 796266,
+      "name": "Filip Manojlović"
+    },
+    {
+      "id": 1515520,
+      "name": "Nikola Grujić"
+    },
+    {
+      "id": 1157782,
+      "name": "Nikola Milicevic"
+    }
+  ],
+  "Cercle Brugge": [
+    {
+      "id": 1652684,
+      "name": "Abdoul Kader Ouattara"
+    },
+    {
+      "id": 1106681,
+      "name": "Felipe Augusto"
+    },
+    {
+      "id": 1004346,
+      "name": "Kazeem Olaigbe"
+    },
+    {
+      "id": 1868441,
+      "name": "Bruno Goncalves De Jesus"
+    },
+    {
+      "id": 1385508,
+      "name": "Malamine Efekele"
+    },
+    {
+      "id": 1403216,
+      "name": "Paris Brunner"
+    },
+    {
+      "id": 1122552,
+      "name": "Alan Minda"
+    },
+    {
+      "id": 1101701,
+      "name": "Nils De Wilde"
+    },
+    {
+      "id": 1385518,
+      "name": "Ono Vanackere"
+    },
+    {
+      "id": 1168646,
+      "name": "Ibrahim Diakité"
+    },
+    {
+      "id": 1006113,
+      "name": "Flávio Nazinho"
+    },
+    {
+      "id": 921180,
+      "name": "Edgaras Utkus"
+    },
+    {
+      "id": 1191212,
+      "name": "Christiaan Ravych"
+    },
+    {
+      "id": 1514298,
+      "name": "Dalangunypole Gomis"
+    },
+    {
+      "id": 1847412,
+      "name": "Emmanuel Kakou"
+    },
+    {
+      "id": 861071,
+      "name": "Warleson"
+    },
+    {
+      "id": 909953,
+      "name": "Maxime Delanghe"
+    }
+  ],
+  "NK Celje": [
+    {
+      "id": 916182,
+      "name": "Ivan Brnić"
+    },
+    {
+      "id": 581032,
+      "name": "Rolando Aarons"
+    },
+    {
+      "id": 1924336,
+      "name": "Kenan Kurtovic"
+    },
+    {
+      "id": 1046461,
+      "name": "Nikita Iosifov"
+    },
+    {
+      "id": 946291,
+      "name": "Svit Sešlar"
+    },
+    {
+      "id": 896412,
+      "name": "Luka Bobičanec"
+    },
+    {
+      "id": 920622,
+      "name": "Marco Dulca"
+    },
+    {
+      "id": 124594,
+      "name": "Nino Kouter"
+    },
+    {
+      "id": 1513253,
+      "name": "Clement Lhernault"
+    },
+    {
+      "id": 896421,
+      "name": "Žan Karničnik"
+    },
+    {
+      "id": 868329,
+      "name": "Juanjo Nieto"
+    },
+    {
+      "id": 842012,
+      "name": "Matija Kavčič"
+    },
+    {
+      "id": 1083190,
+      "name": "Nejc Ajhmajer"
+    },
+    {
+      "id": 1004481,
+      "name": "Lovro Štubljar"
+    },
+    {
+      "id": 84374,
+      "name": "Matko Obradović"
+    },
+    {
+      "id": 41236,
+      "name": "Matjaž Rozman"
+    }
+  ],
+  "Pafos FC": [
+    {
+      "id": 539260,
+      "name": "Jairo da Silva"
+    },
+    {
+      "id": 1087046,
+      "name": "Mateo Tanlongo"
+    },
+    {
+      "id": 283833,
+      "name": "Ivan Šunjić"
+    },
+    {
+      "id": 875905,
+      "name": "Léo Natel"
+    },
+    {
+      "id": 559058,
+      "name": "Vlad Dragomir"
+    },
+    {
+      "id": 151131,
+      "name": "Muamer Tanković"
+    },
+    {
+      "id": 1020057,
+      "name": "Jajá"
+    },
+    {
+      "id": 889002,
+      "name": "Kostas Pileas"
+    },
+    {
+      "id": 1493237,
+      "name": "Georgios Kolotas"
+    },
+    {
+      "id": 1131463,
+      "name": "Mehdi Boukamir"
+    },
+    {
+      "id": 895931,
+      "name": "Matías Melluso"
+    },
+    {
+      "id": 155711,
+      "name": "Jonathan Silva"
+    },
+    {
+      "id": 363782,
+      "name": "Derrick Luckassen"
+    },
+    {
+      "id": 1563611,
+      "name": "Neofytos Ioannou"
+    },
+    {
+      "id": 801918,
+      "name": "Neofytos Michael"
+    },
+    {
+      "id": 1486389,
+      "name": "Antonio Cikač"
+    },
+    {
+      "id": 1896417,
+      "name": "Panagiotis Theodoulou"
+    }
+  ],
+  "Molde FK": [
+    {
+      "id": 51833,
+      "name": "Fredrik Gulbrandsen"
+    },
+    {
+      "id": 259101,
+      "name": "Aaron Olanare"
+    },
+    {
+      "id": 1035693,
+      "name": "Frederik Ihler"
+    },
+    {
+      "id": 551358,
+      "name": "Kristian Eriksen"
+    },
+    {
+      "id": 953952,
+      "name": "Emil Breivik"
+    },
+    {
+      "id": 1134558,
+      "name": "Niklas Odegard"
+    },
+    {
+      "id": 1083383,
+      "name": "Mads Enggård"
+    },
+    {
+      "id": 1387004,
+      "name": "Sondre Milian Granaas"
+    },
+    {
+      "id": 149740,
+      "name": "Kristoffer Haugen"
+    },
+    {
+      "id": 823706,
+      "name": "Marcus Andre Kaasa"
+    },
+    {
+      "id": 999189,
+      "name": "Johan Johanessen Bakke"
+    },
+    {
+      "id": 1100830,
+      "name": "Valdemar Lund"
+    },
+    {
+      "id": 842358,
+      "name": "Anders Hagelskjær"
+    },
+    {
+      "id": 950651,
+      "name": "Eirik Haugan"
+    },
+    {
+      "id": 977918,
+      "name": "Casper Öyvann"
+    }
+  ],
+  "Omonia Nicosia": [
+    {
+      "id": 37126,
+      "name": "Stevan Jovetić"
+    },
+    {
+      "id": 189127,
+      "name": "Mariusz Stępiński"
+    },
+    {
+      "id": 69234,
+      "name": "Roman Bezus"
+    },
+    {
+      "id": 889052,
+      "name": "Willy Semedo"
+    },
+    {
+      "id": 1197022,
+      "name": "Charalampos Charalampous"
+    },
+    {
+      "id": 858501,
+      "name": "Mateo Marić"
+    },
+    {
+      "id": 551468,
+      "name": "Ewandro Costa"
+    },
+    {
+      "id": 1005998,
+      "name": "Fotios Kitsos"
+    },
+    {
+      "id": 1468011,
+      "name": "Saidou Alioum Moubarak"
+    },
+    {
+      "id": 889491,
+      "name": "Amine Khammas"
+    },
+    {
+      "id": 168749,
+      "name": "Filip Helander"
+    },
+    {
+      "id": 949605,
+      "name": "Nikolas Panagiotou"
+    },
+    {
+      "id": 359670,
+      "name": "Francis Uzoho"
+    },
+    {
+      "id": 34317,
+      "name": "Fabiano"
+    },
+    {
+      "id": 139278,
+      "name": "Constantinos Panagi"
+    }
+  ],
+  "NK Olimpija Ljubljana": [
+    {
+      "id": 973750,
+      "name": "Pedro Lucas"
+    },
+    {
+      "id": 1468769,
+      "name": "Frane Bobanović"
+    },
+    {
+      "id": 96731,
+      "name": "Mustafa Nukić"
+    },
+    {
+      "id": 879722,
+      "name": "Antonio Marin"
+    },
+    {
+      "id": 1022491,
+      "name": "Raul Florucz"
+    },
+    {
+      "id": 795259,
+      "name": "Reda Boultam"
+    },
+    {
+      "id": 1002520,
+      "name": "Peter Agba"
+    },
+    {
+      "id": 1893261,
+      "name": "Dino Kojić"
+    },
+    {
+      "id": 1138175,
+      "name": "Thalisson"
+    },
+    {
+      "id": 1584944,
+      "name": "Mateo Acimovic"
+    },
+    {
+      "id": 1131229,
+      "name": "Marcel Ratnik"
+    },
+    {
+      "id": 791831,
+      "name": "Justas Lasickas"
+    },
+    {
+      "id": 863265,
+      "name": "Ahmet Muhamedbegović"
+    },
+    {
+      "id": 790787,
+      "name": "Jorge Silva"
+    },
+    {
+      "id": 997232,
+      "name": "Denis Pintol"
+    }
+  ],
+  "FC Noah": [
+    {
+      "id": 899902,
+      "name": "Matheus Aiás"
+    },
+    {
+      "id": 891613,
+      "name": "Eraldo Cinari"
+    },
+    {
+      "id": 848082,
+      "name": "Yan Eteki"
+    },
+    {
+      "id": 583996,
+      "name": "Artak Dashyan"
+    },
+    {
+      "id": 892206,
+      "name": "Hélder Ferreira"
+    },
+    {
+      "id": 949372,
+      "name": "Virgile Pinson"
+    },
+    {
+      "id": 862988,
+      "name": "Artem Avanesyan"
+    },
+    {
+      "id": 881909,
+      "name": "Martin Gambos"
+    },
+    {
+      "id": 66758,
+      "name": "Guðmundur Þórarinsson"
+    },
+    {
+      "id": 169729,
+      "name": "Gonçalo Silva"
+    },
+    {
+      "id": 39591,
+      "name": "Aleksandar Miljković"
+    },
+    {
+      "id": 1001795,
+      "name": "Bryan Mendoza"
+    },
+    {
+      "id": 1588359,
+      "name": "Arthur Luiz Coneglian"
+    },
+    {
+      "id": 1566200,
+      "name": "Artyom Davidov"
+    }
+  ],
+  "The New Saints": [
+    {
+      "id": 138279,
+      "name": "Adrian Cieślewicz"
+    },
+    {
+      "id": 231664,
+      "name": "Declan McManus"
+    },
+    {
+      "id": 824498,
+      "name": "Jordan Williams"
+    },
+    {
+      "id": 1526113,
+      "name": "Tom Jones"
+    },
+    {
+      "id": 846609,
+      "name": "Sion Bradley"
+    },
+    {
+      "id": 845895,
+      "name": "Rory Holden"
+    },
+    {
+      "id": 859181,
+      "name": "Leo Smith"
+    },
+    {
+      "id": 1127839,
+      "name": "Jake Canavan"
+    },
+    {
+      "id": 944539,
+      "name": "Joshua Daniels"
+    },
+    {
+      "id": 993448,
+      "name": "Jack Bodenham"
+    },
+    {
+      "id": 892952,
+      "name": "Ashley Baker"
+    },
+    {
+      "id": 115168,
+      "name": "Jordan Marshall"
+    },
+    {
+      "id": 97464,
+      "name": "Blaine Hudson"
+    },
+    {
+      "id": 1887751,
+      "name": "Nathan Doforo"
+    },
+    {
+      "id": 1407725,
+      "name": "Jack Edwards"
+    }
+  ],
+  "KAA Gent": [
+    {
+      "id": 1092366,
+      "name": "Zalán Vancsa"
+    },
+    {
+      "id": 982523,
+      "name": "Andri Guðjohnsen"
+    },
+    {
+      "id": 1135616,
+      "name": "Momodou Sonko"
+    },
+    {
+      "id": 1442017,
+      "name": "Ahmed Abdullahi"
+    },
+    {
+      "id": 1019125,
+      "name": "Omri Gandelman"
+    },
+    {
+      "id": 1034816,
+      "name": "Atsuki Ito"
+    },
+    {
+      "id": 186807,
+      "name": "Andrew Hjulsager"
+    },
+    {
+      "id": 1459382,
+      "name": "Aimé Omgba"
+    },
+    {
+      "id": 1396529,
+      "name": "Tibe De Vlieger"
+    },
+    {
+      "id": 942213,
+      "name": "Tsuyoshi Watanabe"
+    },
+    {
+      "id": 108736,
+      "name": "Stefan Mitrović"
+    },
+    {
+      "id": 385388,
+      "name": "Núrio Fortuna"
+    },
+    {
+      "id": 1082541,
+      "name": "Hugo Gambor"
+    },
+    {
+      "id": 997499,
+      "name": "Daniel Schmidt"
+    },
+    {
+      "id": 1082353,
+      "name": "Louis Fortin"
+    },
+    {
+      "id": 1048440,
+      "name": "Celestin De Schrevel"
+    }
+  ],
+  "Astana": [
+    {
+      "id": 892708,
+      "name": "Geoffrey Chinedu Charles"
+    },
+    {
+      "id": 937821,
+      "name": "Ramazan Karimov"
+    },
+    {
+      "id": 1907794,
+      "name": "Arman Vardanyan"
+    },
+    {
+      "id": 1101830,
+      "name": "Andrey Berezutskiy"
+    },
+    {
+      "id": 822559,
+      "name": "Ousmane Camara"
+    },
+    {
+      "id": 51136,
+      "name": "Marin Tomasov"
+    },
+    {
+      "id": 842609,
+      "name": "Nazmi Gripshi"
+    },
+    {
+      "id": 555608,
+      "name": "Barnes Osei"
+    },
+    {
+      "id": 359802,
+      "name": "Karlo Bartolec"
+    },
+    {
+      "id": 357586,
+      "name": "Branimir Kalaica"
+    },
+    {
+      "id": 887350,
+      "name": "Aleksandr Marochkin"
+    },
+    {
+      "id": 836897,
+      "name": "Aleksa Amanović"
+    },
+    {
+      "id": 1406485,
+      "name": "Timur Tokenov"
+    },
+    {
+      "id": 1406487,
+      "name": "Sanzhar Anuarov"
+    },
+    {
+      "id": 1907792,
+      "name": "Maksim Mamontov"
+    },
+    {
+      "id": 991896,
+      "name": "Aleksandr Zarutskiy"
+    },
+    {
+      "id": 1406484,
+      "name": "Tamerlan Abuov"
+    }
+  ],
+  "Víkingur Reykjavík": [
+    {
+      "id": 843175,
+      "name": "Valdimar Þór Ingimundarson"
+    },
+    {
+      "id": 25122,
+      "name": "Matthías Vilhjálmsson"
+    },
+    {
+      "id": 1511022,
+      "name": "Dadi Jónsson"
+    },
+    {
+      "id": 1388767,
+      "name": "Gisli Thordarson"
+    },
+    {
+      "id": 990395,
+      "name": "Ari Sigurpálsson"
+    },
+    {
+      "id": 1017669,
+      "name": "Tarik Ibrahimagić"
+    },
+    {
+      "id": 858263,
+      "name": "Erlingur Agnarsson"
+    },
+    {
+      "id": 1147362,
+      "name": "Gísli Thórdarson"
+    },
+    {
+      "id": 238848,
+      "name": "Gunnar Vatnhamar"
+    },
+    {
+      "id": 907515,
+      "name": "Karl Friðleifur Gunnarsson"
+    },
+    {
+      "id": 1640259,
+      "name": "David Helgi Aronsson"
+    },
+    {
+      "id": 795774,
+      "name": "Halldór Smári Sigurðsson"
+    },
+    {
+      "id": 1857568,
+      "name": "Hrannar Ingi Magnússon"
+    },
+    {
+      "id": 116610,
+      "name": "Ingvar Jónsson"
+    },
+    {
+      "id": 1385002,
+      "name": "Jochum Magnússon"
+    }
+  ],
+  "HJK": [
+    {
+      "id": 1082694,
+      "name": "Luke Plange"
+    },
+    {
+      "id": 1047000,
+      "name": "Kai Meriluoto"
+    },
+    {
+      "id": 1086565,
+      "name": "Roni Hudd"
+    },
+    {
+      "id": 794152,
+      "name": "Lucas Lingman"
+    },
+    {
+      "id": 24275,
+      "name": "Atomu Tanaka"
+    },
+    {
+      "id": 1140364,
+      "name": "Georgios Kanellopoulos"
+    },
+    {
+      "id": 1121058,
+      "name": "Liam Möller"
+    },
+    {
+      "id": 1188125,
+      "name": "Niilo Kujasalo"
+    },
+    {
+      "id": 138466,
+      "name": "Daniel O'Shaughnessy"
+    },
+    {
+      "id": 563734,
+      "name": "Aapo Halme"
+    },
+    {
+      "id": 7449,
+      "name": "Joona Toivio"
+    },
+    {
+      "id": 1106076,
+      "name": "Michael Boamah"
+    },
+    {
+      "id": 878902,
+      "name": "Kevin Kouassivi-Benissan"
+    },
+    {
+      "id": 25963,
+      "name": "Niki Mäenpää"
+    }
+  ],
+  "Djurgårdens IF": [
+    {
+      "id": 604928,
+      "name": "Deniz Hümmet"
+    },
+    {
+      "id": 164645,
+      "name": "Tokmac Nguen"
+    },
+    {
+      "id": 21992,
+      "name": "Albin Ekdal"
+    },
+    {
+      "id": 31470,
+      "name": "Magnus Eriksson"
+    },
+    {
+      "id": 978194,
+      "name": "Oskar Fallenius"
+    },
+    {
+      "id": 810536,
+      "name": "Besard Sabović"
+    },
+    {
+      "id": 22633,
+      "name": "Haris Radetinac"
+    },
+    {
+      "id": 1501641,
+      "name": "Keita Kosugi"
+    },
+    {
+      "id": 143286,
+      "name": "Marcus Danielson"
+    },
+    {
+      "id": 181621,
+      "name": "Piotr Johansson"
+    },
+    {
+      "id": 138549,
+      "name": "Jacob Une Larsson"
+    },
+    {
+      "id": 859344,
+      "name": "Viktor Bergh"
+    },
+    {
+      "id": 1963178,
+      "name": "Jack Tagesson"
+    },
+    {
+      "id": 1476542,
+      "name": "Max Croon"
+    }
+  ],
+  "FC København": [
+    {
+      "id": 1162107,
+      "name": "Roony Bardghji"
+    },
+    {
+      "id": 183483,
+      "name": "Andreas Cornelius"
+    },
+    {
+      "id": 119151,
+      "name": "Mohamed Elyounoussi"
+    },
+    {
+      "id": 137661,
+      "name": "Viktor Claesson"
+    },
+    {
+      "id": 1500254,
+      "name": "Robert"
+    },
+    {
+      "id": 116660,
+      "name": "Rasmus Falk Jensen"
+    },
+    {
+      "id": 151470,
+      "name": "Lukas Lerager"
+    },
+    {
+      "id": 1406639,
+      "name": "Victor Froholdt"
+    },
+    {
+      "id": 1083413,
+      "name": "William Clem"
+    },
+    {
+      "id": 1426255,
+      "name": "Oliver Højer"
+    },
+    {
+      "id": 1035752,
+      "name": "Giorgi Gocholeishvili"
+    },
+    {
+      "id": 95443,
+      "name": "Nicolai Boilesen"
+    },
+    {
+      "id": 1410218,
+      "name": "Waylon Renecke"
+    },
+    {
+      "id": 187023,
+      "name": "Rúnar Alex Rúnarsson"
+    },
+    {
+      "id": 1116074,
+      "name": "Theo Sander"
+    }
+  ],
+  "APOEL Nicosia": [
+    {
+      "id": 1128879,
+      "name": "Algassime Bah"
+    },
+    {
+      "id": 343161,
+      "name": "Stefan Dražić"
+    },
+    {
+      "id": 187431,
+      "name": "Max Meyer"
+    },
+    {
+      "id": 280553,
+      "name": "Anastasios Donis"
+    },
+    {
+      "id": 1169364,
+      "name": "David Abagna"
+    },
+    {
+      "id": 1108216,
+      "name": "Marius Corbu"
+    },
+    {
+      "id": 595164,
+      "name": "Kingsley Sarfo"
+    },
+    {
+      "id": 1162099,
+      "name": "Christos Karanatsios"
+    },
+    {
+      "id": 1411151,
+      "name": "Vitor Meer"
+    },
+    {
+      "id": 386630,
+      "name": "Issam Chebake"
+    },
+    {
+      "id": 63766,
+      "name": "Mateo Sušić"
+    },
+    {
+      "id": 1111123,
+      "name": "Cipriano"
+    },
+    {
+      "id": 286153,
+      "name": "Xavi Quintilla"
+    },
+    {
+      "id": 106713,
+      "name": "Vid Belec"
+    },
+    {
+      "id": 806436,
+      "name": "Andreas Christodoulou"
+    },
+    {
+      "id": 1523708,
+      "name": "Savvas Michos"
+    }
+  ],
+  "LASK": [
+    {
+      "id": 823156,
+      "name": "Maximilian Entrup"
+    },
+    {
+      "id": 1215061,
+      "name": "Moses Usor"
+    },
+    {
+      "id": 944892,
+      "name": "Adil Taoui"
+    },
+    {
+      "id": 896596,
+      "name": "Lenny Pintor"
+    },
+    {
+      "id": 1161925,
+      "name": "Alexis Tibidi"
+    },
+    {
+      "id": 787543,
+      "name": "Florian Flecker"
+    },
+    {
+      "id": 244141,
+      "name": "René Renner"
+    },
+    {
+      "id": 974582,
+      "name": "Hrvoje Smolčić"
+    },
+    {
+      "id": 949830,
+      "name": "Tomás Tavares"
+    },
+    {
+      "id": 961672,
+      "name": "Melayro Bogarde"
+    },
+    {
+      "id": 98433,
+      "name": "Filip Stojković"
+    },
+    {
+      "id": 990025,
+      "name": "Tobias Okiki Lawal"
+    },
+    {
+      "id": 90008,
+      "name": "Jörg Siebenhandl"
+    },
+    {
+      "id": 1212242,
+      "name": "Clemens Steinbauer"
+    },
+    {
+      "id": 1954607,
+      "name": "Moritz Schrenk"
+    }
+  ],
+  "Panathinaikos": [
+    {
+      "id": 309892,
+      "name": "Alexander Jeremejeff"
+    },
+    {
+      "id": 989803,
+      "name": "Facundo Pellistri"
+    },
+    {
+      "id": 114076,
+      "name": "Anastasios Bakasetas"
+    },
+    {
+      "id": 242213,
+      "name": "Willian Arão"
+    },
+    {
+      "id": 134877,
+      "name": "László Kleinheisler"
+    },
+    {
+      "id": 69367,
+      "name": "Filip Đuričić"
+    },
+    {
+      "id": 843251,
+      "name": "Adam Gnezda Čerin"
+    },
+    {
+      "id": 153230,
+      "name": "Benjamin Verbič"
+    },
+    {
+      "id": 798689,
+      "name": "Daniel Mancini"
+    },
+    {
+      "id": 149659,
+      "name": "Tonny Vilhena"
+    },
+    {
+      "id": 591044,
+      "name": "Dimitris Limnios"
+    },
+    {
+      "id": 988732,
+      "name": "Alexis Trouillet"
+    },
+    {
+      "id": 1166952,
+      "name": "Giorgos Vagiannidis"
+    },
+    {
+      "id": 540112,
+      "name": "Erik Palmer-Brown"
+    },
+    {
+      "id": 99150,
+      "name": "Bart Schenkeveld"
+    },
+    {
+      "id": 329519,
+      "name": "Bartłomiej Drągowski"
+    },
+    {
+      "id": 1406054,
+      "name": "Klidman Lilo"
+    },
+    {
+      "id": 1391192,
+      "name": "Georgios Karakasidis"
+    }
+  ],
+  "Dinamo Minsk": [
+    {
+      "id": 958755,
+      "name": "Steven Alfred"
+    },
+    {
+      "id": 1424654,
+      "name": "Trofim Melnichenko"
+    },
+    {
+      "id": 1117097,
+      "name": "Pedro Igor"
+    },
+    {
+      "id": 1117838,
+      "name": "Raymond Adeola"
+    },
+    {
+      "id": 900983,
+      "name": "Pavel Sedko"
+    },
+    {
+      "id": 1822429,
+      "name": "Boni Amian"
+    },
+    {
+      "id": 989619,
+      "name": "Igor Shkolik"
+    },
+    {
+      "id": 1026535,
+      "name": "Nikita Demchenko"
+    },
+    {
+      "id": 1424808,
+      "name": "Artem Sokolovskiy"
+    },
+    {
+      "id": 43187,
+      "name": "Sergei Politevich"
+    },
+    {
+      "id": 65474,
+      "name": "Aleksei Gavrilovich"
+    },
+    {
+      "id": 1000420,
+      "name": "Vladislav Kalinin"
+    },
+    {
+      "id": 1152238,
+      "name": "Matvey Mikhayrin"
+    },
+    {
+      "id": 1385151,
+      "name": "Artem Karatay"
+    },
+    {
+      "id": 1409033,
+      "name": "Ivan Shimakovich"
+    },
+    {
+      "id": 1965109,
+      "name": "Ivan Frolov"
+    }
+  ],
+  "Mladá Boleslav": [
+    {
+      "id": 979024,
+      "name": "Lamin Jawo"
+    },
+    {
+      "id": 1089218,
+      "name": "Lukas Masek"
+    },
+    {
+      "id": 827562,
+      "name": "Matej Pulkrab"
+    },
+    {
+      "id": 1149252,
+      "name": "Jan Buryan"
+    },
+    {
+      "id": 876947,
+      "name": "Vasil Kušej"
+    },
+    {
+      "id": 1123855,
+      "name": "Patrik Vydra"
+    },
+    {
+      "id": 827568,
+      "name": "Tomáš Ladra"
+    },
+    {
+      "id": 1186240,
+      "name": "Solomon John"
+    },
+    {
+      "id": 11936,
+      "name": "Marek Matějovský"
+    },
+    {
+      "id": 1123333,
+      "name": "Lukáš Fila"
+    },
+    {
+      "id": 1001933,
+      "name": "Daniel Langhamer"
+    },
+    {
+      "id": 293125,
+      "name": "Andrej Kadlec"
+    },
+    {
+      "id": 564088,
+      "name": "Jakub Fulnek"
+    },
+    {
+      "id": 18148,
+      "name": "Jan Seda"
+    },
+    {
+      "id": 1900689,
+      "name": "Matej Zaplatilek"
+    }
+  ],
+  "FK TSC Bačka Topola": [
+    {
+      "id": 997215,
+      "name": "Marko Lazetić"
+    },
+    {
+      "id": 998446,
+      "name": "Aleksandar Ćirković"
+    },
+    {
+      "id": 997191,
+      "name": "Miloš Pantović"
+    },
+    {
+      "id": 1046478,
+      "name": "Ifet Đakovac"
+    },
+    {
+      "id": 1128120,
+      "name": "Petar Stanić"
+    },
+    {
+      "id": 795861,
+      "name": "Miloš Vulić"
+    },
+    {
+      "id": 891991,
+      "name": "Mihajlo Banjac"
+    },
+    {
+      "id": 912989,
+      "name": "Aleksa Pejić"
+    },
+    {
+      "id": 993811,
+      "name": "Ivan Milosavljević"
+    },
+    {
+      "id": 267591,
+      "name": "Milan Radin"
+    },
+    {
+      "id": 1146245,
+      "name": "Mihajlo Milosavić"
+    },
+    {
+      "id": 190665,
+      "name": "Luka Capan"
+    },
+    {
+      "id": 126626,
+      "name": "Nemanja Petrović"
+    },
+    {
+      "id": 574872,
+      "name": "Dušan Stevanović"
+    },
+    {
+      "id": 1132010,
+      "name": "Veljko Ilić"
+    }
+  ],
+  "Başakşehir FK": [
+    {
+      "id": 558738,
+      "name": "Krzysztof Piątek"
+    },
+    {
+      "id": 972410,
+      "name": "Miguel Crespo"
+    },
+    {
+      "id": 1022881,
+      "name": "Ömer Faruk Beyaz"
+    },
+    {
+      "id": 831930,
+      "name": "Patryk Szysz"
+    },
+    {
+      "id": 841012,
+      "name": "João Figueiredo"
+    },
+    {
+      "id": 252207,
+      "name": "Deniz Türüç"
+    },
+    {
+      "id": 806964,
+      "name": "Berkay Özcan"
+    },
+    {
+      "id": 920514,
+      "name": "Jerome Opoku"
+    },
+    {
+      "id": 839982,
+      "name": "Léo Duarte"
+    },
+    {
+      "id": 248529,
+      "name": "Lucas Lima"
+    },
+    {
+      "id": 1009308,
+      "name": "Emre Kaplan"
+    },
+    {
+      "id": 1546423,
+      "name": "Burak Kavraz"
+    },
+    {
+      "id": 1393994,
+      "name": "Eren Karaağaç"
+    },
+    {
+      "id": 827418,
+      "name": "Muhammed Şengezer"
+    },
+    {
+      "id": 30143,
+      "name": "Volkan Babacan"
+    }
+  ],
+  "FC Petrocub Hîncesti": [
+    {
+      "id": 822189,
+      "name": "Vladimir Ambros"
+    },
+    {
+      "id": 1002377,
+      "name": "Boubacar Diallo"
+    },
+    {
+      "id": 915558,
+      "name": "Dumitru Demian"
+    },
+    {
+      "id": 98091,
+      "name": "Vasile Jardan"
+    },
+    {
+      "id": 1110526,
+      "name": "Teodor Lungu"
+    },
+    {
+      "id": 1110525,
+      "name": "Corneliu Cotogoi"
+    },
+    {
+      "id": 883484,
+      "name": "Sergiu Plătică"
+    },
+    {
+      "id": 1484181,
+      "name": "Manuel Nana Agyemang"
+    },
+    {
+      "id": 224920,
+      "name": "Victor Mudrac"
+    },
+    {
+      "id": 63989,
+      "name": "Maxim Potirniche"
+    },
+    {
+      "id": 1083666,
+      "name": "Ion Borș"
+    },
+    {
+      "id": 1138466,
+      "name": "Silviu Șmalenea"
+    },
+    {
+      "id": 1083665,
+      "name": "Dumitru Covali"
+    },
+    {
+      "id": 1914989,
+      "name": "Nichita Silvestru"
+    }
+  ],
+  "FC St. Gallen 1879": [
+    {
+      "id": 553488,
+      "name": "Chadrac Akolo"
+    },
+    {
+      "id": 1186444,
+      "name": "Moustapha Cissé"
+    },
+    {
+      "id": 825858,
+      "name": "Bastien Toma"
+    },
+    {
+      "id": 174243,
+      "name": "Lukas Görtler"
+    },
+    {
+      "id": 1047733,
+      "name": "Mihailo Stevanović"
+    },
+    {
+      "id": 254725,
+      "name": "Jordi Quintillà"
+    },
+    {
+      "id": 886130,
+      "name": "Stephan Ambrosius"
+    },
+    {
+      "id": 906042,
+      "name": "Abdoulaye Diaby"
+    },
+    {
+      "id": 869708,
+      "name": "Jozo Stanić"
+    },
+    {
+      "id": 948743,
+      "name": "Musah Nuhu"
+    },
+    {
+      "id": 557878,
+      "name": "Albert Vallci"
+    },
+    {
+      "id": 800465,
+      "name": "Chima Okoroji"
+    },
+    {
+      "id": 939622,
+      "name": "Konrad Faber"
+    },
+    {
+      "id": 791092,
+      "name": "Lawrence Ati"
+    }
+  ],
+  "Larne FC": [
+    {
+      "id": 152090,
+      "name": "Andy Ryan"
+    },
+    {
+      "id": 1959896,
+      "name": "Ambrose Ajala"
+    },
+    {
+      "id": 993435,
+      "name": "Jordan McEneff"
+    },
+    {
+      "id": 920342,
+      "name": "George Marsh"
+    },
+    {
+      "id": 1517373,
+      "name": "Benji Magee"
+    },
+    {
+      "id": 1000782,
+      "name": "Sean Graham"
+    },
+    {
+      "id": 24813,
+      "name": "Mark Randall"
+    },
+    {
+      "id": 19859,
+      "name": "Jeff Hughes"
+    },
+    {
+      "id": 927316,
+      "name": "Ryan Nolan"
+    },
+    {
+      "id": 242593,
+      "name": "Tomas Cosgrove"
+    },
+    {
+      "id": 890968,
+      "name": "Aaron Donnelly"
+    },
+    {
+      "id": 837745,
+      "name": "Shaun Want"
+    },
+    {
+      "id": 1937572,
+      "name": "Joe Besant"
+    },
+    {
+      "id": 1855501,
+      "name": "Logan Graham"
+    }
+  ]
+}
