@@ -1,31 +1,31 @@
 {
-  "name": "Erling Haaland",
+  "name": "Josko Gvardiol",
   "team": "Manchester City",
   "league": "Premier League",
-  "category": "goals",
+  "category": "rating",
   "position": 1,
   "league_stats": {
-    "rating": 7.7222222222222,
+    "rating": 7.7333333333333,
     "Total played": 9,
     "Started": 0,
-    "Minutes per game": 89.88888888888889,
-    "Goals": 11,
+    "Minutes per game": 84.77777777777777,
+    "Goals": 2,
     "Assists": 0,
-    "Yellow cards": 1,
+    "Yellow cards": 0,
     "Red cards": 0,
     "Shots per game": 0.0,
     "Pass accuracy": "0%",
-    "Key passes": 0.5555555555555556,
+    "Key passes": 1.0,
     "Dribbles": 0.0,
-    "Tackles": 0.2222222222222222,
-    "Interceptions": 0.1111111111111111
+    "Tackles": 1.7777777777777777,
+    "Interceptions": 1.3333333333333333
   },
   "euro_stats": {
-    "rating": 7.4,
+    "rating": 7.6666666666667,
     "Total played": 3,
     "Started": 0,
-    "Minutes per game": 77.33333333333333,
-    "Goals": 3,
+    "Minutes per game": 61.333333333333336,
+    "Goals": 0,
     "Assists": 0,
     "Yellow cards": 0,
     "Red cards": 0,
@@ -33,8 +33,8 @@
     "Pass accuracy": "0%",
     "Key passes": 0.6666666666666666,
     "Dribbles": 0.0,
-    "Tackles": 0.0,
-    "Interceptions": 0.3333333333333333
+    "Tackles": 2.0,
+    "Interceptions": 0.6666666666666666
   },
   "matches": []
 }

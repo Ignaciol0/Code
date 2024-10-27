@@ -8,7 +8,6 @@ import pandas as pd
 import unidecode
 import json
 from threading import Thread
-from dumbster import old_make_video_frame3
 from VideoMaker import create_vid, create_short, make_audios_clone_voice
 from RemoveBg import remove_bg
 from ScriptWriter import ThreadWithReturnValue, translate

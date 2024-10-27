@@ -1,0 +1,10 @@
+{
+  "projectId": "api-project-1041482749526",
+  "appId": "1:1041482749526:web:9365699b4ff68ade",
+  "databaseURL": "https://api-project-1041482749526.firebaseio.com",
+  "storageBucket": "api-project-1041482749526.appspot.com",
+  "locationId": "us-central",
+  "authDomain": "api-project-1041482749526.firebaseapp.com",
+  "messagingSenderId": "1041482749526",
+  "measurementId": "G-HNQ9P9MGZR"
+}

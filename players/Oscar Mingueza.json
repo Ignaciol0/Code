@@ -1,0 +1,31 @@
+{
+  "name": "Oscar Mingueza",
+  "team": "Celta Vigo",
+  "league": "La Liga",
+  "category": "assists",
+  "position": 11,
+  "league_stats": {
+    "rating": 7.3444444444444,
+    "Total played": 10,
+    "Started": 10,
+    "Minutes per game": 76.9,
+    "Goals": 2,
+    "Assists": 5,
+    "Yellow cards": 3,
+    "Red cards": 0,
+    "Shots per game": 0.0,
+    "Pass accuracy": "0%",
+    "Key passes": 1.3,
+    "Dribbles": "0(0%)",
+    "Tackles": 1.4,
+    "Interceptions": 0.2,
+    "Big chances created": 0,
+    "Accurate crosses": "7(18.421052631579%)",
+    "Accurate long balls": "22(42.307692307692%)",
+    "Clearances": 0.9,
+    "Was fouled": 0.4,
+    "Fouls": 0.9,
+    "Offsides": 0.0
+  },
+  "matches": []
+}

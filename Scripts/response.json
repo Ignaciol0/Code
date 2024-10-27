@@ -1,143 +1,154 @@
 {
-    "statistics": {
-        "rating": 7.9666666666667,
-        "totalRating": 23.9,
-        "countRating": 3,
-        "goals": 3,
-        "bigChancesCreated": 1,
-        "bigChancesMissed": 2,
-        "assists": 0,
-        "expectedAssists": 0.872095,
-        "goalsAssistsSum": 3,
-        "accuratePasses": 70,
-        "inaccuratePasses": 25,
-        "totalPasses": 95,
-        "accuratePassesPercentage": 73.684210526316,
-        "accurateOwnHalfPasses": 15,
-        "accurateOppositionHalfPasses": 60,
-        "accurateFinalThirdPasses": 39,
-        "keyPasses": 7,
-        "successfulDribbles": 11,
-        "successfulDribblesPercentage": 44,
-        "tackles": 3,
-        "interceptions": 1,
-        "yellowCards": 1,
-        "directRedCards": 0,
-        "redCards": 0,
-        "accurateCrosses": 5,
-        "accurateCrossesPercentage": 35.714285714286,
-        "totalShots": 13,
-        "shotsOnTarget": 7,
-        "shotsOffTarget": 5,
-        "groundDuelsWon": 17,
-        "groundDuelsWonPercentage": 41.463414634146,
-        "aerialDuelsWon": 1,
-        "aerialDuelsWonPercentage": 50,
-        "totalDuelsWon": 18,
-        "totalDuelsWonPercentage": 41.860465116279,
-        "minutesPlayed": 270,
-        "goalConversionPercentage": 23.076923076923,
-        "penaltiesTaken": 0,
-        "penaltyGoals": 0,
-        "penaltyWon": 0,
-        "penaltyConceded": 0,
-        "shotFromSetPiece": 0,
-        "freeKickGoal": 0,
-        "goalsFromInsideTheBox": 2,
-        "goalsFromOutsideTheBox": 1,
-        "shotsFromInsideTheBox": 9,
-        "shotsFromOutsideTheBox": 4,
-        "headedGoals": 0,
-        "leftFootGoals": 2,
-        "rightFootGoals": 1,
-        "accurateLongBalls": 3,
-        "accurateLongBallsPercentage": 42.857142857143,
-        "clearances": 0,
-        "errorLeadToGoal": 0,
-        "errorLeadToShot": 0,
-        "dispossessed": 2,
-        "possessionLost": 61,
-        "possessionWonAttThird": 2,
-        "totalChippedPasses": 11,
-        "accurateChippedPasses": 4,
-        "touches": 176,
-        "wasFouled": 3,
-        "fouls": 6,
-        "hitWoodwork": 1,
-        "ownGoals": 0,
-        "dribbledPast": 2,
-        "offsides": 0,
-        "blockedShots": 1,
-        "passToAssist": 0,
-        "saves": 0,
-        "cleanSheet": 0,
-        "penaltyFaced": 0,
-        "penaltySave": 0,
-        "savedShotsFromInsideTheBox": 0,
-        "savedShotsFromOutsideTheBox": 0,
-        "goalsConcededInsideTheBox": 4,
-        "goalsConcededOutsideTheBox": 0,
-        "punches": 0,
-        "runsOut": 0,
-        "successfulRunsOut": 0,
-        "highClaims": 0,
-        "crossesNotClaimed": 0,
-        "matchesStarted": 3,
-        "penaltyConversion": 0,
-        "setPieceConversion": 0,
-        "totalAttemptAssist": 7,
-        "totalContest": 25,
-        "totalCross": 14,
-        "duelLost": 25,
-        "aerialLost": 1,
-        "attemptPenaltyMiss": 0,
-        "attemptPenaltyPost": 0,
-        "attemptPenaltyTarget": 0,
-        "totalLongBalls": 7,
-        "goalsConceded": 4,
-        "tacklesWon": 2,
-        "tacklesWonPercentage": 66.666666666667,
-        "scoringFrequency": 90,
-        "yellowRedCards": 0,
-        "savesCaught": 0,
-        "savesParried": 0,
-        "totalOwnHalfPasses": 20,
-        "totalOppositionHalfPasses": 89,
-        "totwAppearances": 1,
-        "expectedGoals": 2.1745,
-        "goalKicks": 0,
-        "ballRecovery": 9,
-        "id": 1592452,
-        "type": "overall",
-        "appearances": 3
-    },
-    "team": {
-        "name": "Real Madrid",
-        "slug": "real-madrid",
-        "shortName": "Real Madrid",
-        "gender": "M",
-        "sport": {
-            "name": "Football",
-            "slug": "football",
-            "id": 1
+    "player": {
+        "name": "Raphinha",
+        "slug": "raphinha",
+        "shortName": "Raphinha",
+        "team": {
+            "name": "Barcelona",
+            "slug": "barcelona",
+            "shortName": "Barcelona",
+            "gender": "M",
+            "sport": {
+                "name": "Football",
+                "slug": "football",
+                "id": 1
+            },
+            "tournament": {
+                "name": "LaLiga",
+                "slug": "laliga",
+                "category": {
+                    "name": "Spain",
+                    "slug": "spain",
+                    "sport": {
+                        "name": "Football",
+                        "slug": "football",
+                        "id": 1
+                    },
+                    "id": 32,
+                    "country": {
+                        "alpha2": "ES",
+                        "alpha3": "ESP",
+                        "name": "Spain",
+                        "slug": "spain"
+                    },
+                    "flag": "spain",
+                    "alpha2": "ES"
+                },
+                "uniqueTournament": {
+                    "name": "LaLiga",
+                    "slug": "laliga",
+                    "primaryColorHex": "#2f4a89",
+                    "secondaryColorHex": "#f4a32e",
+                    "category": {
+                        "name": "Spain",
+                        "slug": "spain",
+                        "sport": {
+                            "name": "Football",
+                            "slug": "football",
+                            "id": 1
+                        },
+                        "id": 32,
+                        "country": {
+                            "alpha2": "ES",
+                            "alpha3": "ESP",
+                            "name": "Spain",
+                            "slug": "spain"
+                        },
+                        "flag": "spain",
+                        "alpha2": "ES"
+                    },
+                    "userCount": 958316,
+                    "id": 8,
+                    "country": {},
+                    "displayInverseHomeAwayTeams": false
+                },
+                "priority": 610,
+                "isLive": false,
+                "id": 36
+            },
+            "primaryUniqueTournament": {
+                "name": "LaLiga",
+                "slug": "laliga",
+                "primaryColorHex": "#2f4a89",
+                "secondaryColorHex": "#f4a32e",
+                "category": {
+                    "name": "Spain",
+                    "slug": "spain",
+                    "sport": {
+                        "name": "Football",
+                        "slug": "football",
+                        "id": 1
+                    },
+                    "id": 32,
+                    "country": {
+                        "alpha2": "ES",
+                        "alpha3": "ESP",
+                        "name": "Spain",
+                        "slug": "spain"
+                    },
+                    "flag": "spain",
+                    "alpha2": "ES"
+                },
+                "userCount": 958316,
+                "id": 8,
+                "country": {},
+                "displayInverseHomeAwayTeams": false
+            },
+            "userCount": 3278280,
+            "nameCode": "FCB",
+            "disabled": false,
+            "national": false,
+            "type": 0,
+            "id": 2817,
+            "country": {
+                "alpha2": "ES",
+                "alpha3": "ESP",
+                "name": "Spain",
+                "slug": "spain"
+            },
+            "teamColors": {
+                "primary": "#154284",
+                "secondary": "#9d1009",
+                "text": "#9d1009"
+            },
+            "fieldTranslations": {
+                "nameTranslation": {
+                    "ar": "\u0628\u0631\u0634\u0644\u0648\u0646\u0629",
+                    "ru": "\u0411\u0430\u0440\u0441\u0435\u043b\u043e\u043d\u0430"
+                },
+                "shortNameTranslation": {}
+            }
         },
-        "userCount": 4068793,
-        "nameCode": "RMA",
-        "disabled": false,
-        "national": false,
-        "type": 0,
-        "id": 2829,
-        "teamColors": {
-            "primary": "#ffffff",
-            "secondary": "#004996",
-            "text": "#004996"
+        "position": "F",
+        "jerseyNumber": "11",
+        "height": 176,
+        "preferredFoot": "Left",
+        "retired": false,
+        "userCount": 151839,
+        "deceased": false,
+        "gender": "M",
+        "id": 831005,
+        "country": {
+            "alpha2": "BR",
+            "alpha3": "BRA",
+            "name": "Brazil",
+            "slug": "brazil"
+        },
+        "shirtNumber": 11,
+        "dateOfBirthTimestamp": 850521600,
+        "contractUntilTimestamp": 1814313600,
+        "proposedMarketValue": 54000000,
+        "proposedMarketValueRaw": {
+            "value": 54000000,
+            "currency": "EUR"
         },
         "fieldTranslations": {
             "nameTranslation": {
-                "ar": "ريال مدريد",
-                "ru": "Реал Мадрид"
+                "ar": "\u0631\u0627\u0641\u064a\u0646\u0627"
             },
-            "shortNameTranslation": {}
+            "shortNameTranslation": {
+                "ar": "\u0631\u0627\u0641\u064a\u0646\u0627"
+            }
         }
     }
 }

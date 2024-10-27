@@ -1,0 +1,31 @@
+{
+  "name": "Ayoze Perez",
+  "team": "Villarreal",
+  "league": "La Liga",
+  "category": "goals",
+  "position": 3,
+  "league_stats": {
+    "rating": 7.475,
+    "Total played": 8,
+    "Started": 4,
+    "Minutes per game": 54.0,
+    "Goals": 7,
+    "Assists": 0,
+    "Yellow cards": 3,
+    "Red cards": 0,
+    "Shots per game": 0.0,
+    "Pass accuracy": "0%",
+    "Key passes": 1.125,
+    "Dribbles": "0(0%)",
+    "Tackles": 0.5,
+    "Interceptions": 0.25,
+    "Big chances created": 0,
+    "Accurate crosses": "3(60%)",
+    "Accurate long balls": "1(33.333333333333%)",
+    "Clearances": 0.5,
+    "Was fouled": 1.875,
+    "Fouls": 0.875,
+    "Offsides": 0.25
+  },
+  "matches": []
+}
